@@ -1,0 +1,231 @@
+@media screen {
+    .contact-contain {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--background-color);
+      background-color: var(--primary-color);
+    }
+  
+    .contact-wrapper {
+      gap: 20px;
+      width:100%;
+      display: flex;
+      padding: 20px;
+      align-items: top;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    
+  .contact-wrapper h1 {
+      font-size: 1.1rem;
+    }
+  
+    .contact-wrapper p {
+      font-size:  .8rem;
+    }
+  
+    .contact-d1 {
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .d1-contact {
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .d1-icon {
+      gap: 10px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .d1-icon span {
+      font-size: .8rem;
+    }
+  
+    .icon-d1 {
+      height: 24px;
+      width: 24px;
+      fill: var(--background-color);
+    }
+  
+    .app-d-link {
+      gap: 20px;
+      display: flex;
+    }
+
+    .download-app {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      cursor: pointer;
+      height: 50px;
+      width:100%;
+    }
+
+    .contact-dp2 {
+      width:100%;
+      display: flex;
+      text-align: start;
+      justify-content: space-between;
+    }
+
+    .contact-dp2 .nav-link {
+      font-size: .8rem;
+    }
+
+    .contact-d2 {
+      gap: 20px;
+      display: flex;
+      padding: 10px 0;
+      flex-direction: column;
+    }
+
+    .d2-con {
+      gap: 20px;
+      display: flex;
+      padding: 10px 0;
+      flex-direction: column;
+      justify-content: space-between;
+
+    }
+  
+    .contact-d3 {
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+
+  
+    .book-f {
+      height: 20%;
+      display: flex;
+      border-radius: 4px;
+      height: fit-content;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      background-color: var(--background-color);
+    }
+  
+    .book-con {
+      gap: 10px;
+      width:100%;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .con-s {
+      gap: 5px;
+      display: flex;
+      padding: 10px;
+      align-items: center;    
+    }
+  
+    .book-icon {
+      width:20px;
+      height:20px;
+      fill:  rgb(201, 201, 201);
+    }
+  
+    .input-book {
+      border: none;
+      height: 100%;
+    }
+  
+    .book-btn {
+      height: 100%;
+      display: flex;
+      padding: 10px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 4px 4px 0;
+      color: var(--background-color);
+      background-color: var(--secondary-color);
+    }
+  
+    .book-social {
+      gap: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .bk-icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      fill: var(--background-color);
+    }
+  
+    .footer-x {
+      width:90%;
+      display: flex;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+      border-radius: 12px 12px 0 0;
+      background-color: var(--background-color);
+    }
+  
+    .footer-x span {
+      font-size: .9rem;
+    }
+  
+    .footer-x span:last-child {
+      display: none;
+    }
+  
+  }
+  
+  /* using it as global style for larger devices  */
+  @media only screen and (min-width: 48em) {
+      .contact-contain {
+          text-align: start;
+        }
+      
+        .contact-wrapper {
+          flex-direction: row;
+          padding: 100px 50px;
+        }
+      
+        .d1-icon {
+          flex-direction: row;
+        }
+      
+        .contact-d2 {
+          display: flex;
+        }
+
+        .contact-dp2 {
+          width:30%;
+        }
+      
+        .book-social {
+          justify-content: start;
+        }
+      
+        .footer-x {
+          padding: 20px 50px;
+          justify-content: space-between;
+        }
+  
+        .footer-x span:last-child {
+          display: flex;
+        }
+      
+  }
+  
