@@ -13,14 +13,14 @@ import facebookIcon from '../icons/facebook.vue'
 const booknow = ref('')
 const errMessage = ref('')
 const router = useRouter()
-const phoneNumber = ref('+254703147237')
+const phoneNumber = ref('+254743247861')
 
 const goAlogin = () => {
   router.push({ name: 'AdminLogin' })
 }
 
 const openWhatsapp = () => {
-  window.open('https://wa.me/+254703147237?text=How can I help', '_blank')
+  window.open('https://wa.me/+254743247861?text=How can I help', '_blank')
 }
 
 const openIos = () => {
@@ -32,15 +32,15 @@ const openAndroid = () => {
 }
 
 const openFacebook = () => {
-  window.open('https://www.facebook.com/profile.php?id=100093225097104&mibextid=LQQJ4d', '_blank')
+  window.open('https://www.facebook.com/', '_blank')
 }
 
 const openTwitter = () => {
-  window.open('https://twitter.com/sportypredict_?s=21&t=ordgrMn8HjrBLUy3PdpsBA', '_blank')
+  window.open('https://twitter.com/', '_blank')
 }
 
 const openInstagram = () => {
-  window.open('https://instagram.com/sportypredict_?igshid=MTIzZWMxMTBkOA==', '_blank')
+  window.open('https://instagram.com/', '_blank')
 }
 
 const book = () => {
@@ -69,11 +69,11 @@ const reset = () => {
         <div class="d1-contact">
           <div class="d1-icon">
             <phoneIcon class="icon-d1" />
-            <span>+254706272207</span>
+            <span>+254743247861</span>
           </div>
           <div class="d1-icon">
             <emailIcon class="icon-d1" />
-            <span>tips44@gmail.com</span>
+            <span>charismawinningtips@gmail.com</span>
           </div>
         </div>
         <div class="app-d-link">
