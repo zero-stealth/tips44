@@ -242,7 +242,7 @@ const filteredCountries = computed(() => {
         <div class="method-pay">
           <ul>
             <li>Send money to <span>SAMUEL AYODELE</span></li>
-            <li>Name will be <span>7035213038</span></li>
+            <li>Name will be <span>7035213038 Opay</span></li>
           </ul>
         </div>
         <div class="Question">
@@ -296,8 +296,8 @@ const filteredCountries = computed(() => {
         </div>
         <div class="method-pay">
           <ul>
-            <li>Send money to <span>0247192693</span></li>
-            <li>Name will be <span>RICHARD BAAFI</span></li>
+            <li>Send money to MOMO Number <span>0247192693</span></li>
+            <li>MOMO Name will be <span>RICHARD BAAFI</span></li>
           </ul>
         </div>
         <div class="Question">
