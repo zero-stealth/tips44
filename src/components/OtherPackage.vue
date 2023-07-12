@@ -7,11 +7,9 @@
   >
     <h1>Vip Packages</h1>
     <div class="prediction-p">
-      <OtherVip buttonName="Supreme 2+ VIP" />
-      <OtherVip buttonName="Mega plan VIP" />
-      <OtherVip buttonName="Single VIP" />
-      <OtherVip buttonName="Draw VIP" />
-      <OtherVip buttonName="Halftime VIP" />
+      <OtherVip buttonName="Supreme 2+ " />
+      <OtherVip buttonName="Mega VIP" />
+      <OtherVip buttonName="Super singles" />
     </div>
   </div>
 </template>

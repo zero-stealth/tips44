@@ -4,22 +4,14 @@
     <div class="main-h">
       <div class="main-header">
         <div class="header-info">
-          <h1>Free tips {{ currentDate }}</h1>
+          <h1>Banker of the day {{ currentDate }}</h1>
         </div>
         <div class="header-btn">
-          <button
-            class="btn-h"
-            :class="{ 'active-btn': offset > 0 }"
-            @click="previousDay"
-          >
+          <button class="btn-h" :class="{ 'active-btn': offset > 0 }" @click="previousDay">
             <Arrow class="btn-icon icon-left" />
             Previous
           </button>
-          <button
-            class="btn-h"
-            :class="{ 'active-btn': offset < 0 }"
-            @click="nextDay"
-          >
+          <button class="btn-h" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
             Next
             <Arrow class="btn-icon icon-right" />
           </button>
@@ -54,7 +46,12 @@
         </div>
       </template>
     </div>
-    <OtherPackage id="vip"/>
+    <FreeExpertView />
+    <div class="links-social">
+      <button>FACEBOOK</button>
+      <button>TELEGRAM</button>
+    </div>
+    <OtherPackage id="vip" />
     <div class="news-main">
       <div class="news-header">
         <div class="news-info">
@@ -77,7 +74,6 @@
         </NewsCard>
       </div>
     </div>
-    <Upcoming />
     <OtherComponent />
     <AboutComponent />
   </div>
@@ -88,9 +84,9 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 import Arrow from '../icons/arrow.vue'
+import FreeExpertView from './FreeExpertView.vue'
 import NewsCard from '../components/NewsCard.vue'
 import Card from '../components/CardComponent.vue'
-import Upcoming from '../components/UpcomingPicks.vue'
 import OtherPackage from '../components/OtherPackage.vue'
 import AboutComponent from '../components/aboutComponent.vue'
 import HeroComponent from '../components/HeroComponent.vue'
@@ -111,15 +107,12 @@ const newsInfo = (newsID) => {
 
 const getNews = async () => {
   try {
-    const response = await axios.get(
-      'https://livescore-football.p.rapidapi.com/soccer/news-list',
-      {
-        headers: {
-          'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
-          'X-RapidAPI-Host': import.meta.env.VITE_RAPIDAPI_HOST
-        },
+    const response = await axios.get('https://livescore-football.p.rapidapi.com/soccer/news-list', {
+      headers: {
+        'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
+        'X-RapidAPI-Host': import.meta.env.VITE_RAPIDAPI_HOST
       }
-    )
+    })
     console.log(response.data.data)
     newsData.value = response.data.data
     console.log(newsData.value)

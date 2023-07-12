@@ -1,9 +1,9 @@
 <template>
   <div class="card-container">
     <div class="card-title">
-      <div class="card-status">
-        <span></span>
-      </div>
+      <div class="card-in-s">
+          <span>{{ time }}</span>
+        </div>
       <div class="title-m">
         <img :src="leagueIcon" alt="league-img" class="league-c-img" />
         <span>{{ league }}</span>
@@ -19,9 +19,6 @@
         <h2>{{ teamA }}</h2>
       </div>
       <div class="card-in">
-        <div class="card-in-s">
-          <span>[{{ time }}]</span>
-        </div>
         <div v-if="!showScore">
           <span>vs</span>
         </div>

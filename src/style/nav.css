@@ -5,12 +5,12 @@
     top: 0;
   }
 
-  @media screen {
     .nav-container {
       display: flex;
       font-size: 1rem;
       padding: 15px 20px;
       align-items: center;
+      flex-direction: row-reverse;
       color: var(--background-color);
       justify-content: space-between;
       background-color: var(--primary-color);
@@ -302,9 +302,9 @@
       right: 0;
       width: 0;
       bottom: 0;
+      left: -100px;
       padding: 20px;
       z-index: 9999;
-      right: -100px;
       position: fixed;
       background-size: contain;
       background-repeat: repeat;
@@ -362,12 +362,12 @@
 
     .open {
       width: 75%;
-      right: 0;
+      left: 0;
     }
 
     .close {
       width: 0;
-      right: -100px;
+      left: -100px;
     }
 
     /* mobile responsive */
@@ -447,4 +447,3 @@
       height: 250px;
     }
   }
-}
