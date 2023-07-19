@@ -14,7 +14,7 @@
   </div>
 </template>
 <script setup>
-import banner from '../assets/banner.jpg'
+import banner from '../assets/banner.png'
 import OtherVip from '../components/OtherVipPackage.vue'
 </script>
 <style>

@@ -59,7 +59,7 @@
   <div
     class="mobile-bar"
     :style="{
-      backgroundImage: `url(${banner}),  linear-gradient( rgb(92, 13, 32),rgb(92, 13, 32)`
+      backgroundImage: `url(${banner}),  linear-gradient( rgb(3, 102, 3),rgb(3, 102, 3)`
     }"
     :class="[isOpen ? 'open' : 'close']"
   >
@@ -127,7 +127,7 @@ import GroupIcon from '../icons/GroupIcon.vue'
 import ExitIcon from '../icons/ExitIcon.vue'
 import LogoutIcon from '../icons/logoutIcon.vue'
 import ArrowIcon from '../icons/ArrowIcon.vue'
-import banner from '../assets/banner.jpg'
+import banner from '../assets/banner.png'
 import { ref, watchEffect } from 'vue'
 
 const router = useRouter()
