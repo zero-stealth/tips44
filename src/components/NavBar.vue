@@ -34,7 +34,6 @@
             <span @click="goToC('Over 1.5 Goals')">Over 1.5 Goals</span>
             <span @click="goToC('Both Teams To Score')">Both Team To Score</span>
             <!-- <span @click="goTo('Bet Of The Day')">Bet Of The Day</span> -->
-            <span @click="goToC('Under 2.5 Goals')">Under 2.5 Goals</span>
           </div>
         </div>
       </div>
@@ -85,7 +84,7 @@
         <RouterLink :to="{ name: 'Banker' }" class="mobile-link"> Bet Of the day </RouterLink>
         <div class="drop-container">
           <div class="drop-down" @click="showDrp()">
-            <span>Predictions</span>
+            <span>Prediction</span>
             <ArrowIcon class="drop-icon" />
           </div>
           <div class="drop-down-panel" :class="[isDrpOpen == false ? 'hide' : 'show']">
@@ -128,7 +127,7 @@ import GroupIcon from '../icons/GroupIcon.vue'
 import ExitIcon from '../icons/ExitIcon.vue'
 import LogoutIcon from '../icons/logoutIcon.vue'
 import ArrowIcon from '../icons/ArrowIcon.vue'
-import banner from '../assets/banner.png'
+import banner from '../assets/banner.jpg'
 import { ref, watchEffect } from 'vue'
 
 const router = useRouter()
@@ -205,11 +204,11 @@ const goSignin = () => {
 }
 
 const openTelegram = () => {
-  window.open('https://t.me/sportypredict_tips', '_blank')
+  window.open('https://t.me/+p9eRLjKRtv45Y2Fk', '_blank')
 }
 
 const openTelegramX = () => {
-  window.open('https://t.me/sportypredict_tips', '_blank')
+  window.open('https://t.me/+p9eRLjKRtv45Y2Fk', '_blank')
   showMenu()
 }
 </script>

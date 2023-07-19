@@ -48,8 +48,11 @@
     </div>
     <FreeExpertView />
     <div class="links-social">
-      <button>FACEBOOK</button>
-      <button>TELEGRAM</button>
+      <div class="social-l">
+        <button @click="goFacebook()" class="btn-s s-f">Facebook</button>
+        <button @click="goWhatsapp()" class="btn-s s-w">Whatsapp</button>
+      </div>
+      <button @click="goTelegram()" class="btn-s s-t">Telegram</button>
     </div>
     <OtherPackage id="vip" />
     <div class="news-main">
@@ -64,16 +67,17 @@
         </div>
       </div>
       <div class="news-wrapper">
-        <NewsCard
-          v-for="(newsItem, index) in newsData"
-          :key="index"
-          :banner="newsItem.image"
-          @click="newsInfo(newsItem.id)"
-        >
-          <h2>{{ newsItem.caption }}</h2>
-        </NewsCard>
-      </div>
+    <NewsCard
+      v-for="(newsItem, index) in randomNewsData"
+      :key="index"
+      :banner="newsItem.image"
+      @click="newsInfo(newsItem.id)"
+    >
+      <h2>{{ newsItem.caption }}</h2>
+    </NewsCard>
+  </div>
     </div>
+    <UpcomingPicks/>
     <OtherComponent />
     <AboutComponent />
   </div>
@@ -89,6 +93,7 @@ import NewsCard from '../components/NewsCard.vue'
 import Card from '../components/CardComponent.vue'
 import OtherPackage from '../components/OtherPackage.vue'
 import AboutComponent from '../components/aboutComponent.vue'
+import UpcomingPicks from '../components/UpcomingPicks.vue'
 import HeroComponent from '../components/HeroComponent.vue'
 import OtherComponent from '../components/OtherComponent.vue'
 
@@ -121,6 +126,11 @@ const getNews = async () => {
   }
 }
 
+const randomNewsData = computed(() => {
+  const shuffledNews = newsData.value.slice().sort(() => Math.random() - 0.5);
+  return shuffledNews.slice(0, 8);
+});
+
 const getPrediction = async () => {
   const token = JSON.parse(localStorage.getItem('token'))
   try {
@@ -151,6 +161,22 @@ const nextDay = () => {
     updateCurrentDate()
   }
 }
+
+const goFacebook = () => {
+  window.open('https://wa.me/254743247861?text=Hi+there+Charisma+Betting+Tips', '_blank')
+
+}
+
+const goWhatsapp = () => {
+  window.open('https://wa.me/254743247861?text=Hi+there+Charisma+Betting+Tips', '_blank')
+
+}
+
+const goTelegram = () => {
+  window.open('https://t.me/+p9eRLjKRtv45Y2Fk', '_blank')
+}
+
+
 
 const updateCurrentDate = () => {
   const today = new Date()

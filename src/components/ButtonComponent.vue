@@ -25,7 +25,7 @@
 <script setup>
 import TelegramIcon from '../icons/telegram.vue';
 import basketball from '../assets/basketball.jpg';
-import banner from '../assets/banner.png';
+import banner from '../assets/banner.jpg';
 import tennis from '../assets/tennis.jpg';
 import hockey from '../assets/hockey.jpg';
 import PayIcon from '../icons/payIcon.vue';

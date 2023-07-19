@@ -1,6 +1,6 @@
 <script setup>
 import TelegramIcon from '../icons/telegram.vue'
-import banner from '../assets/banner.png'
+import banner from '../assets/banner.jpg'
 import PayIcon from '../icons/payIcon.vue'
 import VipIcon from '../icons/VipIcon.vue'
 import { useRouter } from 'vue-router'

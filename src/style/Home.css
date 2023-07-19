@@ -80,6 +80,38 @@
     justify-content: space-around;
   }
 
+  .links-social {
+    gap: 10px;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .social-l {
+    gap: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn-s {
+    color: var(--background-color);
+    padding: 12px 40px;
+  }
+
+  .s-f {
+    background-color: #5c5cf5;
+  }
+
+  .s-w {
+    background-color: var(--secondary-color);
+  }
+
+  .s-t {
+    background-color: #0088cc;
+  }
+
   .home-freetip {
     height: 70vh;
     display: flex;
@@ -171,6 +203,8 @@
     flex-direction: row;
   }
 
-
+  .btn-s {
+    padding: 12px 150px;
+  }
   
 }

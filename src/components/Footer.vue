@@ -20,7 +20,7 @@ const goAlogin = () => {
 }
 
 const openWhatsapp = () => {
-  window.open('https://wa.me/+254743247861?text=How can I help', '_blank')
+  window.open('https://wa.me/254743247861?text=Hi+there+Charisma+Betting+Tips', '_blank')
 }
 
 const openIos = () => {
