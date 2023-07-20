@@ -19,7 +19,7 @@ const goPay = () => {
 }
 
 const openTelegram = () => {
-  window.open('https://t.me/sportypredict_tips', '_blank')
+  window.open('https://t.me/+p9eRLjKRtv45Y2Fk', '_blank')
 }
 </script>
 <template>
@@ -32,27 +32,29 @@ const openTelegram = () => {
     <div class="hero-s-contain">
       <div class="hero-info">
         <h1>
-          Get <span>free tips</span> and enjoy <span>winnings</span> everday on all <span>Sports</span> 
+          Access <span>free tips</span> and relish <span>daily victories </span> across all sporting
+          <span>events.</span>
         </h1>
         <p>
-          We offer top-notch betting tips and predictions for football, basketball, hockey and tennis. Take a break, unwind, and reap the rewards. We've handled all the groundwork, so you can sit back and enjoy the benefits hassle-free
+          Tips90predict is a web-based platform that provides extremely precise predictions for
+          football, soccer, basketball, and tennis, ensuring users can maximize their profits.
+          Additionally, we offer up-to-date sports news to keep our users well-informed.
         </p>
-        
       </div>
       <div class="nav-important">
         <a href="#vip" class="nav-i-btn">
-         <VipIcon class="icon-nav nav-i" /> 
-         VIP Packages
+          <VipIcon class="icon-nav nav-i" />
+          VIP Packages
         </a>
-      <button class="nav-i-btn" @click="openTelegram()">
-        <TelegramIcon class="icon-nav nav-i" />
-        Join telegram
-      </button>
-      <button class="nav-i-btn" @click="goPay()">
-        <PayIcon class="icon-nav nav-i" />
-        How to pay
-      </button>
-    </div>
+        <button class="nav-i-btn" @click="openTelegram()">
+          <TelegramIcon class="icon-nav nav-i" />
+          Join telegram
+        </button>
+        <button class="nav-i-btn" @click="goPay()">
+          <PayIcon class="icon-nav nav-i" />
+          How to pay
+        </button>
+      </div>
     </div>
   </div>
 </template>

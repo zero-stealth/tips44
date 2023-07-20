@@ -4,7 +4,7 @@
       <!-- <div class="language-drop-down">
       </div> -->
       <!-- <img src="../assets/logo-spp.png" alt="logo" class="logo-spp" /> -->
-      Tips90
+      Tips90predict
       <div class="nav-link-container">
         <RouterLink :to="{ name: 'Home' }" class="nav-link"> Home </RouterLink>
         <!-- <div @click="openTelegram" class="nav-link">Telegram tips</div> -->

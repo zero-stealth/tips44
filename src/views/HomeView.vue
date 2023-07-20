@@ -56,27 +56,31 @@
     </div>
     <OtherPackage id="vip" />
     <div class="news-main">
-      <div class="news-header">
-        <div class="news-info">
-          <h1>Sport News</h1>
-        </div>
-        <div class="news-link">
-          <Arrow class="news-icon icon-left" />
-          <span>see more</span>
-          <Arrow class="news-icon" />
-        </div>
+    <div class="news-header">
+      <div class="news-info">
+        <h1>Sport News</h1>
       </div>
-      <div class="news-wrapper">
-    <NewsCard
-      v-for="(newsItem, index) in randomNewsData"
-      :key="index"
-      :banner="newsItem.image"
-      @click="newsInfo(newsItem.id)"
-    >
-      <h2>{{ newsItem.caption }}</h2>
-    </NewsCard>
-  </div>
+      <div class="news-link">
+        <Arrow class="news-icon icon-left" />
+        <Arrow class="news-icon icon-left" />
+
+        <span v-if="showMoreButton" @click="showMoreNews">more news</span>
+        <span v-else  @click="showLessNews">less news</span>
+        <Arrow class="news-icon" />
+        <Arrow class="news-icon" />
+      </div>
     </div>
+    <div class="news-wrapper">
+      <NewsCard
+        v-for="(newsItem, index) in visibleNews"
+        :key="index"
+        :banner="newsItem.image"
+        @click="newsInfo(newsItem.id)"
+      >
+        <h2>{{ newsItem.caption }}</h2>
+      </NewsCard>
+    </div>
+  </div>
     <UpcomingPicks/>
     <OtherComponent />
     <AboutComponent />
@@ -97,6 +101,8 @@ import UpcomingPicks from '../components/UpcomingPicks.vue'
 import HeroComponent from '../components/HeroComponent.vue'
 import OtherComponent from '../components/OtherComponent.vue'
 
+const showMoreButton = ref(true);
+const maxNewsToShow = ref(8);
 const currentDate = ref('')
 const router = useRouter()
 const cardData = ref([])
@@ -108,6 +114,22 @@ const showCard = (cardID) => {
 
 const newsInfo = (newsID) => {
   router.push({ name: 'News', params: { id: newsID } })
+}
+
+const visibleNews = computed(() => {
+  return newsData.value.slice(0, maxNewsToShow.value);
+});
+
+const showMoreNews = () => {
+  maxNewsToShow.value += 8; 
+  showMoreButton.value = false;
+};
+
+const showLessNews = () => {
+  maxNewsToShow.value -= 8; 
+  if (maxNewsToShow.value <= 8) {
+    showMoreButton.value = true;
+  }
 }
 
 const getNews = async () => {

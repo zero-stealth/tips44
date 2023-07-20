@@ -136,7 +136,7 @@ const reset = () => {
       </div>
     </div>
     <div class="footer-x">
-      <span>© 2023 tips44. All rights reserved</span>
+      <span>© 2023 Tips90predict. All rights reserved</span>
       <span>FAQ Terms and Services Refund Policy</span>
     </div>
   </div>

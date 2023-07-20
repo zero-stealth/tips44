@@ -3,46 +3,48 @@
     <h1>Privacy policy</h1>
     <div class="abt-p-in">
       <p>
-        At sportypredict, which operates under the trading name sportypredict Services LTD, we are deeply
-        committed to protecting your privacy and ensuring the security of your personal information.
-        This privacy policy explains how we collect and utilize your information when you use our
-        website.
+        At Tips90predict, which operates under the trading name Tips90predict Services LTD, we are
+        fully dedicated to safeguarding your privacy and ensuring the utmost security of your
+        personal data. This privacy policy elucidates the manner in which we gather and employ your
+        information when you avail our website services.
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        We may ask for your name, contact information (such as email address and phone number), and
-        date of birth. Additionally, we may gather other relevant information through customer
-        surveys and special offers. The sole purpose of collecting this information is to provide
-        you with enhanced service and improve our products and services.
+        We might inquire about your name, contact details (like email address and phone number), and
+        date of birth. Moreover, we could acquire other pertinent details through customer surveys
+        and special offers. The exclusive objective of gathering this information is to offer you
+        improved service and enhance our products and services.
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        On occasion, we may send you promotional emails and SMS messages containing information
-        about new products, exclusive offers, or other relevant updates. If you no longer wish to
-        receive such communications, please contact us at info@sportypredict.com.
+        Occasionally, you may receive promotional emails and SMS messages from us, sharing details
+        about fresh products, exclusive deals, or other pertinent updates. Should you decide that
+        you no longer wish to receive these communications, feel free to get in touch with us at
+        info@Tips90predict.com.
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        If you believe that any of the information we have collected is incorrect or incomplete,
-        please contact us, and we will promptly rectify any inaccuracies. According to Data
-        Protection Laws, you have the right to request information about the personal data we hold
-        about you.
+        If you feel that any of the data we have gathered is inaccurate or incomplete, kindly get in
+        touch with us, and we will swiftly correct any errors. As per Data Protection Laws, you have
+        the entitlement to inquire about the personal information we possess regarding you.
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        If you decide to delete your sportypredict account, please be aware that all associated data
-        and content, including active subscriptions, will be permanently lost. However, you can
-        still access sportypredict services by registering with a new email address and phone number.
+        If you choose to terminate your Tips90predict account, please note that all related
+        information and content, including ongoing subscriptions, will be irreversibly deleted.
+        Nevertheless, you can continue using Tips90predict services by signing up with a fresh email
+        address and phone number.
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        Please note that this privacy policy may be updated periodically, and the effective date is
-        November 10, 2020. We encourage you to regularly review this page for any changes or updates.
+        Please be aware that this privacy policy might undergo periodic updates, and the effective
+        date is December 10, 2021. We urge you to frequently check this page for any modifications
+        or revisions.
       </p>
     </div>
   </div>
