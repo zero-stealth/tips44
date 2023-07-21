@@ -49,10 +49,10 @@
     <FreeExpertView />
     <div class="links-social">
       <div class="social-l">
-        <button @click="goFacebook()" class="btn-s s-f">Facebook</button>
+        <button @click="goFacebook()" class="btn-s s-f">Facebook Tips</button>
         <button @click="goWhatsapp()" class="btn-s s-w">Whatsapp</button>
       </div>
-      <button @click="goTelegram()" class="btn-s s-t">Telegram</button>
+      <button @click="goTelegram()" class="btn-s s-t">Telegram Tips</button>
     </div>
     <OtherPackage id="vip" />
     <div class="news-main">
@@ -102,7 +102,7 @@ import HeroComponent from '../components/HeroComponent.vue'
 import OtherComponent from '../components/OtherComponent.vue'
 
 const showMoreButton = ref(true);
-const maxNewsToShow = ref(8);
+const maxNewsToShow = ref(3);
 const currentDate = ref('')
 const router = useRouter()
 const cardData = ref([])

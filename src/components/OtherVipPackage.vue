@@ -1,5 +1,8 @@
 <template>
-    <button class="other-p-btn" @click="goTo()">{{ buttonName }}</button>
+    <button class="other-p-btn" @click="goTo()">
+    {{ buttonName }}
+    <span> {{ buttonOdds }}</span>
+    </button>
 </template>
 
 <script setup>
@@ -9,6 +12,10 @@ const router = useRouter();
 
 const props = defineProps({
   buttonName: {
+    type: String,
+    required: true,
+  },
+  buttonOdds: {
     type: String,
     required: true,
   },

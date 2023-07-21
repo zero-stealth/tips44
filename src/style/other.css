@@ -1,16 +1,26 @@
 @media screen {
   .other-p-btn {
+    gap: 10px;
     height: 70px;
     width: 140px;
+    display: flex;
     font-size: 1rem;
     font-weight: 400;
     border-radius: 8px;
     text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     color: var(--background-color);
     background-color: var(--primary-color);
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
       rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
       rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  }
+
+  .other-p-btn span {
+    font-size: .8rem;
+    color: var(--secondary-color);
   }
 
   .other-p-btn:hover {
