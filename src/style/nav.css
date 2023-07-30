@@ -1,8 +1,10 @@
 @media screen {
   .nav-main {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     position: sticky;
     z-index: 100;
     top: 0;
+
   }
 
     .nav-container {
@@ -13,8 +15,12 @@
       flex-direction: row-reverse;
       color: var(--background-color);
       justify-content: space-between;
-      background-color: var(--primary-color);
-      border-bottom: 1px solid var(--secondary-color);
+      background-color: var(--background-color);
+      
+    }
+    
+    .nav-container span {
+      color: var(--primary-color);
     }
 
     .logo-spp {
@@ -31,7 +37,7 @@
       cursor: pointer;
       text-decoration: none;
       text-transform: capitalize;
-      color: var(--background-color);
+
     }
 
     .router-link-active {
@@ -42,11 +48,6 @@
       color: var(--secondary-color);
     }
 
-    .icon-nav {
-      height: 24px;
-      width: 24px;
-      fill: var(--primary-color);
-    }
 
     .nav-menu {
       display: flex;
@@ -63,6 +64,7 @@
       display: flex;
       cursor: pointer;
       align-items: center;
+      color: var(--primary-color);
     }
 
     .drop-down:hover span {
@@ -77,7 +79,7 @@
       width: 16px;
       height: 16px;
       transform: rotate(90deg);
-      fill: var(--background-color);
+      fill: var(--primary-color);
     }
 
     .drop-down-panel {
@@ -143,7 +145,7 @@
     .menu-icon-nav {
       width: 20px;
       height: 20px;
-      fill: var(--background-color);
+      fill: var(--primary-color);
     }
 
     .nav-btn-container {
@@ -181,49 +183,15 @@
 
     .r-icon {
       height: 20px;
+      
     }
+    
     .l-icon {
       height: 16px;
       fill: var(--background-color);
     }
 
-    .nav-important {
-      gap: 20px;
-      display: flex;
-      padding: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-around;
-      
-    }
 
-    .nav-i-btn {
-      gap: 10px;
-      display: flex;
-      height: 45px;
-      width: 130px;
-      font-size: 0.6rem;
-      border-radius: 4px;
-      align-items: center;
-      justify-content: center;
-      text-transform: uppercase;
-      color: var(--background-color);
-      background-color: transparent;
-      border: 1px solid var(--background-color);
-    }
-
-    .nav-i-btn:hover {
-      color: var(--secondary-color);
-      border: 1px solid var(--secondary-color);
-    }
-
-    .nav-i {
-      fill: var(--background-color);
-    }
-
-    .nav-i-btn:hover .nav-i {
-      fill: var(--secondary-color);
-    }
 
     .hero-section {
       gap: 20px;
@@ -247,16 +215,20 @@
       display: flex;
       height: inherit;
       flex-direction: column;
+
     }
 
     .hero-info {
       gap: 10px;
-      height: 70%;
+      height: 100%;
       display: flex;
+      padding: 10px;
+      margin: 10px;
       align-items: center;
       flex-direction: column;
       justify-content: center;
       color: var(--background-color);
+      background-color: var(--primary-color);
     }
 
     .hero-info h1 {
@@ -266,7 +238,7 @@
     }
 
     .hero-info span {
-      color: var(--secondary-color);
+      color: var(--tertiary-color);
     }
 
     .hero-info p {
@@ -311,7 +283,7 @@
       color: var(--background-color);
       transition: all 0.5s ease 0s;
       -webkit-transition: all 0.5s ease 0s;
-      background-color: var(--primar-color);
+      background-color: var(--primary-color);
     }
 
     .mobile-container,
@@ -402,6 +374,7 @@
 
     .nav-important {
       gap: 0;
+      width: 50%;
       padding: 10px 100px;
     }
 
@@ -430,6 +403,8 @@
     .hero-info {
       flex: 50%;
       height: 100%;
+      padding: 20px;
+      margin: 0;
     }
 
     .hero-info h1 {

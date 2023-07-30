@@ -1,10 +1,11 @@
 <template>
   <div class="nav-main">
     <div class="nav-container">
+    
       <!-- <div class="language-drop-down">
       </div> -->
       <!-- <img src="../assets/logo-spp.png" alt="logo" class="logo-spp" /> -->
-      Tips90predict
+    <span>Tips90predict</span>  
       <div class="nav-link-container">
         <RouterLink :to="{ name: 'Home' }" class="nav-link"> Home </RouterLink>
         <!-- <div @click="openTelegram" class="nav-link">Telegram tips</div> -->
@@ -13,16 +14,6 @@
         <RouterLink :to="{ name: 'Basketball' }" class="nav-link"> Basketball </RouterLink>
         <RouterLink :to="{ name: 'Tennis' }" class="nav-link"> Tennis </RouterLink>
         <RouterLink :to="{ name: 'Hockey' }" class="nav-link"> Hockey </RouterLink>
-        <!-- <div class="drop-container">
-          <div class="drop-down" @click="showDrp()">
-            <span>Other sports</span>
-            <ArrowIcon class="drop-icon" />
-          </div>
-          <div class="drop-down-panel" :class="[isDrpOpen ? 'show' : 'hide']">
-            <span @click="goBasketballC()">Basketball</span>
-            <span @click="goTennisC()"> Tennis</span>
-          </div>
-        </div> -->
         <div class="drop-container">
           <div class="drop-down" @click="showDrop()">
             <span>Other Predictions</span>
@@ -45,8 +36,7 @@
       </div>
       <div class="nav-btn-container" v-else>
         <button @click="goLogin" class="nav-btn btn-l">
-          <GroupIcon class="icon-nav l-icon" />
-          log in
+          Join us
         </button>
       </div>
       <div class="nav-menu" @click="showMenu()">
@@ -59,7 +49,7 @@
   <div
     class="mobile-bar"
     :style="{
-      backgroundImage: `url(${banner}),  linear-gradient( rgb(3, 102, 3),rgb(3, 102, 3)`
+      backgroundImage: `url(${banner}),  linear-gradient( rgb(75, 0, 129),rgb(75, 0, 129)`
     }"
     :class="[isOpen ? 'open' : 'close']"
   >
@@ -106,11 +96,11 @@
       <div class="mobile-btn-container" v-else>
         <button @click="goSignin" class="mobile-btn btn-r">
           <GroupIcon class="icon-nav r-icon" />
-          sign up
+          join us
         </button>
         <button @click="goLogin" class="mobile-btn btn-l">
-          <ProfileIcon class="icon-nav l-icon" />
-          log in
+          <ProfileIcon class="l-icon" />
+          Log in
         </button>
       </div>
     </div>

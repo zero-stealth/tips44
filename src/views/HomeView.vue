@@ -1,5 +1,6 @@
 <template>
   <HeroComponent />
+  <important/>
   <div class="home-main">
     <div class="main-h">
       <div class="main-header">
@@ -100,6 +101,7 @@ import AboutComponent from '../components/aboutComponent.vue'
 import UpcomingPicks from '../components/UpcomingPicks.vue'
 import HeroComponent from '../components/HeroComponent.vue'
 import OtherComponent from '../components/OtherComponent.vue'
+import important from '../components/ImportantComponent.vue'
 
 const showMoreButton = ref(true);
 const maxNewsToShow = ref(3);

@@ -1,0 +1,97 @@
+@media screen {
+ .imp-section {
+  gap: 10px;
+  display: flex;
+  padding: 20px 10px;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+ }
+}
+
+.imp-info {
+  flex: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.imp-info h1 {
+  font-size: 1.5rem;
+  color: var(--background-color);
+}
+
+
+
+.icon-nav {
+  height: 30px;
+  width: 30px;
+  fill: var(--secondary-color);
+}
+
+.nav-important {
+  gap: 20px;
+  display: flex;
+  padding: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+
+.nav-i-btn {
+  width: 150px;
+  display: flex;
+  font-size: .8rem;
+  font-weight: bold;
+  align-items: center;
+  text-transform: uppercase;
+  justify-content: space-between ;
+  color: var(--secondary-color);
+  background-color: transparent;
+}
+
+
+/* using it as global style for larger devices  */
+@media only screen and (min-width: 48em) {
+
+  .imp-section {
+    display: flex;
+    padding: 20px 30px;
+    background-color: var(--primary-color);
+   }
+
+  
+  .imp-info h1 {
+    font-size: 2rem;
+    color: var(--background-color);
+  }
+  
+  .imp-info {
+    flex: 10%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-important {
+    gap: 20px;
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    
+  }
+  
+  .nav-i-btn {
+    gap: 10px;
+    display: flex;
+    width: 200px;
+    font-size: .8rem;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    background-color: transparent;
+    border-left: 4px solid var(--secondary-color);
+  }
+}
+
