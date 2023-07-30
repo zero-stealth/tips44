@@ -2,12 +2,12 @@
   .home-main {
     display: flex;
     flex-direction: column;
-    border: 2px solid saddlebrown;
 
   }
 
   .upcoming-p {
     min-height: 40vh;
+    
   }
 
   .main-h {

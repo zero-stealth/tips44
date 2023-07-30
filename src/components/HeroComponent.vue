@@ -1,22 +1,5 @@
 <script setup>
 import banner from '../assets/banner.jpg'
-import { useRouter } from 'vue-router'
-import { ref } from 'vue'
-const router = useRouter()
-const isOpen = ref(false)
-const sport = ref('')
-
-const showMenu = () => {
-  isOpen.value = !isOpen.value
-}
-
-const goPay = () => {
-  router.push({ name: 'Pay' })
-}
-
-const openTelegram = () => {
-  window.open('https://t.me/+p9eRLjKRtv45Y2Fk', '_blank')
-}
 </script>
 <template>
   <div
