@@ -68,20 +68,27 @@ const reset = () => {
         </p>
         <div class="d1-contact">
           <div class="d1-icon">
-            <phoneIcon class="icon-d1" />
-            <span>+254743247861</span>
-          </div>
-          <div class="d1-icon">
             <emailIcon class="icon-d1" />
             <span>charismawinningtips@gmail.com</span>
           </div>
+          <div class="d1-icon">
+            <phoneIcon class="icon-d1" />
+            <span>+254743247861</span>
+          </div>
+        </div>
+        <div class="book-social">
+          Follow us on social media:
+          <facebookIcon class="bk-icon" @click="openFacebook" />
+          <twitterIcon class="bk-icon" @click="openTwitter"/>
+          <whatsappIcon class="bk-icon" @click="openWhatsapp" />
+          <instagramIcon class="bk-icon" @click="openInstagram" />
         </div>
         <div class="app-d-link">
-          <div
+          <!-- <div
             class="download-app"
             @click="openIos"
             :style="{ backgroundImage: `url(${Ios})` }"
-          ></div>
+          ></div> -->
           <div
             class="download-app"
             @click="openAndroid"
@@ -115,24 +122,7 @@ const reset = () => {
       </div>
       </div>
       <div class="contact-d3">
-        <h1>Talk with us</h1>
-        <p>Know more about our service or consultancy in advance</p>
-        <form @submit.prevent="book" class="book-f">
-          <div class="book-con">
-            <div class="con-s">
-              <emailIcon class="book-icon" />
-              <input v-model="booknow" class="input-book" placeholder="Company email" />
-            </div>
-            <button type="submit" class="book-btn">Start now</button>
-          </div>
-        </form>
-        <div class="book-social">
-          Social media:
-          <facebookIcon class="bk-icon" @click="openFacebook" />
-          <twitterIcon class="bk-icon" @click="openTwitter"/>
-          <whatsappIcon class="bk-icon" @click="openWhatsapp" />
-          <instagramIcon class="bk-icon" @click="openInstagram" />
-        </div>
+
       </div>
     </div>
     <div class="footer-x">
