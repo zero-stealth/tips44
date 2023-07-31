@@ -1,4 +1,5 @@
 <script setup>
+import InvestmentPlanCard from '../components/InvestmentPlanCard.vue'
 import countriesData from '../components/countries.json'
 import MoneyIcon from '../icons/payIcon.vue'
 import { ref, computed } from 'vue'
@@ -8,6 +9,37 @@ const sport = ref('')
 const reveal = ref('')
 const errMsg = ref('')
 const searchTerm = ref('')
+
+const investmentPlans = ref([
+  {
+    id: 1,
+    title: 'INVESTMENT PLAN (One Month)',
+    currency: 'USD',
+    amount: 50,
+    description: '2.00- 3.00 Odds Daily'
+  },
+  {
+    id: 2,
+    title: 'INVESTMENT PLAN (One Week)',
+    currency: 'USD',
+    amount: 27,
+    description: '2.00- 3.00 Odds Daily'
+  },
+  {
+    id: 3,
+    title: 'INVESTMENT PLAN (One Month)',
+    currency: 'USD',
+    amount: 50,
+    description: '5.00- 10.00 Odds Daily'
+  },
+  {
+    id: 4,
+    title: 'INVESTMENT PLAN (One Week)',
+    currency: 'USD',
+    amount: 27,
+    description: '5.00- 10.00 Odds Daily'
+  },
+])
 
 const showPayment = () => {
   if (Selectedcountry.value === '' && sport.value === '') {
@@ -73,6 +105,16 @@ const filteredCountries = computed(() => {
         <span></span>
         <MoneyIcon class="icon-pay" />
         <span>Subscribe to VIP plan</span>
+      </div>
+      <div class="inv-comps">
+        <InvestmentPlanCard
+          v-for="plan in investmentPlans"
+          :key="plan.id"
+          :title="plan.title"
+          :currency="plan.currency"
+          :amount="plan.amount"
+          :description="plan.description"
+        />
       </div>
       <div class="pay-main">
         <div class="sport-s-contain">
@@ -767,6 +809,7 @@ const filteredCountries = computed(() => {
           </div>
         </div>
       </div>
+    
     </div>
   </div>
   <div class="mobilenav-layout">

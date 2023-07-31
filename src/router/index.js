@@ -49,11 +49,10 @@ const router = createRouter({
       component: () => import('../views/predictionView.vue')
     },
     {
-      path: '/vip/:vipName',
+      path: '/vip',
       name: 'Vip',
       component: () => import('../views/VipView.vue'),
       // meta: { auth: true }
-      props: true
     },
     {
       path: '/news/:id',
@@ -112,9 +111,11 @@ const router = createRouter({
       component: () => import('../components/Disclaimerinfo.vue')
     },  
     {
-      path: '/how-to-pay',
+      path: '/how-to-pay/:vipName',
       name: 'Pay',
-      component: () => import('../views/PayView.vue')
+      component: () => import('../views/PayView.vue'),
+      props: true
+    
     },
     {
       path: '/:catchAll(.*)',

@@ -1,0 +1,47 @@
+@media screen {
+  .card-comp {
+    display: flex;
+    
+  }
+
+  .card-inv {
+    gap: 10px;
+    display: flex;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    flex-direction: column;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--background-color);
+  }
+
+  .card-inv h2 {
+    font-size: 1.3rem;
+  }
+
+  .card-inv span {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    background-color: var(--fade-color);
+  }
+
+  .card-inv p {
+    font-size: 1rem;
+  }
+
+  .card-inv:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+
+  .btn-inv {
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--background-color);
+    background-color: var(--secondary-color);
+  }
+}
+
+/* using it as global style for larger devices  */
+@media only screen and (min-width: 48em) {
+}

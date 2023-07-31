@@ -33,6 +33,10 @@
       display: flex;
       flex-direction: column;
     }
+
+    .contact-d1 h1 {
+      font-size: 2rem;
+    }
   
     .d1-contact {
       gap: 20px;
@@ -78,8 +82,16 @@
       justify-content: space-between;
     }
 
-    .contact-dp2 .nav-link {
+    .contact-dp2 .nav-lin {
       font-size: .8rem;
+    }
+
+    .nav-lin {
+      color: var(--background-color);
+    }
+
+    .nav-lin:hover {
+      color:var(--secondary-color);
     }
 
     .contact-d2 {
@@ -171,14 +183,13 @@
     }
   
     .footer-x {
-      width:90%;
+      width:100%;
       display: flex;
       padding: 10px;
       align-items: center;
       justify-content: center;
-      color: var(--primary-color);
-      border-radius: 12px 12px 0 0;
-      background-color: var(--background-color);
+      color: var(--background-color);
+      background-color: var(--secondary-color);
     }
   
     .footer-x span {

@@ -62,6 +62,46 @@ const reset = () => {
   <div class="contact-contain">
     <div class="contact-wrapper">
       <div class="contact-d1">
+       <h1>Winnings <br> assured with us</h1>
+       <div class="app-d-link">
+          <div
+            class="download-app"
+            @click="openIos"
+            :style="{ backgroundImage: `url(${Ios})` }"
+          ></div>
+          <div
+            class="download-app"
+            @click="openAndroid"
+            :style="{ backgroundImage: `url(${Android})` }"
+          ></div>
+        </div>
+      </div>
+      <div class="contact-dp2">
+        <div class="contact-d2">
+        <div>
+          <h1>Quick links</h1>
+        </div>
+        <div class="d2-con">
+          <RouterLink :to="{ name: 'Home' }" class="nav-lin">Home</RouterLink>
+          <RouterLink :to="{ name: 'Tennis' }" class="nav-lin">Tennis</RouterLink>
+          <RouterLink :to="{ name: 'Hockey' }" class="nav-lin">Hockey</RouterLink>
+          <RouterLink :to="{ name: 'Daily' }" class="nav-lin">Daily 10+ tips</RouterLink>
+          <RouterLink :to="{ name: 'Banker' }" class="nav-lin">Bet of the day</RouterLink>
+        </div>
+      </div>
+      <div class="contact-d2">
+        <div>
+          <h1>Information</h1>
+        </div>
+        <div class="d2-con">
+          <RouterLink :to="{ name: 'Disclaimer' }" class="nav-lin">Disclaimer</RouterLink>
+          <RouterLink :to="{ name: 'Policy' }" class="nav-lin">Policy</RouterLink>
+          <RouterLink :to="{ name: 'Refund' }" class="nav-lin">Refund policy</RouterLink>
+          <RouterLink :to="{ name: 'Terms' }" class="nav-lin">Terms & Condition</RouterLink>
+        </div>
+      </div>
+      </div>
+      <div class="contact-d3">
         <h1>Contact information</h1>
         <p>
           For queries or help, please feel <span @click="goAlogin()">free</span> to contact us on:
@@ -83,46 +123,6 @@ const reset = () => {
           <whatsappIcon class="bk-icon" @click="openWhatsapp" />
           <instagramIcon class="bk-icon" @click="openInstagram" />
         </div>
-        <div class="app-d-link">
-          <!-- <div
-            class="download-app"
-            @click="openIos"
-            :style="{ backgroundImage: `url(${Ios})` }"
-          ></div> -->
-          <div
-            class="download-app"
-            @click="openAndroid"
-            :style="{ backgroundImage: `url(${Android})` }"
-          ></div>
-        </div>
-      </div>
-      <div class="contact-dp2">
-        <div class="contact-d2">
-        <div>
-          <h1>Quick links</h1>
-        </div>
-        <div class="d2-con">
-          <RouterLink :to="{ name: 'Home' }" class="nav-link">Home</RouterLink>
-          <RouterLink :to="{ name: 'Tennis' }" class="nav-link">Tennis</RouterLink>
-          <RouterLink :to="{ name: 'Hockey' }" class="nav-link">Hockey</RouterLink>
-          <RouterLink :to="{ name: 'Daily' }" class="nav-link">Daily 10+ tips</RouterLink>
-          <RouterLink :to="{ name: 'Banker' }" class="nav-link">Bet of the day</RouterLink>
-        </div>
-      </div>
-      <div class="contact-d2">
-        <div>
-          <h1>Information</h1>
-        </div>
-        <div class="d2-con">
-          <RouterLink :to="{ name: 'Disclaimer' }" class="nav-link">Disclaimer</RouterLink>
-          <RouterLink :to="{ name: 'Policy' }" class="nav-link">Policy</RouterLink>
-          <RouterLink :to="{ name: 'Refund' }" class="nav-link">Refund policy</RouterLink>
-          <RouterLink :to="{ name: 'Terms' }" class="nav-link">Terms & Condition</RouterLink>
-        </div>
-      </div>
-      </div>
-      <div class="contact-d3">
-
       </div>
     </div>
     <div class="footer-x">

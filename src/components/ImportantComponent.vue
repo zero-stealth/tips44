@@ -7,14 +7,9 @@ import { ref } from 'vue'
 
 const router = useRouter()
 const isOpen = ref(false)
-const sport = ref('')
-
-const showMenu = () => {
-  isOpen.value = !isOpen.value
-}
 
 const goPay = () => {
-  router.push({ name: 'Pay' })
+  router.push({ name: 'Pay', params: { vipName: 'common' } })
 }
 
 const openTelegram = () => {

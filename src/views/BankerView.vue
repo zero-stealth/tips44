@@ -1,5 +1,5 @@
 <template>
-  <ButtonComponent />
+   <important/>
   <div class="main-bet">
     <div class="main-header">
       <div class="header-info">
@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import ButtonComponent from '../components/ButtonComponent.vue'
+import important from '../components/ImportantComponent.vue'
 import OtherPackage from '../components/OtherPackage.vue'
 import Card from '../components/CardComponent.vue'
 import { ref, watchEffect, onMounted } from 'vue'

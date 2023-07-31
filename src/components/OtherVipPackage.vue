@@ -25,7 +25,7 @@ const props = defineProps({
 
 
 const goTo = () => {
-  router.push({ name: 'Vip', params: { vipName: props.buttonName } })
+  router.push({ name: 'Pay', params: { vipName: props.buttonName } })
 }
 
 </script>

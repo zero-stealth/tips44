@@ -28,6 +28,10 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   }
 
+  .other-p-btn:hover span {
+    color: var(--background-color);
+
+  }
   /* component css  */
   .prediction-con {
     gap: 30px;
@@ -54,6 +58,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
   }
+  
   /* component css  */
 }
 /* using it as global style for larger devices  */

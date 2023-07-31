@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ButtonComponent />
+    <important/>
     <div class="home-main">
       <div class="main-h">
         <div class="main-header">
@@ -57,7 +57,7 @@ import { ref, onMounted, watch } from 'vue';
 import Arrow from '../icons/arrow.vue';
 import Card from '../components/CardComponent.vue';
 import OtherPackage from '../components/OtherPackage.vue'
-import ButtonComponent from '../components/ButtonComponent.vue';
+import important from '../components/ImportantComponent.vue'
 
 const currentDate = ref('');
 const cardData = ref([]);
