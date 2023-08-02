@@ -9,7 +9,7 @@ const router = useRouter()
 const isOpen = ref(false)
 
 const goPay = () => {
-  router.push({ name: 'Pay', params: { vipName: 'common' } })
+  router.push({ name: 'Pay', params: { vipName: 'SUPREME 2+' } })
 }
 
 const openTelegram = () => {
