@@ -86,7 +86,7 @@
       </p>
     </div>
     <div class="abt-p-in p-in">
-      <h1>All Football Betting Tips.</h1>
+      <h1>All The Betting Tips.</h1>
       <p>Explore our comprehensive range of free football predictions for major bet markets:</p>
       <ol>
         <li @click="goTo('Both Teams To Score')">Both Teams To Score tips</li>
@@ -100,12 +100,13 @@
       </ol>
     </div>
     <div class="abt-p-in">
-      <h1>In Summary.</h1>
+      <h1>Summary.</h1>
       <p>
-        Tips90predict is the ultimate destination for accurate sports betting predictions,
-        specializing in football, basketball, and tennis. We provide reliable information and
-        predictions to individuals who are passionate about betting and eager to earn money.
-        Additionally, our (VIP PLAN) offers an opportunity for maximum profitability.
+        Welcome to Tips90predict, your go-to source for precise sports betting predictions. Our
+        expertise lies in football, basketball, and tennis, catering to passionate investors like
+        you who seek reliable information and a chance to make money. Don't miss out on our
+        exclusive VIP PLAN, designed for maximum profitability. Join us now and elevate your betting
+        game!
       </p>
     </div>
   </div>

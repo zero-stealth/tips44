@@ -1,6 +1,6 @@
 <template>
   <div class="abt-info-p info-dn">
-    <h1>Terms & Condition</h1>
+    <h1>Our Terms & Condition</h1>
     <div class="abt-p-in">
       <p>
         By accessing or using predictions and betting tips on the Predict.com website or any of our
@@ -10,8 +10,8 @@
     </div>
     <div class="abt-p-in">
       <ul>
-        <li>Our Privacy Policy</li>
-        <li>Our Disclaimer Notice</li>
+        <li>Privacy Policy</li>
+        <li>Disclaimer Notice</li>
         <li>Our Terms and Conditions</li>
         <li>The rules applicable to our betting or gaming products</li>
       </ul>
@@ -61,7 +61,7 @@
       </p>
     </div>
     <div class="abt-p-in">
-      <h1>OUR LIABILITY</h1>
+      <h1>LIABILITY</h1>
       <p>
         Predict does not accept any liability for damages, liabilities, or losses arising from or
         connected to the services, picks, and predictions on the website or its affiliates. While we
@@ -89,7 +89,7 @@
       </p>
     </div>
     <div class="abt-p-in">
-      <h1>OTHER PROVISIONS</h1>
+      <h1>EXTRA PROVISIONS</h1>
       <p>
         These Terms and Conditions, along with the Privacy Policy, Cookies Policy, Rules, and any
         referenced documents, guidelines, or rules posted on the website, constitute the entire
