@@ -52,7 +52,7 @@
 <script setup>
 import important from '../components/importantcomponent.vue'
 import OtherPackage from '../components/OtherPackage.vue'
-import Card from '../components/cardcomponent.vue'
+import Card from '../components/CardComponent.vue'
 import { ref, watchEffect, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
