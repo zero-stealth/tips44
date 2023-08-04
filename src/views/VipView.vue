@@ -74,7 +74,8 @@ import axios from 'axios'
 import Arrow from '../icons/arrow.vue'
 import { useRouter } from 'vue-router'
 import { ref, onMounted, watch } from 'vue'
-import Card from '../components/cardcomponent.vue'
+import Card from '../components/CardComponent.vue';
+
 
 const router = useRouter()
 const username = ref(null)

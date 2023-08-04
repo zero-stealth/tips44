@@ -55,7 +55,7 @@
 import axios from 'axios';
 import { ref, onMounted, watch } from 'vue';
 import Arrow from '../icons/arrow.vue';
-import Card from '../components/cardcomponent.vue';
+import Card from '../components/CardComponent.vue';
 import OtherPackage from '../components/OtherPackage.vue'
 import important from '../components/importantcomponent.vue'
 
