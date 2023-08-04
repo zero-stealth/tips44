@@ -5,19 +5,19 @@
     </div>
     <div class="Account-game-p">
       <!-- loop this  -->
-      <div class="acc-m gm-m">
+      <div class="acc-m gm-m ">
         <div class="main-header">
           <div class="header-info">
             <h1>Bet of the day  ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+            <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
@@ -89,13 +89,13 @@
             <h1>Daily 10+ Tips ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+            <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
@@ -166,13 +166,13 @@
             <h1>Banker of the day ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
@@ -242,13 +242,13 @@
             <h1>Free Expert predictions ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
@@ -316,13 +316,13 @@
             <h1>Upcoming games ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
@@ -393,13 +393,13 @@
             <h1>Vip Supreme games ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
@@ -469,13 +469,13 @@
             <h1>Vip Mega games ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
@@ -546,13 +546,13 @@
             <h1>Tennis bets ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
@@ -622,13 +622,13 @@
             <h1>Hockey bets ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
@@ -698,13 +698,13 @@
             <h1>Basketball bets ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>

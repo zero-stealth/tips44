@@ -60,6 +60,14 @@
     color: var(--background-color);
   }
 
+  .h-bn {
+    border: 1px solid var(--background-color);
+  }
+
+  .h-bn:hover {
+    border: none;
+  }
+
   .Account-card-icon {
     display: flex;
     align-items: center;
