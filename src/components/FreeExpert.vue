@@ -75,7 +75,6 @@ async function handleSubmit() {
       formData.append('teamA', teamA.value);
       formData.append('teamAscore', teamAscore.value);
       formData.append('teamB', teamB.value);
-      formData.append('formationB', formationB.value);
       formData.append('teamBscore', teamBscore.value);
       formData.append('time', time.value);
       formData.append('league', league.value);

@@ -39,7 +39,6 @@
             <tr v-for="data in item" :key="data._id">
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.leagueIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.league }}</span>
                 </div>
               </td>
@@ -117,7 +116,7 @@
             <tr v-for="data in item" :key="data._id">
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.leagueIcon" alt="Account-p" class="Account-pi" />
+      
                   <span>{{ data.league }}</span>
                 </div>
               </td>
@@ -194,7 +193,7 @@
             <tr v-for="data in item" :key="data._id">
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.leagueIcon" alt="Account-p" class="Account-pi" />
+      
                   <span>{{ data.league }}</span>
                 </div>
               </td>
@@ -344,7 +343,7 @@
             <tr v-for="data in item" :key="data._id">
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.leagueIcon" alt="Account-p" class="Account-pi" />
+      
                   <span>{{ data.league }}</span>
                 </div>
               </td>
@@ -421,7 +420,7 @@
             <tr v-for="data in item" :key="data._id">
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.leagueIcon" alt="Account-p" class="Account-pi" />
+      
                   <span>{{ data.league }}</span>
                 </div>
               </td>
@@ -497,7 +496,7 @@
             <tr v-for="data in item" :key="data._id">
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.leagueIcon" alt="Account-p" class="Account-pi" />
+      
                   <span>{{ data.league }}</span>
                 </div>
               </td>
@@ -574,7 +573,7 @@
             <tr v-for="data in item" :key="data._id">
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.leagueIcon" alt="Account-p" class="Account-pi" />
+      
                   <span>{{ data.league }}</span>
                 </div>
               </td>
@@ -650,7 +649,7 @@
             <tr v-for="data in item" :key="data._id">
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.leagueIcon" alt="Account-p" class="Account-pi" />
+      
                   <span>{{ data.league }}</span>
                 </div>
               </td>
@@ -726,7 +725,7 @@
             <tr v-for="data in item" :key="data._id">
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.leagueIcon" alt="Account-p" class="Account-pi" />
+      
                   <span>{{ data.league }}</span>
                 </div>
               </td>

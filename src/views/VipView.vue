@@ -37,27 +37,39 @@
           </div>
         </div>
         <template  v-if="paid && username && cardData.length > 0">
-          <div class="main-h-card booom-h">
-            <Card
-              v-for="(card, index) in cardData"
-              :key="card._id"
-              :tip="card.tip"
-              :status="card.status"
-              :leagueIcon="card.leagueIcon"
-              :teamAIcon="card.teamAIcon"
-              :teamBIcon="card.teamBIcon"
-              :teamA="card.teamA"
-              :teamB="card.teamB"
-              :league="card.league"
-              :showScore="card.showScore"
-              :teamAscore="card.teamAscore"
-              :teamBscore="card.teamBscore"
-              :formationA="formatFormation(card.formationA)"
-              :formationB="formatFormation(card.formationB)"
-              :time="card.time"
-              @click="showCard(card._id)"
-            />
-          </div>
+          <table class="main-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>League</th>
+            <th>Match</th>
+            <th>Tip</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(card, index) in cardData" :key="index">
+            <td>{{ card.time }}</td>
+            <td>{{ card.league }}</td>
+            <td>{{ card.teamA }} vs {{ card.teamB }}</td>
+            <td>{{ card.tip }}</td>
+            <td>
+              <template
+                v-if="
+                  card.teamAscore !== null &&
+                  card.teamBscore !== null &&
+                  (card.teamAscore !== 0 || card.teamBscore !== 0)
+                "
+              >
+                {{ card.teamAscore }} - {{ card.teamBscore }}
+              </template>
+              <template v-else>
+                {{ card.time }}
+              </template>
+            </td>
+          </tr>
+        </tbody>
+      </table>
         </template>
         <template v-else-if="paid && username && cardData.length === 0">
           <div class="home-freetip">

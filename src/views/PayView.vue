@@ -473,14 +473,14 @@ const filteredCountries = computed(() => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Month <br />
               Amount paid: ( 50 dollars , 45 Euros, $40 Pounds)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Week <br />
               Amount paid: ( 25 dollars) <br />
             </h1>
