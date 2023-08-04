@@ -32,6 +32,11 @@
             <span> Bet of the day </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
+          <button @click="setActivePage(FreeExpert)" :class="getButtonClass(FreeExpert)">
+            <FileIcon class="icon-panel" />
+            <span> Free Expert  </span>
+            <ArrowIcon class="icon-panel ap" />
+          </button>
           <button @click="setActivePage(Predictionpicks)" :class="getButtonClass(Predictionpicks)">
             <FileIcon class="icon-panel" />
             <span> Prediction picks </span>
@@ -118,6 +123,7 @@ import Upcomingtips from '../components/UpcomingGames.vue'
 import VipMegaGames from '../components/VipMegaGames.vue'
 import TennisGames from '../components/TennisGames.vue'
 import BetOfTheDay from '../components/BetOfTheDay.vue'
+import FreeExpert from '../components/FreeExpert.vue'
 import Freetips from '../components/Freetips.vue'
 
 const activePage = shallowRef(AccountManagement)

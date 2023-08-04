@@ -97,7 +97,7 @@ const updateAuthStatus = () => {
 }
 
 const payPage = () => {
-  router.push({ name: 'Pay' })
+  router.push({ name: 'Pay', params: { vipName: 'SUPREME 2+' }})
 }
 
 const goSignin = () => {

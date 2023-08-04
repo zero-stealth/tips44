@@ -30,7 +30,7 @@
       </div>
       <div class="nav-btn-container" v-if="token !== null">
         <button @click="logOut" class="nav-btn btn-l btn-logout">
-          <LogoutIcon class="icon-nav l-icon" />
+          <LogoutIcon class="l-icon" />
           log out
         </button>
       </div>
@@ -89,7 +89,7 @@
       </div>
       <div class="mobile-btn-container" v-if="token !== null">
         <button @click="logOut" class="mobile-btn btn-l btn-logout">
-          <LogoutIcon class="icon-nav l-icon" />
+          <LogoutIcon class="l-icon" />
           log out
         </button>
       </div>

@@ -50,10 +50,19 @@
     <FreeExpertView />
     <div class="links-social">
       <div class="social-l">
-        <button @click="goFacebook()" class="btn-s s-f">Facebook Tips</button>
-        <button @click="goWhatsapp()" class="btn-s s-w">Whatsapp</button>
+        <button @click="goFacebook()" class="btn-s s-f">
+         <facebookIcon class="btn-if"/>
+          Facebook Tips
+        </button>
+        <button @click="goWhatsapp()" class="btn-s s-w">
+          <whatsappIcon class="btn-if"/>
+          Whatsapp
+        </button>
       </div>
-      <button @click="goTelegram()" class="btn-s s-t">Telegram Tips</button>
+      <button @click="goTelegram()" class="btn-s s-t">
+        <telegramIcon class="btn-if"/>
+        Telegram Tips
+      </button>
     </div>
     <OtherPackage id="vip" />
     <div class="news-main">
@@ -93,6 +102,9 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 import Arrow from '../icons/arrow.vue'
+import whatsappIcon from '../icons/whatsapp.vue'
+import facebookIcon from '../icons/facebook.vue'
+import telegramIcon from '../icons/telegram.vue'
 import FreeExpertView from './FreeExpertView.vue'
 import NewsCard from '../components/NewsCard.vue'
 import Card from '../components/CardComponent.vue'
