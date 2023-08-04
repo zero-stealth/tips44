@@ -18,8 +18,8 @@
         <input
           v-model="SearchAccount"
           type="text"
-          class="form-g-input"
-          placeholder="Account name"
+          class="form-g-i"
+          placeholder="Search account name"
           id="Accountname"
         />
       </div>

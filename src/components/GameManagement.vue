@@ -785,20 +785,19 @@
 <script setup>
 import axios from 'axios'
 import { ref, watchEffect, onMounted, computed, watch, shallowRef } from 'vue'
+import Daily from './DailyEdit.vue'
+import Expert  from './FreeExpertEdit.vue'
 import ExitIcon from '../icons/ExitIcon.vue'
 import FileIcon from '../icons/FileIcon.vue'
+import VipMega from './VipMegaGamesEdits.vue'
 import DeleteIcon from '../icons/DeleteIcon.vue'
-import BetOfTheDay from '../components/BetOfTheDayEdit.vue'
-import Predictionpicks from '../components/predictionpicksedits.vue'
-import Freetips from '../components/FreetipsEdit.vue'
 import Banker from '../components/BankerEdit.vue'
-import UpcomingGames from '../components/upcominggamesedits.vue'
+import VipSupreme from './VipsupremeGamesEdits.vue'
+import BetOfTheDay from '../components/BetOfTheDayEdit.vue'
 import TennisGames from '../components/tennisgamesedits.vue'
 import BasketballGames from '../components/basketballedit.vue'
-import VipMega from './VipMegaGamesEdits.vue'
-import VipSupreme from './VipsupremeGamesEdits.vue'
-import Daily from './BetOfTheDayEdit.vue'
-import Expert  from './FreeExepertEdit.vue'
+import UpcomingGames from '../components/upcominggamesedits.vue'
+
 
 const username = ref(null)
 const accountInfo = ref([])

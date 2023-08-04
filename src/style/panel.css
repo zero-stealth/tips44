@@ -63,7 +63,7 @@
 
   .panel-icon-nav {
     height: 30px;
-    fill: var(--light-color);
+    fill: var(--background-color);
   }
 
   .open-p {
@@ -128,7 +128,7 @@
     align-items: center;
     color: var(--light-color);
     justify-content: space-between;
-    border: 1px solid var(--light-color);
+    border: 1px solid var(--background-color);
     background-color: var(--dark-primary-color);
   }
 
@@ -150,7 +150,7 @@
 
   .icon-panel {
     height: 20px;
-    fill: var(--light-color);
+    fill: var(--background-color);
   }
 
   .active-cp {
@@ -165,7 +165,7 @@
 
   .inactive-cp {
     color: var(--light-color);
-    border: 1px solid var(--light-color);
+    border: 1px solid var(--background-color);
     background-color: var(--dark-primary-color);
   }
 

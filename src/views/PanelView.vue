@@ -67,7 +67,7 @@
             <span>Tennis </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
-          <button @click="logout" :class="getButtonClass(Logout)">
+          <button @click="logout" :class="getButtonClass(logout)">
             <LogoutIcon class="icon-panel" />
             <span>Logout </span>
             <ArrowIcon class="icon-panel ap" />
@@ -94,7 +94,7 @@ import ExitIcon from '../icons/ExitIcon.vue'
 import DrawIcon from '../icons/DrawIcon.vue'
 import FileIcon from '../icons/FileIcon.vue'
 import VipIcon from '../icons/VipIcon.vue'
-import banner from '../assets/banner.png'
+import banner from '../assets/profile.jpg'
 import { useRouter } from 'vue-router'
 
 const username = ref('admin')
