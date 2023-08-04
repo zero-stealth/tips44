@@ -240,7 +240,7 @@ async function handleSubmit() {
       formData.append('tip', tip.value)
 
       const response = await axios.post(
-        'https://predictions-server.onrender.com/predictions/create',
+        'https://tips90-server.onrender.com/predictions/create',
         formData,
         {
           headers: {

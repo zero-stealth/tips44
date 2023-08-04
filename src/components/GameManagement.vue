@@ -564,11 +564,11 @@ import ExitIcon from '../icons/ExitIcon.vue'
 import FileIcon from '../icons/FileIcon.vue'
 import DeleteIcon from '../icons/DeleteIcon.vue'
 import BetOfTheDay from '../components/BetOfTheDayEdit.vue'
-import Predictionpicks from '../components/PredictionpicksEdits.vue'
-import Freetips from '../components/FreetipsEdit.vue'
-import UpcomingGames from '../components/UpcomingGamesEdits.vue'
-import TennisGames from '../components/TennisGamesEdits.vue'
-import BasketballGames from '../components/BasketballEdit.vue'
+import Predictionpicks from '../components/predictionpicksedits.vue'
+import Freetips from '../components/freetipsedit.vue'
+import UpcomingGames from '../components/upcominggamesedits.vue'
+import TennisGames from '../components/tennisgamesedits.vue'
+import BasketballGames from '../components/basketballedit.vue'
 import VipGames from './VipGamesEdits.vue'
 
 const username = ref(null)
@@ -590,7 +590,7 @@ const getBetOfTheDay = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://predictions-server.onrender.com/predictions/bet/betOfTheDay/${currentDate.value}`
+      `https://tips90-server.onrender.com/predictions/bet/betOfTheDay/${currentDate.value}`
     )
     console.log(response.data)
     cardData.value = response.data.length > 0 ? [response.data] : []
@@ -602,7 +602,7 @@ const getBetOfTheDay = async () => {
 const getVipGames = async () => {
   try {
     const response = await axios.get(
-      `https://predictions-server.onrender.com/predictions/vipPredictions/vip/${currentDate.value}`
+      `https://tips90-server.onrender.com/predictions/vipPredictions/vip/${currentDate.value}`
     )
     console.log(response.data)
     vipData.value = response.data.length > 0 ? [response.data] : []
@@ -615,7 +615,7 @@ const getPredictions = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://predictions-server.onrender.com/predictions/${currentDate.value}`
+      `https://tips90-server.onrender.com/predictions/${currentDate.value}`
     )
     console.log(response.data)
     predictionData.value = response.data.length > 0 ? [response.data] : []
@@ -628,7 +628,7 @@ const getFreeTips = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://predictions-server.onrender.com/predictions/tips/freeTip/${currentDate.value}`
+      `https://tips90-server.onrender.com/predictions/tips/freeTip/${currentDate.value}`
     )
     console.log(response.data)
     freeTipData.value = response.data.length > 0 ? [response.data] : []
@@ -641,7 +641,7 @@ const getUpcoming = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://predictions-server.onrender.com/predictions/upcomingPredictions/upcoming/${currentDate.value}`
+      `https://tips90-server.onrender.com/predictions/upcomingPredictions/upcoming/${currentDate.value}`
     )
     console.log(response.data)
     upcomingData.value = response.data.length > 0 ? [response.data] : []
@@ -654,7 +654,7 @@ const getTennisBets = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://predictions-server.onrender.com/sports/sport/Tennis/${currentDate.value}`
+      `https://tips90-server.onrender.com/sports/sport/Tennis/${currentDate.value}`
     )
     console.log(response.data)
     tennisData.value = response.data.length > 0 ? [response.data] : []
@@ -667,7 +667,7 @@ const getBasketballBets = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://predictions-server.onrender.com/sports/sport/Basketball/${currentDate.value}`
+      `https://tips90-server.onrender.com/sports/sport/Basketball/${currentDate.value}`
     )
     console.log(response.data)
     basketBallData.value = response.data.length > 0 ? [response.data] : []
@@ -700,7 +700,7 @@ async function updateGame(teamAscore, teamBscore, showScore) {
   try {
     const token = JSON.parse(localStorage.getItem('token'))
     const response = await axios.put(
-      `https://predictions-server.onrender.com/predictions/update/${gameId.value}`,
+      `https://tips90-server.onrender.com/predictions/update/${gameId.value}`,
       { teamAscore, teamBscore, showScore },
       {
         headers: {
@@ -716,7 +716,7 @@ async function updateSport(teamAscore, teamBscore, showScore) {
   try {
     const token = JSON.parse(localStorage.getItem('token'))
     const response = await axios.put(
-      `https://predictions-server.onrender.com/sports/update/${sportId.value}`,
+      `https://tips90-server.onrender.com/sports/update/${sportId.value}`,
       { teamAscore, teamBscore, showScore },
       {
         headers: {
@@ -731,7 +731,7 @@ async function updateSport(teamAscore, teamBscore, showScore) {
 // const accountsData = async () => {
 //   try {
 //     const user = JSON.parse(localStorage.getItem('token'));
-//     const response = await axios.get(`https://predictions-server.onrender.com/auth`, {
+//     const response = await axios.get(`https://tips90-server.onrender.com/auth`, {
 //       headers: {
 //         Authorization: `Bearer ${user}`,
 //       },
@@ -796,7 +796,7 @@ const deletePrediction = async (id) => {
     const token = JSON.parse(localStorage.getItem('token'))
 
     const response = await axios.delete(
-      `https://predictions-server.onrender.com/predictions/delete/${id}`,
+      `https://tips90-server.onrender.com/predictions/delete/${id}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }
@@ -819,7 +819,7 @@ const deleteSport = async (id) => {
     const token = JSON.parse(localStorage.getItem('token'))
 
     const response = await axios.delete(
-      `https://predictions-server.onrender.com/sports/delete/${id}`,
+      `https://tips90-server.onrender.com/sports/delete/${id}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }

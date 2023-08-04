@@ -65,7 +65,7 @@ const url = ref('');
 
 async function getPrediction() {
   const token = JSON.parse(localStorage.getItem('token'));
-  url.value = `https://predictions-server.onrender.com/sports/sport/Tennis/${currentDate.value}`;
+  url.value = `https://tips90-server.onrender.com/sports/sport/Tennis/${currentDate.value}`;
   console.log(url.value);
 
   try {

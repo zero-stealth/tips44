@@ -116,7 +116,7 @@ const getPrediction = async () => {
 
   try {
     const response = await axios.get(
-      `https://predictions-server.onrender.com/predictions/vipPredictions/vip/${currentDate.value}`,
+      `https://tips90-server.onrender.com/predictions/vipPredictions/vip/${currentDate.value}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -135,7 +135,7 @@ const getAccountDetails = async () => {
   const id = localStorage.getItem('id')
 
   try {
-    const response = await axios.get(`https://predictions-server.onrender.com/auth/${id}`, {
+    const response = await axios.get(`https://tips90-server.onrender.com/auth/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

@@ -65,7 +65,7 @@ const reset = () => {
 const login = async () => {
   if (email.value !== '' && password.value !== '') {
     try {
-      const response = await axios.post('https://predictions-server.onrender.com/auth/login', {
+      const response = await axios.post('https://tips90-server.onrender.com/auth/login', {
         email: email.value,
         password: password.value
       });
@@ -110,7 +110,7 @@ const create = () => {
 const resetAuth = async () => {
   if (email.value !== '' && password.value !== '') {
     try {
-      const response = await axios.put('https://predictions-server.onrender.com/auth/reset', {
+      const response = await axios.put('https://tips90-server.onrender.com/auth/reset', {
         email: email.value,
         password: password.value
       })

@@ -136,7 +136,7 @@ const showLessNews = () => {
 
 const getNews = async () => {
   try {
-    const response = await axios.get('https://livescore-football.p.rapidapi.com/soccer/news-list', {
+    const response = await axios.get('https://tips90-server.onrender.com/soccer/news-list', {
       headers: {
         'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
         'X-RapidAPI-Host': import.meta.env.VITE_RAPIDAPI_HOST

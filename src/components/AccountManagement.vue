@@ -92,7 +92,7 @@ const message = ref();
 const accountsData = async () => {
   try {
     const user = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get(`https://predictions-server.onrender.com/auth`, {
+    const response = await axios.get(`https://tips90-server.onrender.com/auth`, {
       headers: {
         Authorization: `Bearer ${user}`,
       },
@@ -123,7 +123,7 @@ const accountData = computed(() => {
 const deleteAccount = async (id) => {
   try {
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.delete(`https://predictions-server.onrender.com/auth/delete/${id}`,{
+    const response = await axios.delete(`https://tips90-server.onrender.com/auth/delete/${id}`,{
       headers:{
         Authorization: `Bearer ${token}`
       }
@@ -188,7 +188,7 @@ async function toggleStatus(account) {
   account.status = !account.status;
 
   try {
-    const response = await axios.put(`https://predictions-server.onrender.com/auth/update/${account._id}`, {
+    const response = await axios.put(`https://tips90-server.onrender.com/auth/update/${account._id}`, {
       paid: account.status,
     });
 

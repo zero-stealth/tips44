@@ -68,7 +68,7 @@ async function getPrediction() {
 
   try {
     const response = await axios.get(
-      `https://predictions-server.onrender.com/sports/sport/Basketball/${currentDate.value}`,
+      `https://tips90-server.onrender.com/sports/sport/Basketball/${currentDate.value}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
