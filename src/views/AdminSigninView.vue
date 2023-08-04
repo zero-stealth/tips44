@@ -61,7 +61,7 @@ const reset = () => {
 const create = async () => {
   if (username.value !== '' && password.value !== '') {
     try {
-      const response = await axios.post('https://tips90-server.onrender.com/auth/register-admin', {
+      const response = await axios.post('https://predictions-reg9.onrender.com/auth/register-admin', {
         username: username.value,
         email: email.value,
         password: password.value,
