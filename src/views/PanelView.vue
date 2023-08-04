@@ -37,9 +37,14 @@
             <span> Prediction picks </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
-          <button @click="setActivePage(VipGames)" :class="getButtonClass(VipGames)">
+          <button @click="setActivePage(VipSupremeGames)" :class="getButtonClass(VipSupremeGames)">
             <VipIcon class="icon-panel" />
-            <span> vip prediction </span>
+            <span> Vip Supreme prediction </span>
+            <ArrowIcon class="icon-panel ap" />
+          </button>
+          <button @click="setActivePage(VipMegaGames)" :class="getButtonClass(VipMegaGames)">
+            <VipIcon class="icon-panel" />
+            <span> Vip Mega prediction </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
           <button @click="setActivePage(Freetips)" :class="getButtonClass(Freetips)">
@@ -105,13 +110,14 @@ const showMenu = () => {
 }
 // pages
 import AccountManagement from '../components/AccountManagement.vue'
+import VipSupremeGames from '../components/VipSupremeGames.vue'
 import GameManagement from '../components/GameManagement.vue'
 import BasketballGames from '../components/BasketballGames.vue'
 import Predictionpicks from '../components/Predictionpicks.vue'
 import Upcomingtips from '../components/UpcomingGames.vue'
+import VipMegaGames from '../components/VipMegaGames.vue'
 import TennisGames from '../components/TennisGames.vue'
 import BetOfTheDay from '../components/BetOfTheDay.vue'
-import VipGames from '../components/VipGames.vue'
 import Freetips from '../components/Freetips.vue'
 
 const activePage = shallowRef(AccountManagement)
