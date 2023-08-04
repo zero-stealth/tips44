@@ -1,5 +1,5 @@
 <template>
-
+    <important/>
   <div class="main-bet">
     <div class="main-header">
       <div class="header-info">

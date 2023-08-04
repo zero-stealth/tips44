@@ -3,9 +3,9 @@
     class="auth-container"
     :style="{
       backgroundImage: `linear-gradient(
-      110deg,
-      rgba(3, 30, 60, 0.8),
-      rgba(3, 30, 60, 0.7)
+      45deg,
+      rgb(75, 0, 129, 0.8),
+      rgb(75, 0, 129, 0.7)
     ), url(${SportBg})`
     }"
   >
@@ -52,7 +52,7 @@ const resetPage = ref(false)
 const router = useRouter()
 const username = ref('')
 const password = ref('')
-const title = ref('login')
+const title = ref('Login to your account')
 const errMsg = ref('')
 const email = ref('')
 
@@ -125,21 +125,6 @@ const resetAuth = async () => {
   }
 }
 
-const useGoogle = async () => {
-  try {
-    const response = await axios.get('https://predictions-server.onrender.com/auth/auth/google');
-
-    // Handle the response from the server
-    if (response.data.redirectTo) {
-      router.push({ path: response.data.redirectTo });
-    } else {
-      console.error('Invalid response from server');
-    }
-  } catch (error) {
-    // Handle the error
-    console.error(error);
-  }
-};
 
 </script>
 
