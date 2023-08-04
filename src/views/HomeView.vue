@@ -101,7 +101,7 @@ import OtherPackage from '../components/OtherPackage.vue'
 import UpcomingPicks from '../components/UpcomingPicks.vue'
 import HeroComponent from '../components/HeroComponent.vue'
 import OtherComponent from '../components/OtherComponent.vue'
-import important from '../components/importantcomponent.vue'
+import important from '../components/ImportantComponent.vue'
 
 const showMoreButton = ref(true);
 const maxNewsToShow = ref(3);
