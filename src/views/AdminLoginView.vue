@@ -23,13 +23,11 @@
         <input type="password" class="input-l" placeholder="Password" v-model="password" />
         <p>{{ errMsg }}</p>
         <button class="btn-f" type="submit">Reset</button>
-        <span @click="create">Create an account</span>
       </form>
       <span>or</span>
       <div class="l-alternatives">
-        <button class="alt-btn" @click="useGoogle">
-          <googleIcon class="alt-icon" />
-          Login with Google
+        <button class="alt-btn"  @click="create">
+        Create an account
         </button>
       </div>
     </div>
@@ -41,7 +39,6 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 import SportBg from '../assets/sport-bg.png'
-import googleIcon from '../icons/googleIcon.vue'
 
 const resetPage = ref(false)
 const router = useRouter()
@@ -53,7 +50,7 @@ const email = ref('')
 const login = async () => {
   if (email.value !== '' && password.value !== '') {
     try {
-      const response = await axios.post('https://predictions-reg9.onrender.com/auth/login', {
+      const response = await axios.post('https://tips90-server.onrender.com/auth/login', {
         email: email.value,
         password: password.value
       });
@@ -94,7 +91,7 @@ const create = () => {
 const resetAuth = async () => {
   if (email.value !== '' && password.value !== '') {
     try {
-      const response = await axios.post('https://predictions-reg9.onrender.com/auth/reset', {
+      const response = await axios.post('https://tips90-server.onrender.com/auth/reset', {
         email: email.value,
         password: password.value
       })
@@ -109,21 +106,7 @@ const resetAuth = async () => {
   }
 }
 
-const useGoogle = async () => {
-  try {
-    const response = await axios.get('https://tips90-server.onrender.com/auth/auth/google')
 
-    // Handle the response from the server
-    if (response.data.redirectTo) {
-      router.push({ path: response.data.redirectTo })
-    } else {
-      console.error('Invalid response from server')
-    }
-  } catch (error) {
-    // Handle the error
-    console.error(error)
-  }
-}
 </script>
 
 <style>

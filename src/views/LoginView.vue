@@ -26,17 +26,13 @@
         <input type="password" class="input-l" placeholder="Password" v-model="password" />
         <p>{{ errMsg }}</p>
         <button class="btn-f" type="submit">Reset</button>
-        <!-- <span @click="create">Create an account</span> -->
       </form>
       <span>or</span>
-      <span class="click-a" @click="create">Create an account</span>
-
-      <!-- <div class="l-alternatives">
-        <button class="alt-btn" @click="useGoogle">
-          <googleIcon class="alt-icon" />
-          Login with Google
+      <div class="l-alternatives">
+        <button class="alt-btn" @click="create">
+          Create an account
         </button>
-      </div> -->
+      </div>
 
     </div>
   </div>
@@ -45,7 +41,6 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import SportBg from '../assets/sport-bg.png'
-import googleIcon from '../icons/googleIcon.vue'
 import { useRouter } from 'vue-router'
 
 const resetPage = ref(false)

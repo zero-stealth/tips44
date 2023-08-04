@@ -21,13 +21,11 @@
         <input type="password" class="input-l" placeholder="Confirm password" v-model="confirmPassword" />
         <p>{{ errMsg }}</p>
         <button class="btn-f" type="submit">Sign up</button>
-        <span @click="login">Login</span>
       </form>
       <span>or</span>
       <div class="l-alternatives">
-        <button class="alt-btn" @click="useGoogle">
-          <google-icon class="alt-icon" />
-          Sign up with Google
+        <button class="alt-btn" @click="login">
+          Login
         </button>
       </div>
     </div>
@@ -39,7 +37,6 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 import SportBg from '../assets/sport-bg.png'
-import GoogleIcon from '../icons/googleIcon.vue'
 import countriesData from '../components/countries.json'
 
 const selectedCountry = ref('')
@@ -61,7 +58,7 @@ const reset = () => {
 const create = async () => {
   if (username.value !== '' && password.value !== '') {
     try {
-      const response = await axios.post('https://predictions-reg9.onrender.com/auth/register-admin', {
+      const response = await axios.post('https://tips90-server.onrender.com/auth/register-admin', {
         username: username.value,
         email: email.value,
         password: password.value,
@@ -85,19 +82,6 @@ const create = async () => {
   }
 }
 
-const useGoogle = async () => {
-  try {
-    const response = await axios.get('https://tips90-server.onrender.com/auth/auth/google')
-
-    // Handle the response from the server
-    // You may redirect the user to the returned URL or perform other operations based on the response
-    console.log(response.data)
-    router.push({ name: 'Home' })
-  } catch (error) {
-    // Handle the error
-    console.error(error)
-  }
-}
 
 const login = () => {
   router.push({ name: 'AdminLogin' })
