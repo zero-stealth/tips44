@@ -792,11 +792,11 @@ import FileIcon from '../icons/FileIcon.vue'
 import VipMega from './VipMegaGamesEdits.vue'
 import DeleteIcon from '../icons/DeleteIcon.vue'
 import Banker from '../components/BankerEdit.vue'
-import VipSupreme from './VipsupremeGamesEdits.vue'
+import VipSupreme from './VipSupremeGamesEdits.vue'
 import BetOfTheDay from '../components/BetOfTheDayEdit.vue'
-import TennisGames from '../components/tennisgamesedits.vue'
-import BasketballGames from '../components/basketballedit.vue'
-import UpcomingGames from '../components/upcominggamesedits.vue'
+import TennisGames from '../components/TennisGamesEdits.vue'
+import BasketballGames from '../components/BasketballEdit.vue'
+import UpcomingGames from '../components/UpcomingGamesEdits.vue'
 
 
 const username = ref(null)
