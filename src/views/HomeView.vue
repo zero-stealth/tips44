@@ -95,13 +95,13 @@ import axios from 'axios'
 import Arrow from '../icons/arrow.vue'
 import FreeExpertView from './FreeExpertView.vue'
 import NewsCard from '../components/NewsCard.vue'
-import Card from '../components/CardComponent.vue'
+import Card from '../components/cardcomponent.vue'
 import AboutComponent from '../components/aboutComponent.vue'
 import OtherPackage from '../components/OtherPackage.vue'
 import UpcomingPicks from '../components/UpcomingPicks.vue'
 import HeroComponent from '../components/HeroComponent.vue'
 import OtherComponent from '../components/OtherComponent.vue'
-import important from '../components/ImportantComponent.vue'
+import important from '../components/importantcomponent.vue'
 
 const showMoreButton = ref(true);
 const maxNewsToShow = ref(3);
@@ -159,7 +159,7 @@ const getPrediction = async () => {
   const token = JSON.parse(localStorage.getItem('token'))
   try {
     const response = await axios.get(
-      `https://predictions-server.onrender.com/predictions/tips/freeTip/${currentDate.value}`
+      `https://predictions-server.onrender.com/predictions/bankerPrediction/banker/${currentDate.value}`
     )
     cardData.value = response.data
   } catch (err) {

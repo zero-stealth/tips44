@@ -42,7 +42,7 @@
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import Card from '../components/CardComponent.vue';
+import Card from '../components/cardcomponent.vue';
 
 const router = useRouter();
 const currentDate = ref('');

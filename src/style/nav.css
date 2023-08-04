@@ -60,12 +60,18 @@
       flex-direction: column;
     }
 
+    .spc span {
+      color: var(--background-color);
+    }
+
+ 
+
     .drop-down {
       gap: 10px;
       display: flex;
       cursor: pointer;
       align-items: center;
-      color: var(--primary-color);
+      color: var(--background-color);
     }
 
     .drop-down:hover span {
@@ -83,6 +89,9 @@
       fill: var(--primary-color);
     }
 
+    .sp-dp {
+      fill: var(--background-color);
+    } 
     .drop-down-panel {
       top: 350px;
       display: flex;
@@ -105,11 +114,17 @@
       background-color: var(--background-color);
     }
 
+
     .drop-down-panel span {
       cursor: pointer;
       padding: 5px;
     }
+    
+    .spos-c{
+      top: 4px;
+      position: relative;
 
+    }
     .drp-down-panel span {
       cursor: pointer;
       padding: 5px;

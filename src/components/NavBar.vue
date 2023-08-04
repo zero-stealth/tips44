@@ -16,7 +16,7 @@
         <RouterLink :to="{ name: 'Hockey' }" class="nav-link"> Hockey </RouterLink>
         <div class="drop-container">
           <div class="drop-down" @click="showDrop()">
-            <span>Other Predictions</span>
+            <span>More Predictions</span>
             <ArrowIcon class="drop-icon" />
           </div>
           <div class="drop-down-panel" :class="[isDropOpen ? 'show' : 'hide']">
@@ -64,7 +64,7 @@
         <RouterLink :to="{ name: 'Home' }" @click="showMenu()" class="mobile-link">
           Home
         </RouterLink>
-        <div class="drop-container">
+        <div class="drop-container spc">
           <span @click="goTennis()" class="nav-link"> Tennis</span>
           <span @click="goHockey()" class="nav-link"> Hockey</span>
           <span @click="goBasketball()" class="nav-link">Basketball</span>
@@ -72,12 +72,12 @@
         </div>
         <div @click="openTelegramX" class="mobile-link">Telegram tips</div>
         <RouterLink :to="{ name: 'Banker' }" class="mobile-link"> Bet Of the day </RouterLink>
-        <div class="drop-container">
+        <div class="drop-container spos">
           <div class="drop-down" @click="showDrp()">
             <span>Prediction</span>
             <ArrowIcon class="drop-icon" />
           </div>
-          <div class="drop-down-panel" :class="[isDrpOpen == false ? 'hide' : 'show']">
+          <div class="drop-down-panel spos-c" :class="[isDrpOpen == false ? 'hide' : 'show']">
             <span @click="goTo('Double Chance')">Double chance</span>
             <span @click="goTo('Over 2.5 Goals')">Over 2.5 Goals</span>
             <span @click="goTo('Over 1.5 Goals')">Over 1.5 Goals</span>

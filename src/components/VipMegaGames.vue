@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="form-container-h">
-      <h1>Bet Of the day</h1>
+      <h1>Vip mega games</h1>
     </div>
     <form @submit.prevent="handleSubmit" enctype="multipart/form-data" class="form-container">
       <div class="form-wrapper">
@@ -144,8 +144,8 @@ async function handleSubmit() {
     teamBscore.value !== null &&
     time.value.trim() !== '' &&
     tip.value !== null &&
-    league.value !== null &&
-    date.value !== null 
+    date.value !== null &&
+    league.value !== null 
   ) {
     const user = JSON.parse(localStorage.getItem('token'));
     try {
@@ -164,11 +164,11 @@ async function handleSubmit() {
       formData.append('time', time.value);
       formData.append('category', category.value)
       formData.append('league', league.value);
-      formData.append('date', date.value);
+      formData.append('date', date.value)
       formData.append('tip', tip.value);
 
       const response = await axios.post(
-        'https://tips90-server.onrender.com/predictions/create/banker-predictions/banker',
+        'https://tips90-server.onrender.com/predictions/create/mega/vipMega',
         formData,
         {
           headers: {

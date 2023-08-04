@@ -55,9 +55,9 @@
 import axios from 'axios'
 import Arrow from '../icons/arrow.vue'
 import { ref, onMounted, watch } from 'vue'
-import Card from '../components/CardComponent.vue'
+import Card from '../components/cardcomponent.vue'
 import OtherPackage from '../components/OtherPackage.vue'
-import important from '../components/ImportantComponent.vue'
+import important from '../components/importantcomponent.vue'
 
 const upcomingDates = ref('')
 const currentDate = ref('')

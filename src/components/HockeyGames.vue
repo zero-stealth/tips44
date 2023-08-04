@@ -1,22 +1,22 @@
 <template>
   <div>
     <div class="form-container-h">
-      <h1>Bet Of the day</h1>
+      <h1>Hockey</h1>
     </div>
     <form @submit.prevent="handleSubmit" enctype="multipart/form-data" class="form-container">
       <div class="form-wrapper">
         <h1>Team A</h1>
         <div class="form-group">
           <label for="teamA">Name:</label>
-          <input v-model="teamA" type="text" class="form-g-input" placeholder="Manchester" id="teamA" />
+          <input v-model="teamA" type="text" class="form-g-input" placeholder="serena" id="teamA" />
         </div>
         <div class="form-group">
-          <label for="teamAIcon">Logo:</label>
+          <label for="teamAIcon">Player image:</label>
           <input @change="handleTeamALogo" type="file" class="form-g-input" id="teamAIcon" accept="image/*" />
         </div>
         <div class="form-group">
           <label for="formationA">Form:</label>
-          <input v-model="formationA" type="text" class="form-g-input" placeholder="l-w-d-w" id="formationA" />
+          <input v-model="formationA" type="text" class="form-g-input" placeholder="l-w-l-w" id="formationA" />
         </div>
         <div class="form-group">
           <label for="teamAPosition">Position:</label>
@@ -48,32 +48,21 @@
           <label for="date">Match Date:</label>
           <input v-model="date" type="text" class="form-g-input" placeholder="03-06-2023" id="date" />
         </div>
-        <div class="form-group">
-          <label for="status">Match category:</label>
-          <select v-model="category" class="form-g-input" id="status">
-            <option disabled value="">Choose category</option>
-            <option value="Double Chance">Double Chance</option>
-            <option value="Over 2.5 Goals">Over 2.5 Goals</option>
-            <option value="Over 1.5 Goals">Over 1.5 Goals</option>
-            <option value="Both Teams To Score">Both Team To Score</option>
-            <option value="Under 2.5 Goals">Under 2.5 Goals</option>
-          </select>
-        </div>
         <button type="submit" class="btn-f-f f-desktop">Submit</button>
       </div>
       <div class="form-wrapper">
         <h1>Team B</h1>
         <div class="form-group">
           <label for="teamB">Name:</label>
-          <input v-model="teamB" type="text" class="form-g-input" placeholder="Arsenal" id="teamB" />
+          <input v-model="teamB" type="text" class="form-g-input" placeholder="william" id="teamB" />
         </div>
         <div class="form-group">
-          <label for="teamBIcon">Logo:</label>
+          <label for="teamBIcon">Player image:</label>
           <input @change="handleTeamBLogo" type="file" class="form-g-input" id="teamBIcon" accept="image/*" />
         </div>
         <div class="form-group">
           <label for="formationB">Form:</label>
-          <input v-model="formationB" type="text" class="form-g-input" placeholder="l-w-d-w" id="formationB" />
+          <input v-model="formationB" type="text" class="form-g-input" placeholder="l-w-l-w" id="formationB" />
         </div>
         <div class="form-group">
           <label for="teamBPosition">Position:</label>
@@ -103,11 +92,10 @@ const formationB = ref('l-d-w-d');
 const teamAPosition = ref('');
 const teamBPosition = ref('');
 const time = ref('');
-const category = ref('')
 const league = ref('');
+const date = ref('');
 const teamAscore = ref(0);
 const teamBscore = ref(0);
-const date = ref('');
 const tip = ref('');
 
 function handleFileUpload(event, targetRef) {
@@ -144,8 +132,8 @@ async function handleSubmit() {
     teamBscore.value !== null &&
     time.value.trim() !== '' &&
     tip.value !== null &&
-    league.value !== null &&
-    date.value !== null 
+    date.value !== null &&
+    league.value !== null 
   ) {
     const user = JSON.parse(localStorage.getItem('token'));
     try {
@@ -162,13 +150,12 @@ async function handleSubmit() {
       formData.append('teamBPosition', teamBPosition.value);
       formData.append('teamBscore', teamBscore.value);
       formData.append('time', time.value);
-      formData.append('category', category.value)
       formData.append('league', league.value);
-      formData.append('date', date.value);
+      formData.append('date', date.value)
       formData.append('tip', tip.value);
 
       const response = await axios.post(
-        'https://tips90-server.onrender.com/predictions/create/banker-predictions/banker',
+        'https://tips90-server.onrender.com/sports/create/Hockey',
         formData,
         {
           headers: {

@@ -55,9 +55,9 @@
 import axios from 'axios';
 import { ref, onMounted, watch } from 'vue';
 import Arrow from '../icons/arrow.vue';
-import Card from '../components/CardComponent.vue';
+import Card from '../components/cardcomponent.vue';
 import OtherPackage from '../components/OtherPackage.vue'
-import important from '../components/ImportantComponent.vue'
+import important from '../components/importantcomponent.vue'
 
 const currentDate = ref('');
 const cardData = ref([]);
@@ -65,7 +65,7 @@ const url = ref('');
 
 async function getPrediction() {
   const token = JSON.parse(localStorage.getItem('token'));
-  url.value = `https://tips90-server.onrender.com/sports/sport/Tennis/${currentDate.value}`;
+  url.value = `https://tips90-server.onrender.com/sports/sport/hockey/${currentDate.value}`;
   console.log(url.value);
 
   try {

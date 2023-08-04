@@ -61,7 +61,7 @@ const cardData = ref([])
 const predictions = async () => {
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/tips/freeTip/${currentDate.value}`
+      `https://tips90-server.onrender.com/predictions/free-expert/expert/${currentDate.value}`
     )
     cardData.value = response.data
   } catch (err) {
