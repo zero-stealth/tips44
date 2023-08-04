@@ -26,17 +26,13 @@
         <button class="btn-f" type="submit">Sign up</button>
         <span @click="login">Login</span>
       </form>
-      <span>or</span>
-      <div class="l-alternatives">
+      <!-- <span>or</span> -->
+      <!-- <div class="l-alternatives">
         <button class="alt-btn" @click="useGoogle">
           <google-icon class="alt-icon" />
           Sign up with Google
         </button>
-        <button class="alt-btn" @click="useGuest">
-          <guest-icon class="alt-icon" />
-          Sign up as a Guest
-        </button>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -46,7 +42,6 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 import SportBg from '../assets/sport-bg.png'
-import GuestIcon from '../icons/profileIcon.vue'
 import GoogleIcon from '../icons/googleIcon.vue'
 import countriesData from '../components/countries.json'
 
@@ -79,15 +74,18 @@ const create = async () => {
       })
       const token = response.data.token
       const isPaid = response.data.paid
+      const id = response.data._id
       localStorage.setItem('token', token)
-      localStorage.setItem('isPaid', isPaid)
-      console.log(response.data) // Handle the response data as needed
+      localStorage.setItem('paid', isPaid)
+      localStorage.setItem('id', id)
       router.push({ name: 'Vip' })
     } catch (error) {
-      console.error(error)
+      errMsg.value = 'Invalid email or password';
+      alert(errMsg.value)
     }
   } else {
     errMsg.value = 'Write something'
+    alert(errMsg.value)
     reset()
   }
 }
@@ -98,16 +96,12 @@ const useGoogle = async () => {
 
     // Handle the response from the server
     // You may redirect the user to the returned URL or perform other operations based on the response
-    console.log(response.data)
     router.push({ name: 'Home' })
   } catch (error) {
     // Handle the error
-    console.error(error)
+    errMsg.value = error;
+    alert(errMsg.value)
   }
-}
-
-const useGuest = () => {
-  router.push({ name: 'Home' })
 }
 
 const login = () => {

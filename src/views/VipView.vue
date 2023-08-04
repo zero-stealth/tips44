@@ -1,19 +1,27 @@
 <template>
   <div class="vip-container">
     <div class="vip-wrapper">
-      <div class="vip-notpaid" v-if="!isPaid">
-        <h1>Your VIP account is inactive 🌵</h1>
-        <button class="vip-btn" @click="goLogin()" v-if="!username">
-          <ProfileIcon class="vip-pay-icon" />
-          Log in
-        </button>
-        <button class="vip-btn" @click="PayPage()" v-else>
-          <MoneyIcon class="vip-pay-icon" />
-          Pay to activate
-        </button>
+      <div class="vip-notpaid" v-if="!paid">
+        <div v-if="!username" class="vip-p">
+          <h1>Must be logged in or  sign in to view</h1>
+        <div class="vip-sp">
+          <button class="vip-btn" @click="goSignin()">
+            Sign in
+          </button>
+          <button class="vip-btn" @click="goLogin()">
+            Log in
+          </button>
+        </div>
+        </div>
+        <div class="vip-p" v-else>
+          <h1>Your VIP account is in not activated 🌵</h1>
+          <button class="vip-btn" @click="payPage()">
+            pay to activate
+          </button>
+        </div>
       </div>
       <div v-else>
-        <div class="main-header">
+        <div class="main-header vip-m">
           <div class="header-info">
             <h1>VIP tips {{ currentDate }}</h1>
           </div>
@@ -23,13 +31,13 @@
               Previous
             </button>
             <button class="btn-h" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-              Next
               <Arrow class="btn-icon icon-right" />
+              Next
             </button>
           </div>
         </div>
-        <template v-if="isPaid && cardData.length > 0">
-          <div class="main-h-card">
+        <template  v-if="paid && username && cardData.length > 0">
+          <div class="main-h-card booom-h">
             <Card
               v-for="(card, index) in cardData"
               :key="card._id"
@@ -51,7 +59,7 @@
             />
           </div>
         </template>
-        <template v-else-if="isPaid && cardData.length === 0">
+        <template v-else-if="paid && username && cardData.length === 0">
           <div class="home-freetip">
             <h1>No predictions yet! Check back later.</h1>
           </div>
@@ -63,26 +71,23 @@
 
 <script setup>
 import axios from 'axios'
-import Arrow from '@/icons/arrow.vue'
+import Arrow from '../icons/arrow.vue'
 import { useRouter } from 'vue-router'
-import MoneyIcon from '../icons/payIcon.vue'
 import Card from '../components/CardComponent.vue'
-import ProfileIcon from '../icons/profileIcon.vue'
-import { ref, onMounted, watchEffect, watch } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
-const isPaid = ref(false)
 const router = useRouter()
 const username = ref(null)
-const isAdmin = ref(false)
 const cardData = ref([])
 const currentDate = ref('')
+const paid = ref(false)
 const offset = ref(0)
 
+console.log(paid.value)
 const updateAuthStatus = () => {
-  const token = localStorage.getItem('token')
-  isPaid.value = token && localStorage.getItem('paid') === 'true'
+  const token = JSON.parse(localStorage.getItem('token'))
+
   username.value = localStorage.getItem('username')
-  isAdmin.value = localStorage.getItem('admin')
 
   // Clear cardData if token does not exist
   if (!token) {
@@ -90,8 +95,12 @@ const updateAuthStatus = () => {
   }
 }
 
-const PayPage = () => {
+const payPage = () => {
   router.push({ name: 'Pay' })
+}
+
+const goSignin = () => {
+  router.push({ name: 'Signin' })
 }
 
 const goLogin = () => {
@@ -102,12 +111,12 @@ const showCard = (cardID) => {
   router.push({ name: 'Tips', params: { id: cardID } })
 }
 
-async function getPrediction() {
+const getPrediction = async () => {
   const token = JSON.parse(localStorage.getItem('token'))
 
   try {
     const response = await axios.get(
-      `https://predictions-server.onrender.com/predictions/vipPredictions/vip/${vipName.value}/${currentDate.value}`,
+      `https://predictions-server.onrender.com/predictions/vipPredictions/vip/${currentDate.value}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -121,9 +130,30 @@ async function getPrediction() {
   }
 }
 
+const getAccountDetails = async () => {
+  const token = JSON.parse(localStorage.getItem('token'))
+  const id = localStorage.getItem('id')
+
+  try {
+    const response = await axios.get(`https://predictions-server.onrender.com/auth/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    // console.log(response.data)
+    username.value = response.data.username
+    paid.value = response.data.paid
+    // console.log(response.data.paid)
+    localStorage.setItem('paid', paid.value)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 onMounted(() => {
   getPrediction()
   updateAuthStatus()
+  getAccountDetails()
 })
 
 const previousDay = () => {
@@ -157,16 +187,14 @@ const formatFormation = (formation) => {
   return []
 }
 
-watch(currentDate, () => {
-  getPrediction()
-})
 
-watchEffect(() => {
+watch([offset, username, paid], () => {
   updateAuthStatus()
+  getPrediction()
 })
 </script>
 
-<style>
+<style scoped>
 @import '../style/vip.css';
 @import '../style/Home.css';
 </style>

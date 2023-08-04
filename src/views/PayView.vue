@@ -1,16 +1,21 @@
 <script setup>
 import countriesData from '../components/countries.json'
 import MoneyIcon from '../icons/payIcon.vue'
-import { useRoute } from 'vue-router'
+import { useRoute,useRouter } from 'vue-router'
 import { ref, computed } from 'vue'
 
 const route = useRoute()
+const router = useRouter()
 const Selectedcountry = ref('')
 const sport = ref('')
 const reveal = ref('')
 const errMsg = ref('')
 const searchTerm = ref('')
 const routeParamName = route.params.vipName
+
+const goVip = () => {
+  router.push({ name: 'Vip' })
+}
 
 const showPayment = () => {
   if (Selectedcountry.value === '' && sport.value === '') {
@@ -53,6 +58,7 @@ const filteredCountries = computed(() => {
 
 <template>
   <div class="pay-monitor" v-if="routeParamName == 'SUPREME 2+'">
+    {{ routeParamName }}
     <div class="desknav-layout">
       <desktopNav class="desk-show" />
     </div>
@@ -76,7 +82,7 @@ const filteredCountries = computed(() => {
       <div class="pay-title">
         <span></span>
         <MoneyIcon class="icon-pay" />
-        <span>Subscribe to VIP plan</span>
+        <h1>Subscribe to VIP plan or <span @click="goVip" > Go to Vip</span></h1> 
       </div>
       <div class="pay-main">
         <div class="sport-s-contain">
@@ -442,7 +448,7 @@ const filteredCountries = computed(() => {
       <div class="pay-title">
         <span></span>
         <MoneyIcon class="icon-pay" />
-        <span>Subscribe to VIP plan</span>
+        <h1>Subscribe to VIP plan or <span @click="goVip" > Go to Vip</span></h1> 
       </div>
       <div class="pay-main">
         <div class="sport-s-contain">

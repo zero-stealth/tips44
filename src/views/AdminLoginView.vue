@@ -56,36 +56,32 @@ const login = async () => {
       const response = await axios.post('https://predictions-server.onrender.com/auth/login', {
         email: email.value,
         password: password.value
-      })
-      console.log(response.data) // Handle the response data as needed
-      const isAdmin = response.data.isAdmin
-      if (isAdmin) {
-        const token = response.data.token
-        const admin = response.data.isAdmin
-        const paid = response.data.paid
-        const adminusername = response.data.username
+      });
 
-        localStorage.setItem('admin', admin)
-        localStorage.setItem('username', adminusername)
-        localStorage.setItem('token', JSON.stringify(token))
-        localStorage.setItem('paid', paid)
+      console.log(response.data); 
+      
+      const token = response.data.token;
+      if (token) {
+        const isAdmin = response.data.isAdmin;
+        const adminusername = response.data.username;
 
-        router.push({ name: 'Panel' })
+        localStorage.setItem('admin', isAdmin);
+        localStorage.setItem('username', adminusername);
+        localStorage.setItem('token', JSON.stringify(token));
+
+        router.push({ name: 'Panel' });
       } else {
-        errMsg.value = 'Invalid admin credentials'
-        alert(errMsg.value)
+        errMsg.value = 'Invalid email or password';
       }
     } catch (error) {
-      console.error(error)
+      console.error(error);
+      errMsg.value = 'Login failed. Please check your email and password.';
     }
   } else {
-    errMsg.value = 'Write something'
-    alert(errMsg.value)
-
-    reset()
+    errMsg.value = 'Please enter your email and password.';
+    alert(errMsg.value);
   }
-}
-
+};
 const forgot = () => {
   title.value = 'Reset Your Account'
   resetPage.value = !resetPage.value

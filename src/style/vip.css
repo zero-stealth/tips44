@@ -8,7 +8,9 @@
   .vip-wrapper {
     height: 100%;
     display: flex;
+    background-size: cover;
     flex-direction: column;
+    background-repeat: no-repeat;
   }
 
   .vip-notpaid {
@@ -18,12 +20,14 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    background-size: cover;
   }
 
   .vip-notpaid h1 {
     font-size: 1.1rem;
     text-align: center;
     text-transform: uppercase;
+    color: var(--background-color);
   }
 
   .vip-btn {
@@ -51,10 +55,27 @@
   .vip-btn:hover .vip-pay-icon {
     fill: var(--background-color);
   }
+
+
+  .vip-p {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .vip-p h1 {
+    color: var(--secondary-color);
+  }
+
+  .vip-sp {
+    gap: 10px;
+    display: flex;
+  }
 }
 /* using it as global style for larger devices  */
 @media only screen and (min-width: 48em) {
-  .vip-wrapper {
-    padding: 10px;
+  .vip-m {
+    margin: 10px;
   }
 }

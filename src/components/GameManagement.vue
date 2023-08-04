@@ -1,7 +1,7 @@
 5<template>
   <div class="Account-container">
     <div class="Account-header">
-      <h1><span>Welcome</span><br />{{ username }},</h1>
+      <h1><span>Welcome</span><br />tips90prediction</h1>
     </div>
     <div class="Account-game-p">
       <!-- loop this  -->
@@ -11,8 +11,8 @@
             <h1>Bet of the day  ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h" :class="{ 'active-btn': offset === -1 }" @click="setOffset(-1)">
-              Yesterday
+            <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+              previous
             </button>
             <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
@@ -86,11 +86,11 @@
       <div class="acc-m gm-m">
         <div class="main-header">
           <div class="header-info">
-            <h1>Prediction picks ({{ currentDate }})</h1>
+            <h1>Prediction Tips ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h" :class="{ 'active-btn': offset === -1 }" @click="setOffset(-1)">
-              Yesterday
+            <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+              previous
             </button>
             <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
@@ -130,7 +130,7 @@
               <td>
                 <div class="Account-tbl-img">
                   <img :src="data.teamBIcon" alt="Account-p" class="Account-pi" />
-                  <span>{{ data.teamA }}</span>
+                  <span>{{ data.teamB }}</span>
                 </div>
               </td>
               <td>
@@ -166,8 +166,8 @@
             <h1>Free tips ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h" :class="{ 'active-btn': offset === -1 }" @click="setOffset(-1)">
-              Yesterday
+             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+              previous
             </button>
             <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
@@ -243,8 +243,8 @@
             <h1>Upcoming games ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h" :class="{ 'active-btn': offset === -1 }" @click="setOffset(-1)">
-              Yesterday
+             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+              previous
             </button>
             <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
@@ -320,8 +320,8 @@
             <h1>Vip games ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h" :class="{ 'active-btn': offset === -1 }" @click="setOffset(-1)">
-              Yesterday
+             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+              previous
             </button>
             <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
@@ -397,8 +397,8 @@
             <h1>Tennis bets ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h" :class="{ 'active-btn': offset === -1 }" @click="setOffset(-1)">
-              Yesterday
+             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+              previous
             </button>
             <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
@@ -473,8 +473,8 @@
             <h1>Basketball bets ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h" :class="{ 'active-btn': offset === -1 }" @click="setOffset(-1)">
-              Yesterday
+             <button class="btn-h"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+              previous
             </button>
             <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
@@ -747,10 +747,17 @@ async function updateSport(teamAscore, teamBscore, showScore) {
 //   }
 // };
 
+
+
 const setOffset = (value) => {
   offset.value = value
   updateCurrentDate()
 }
+
+const previousDay = () => {
+  offset.value--;
+  updateCurrentDate();
+};
 
 const getFormattedDate = (offset) => {
   const today = new Date()
@@ -801,9 +808,10 @@ const deletePrediction = async (id) => {
     await getBetOfTheDay()
     await getVipGames()
   } catch (err) {
-    message.value = err.message
+    message.value = 'deletion failed'
   }
-  alert(message.value)
+  alert("deleted")
+
 }
 
 const deleteSport = async (id) => {
@@ -820,9 +828,9 @@ const deleteSport = async (id) => {
     await getTennisBets()
     await getBasketballBets()
   } catch (err) {
-    message.value = err.message
+    message.value = 'deletion failed'
   }
-  alert(message.value)
+  alert("deleted")
 }
 const showscore = ref(localStorage.getItem('showscore') === 'true')
 

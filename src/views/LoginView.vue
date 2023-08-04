@@ -17,21 +17,27 @@
         <p>{{ errMsg }}</p>
         <button class="btn-f" type="submit">Login</button>
         <span @click="forgot">Forgot password</span>
+        <!-- <span>or</span> -->
+     
+        <!-- <span @click="create">Create an account</span> -->
       </form>
       <form @submit.prevent="resetAuth" class="l-form" v-else>
         <input type="email" class="input-l" placeholder="Email Address" v-model="email" />
         <input type="password" class="input-l" placeholder="Password" v-model="password" />
         <p>{{ errMsg }}</p>
         <button class="btn-f" type="submit">Reset</button>
-        <span @click="create">Create an account</span>
+        <!-- <span @click="create">Create an account</span> -->
       </form>
       <span>or</span>
-      <div class="l-alternatives">
+      <span class="click-a" @click="create">Create an account</span>
+
+      <!-- <div class="l-alternatives">
         <button class="alt-btn" @click="useGoogle">
           <googleIcon class="alt-icon" />
           Login with Google
         </button>
-      </div>
+      </div> -->
+
     </div>
   </div>
 </template>
@@ -62,27 +68,38 @@ const login = async () => {
       const response = await axios.post('https://predictions-server.onrender.com/auth/login', {
         email: email.value,
         password: password.value
-      })
-      console.log(response.data) // Handle the response data as needed
-      const isPaid = response.data.paid
-      const token = response.data.token
-      const username = response.data.username
+      });
 
-      localStorage.setItem('username', username)
-      localStorage.setItem('token', JSON.stringify(token))
-      localStorage.setItem('isPaid', isPaid)
-      router.push({ name: 'Vip' })
+      const responseData = response.data;
+
+      const token = responseData.token;
+      if (token) {
+        const isPaid = responseData.paid;
+        const token = responseData.token;
+        const username = responseData.username;
+        const id = responseData._id;
+
+        localStorage.setItem('username', username);
+        localStorage.setItem('token', JSON.stringify(token));
+        localStorage.setItem('paid', isPaid);
+        localStorage.setItem('id', id);
+
+        router.push({ name: 'Vip' });
+      } else {
+        errMsg.value = 'Invalid email or password';
+      }
     } catch (error) {
-      console.error(error)
+      errMsg.value = 'Login failed. Please check your email and password.';
     }
   } else {
-    errMsg.value = 'Write something'
-    reset()
+    errMsg.value = 'Please enter your email and password.';
+    alert(errMsg.value);
+    reset();
   }
-}
+};
 
 const forgot = () => {
-  title.value = 'reset your account'
+  title.value = 'Reset your account'
   resetPage.value = !resetPage.value
 }
 
@@ -124,9 +141,6 @@ const useGoogle = async () => {
   }
 };
 
-const useGuest = () => {
-  router.push({ name: 'Home' })
-}
 </script>
 
 <style>
