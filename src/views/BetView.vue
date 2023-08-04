@@ -50,7 +50,7 @@
 </template>
 
 <script setup>
-import important from '../components/importantcomponent.vue'
+import important from '../components/ImportantComponent.vue'
 import OtherPackage from '../components/OtherPackage.vue'
 import Card from '../components/CardComponent.vue'
 import { ref, watchEffect, onMounted } from 'vue'
