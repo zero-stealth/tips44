@@ -1,7 +1,7 @@
 <template>
   <div class="abt-info-p">
     <div class="abt-p-in">
-      <h1>Tips90predict the leading provider of sports analysis and predictions.</h1>
+      <h1>Tips90predict the industry's premier source for sports analysis and predictions.</h1>
       <p>
         At Tips90predict our main emphasy is providing you with a detailed analysis and prediction
         of football ,basketball,hockey and tennis among other games.Our analysis is based on
@@ -11,7 +11,7 @@
       </p>
     </div>
     <div class="abt-p-in">
-      <h1>Why Choose Tips90predict?</h1>
+      <h1>Tips90predict Stand Out ?</h1>
       <p>
         Our diligent team invests considerable time and effort to create well researched and
         accurate sports predictions. These predictions are formulated by thoroughly analyzing
@@ -22,7 +22,7 @@
       </p>
     </div>
     <div class="abt-p-in">
-      <h1>The Significance of Following Prediction Website.</h1>
+      <h1>The Importance of Using Prediction Websites.</h1>
       <p>
         Tips90predict website is significant as it helps users make informed betting decisions by
         providing predictions and insights on sports events. It saves time and effort by offering
@@ -35,7 +35,7 @@
       </p>
     </div>
     <div class="abt-p-in">
-      <h1>Betting Prediction Website Benefits.</h1>
+      <h1>Advantages of Using A Betting Prediction Website.</h1>
       <p>
         A betting prediction website can be of significant importance for individuals involved in
         sports betting or gambling. Here are some reasons why such a website holds value:
@@ -66,7 +66,7 @@
       </p>
     </div>
     <div class="abt-p-in">
-      <h1>How to stake from our website</h1>
+      <h1>How to place bets from our website</h1>
       <p>
         We strongly discourage placing all your money on every game listed on our platform within a
         single betting slip. Instead, we recommend focusing on 1 to 3 games per bet slip. This
