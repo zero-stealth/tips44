@@ -112,7 +112,7 @@ const showMenu = () => {
 import AccountManagement from '../components/AccountManagement.vue'
 import VipSupremeGames from '../components/VipSupremeGames.vue'
 import GameManagement from '../components/GameManagement.vue'
-import BasketballGames from '../components/BasketballGames.vue'
+import BasketballGames from '../components/basketballgames.vue'
 import Predictionpicks from '../components/Predictionpicks.vue'
 import Upcomingtips from '../components/UpcomingGames.vue'
 import VipMegaGames from '../components/VipMegaGames.vue'
