@@ -3,7 +3,7 @@
     <div class="form-container-h">
       <h1>Banker of the day</h1>
     </div>
-    <form @submit.prevent="handleSubmit" enctype="multipart/form-data" class="form-container">
+    <form @submit.prevent="handleSubmit" class="form-container">
       <div class="form-wrapper">
         <h1>Team A</h1>
         <div class="form-group">
