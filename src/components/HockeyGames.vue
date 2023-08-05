@@ -115,21 +115,21 @@ async function handleSubmit() {
   if (
     category.value.trim() !== '' &&
     teamA.value.trim() !== '' &&
-    teamAscore.value !== null &&
+    teamAscore.value !== 0 &&
     teamB.value.trim() !== '' &&
-    teamBscore.value !== null &&
+    teamBscore.value !== 0 &&
     time.value.trim() !== '' &&
-    tip.value !== null &&
-    date.value !== null &&
-    league.value !== null
+    tip.value !== '' &&
+    date.value !== '' &&
+    league.value !== ''
   ) {
     const user = JSON.parse(localStorage.getItem('token'))
     try {
       const response = await axios.post(
         'https://tips90-server.onrender.com/sports/create/Hockey',
         {
-          teamAcore: teamAscore.value,
-          teamBcore: teamBscore.value,
+          teamAscore: teamAscore.value,
+          teamBscore: teamBscore.value,
           category: category.value,
           league: league.value,
           teamB: teamB.value,
@@ -147,7 +147,7 @@ async function handleSubmit() {
       alert('game posted')
     } catch (err) {
       console.log(err)
-      alert('No empty fields allowed')
+      alert('Post Error')
     }
   } else {
     alert('No empty fields allowed')
