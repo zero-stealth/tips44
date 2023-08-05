@@ -27,7 +27,7 @@
   padding: 10px;
   border-radius: 12px;
   flex-direction: column;
-  color: var(--light-color);
+  color: var(--background-color);
   background-color: var(--dark-primary-color);
 }
 

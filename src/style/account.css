@@ -233,7 +233,7 @@
   overflow: hidden;
   overflow-y: auto;
   flex-direction: column;
-  background-color: var(--light-primary-color);
+  background-color: var(--primary-color);
 }
 
 .mobile-exit {

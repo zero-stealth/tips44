@@ -122,13 +122,11 @@
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamAIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamBIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -199,13 +197,11 @@
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamAIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamBIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -426,13 +422,11 @@
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamAIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamBIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -502,13 +496,11 @@
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamAIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamBIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -579,13 +571,11 @@
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamAIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamBIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -655,13 +645,11 @@
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamAIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamBIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -731,13 +719,11 @@
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamAIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
                 <div class="Account-tbl-img">
-                  <img :src="data.teamBIcon" alt="Account-p" class="Account-pi" />
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -835,7 +821,7 @@ const getBanker = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://predictions-server.onrender.com/predictions/bankerPrediction/banker/${currentDate.value}`
+      `https://tips90-server.onrender.com/predictions/bankerPrediction/banker/${currentDate.value}`
     )
     console.log(response.data)
     BankerData.value = response.data.length > 0 ? [response.data] : []
@@ -949,7 +935,7 @@ const getHockeyBets = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://tips90-server.onrender.com/sports/sport/hockey/${currentDate.value}`
+      `https://tips90-server.onrender.com/sports/sport/Hockey/${currentDate.value}`
     )
     console.log(response.data)
     hockeyData.value = response.data.length > 0 ? [response.data] : []
@@ -965,7 +951,7 @@ const getBasketballBets = async () => {
     const response = await axios.get(
       `https://tips90-server.onrender.com/sports/sport/Basketball/${currentDate.value}`
     )
-    console.log(response.data)
+    console.log(response.data)  
     basketBallData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
