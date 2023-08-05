@@ -57,9 +57,9 @@
             <span> Vip Mega prediction </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
-          <button @click="setActivePage(Freetips)" :class="getButtonClass(Freetips)">
+          <button @click="setActivePage(Daily)" :class="getButtonClass(Daily)">
             <FileIcon class="icon-panel" />
-            <span> Free tips </span>
+            <span> Daily 10+ </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
           <button @click="setActivePage(Upcomingtips)" :class="getButtonClass(Upcomingtips)">
@@ -75,6 +75,11 @@
           <button @click="setActivePage(TennisGames)" :class="getButtonClass(TennisGames)">
             <tennisIcon class="icon-panel" />
             <span>Tennis </span>
+            <ArrowIcon class="icon-panel ap" />
+          </button>
+          <button @click="setActivePage(HockeyGames)" :class="getButtonClass(HockeyGames)">
+            <hockeyicon class="icon-panel" />
+            <span>Hockey </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
           <button @click="logout" :class="getButtonClass(logout)">
@@ -97,6 +102,7 @@
 import basketballIcon from '../icons/basketballIcon.vue'
 import { ref , watchEffect , shallowRef} from 'vue'
 import tennisIcon from '../icons/tennisIcon.vue'
+import hockeyicon from '../icons/hockeyicon.vue'
 import LogoutIcon from '../icons/logoutIcon.vue'
 import GroupIcon from '../icons/GroupIcon.vue'
 import ArrowIcon from '../icons/ArrowIcon.vue'
@@ -127,10 +133,11 @@ import Predictionpicks from '../components/Predictionpicks.vue'
 import Upcomingtips from '../components/UpcomingGames.vue'
 import VipMegaGames from '../components/VipMegaGames.vue'
 import TennisGames from '../components/TennisGames.vue'
+import HockeyGames from '../components/HockeyGames.vue'
 import BetOfTheDay from '../components/BetOfTheDay.vue'
 import BankerView from '../components/BankerView.vue'
 import FreeExpert from '../components/FreeExpert.vue'
-import Freetips from '../components/Freetips.vue'
+import Daily from '../components/Daily.vue'
 
 const activePage = shallowRef(AccountManagement)
 

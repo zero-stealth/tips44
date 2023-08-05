@@ -116,9 +116,9 @@ async function handleSubmit() {
     category.value.trim() !== '' &&
     teamA.value.trim() !== '' &&
     teamAscore.value !== 0 &&
+    teamAscore.value !== null &&
     teamB.value.trim() !== '' &&
-    teamBscore.value !== 0 &&
-    time.value.trim() !== '' &&
+    teamBscore.value !== null &&
     tip.value !== '' &&
     date.value !== '' &&
     league.value !== ''
