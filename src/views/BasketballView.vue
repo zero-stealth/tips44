@@ -22,20 +22,22 @@
           <table class="main-table">
             <thead>
               <tr>
-                <th v-show="showScore">Time</th>
+                <th>Time</th>
                 <th>League</th>
                 <th>Match</th>
                 <th>Tip</th>
-                <th v-show="!showScore">Score</th>
+                <th>Score</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(card, index) in cardData" :key="index">
-                <td v-show="showScore">{{ card.time }}</td>
+                <td>{{ card.time }}</td>
                 <td>{{ card.league }}</td>
                 <td>{{ card.teamA }} vs {{ card.teamB }}</td>
                 <td>{{ card.tip }}</td>
-                <td v-show="!showScore">{{ card.teamAscore }} - {{ card.teamBscore }}</td>
+                <td>
+                {{ card.teamAscore }} - {{ card.teamBscore }}
+            </td>
               </tr>
             </tbody>
           </table>

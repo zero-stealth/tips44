@@ -5,7 +5,7 @@
     <div class="main-h">
       <div class="main-header">
         <div class="header-info">
-          <h1>Banker of the day {{ currentDate }}</h1>
+          <h1>Bet of the day {{ currentDate }}</h1>
         </div>
         <div class="header-btn">
           <button class="btn-h" :class="{ 'active-btn': offset > 0 }" @click="previousDay">
@@ -19,42 +19,27 @@
         </div>
       </div>
       <template v-if="cardData.length > 0">
-        <div class="main-table"> 
-          <table>
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>League</th>
-            <th>Match</th>
-            <th>Tip</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(card, index) in cardData" :key="index">
-            <td>{{ card.time }}</td>
-            <td>{{ card.league }}</td>
-            <td>{{ card.teamA }} vs {{ card.teamB }}</td>
-            <td>{{ card.tip }}</td>
-            <td>
-              <template
-                v-if="
-                  card.teamAscore !== null &&
-                  card.teamBscore !== null &&
-                  (card.teamAscore !== 0 || card.teamBscore !== 0)
-                "
-              >
-                {{ card.teamAscore }} - {{ card.teamBscore }}
-              </template>
-              <template v-else>
-                {{ card.time }}
-              </template>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-        </div>
-      </template>
+      <div v-for="item in cardData" class="main-h-card">
+        <Card
+          v-for="(card, index) in item"
+          :key="card._id"
+          :tip="card.tip"
+          :status="card.status"
+          :leagueIcon="card.leagueIcon"
+          :teamAIcon="card.teamAIcon"
+          :teamBIcon="card.teamBIcon"
+          :teamA="card.teamA"
+          :teamB="card.teamB"
+          :league="card.league"
+          :showScore="card.showScore"
+          :teamAscore="card.teamAscore"
+          :teamBscore="card.teamBscore"
+          :formationA="formatFormation(card.formationA) ? card.formationA[0].split('-') : []"
+          :formationB="formatFormation(card.formationB) ? card.formationB[0].split('-') : []"
+          :time="card.time"
+        />
+      </div>
+    </template>
       <template v-else>
         <div class="home-freetip">
           <h1>No predictions yet! Check back later.</h1>
@@ -121,6 +106,7 @@ import facebookIcon from '../icons/facebook.vue'
 import telegramIcon from '../icons/telegram.vue'
 import FreeExpertView from './FreeExpertView.vue'
 import NewsCard from '../components/NewsCard.vue'
+import Card from '../components/CardComponent.vue'
 import AboutComponent from '../components/aboutComponent.vue'
 import OtherPackage from '../components/OtherPackage.vue'
 import UpcomingPicks from '../components/UpcomingPicks.vue'
@@ -161,7 +147,7 @@ const showLessNews = () => {
 
 const getNews = async () => {
   try {
-    const response = await axios.get('https://tips90-server.onrender.com/soccer/news-list', {
+    const response = await axios.get('https://livescore-football.p.rapidapi.com/soccer/news-list', {
       headers: {
         'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
         'X-RapidAPI-Host': import.meta.env.VITE_RAPIDAPI_HOST
@@ -180,20 +166,22 @@ const randomNewsData = computed(() => {
   return shuffledNews.slice(0, 8);
 });
 
-const getPrediction = async () => {
-  const token = JSON.parse(localStorage.getItem('token'))
+
+const predictions = async () => {
   try {
+    const token = localStorage.getItem('token')
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/bankerPrediction/banker/${currentDate.value}`
+      `https://tips90-server.onrender.com/predictions/bet/betOfTheDay/${currentDate.value}`
     )
-    cardData.value = response.data
+    console.log(response.data)
+    cardData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
   }
-}
+} 
 
 onMounted(() => {
-  getPrediction()
+  predictions()
   getNews()
 })
 
@@ -247,7 +235,7 @@ const formatFormation = (formation) => {
 }
 
 watch(currentDate, () => {
-  getPrediction()
+  predictions()
 })
 </script>
 

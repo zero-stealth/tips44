@@ -76,18 +76,7 @@
             <td>{{ card.teamA }} vs {{ card.teamB }}</td>
             <td>{{ card.tip }}</td>
             <td>
-              <template
-                v-if="
-                  card.teamAscore !== null &&
-                  card.teamBscore !== null &&
-                  (card.teamAscore !== 0 || card.teamBscore !== 0)
-                "
-              >
                 {{ card.teamAscore }} - {{ card.teamBscore }}
-              </template>
-              <template v-else>
-                {{ card.time }}
-              </template>
             </td>
           </tr>
         </tbody>

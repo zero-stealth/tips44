@@ -9,7 +9,7 @@
       <div class="nav-link-container">
         <RouterLink :to="{ name: 'Home' }" class="nav-link"> Home </RouterLink>
         <!-- <div @click="openTelegram" class="nav-link">Telegram tips</div> -->
-        <RouterLink :to="{ name: 'Banker' }" class="nav-link"> Bet of the day </RouterLink>
+        <RouterLink :to="{ name: 'Banker' }" class="nav-link"> Banker of the day </RouterLink>
         <RouterLink :to="{ name: 'Daily' }" class="nav-link"> Daily 10+ tips </RouterLink>
         <RouterLink :to="{ name: 'Basketball' }" class="nav-link"> Basketball </RouterLink>
         <RouterLink :to="{ name: 'Tennis' }" class="nav-link"> Tennis </RouterLink>

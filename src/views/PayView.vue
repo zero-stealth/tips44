@@ -424,7 +424,7 @@ const filteredCountries = computed(() => {
       <div v-else="reveal === ''"></div>
     </div>
   </div>
-  <div class="pay-monitor" v-else-if="routeParamName == 'MEGA ODDS'">
+  <div class="pay-monitor" v-else-if="routeParamName == 'MEGA ODDS'"> 
     <div class="desknav-layout">
       <desktopNav class="desk-show" />
     </div>
@@ -512,14 +512,14 @@ const filteredCountries = computed(() => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Month <br />
               Amount paid: (1,600 ksh)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Week <br />
               Amount paid: (800 ksh) <br />
             </h1>
@@ -541,14 +541,14 @@ const filteredCountries = computed(() => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Month <br />
               Amount paid: (7000 Naira)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Week <br />
               Amount paid: (4000 Naira) <br />
             </h1>
@@ -568,14 +568,14 @@ const filteredCountries = computed(() => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Month <br />
               Amount paid: (170 Cedis)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10odds daily <br />
               Payment for One Week <br />
               Amount paid: (100 cedis) <br />
             </h1>
@@ -595,14 +595,14 @@ const filteredCountries = computed(() => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Month <br />
               Amount paid: (350 Rand)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Week <br />
               Amount paid: (250 rand) <br />
             </h1>
@@ -624,14 +624,14 @@ const filteredCountries = computed(() => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Month <br />
               Amount paid: (40,000 TZS)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Week <br />
               Amount paid: (20,000 TZS) <br />
             </h1>
@@ -653,14 +653,14 @@ const filteredCountries = computed(() => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Month <br />
               Amount paid: (50, 000 UGX)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Week <br />
               Amount paid: (30,000 UGXX) <br />
             </h1>
@@ -682,14 +682,14 @@ const filteredCountries = computed(() => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Month <br />
               Amount paid: (300 Kwacha  )  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Week <br />
               Amount paid: (150 kwacha) <br />
             </h1>
@@ -711,14 +711,14 @@ const filteredCountries = computed(() => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Month <br />
               Amount paid: (16,000 Rwandan Franc  )  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Week <br />
               Amount paid: (10,000 Rwandan Franc  )  <br />
             </h1>
@@ -740,14 +740,14 @@ const filteredCountries = computed(() => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Month <br />
               Amount paid: (15000 MWK)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Week <br />
               Amount paid: (8000 MWK) <br />
             </h1>
@@ -769,14 +769,14 @@ const filteredCountries = computed(() => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Month <br />
               Amount paid: (2500 Rupees)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
+              5 - 10 odds daily <br />
               Payment for One Week <br />
               Amount paid: (1500 Rupees) <br />
             </h1>
