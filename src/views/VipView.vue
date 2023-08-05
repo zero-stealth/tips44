@@ -47,8 +47,30 @@
             <th>Score</th>
           </tr>
         </thead>
-        <tbody>
-          <tr v-for="(card, index) in cardData" :key="index">
+        <tbody v-if="supreme == true">
+          <tr v-for="(card, index) in SupremeData" :key="index">
+            <td>{{ card.time }}</td>
+            <td>{{ card.league }}</td>
+            <td>{{ card.teamA }} vs {{ card.teamB }}</td>
+            <td>{{ card.tip }}</td>
+            <td>
+              <template
+                v-if="
+                  card.teamAscore !== null &&
+                  card.teamBscore !== null &&
+                  (card.teamAscore !== 0 || card.teamBscore !== 0)
+                "
+              >
+                {{ card.teamAscore }} - {{ card.teamBscore }}
+              </template>
+              <template v-else>
+                {{ card.time }}
+              </template>
+            </td>
+          </tr>
+        </tbody>
+        <tbody v-else>
+          <tr v-for="(card, index) in MegaData" :key="index">
             <td>{{ card.time }}</td>
             <td>{{ card.league }}</td>
             <td>{{ card.teamA }} vs {{ card.teamB }}</td>
@@ -86,13 +108,14 @@ import axios from 'axios'
 import Arrow from '../icons/arrow.vue'
 import { useRouter } from 'vue-router'
 import { ref, onMounted, watch } from 'vue'
-import Card from '../components/CardComponent.vue';
 
 
 const router = useRouter()
 const username = ref(null)
-const cardData = ref([])
 const currentDate = ref('')
+const supreme = ref(false)
+const MegaData = ref([])
+const SupremeData = ref([])
 const paid = ref(false)
 const offset = ref(0)
 
@@ -104,7 +127,8 @@ const updateAuthStatus = () => {
 
   // Clear cardData if token does not exist
   if (!token) {
-    cardData.value = []
+    MegaData.value = []
+    SupremeData.value = []
   }
 }
 
@@ -124,12 +148,12 @@ const showCard = (cardID) => {
   router.push({ name: 'Tips', params: { id: cardID } })
 }
 
-const getPrediction = async () => {
+const getVipMega = async () => {
   const token = JSON.parse(localStorage.getItem('token'))
 
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/vipPredictions/vip/${currentDate.value}`,
+      `https://tips90-server.onrender.com/predictions/vipMega/vipMega/${currentDate.value}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -137,7 +161,26 @@ const getPrediction = async () => {
       }
     )
     console.log(response.data)
-    cardData.value = response.data
+    MegaData.value = response.data
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+const getVipSupreme = async () => {
+  const token = JSON.parse(localStorage.getItem('token'))
+
+  try {
+    const response = await axios.get(
+      `https://tips90-server.onrender.com/predictions/vipSupreme/supreme/${currentDate.value}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    )
+    console.log(response.data)
+    SupremeData.value = response.data
   } catch (err) {
     console.log(err)
   }
@@ -156,6 +199,7 @@ const getAccountDetails = async () => {
     // console.log(response.data)
     username.value = response.data.username
     paid.value = response.data.paid
+    supreme.value = response.data.supreme
     // console.log(response.data.paid)
     localStorage.setItem('paid', paid.value)
   } catch (err) {
@@ -164,7 +208,8 @@ const getAccountDetails = async () => {
 }
 
 onMounted(() => {
-  getPrediction()
+  getVipMega()
+  getVipSupreme()
   updateAuthStatus()
   getAccountDetails()
 })
@@ -204,6 +249,7 @@ const formatFormation = (formation) => {
 watch([offset, username, paid], () => {
   updateAuthStatus()
   getPrediction()
+  getVipMega()
 })
 </script>
 
