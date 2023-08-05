@@ -71,21 +71,20 @@ async function handleSubmit() {
   ) {
     const user = JSON.parse(localStorage.getItem('token'));
     try {
-      const formData = new FormData();
-      formData.append('teamA', teamA.value);
-      formData.append('teamAscore', teamAscore.value);
-      formData.append('teamB', teamB.value);
-      formData.append('teamBscore', teamBscore.value);
-      formData.append('time', time.value);
-      formData.append('league', league.value);
-      formData.append('tip', tip.value);
 
       const response = await axios.post(
         'https://tips90-server.onrender.com/predictions/create/tip/freeTip',
-        formData,
+        {
+          teamA: teamA.value,
+          teamB: teamB.value,
+          teamAscore: teamAscore.value,
+          teamBscore: teamBscore.value,
+          time: time.value,
+          league: league.value,
+          tip: tip.value
+        },
         {
           headers: {
-            'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${user}`,
           },
         }

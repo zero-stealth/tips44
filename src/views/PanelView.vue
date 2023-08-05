@@ -32,6 +32,11 @@
             <span> Bet of the day </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
+            <button @click="setActivePage(BankerView)" :class="getButtonClass(BankerView)">
+            <FileIcon class="icon-panel" />
+            <span> Banker of day </span>
+            <ArrowIcon class="icon-panel ap" />
+          </button>
           <button @click="setActivePage(FreeExpert)" :class="getButtonClass(FreeExpert)">
             <FileIcon class="icon-panel" />
             <span> Free Expert  </span>
@@ -123,6 +128,7 @@ import Upcomingtips from '../components/UpcomingGames.vue'
 import VipMegaGames from '../components/VipMegaGames.vue'
 import TennisGames from '../components/TennisGames.vue'
 import BetOfTheDay from '../components/BetOfTheDay.vue'
+import BankerView from '../components/BankerView.vue'
 import FreeExpert from '../components/FreeExpert.vue'
 import Freetips from '../components/Freetips.vue'
 

@@ -54,7 +54,6 @@
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import Card from '../components/CardComponent.vue';
 
 const router = useRouter();
 const currentDate = ref('');
@@ -71,6 +70,7 @@ const getPrediction = async () => {
       `https://tips90-server.onrender.com/predictions/upcomingPredictions/upcoming/${currentDate.value}`
     );
     cardData.value = response.data;
+    console.log(response.data);
   } catch (err) {
     console.log(err);
   }
