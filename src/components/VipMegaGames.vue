@@ -56,6 +56,17 @@
             id="date"
           />
         </div>
+        <div class="form-group">
+          <label for="status">Match category:</label>
+          <select v-model="category" class="form-g-input" id="status">
+            <option disabled value="">Choose category</option>
+            <option value="Double Chance">Double Chance</option>
+            <option value="Over 2.5 Goals">Over 2.5 Goals</option>
+            <option value="Over 1.5 Goals">Over 1.5 Goals</option>
+            <option value="Both Teams To Score">Both Team To Score</option>
+            <option value="Under 2.5 Goals">Under 2.5 Goals</option>
+          </select>
+        </div>
         <button type="submit" class="btn-f-f f-desktop">Submit</button>
       </div>
       <div class="form-wrapper">
@@ -94,6 +105,7 @@ const teamA = ref('')
 const teamB = ref('')
 const time = ref('')
 const league = ref('')
+const category = ref('')
 const teamAscore = ref(0)
 const teamBscore = ref(0)
 const tip = ref('')
@@ -101,6 +113,7 @@ const date = ref('')
 
 async function handleSubmit() {
   if (
+    category.value.trim() !== '' &&
     teamA.value.trim() !== '' &&
     teamAscore.value !== null &&
     teamB.value.trim() !== '' &&
@@ -115,12 +128,13 @@ async function handleSubmit() {
       const response = await axios.post(
         'https://tips90-server.onrender.com/predictions/create/mega/vipMega',
         {
-          teamA: teamA.value,
           teamAcore: teamAscore.value,
-          teamB: teamB.value,
           teamBcore: teamBscore.value,
-          time: time.value,
+          category: category.value,
           league: league.value,
+          teamB: teamB.value,
+          teamA: teamA.value,
+          time: time.value,
           date: date.value,
           tip: tip.value
         },
@@ -133,8 +147,7 @@ async function handleSubmit() {
       alert('game posted')
     } catch (err) {
       console.log(err)
-    alert('No empty fields allowed')
-
+      alert('No empty fields allowed')
     }
   } else {
     alert('No empty fields allowed')
