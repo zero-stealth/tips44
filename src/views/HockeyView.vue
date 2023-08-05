@@ -77,13 +77,13 @@ const url = ref('');
 
 async function getPrediction() {
   const token = JSON.parse(localStorage.getItem('token'));
-  url.value = `https://tips90-server.onrender.com/sports/sport/hockey/${currentDate.value}`;
+  url.value = `https://tips90-server.onrender.com/sports/sport/Hockey/${currentDate.value}`;
   console.log(url.value);
 
   try {
     const response = await axios.get(url.value);
     console.log(response.data);
-    cardData.value = response.data.length > 0 ? [response.data] : []; // Set the data or an empty array
+    cardData.value = response.data
   } catch (err) {
     console.log(err);
   }

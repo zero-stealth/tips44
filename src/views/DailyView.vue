@@ -1,6 +1,6 @@
 <template>
   <div>
-    <important/>
+    <important />
     <div class="home-main">
       <div class="main-h">
         <div class="main-header">
@@ -20,38 +20,38 @@
         </div>
         <template v-if="cardData.length > 0">
           <table class="main-table">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>League</th>
-            <th>Match</th>
-            <th>Tip</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(card, index) in cardData" :key="index">
-            <td>{{ card.time }}</td>
-            <td>{{ card.league }}</td>
-            <td>{{ card.teamA }} vs {{ card.teamB }}</td>
-            <td>{{ card.tip }}</td>
-            <td>
-              <template
-                v-if="
-                  card.teamAscore !== null &&
-                  card.teamBscore !== null &&
-                  (card.teamAscore !== 0 || card.teamBscore !== 0)
-                "
-              >
-                {{ card.teamAscore }} - {{ card.teamBscore }}
-              </template>
-              <template v-else>
-                {{ card.time }}
-              </template>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>League</th>
+                <th>Match</th>
+                <th>Tip</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(card, index) in cardData" :key="index">
+                <td>{{ card.time }}</td>
+                <td>{{ card.league }}</td>
+                <td>{{ card.teamA }} vs {{ card.teamB }}</td>
+                <td>{{ card.tip }}</td>
+                <td>
+                  <template
+                    v-if="
+                      card.teamAscore !== null &&
+                      card.teamBscore !== null &&
+                      (card.teamAscore !== 0 || card.teamBscore !== 0)
+                    "
+                  >
+                    {{ card.teamAscore }} - {{ card.teamBscore }}
+                  </template>
+                  <template v-else>
+                    {{ card.time }}
+                  </template>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </template>
         <template v-else>
           <div class="home-freetip">
@@ -61,74 +61,79 @@
       </div>
     </div>
   </div>
-  <OtherPackage id="vip"/>
+  <OtherPackage id="vip" />
 </template>
 
 <script setup>
-import axios from 'axios';
-import { ref, onMounted, watch } from 'vue';
-import Arrow from '../icons/arrow.vue';
+import axios from 'axios'
+import { ref, onMounted, watch } from 'vue'
+import Arrow from '../icons/arrow.vue'
 import OtherPackage from '../components/OtherPackage.vue'
 import important from '../components/ImportantComponent.vue'
 
-const currentDate = ref('');
-const cardData = ref([]);
-const url = ref('');
+const currentDate = ref('')
+const cardData = ref([])
 
 async function getPrediction() {
-  const token = JSON.parse(localStorage.getItem('token'));
-  url.value = `https://tips90-server.onrender.com/predictions/daily-ten-prediction/dailyTen/${currentDate.value}`;
-  console.log(url.value);
+  const token = JSON.parse(localStorage.getItem('token'))
 
   try {
-    const response = await axios.get(url.value);
-    console.log(response.data);
-    cardData.value = response.data.length > 0 ? [response.data] : []; // Set the data or an empty array
+    const response = await axios.get(
+      `https://tips90-server.onrender.com/predictions/daily-ten-prediction/dailyTen/${currentDate.value}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    )
+    cardData.value = response.data
+    console.log(cardData.value)
+
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
 }
 
 onMounted(() => {
-  getPrediction();
-});
+  getPrediction()
+})
 
-const offset = ref(0);
+const offset = ref(0)
 
 const previousDay = () => {
-  offset.value--;
-  updateCurrentDate();
-};
+  offset.value--
+  updateCurrentDate()
+}
 
 const nextDay = () => {
   if (offset.value < 1) {
-    offset.value++;
-    updateCurrentDate();
+    offset.value++
+    updateCurrentDate()
   }
-};
+}
 
 const updateCurrentDate = () => {
-  const today = new Date();
-  today.setDate(today.getDate() + offset.value);
-  const month = today.getMonth() + 1;
-  const formattedMonth = month < 10 ? `0${month}` : month;
-  const day = today.getDate();
-  const formattedDay = day < 10 ? `0${day}` : day;
-  currentDate.value = `${formattedDay}-${formattedMonth}-${today.getFullYear()}`;
-};
+  const today = new Date()
+  today.setDate(today.getDate() + offset.value)
+  const month = today.getMonth() + 1
+  const formattedMonth = month < 10 ? `0${month}` : month
+  const day = today.getDate()
+  const formattedDay = day < 10 ? `0${day}` : day
+  currentDate.value = `${formattedDay}-${formattedMonth}-${today.getFullYear()}`
+}
 
-updateCurrentDate();
+updateCurrentDate()
 
 watch(currentDate, () => {
-  getPrediction();
-});
+  getPrediction()
+})
 
 const formatFormation = (formation) => {
   if (Array.isArray(formation)) {
-    return formation[0].split('-');
+    return formation[0].split('-')
   }
-  return [];
-};
+  return []
+}
 </script>
 
 <style>

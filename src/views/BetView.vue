@@ -83,7 +83,7 @@ const predictions = async () => {
       `https://tips90-server.onrender.com/predictions/prediction/${betName.value}/${currentDate.value}`
     )
 
-    cardData.value = response.data.length > 0 ? [response.data] : [];
+    cardData.value = response.data
   } catch (err) {
     console.log(err)
   }

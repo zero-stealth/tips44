@@ -83,7 +83,7 @@ async function getPrediction() {
   try {
     const response = await axios.get(url.value);
     console.log(response.data);
-    cardData.value = response.data.length > 0 ? [response.data] : []; // Set the data or an empty array
+    cardData.value = response.data
   } catch (err) {
     console.log(err);
   }

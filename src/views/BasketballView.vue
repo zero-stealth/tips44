@@ -68,7 +68,6 @@
 import axios from 'axios'
 import Arrow from '../icons/arrow.vue'
 import { ref, onMounted, watch } from 'vue'
-import Card from '../components/CardComponent.vue'
 import OtherPackage from '../components/OtherPackage.vue'
 import important from '../components/ImportantComponent.vue'
 
@@ -88,7 +87,7 @@ async function getPrediction() {
         }
       }
     )
-    cardData.value = response.data.length > 0 ? [response.data] : [] // Set the data or an empty array
+    cardData.value = response.data
     console.log(cardData.value)
   } catch (err) {
     console.log(err)
