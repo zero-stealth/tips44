@@ -20,7 +20,7 @@
       <div class="form-wrapper">
         <div class="form-group">
           <label for="score">Show score:</label>
-          <input v-model="ShowScore" type="text" class="form-g-input" placeholder="true" id="score" />
+          <input v-model="showScore" type="text" class="form-g-input" placeholder="true" id="score" />
         </div>
       <button type="submit" class="btn-f-f f-desktop">Submit</button>
       </div>
@@ -49,18 +49,18 @@ const emit = defineEmits('formSubmit')
 
 const teamAscore = ref()
 const teamBscore = ref()
-const ShowScore = ref();
+const showScore = ref();
 
 
 async function handleSubmit() {
   if (
 
     teamAscore.value !== null &&
-    ShowScore.value !== null &&
+    showScore.value !== null &&
     teamBscore.value !== null 
   ) {
     try {
-      emit('formSubmit', teamAscore.value, teamBscore.value , ShowScore.value)
+      emit('formSubmit', teamAscore.value, teamBscore.value , showScore.value)
     } catch (err) {
       console.log(err)
     }

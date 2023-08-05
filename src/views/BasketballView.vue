@@ -1,6 +1,6 @@
 <template>
   <div>
-    <important/>
+    <important />
     <div class="home-main">
       <div class="main-h">
         <div class="main-header">
@@ -20,38 +20,25 @@
         </div>
         <template v-if="cardData.length > 0">
           <table class="main-table">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>League</th>
-            <th>Match</th>
-            <th>Tip</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(card, index) in cardData" :key="index">
-            <td>{{ card.time }}</td>
-            <td>{{ card.league }}</td>
-            <td>{{ card.teamA }} vs {{ card.teamB }}</td>
-            <td>{{ card.tip }}</td>
-            <td>
-              <template
-                v-if="
-                  card.teamAscore !== null &&
-                  card.teamBscore !== null &&
-                  (card.teamAscore !== 0 || card.teamBscore !== 0)
-                "
-              >
-                {{ card.teamAscore }} - {{ card.teamBscore }}
-              </template>
-              <template v-else>
-                {{ card.time }}
-              </template>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            <thead>
+              <tr>
+                <th v-show="showScore">Time</th>
+                <th>League</th>
+                <th>Match</th>
+                <th>Tip</th>
+                <th v-show="!showScore">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(card, index) in cardData" :key="index">
+                <td v-show="showScore">{{ card.time }}</td>
+                <td>{{ card.league }}</td>
+                <td>{{ card.teamA }} vs {{ card.teamB }}</td>
+                <td>{{ card.tip }}</td>
+                <td v-show="!showScore">{{ card.teamAscore }} - {{ card.teamBscore }}</td>
+              </tr>
+            </tbody>
+          </table>
         </template>
         <template v-else>
           <div class="home-freetip">
@@ -74,6 +61,7 @@ import important from '../components/ImportantComponent.vue'
 const upcomingDates = ref('')
 const currentDate = ref('')
 const cardData = ref([])
+const showScore = ref(false)
 
 async function getPrediction() {
   const token = JSON.parse(localStorage.getItem('token'))
@@ -88,6 +76,7 @@ async function getPrediction() {
       }
     )
     cardData.value = response.data
+    showScore.value = response.data.showScore
     console.log(cardData.value)
   } catch (err) {
     console.log(err)
