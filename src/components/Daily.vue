@@ -126,7 +126,7 @@ async function handleSubmit() {
     const user = JSON.parse(localStorage.getItem('token'))
     try {
       const response = await axios.post(
-        'https://tips90-server.onrender.com/predictions/create/daily/dailyTen',
+        'https://tips90-server.onrender.com/predictions/daily/dailyTen',
         {
           teamAscore: teamAscore.value,
           teamBscore: teamBscore.value,

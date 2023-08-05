@@ -31,6 +31,7 @@
             <th>Account</th>
             <th>Payment</th>
             <th>Period</th>
+            <th>Vip package</th>
             <th>Vip status</th>
             <th>Delete</th>
           </tr>
@@ -45,6 +46,18 @@
             </td>
             <td>{{ account.paid }}</td>
             <td>{{ account.paid ? '1 Month' : '0 Month' }}</td>
+            <td>
+              <div class="Account-t-con">
+                <div
+                  class="Account-toggle"
+                  @click="toggleVipType(account)"
+                  :class="{ on: account.type, off: !account.type }"
+                >
+                  <div class="Account-mode"></div>
+                  <span>{{ account.type ? 'Supreme' : 'Mega' }}</span>
+                </div>
+              </div>
+            </td>
             <td>
               <div class="Account-t-con">
                 <div
@@ -74,7 +87,7 @@
 
 <script setup>
 import axios from 'axios';
-import { ref, watchEffect, onMounted, computed, watch } from 'vue';
+import { ref, watchEffect, onMounted, computed } from 'vue';
 import NotPaid from '../icons/NotPaid.vue';
 import VipIcon from '../icons/VipIcon.vue';
 import Profile from '../assets/profile.jpg';
@@ -101,6 +114,7 @@ const accountsData = async () => {
     accountInfo.value = response.data.map((account) => ({
       ...account,
       status: account.paid,
+      type: account.supreme,
     }));
     console.log(accountInfo.value);
   } catch (err) {
@@ -194,6 +208,21 @@ async function toggleStatus(account) {
 
     await accountsData();
     localStorage.setItem('paid', account.status.toString());
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function toggleVipType(account) {
+  account.type = !account.type;
+
+  try {
+    const response = await axios.put(`https://tips90-server.onrender.com/auth/update/${account._id}`, {
+      supreme: account.type,
+    });
+
+    await accountsData();
+    localStorage.setItem('supreme', account.type.toString());
   } catch (err) {
     console.log(err);
   }
