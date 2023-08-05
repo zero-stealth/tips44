@@ -119,7 +119,6 @@ import facebookIcon from '../icons/facebook.vue'
 import telegramIcon from '../icons/telegram.vue'
 import FreeExpertView from './FreeExpertView.vue'
 import NewsCard from '../components/NewsCard.vue'
-import Card from '../components/CardComponent.vue'
 import AboutComponent from '../components/aboutComponent.vue'
 import OtherPackage from '../components/OtherPackage.vue'
 import UpcomingPicks from '../components/UpcomingPicks.vue'
@@ -183,7 +182,7 @@ const getPrediction = async () => {
   const token = JSON.parse(localStorage.getItem('token'))
   try {
     const response = await axios.get(
-      `https://predictions-server.onrender.com/predictions/bankerPrediction/banker/${currentDate.value}`
+      `https://tips90-server.onrender.com/predictions/bankerPrediction/banker/${currentDate.value}`
     )
     cardData.value = response.data
   } catch (err) {

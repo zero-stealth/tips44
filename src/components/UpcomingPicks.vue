@@ -7,39 +7,27 @@
         </div>
       </div>
       <template v-if="cardData.length > 0">
-        <table class="main-table">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>League</th>
-            <th>Match</th>
-            <th>Tip</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(card, index) in cardData" :key="index">
-            <td>{{ card.time }}</td>
-            <td>{{ card.league }}</td>
-            <td>{{ card.teamA }} vs {{ card.teamB }}</td>
-            <td>{{ card.tip }}</td>
-            <td>
-              <template
-                v-if="
-                  card.teamAscore !== null &&
-                  card.teamBscore !== null &&
-                  (card.teamAscore !== 0 || card.teamBscore !== 0)
-                "
-              >
-                {{ card.teamAscore }} - {{ card.teamBscore }}
-              </template>
-              <template v-else>
-                {{ card.time }}
-              </template>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <div class="main-h-card">
+          <Card
+            v-for="(card, index) in cardData"
+            :key="card._id"
+            :tip="card.tip"
+            :status="card.status"
+            :leagueIcon="card.leagueIcon"
+            :teamAIcon="card.teamAIcon"
+            :teamBIcon="card.teamBIcon"
+            :teamA="card.teamA"
+            :teamB="card.teamB"
+            :league="card.league"
+            :showScore="card.showScore"
+            :teamAscore="card.teamAscore"
+            :teamBscore="card.teamBscore"
+            :formationA="formatFormation(card.formationA)"
+            :formationB="formatFormation(card.formationB)"
+            :time="card.time"
+            @click="showCard(card._id)"
+          />
+        </div>
       </template>
         <template v-else>
           <div class="home-freetip">
@@ -54,6 +42,7 @@
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import Card from '../components/CardComponent.vue';
 
 const router = useRouter();
 const currentDate = ref('');
@@ -70,9 +59,7 @@ const getPrediction = async () => {
       `https://tips90-server.onrender.com/predictions/upcomingPredictions/upcoming/${currentDate.value}`
     );
     cardData.value = response.data;
-    console.log(response.data);
   } catch (err) {
-    console.log(err);
   }
 };
 

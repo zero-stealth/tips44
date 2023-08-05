@@ -1,9 +1,9 @@
 <template>
   <div class="card-container">
     <div class="card-title">
-      <div class="card-in-s">
-          <span>{{ time }}</span>
-        </div>
+      <div class="card-status">
+        <span></span>
+      </div>
       <div class="title-m">
         <img :src="leagueIcon" alt="league-img" class="league-c-img" />
         <span>{{ league }}</span>
@@ -13,12 +13,19 @@
       <div class="card-a">
         <div class="card-fade">
           <div class="card-inner">
-            <img :src="teamAIcon" alt="card-img" class="card-img" />
+            <img
+              :src="teamAIcon"
+              alt="card-img"
+              :class="[sport === 'Tennis' ? 'card-img circle-tennis' : 'card-img square-img']"
+            />
           </div>
         </div>
         <h2>{{ teamA }}</h2>
       </div>
       <div class="card-in">
+        <div class="card-in-s">
+          <span>[{{ time }}]</span>
+        </div>
         <div v-if="!showScore">
           <span>vs</span>
         </div>
@@ -27,20 +34,24 @@
           <span class="card-p">:</span>
           <span class="card-s">{{ teamBscore }}</span>
         </div>
-        <div class="Tip">
-          <h4>Tip:</h4>
-          <span>{{ tip }}</span>
-        </div>
       </div>
       <div class="card-a">
         <div class="card-fade">
           <div class="card-inner">
-            <img :src="teamBIcon" alt="card-img" class="card-img" />
+            <img
+              :src="teamBIcon"
+              alt="card-img"
+              :class="[sport === 'Tennis' ? 'card-img circle-tennis' : 'card-img square-img']"
+            />
           </div>
         </div>
         <h2>{{ teamB }}</h2>
       </div>
     </div>
+    <div class="Tip">
+          <h4>Tip:</h4>
+          <span>{{ tip }}</span>
+        </div>
     <div class="card-footer">
       <div class="card-f" v-for="formationA in formationsA" :key="formationA">
         <span :class="[formationA === 'l' ? 'loose' : (formationA === 'w' ? 'win' : 'draw')]">{{ formationA }}</span>
@@ -107,6 +118,10 @@ const props = defineProps({
     type: String,
     required: true
   },
+  sport: {
+    type: String,
+    required: false
+  },
   showScore: {
     type: Boolean,
     default: false
@@ -119,6 +134,7 @@ const formationsB = ref(props.formationB);
 const shouldShowScore = computed(() => {
   return props.showScore && props.teamAscore !== undefined && props.teamBscore !== undefined;
 });
+
 </script>
 
 <style scoped>

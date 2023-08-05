@@ -72,7 +72,7 @@
             <span> Basketball </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
-          <button @click="setActivePage(TennisGames)" :class="getButtonClass(TennisGames  )">
+          <button @click="setActivePage(TennisGames)" :class="getButtonClass(TennisGames)">
             <tennisIcon class="icon-panel" />
             <span>Tennis </span>
             <ArrowIcon class="icon-panel ap" />

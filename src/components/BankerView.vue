@@ -8,11 +8,23 @@
         <h1>Team A</h1>
         <div class="form-group">
           <label for="teamA">Name:</label>
-          <input v-model="teamA" type="text" class="form-g-input" placeholder="Manchester" id="teamA" />
+          <input
+            v-model="teamA"
+            type="text"
+            class="form-g-input"
+            placeholder="Manchester"
+            id="teamA"
+          />
         </div>
         <div class="form-group">
           <label for="teamAscore">Score:</label>
-          <input v-model="teamAscore" type="text" class="form-g-input" placeholder="2" id="teamAscore" />
+          <input
+            v-model="teamAscore"
+            type="text"
+            class="form-g-input"
+            placeholder="2"
+            id="teamAscore"
+          />
         </div>
       </div>
       <div class="form-wrapper">
@@ -22,11 +34,27 @@
         </div>
         <div class="form-group">
           <label for="league">Match league:</label>
-          <input v-model="league" type="text" class="form-g-input" placeholder="team league" id="league" />
+          <input
+            v-model="league"
+            type="text"
+            class="form-g-input"
+            placeholder="team league"
+            id="league"
+          />
         </div>
         <div class="form-group">
           <label for="time">Match Time:</label>
           <input v-model="time" type="time" class="form-g-input" placeholder="12:00pm" id="time" />
+        </div>
+        <div class="form-group">
+          <label for="date">Match Date:</label>
+          <input
+            v-model="date"
+            type="text"
+            class="form-g-input"
+            placeholder="03-06-2023"
+            id="date"
+          />
         </div>
         <button type="submit" class="btn-f-f f-desktop">Submit</button>
       </div>
@@ -34,11 +62,23 @@
         <h1>Team B</h1>
         <div class="form-group">
           <label for="teamB">Name:</label>
-          <input v-model="teamB" type="text" class="form-g-input" placeholder="Arsenal" id="teamB" />
+          <input
+            v-model="teamB"
+            type="text"
+            class="form-g-input"
+            placeholder="Arsenal"
+            id="teamB"
+          />
         </div>
         <div class="form-group">
           <label for="teamBscore">Score:</label>
-          <input v-model="teamBscore" type="text" class="form-g-input" placeholder="5" id="teamBscore" />
+          <input
+            v-model="teamBscore"
+            type="text"
+            class="form-g-input"
+            placeholder="5"
+            id="teamBscore"
+          />
         </div>
         <button type="submit" class="btn-f-f f-mobile">Submit</button>
       </div>
@@ -47,17 +87,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import axios from 'axios';
+import { ref } from 'vue'
+import axios from 'axios'
 
-const teamA = ref('');
-const teamB = ref('');
-const time = ref('');
-const league = ref('');
-const teamAscore = ref(0);
-const teamBscore = ref(0);
-const tip = ref('');
-
+const teamA = ref('')
+const teamB = ref('')
+const time = ref('')
+const league = ref('')
+const teamAscore = ref(0)
+const teamBscore = ref(0)
+const tip = ref('')
+const date = ref('')
 
 async function handleSubmit() {
   if (
@@ -67,35 +107,37 @@ async function handleSubmit() {
     teamBscore.value !== null &&
     time.value.trim() !== '' &&
     tip.value !== null &&
-    league.value !== null 
+    date.value !== null &&
+    league.value !== null
   ) {
-    const user = JSON.parse(localStorage.getItem('token'));
+    const user = JSON.parse(localStorage.getItem('token'))
     try {
-      const formData = new FormData();
-      formData.append('teamA', teamA.value);
-      formData.append('teamAscore', teamAscore.value);
-      formData.append('teamB', teamB.value);
-      formData.append('teamBscore', teamBscore.value);
-      formData.append('time', time.value);
-      formData.append('league', league.value);
-      formData.append('tip', tip.value);
-
       const response = await axios.post(
         'https://tips90-server.onrender.com/predictions/create/banker-predictions/banker',
-        formData,
+        {
+          teamA: teamA.value,
+          teamAcore: teamAscore.value,
+          teamB: teamB.value,
+          teamBcore: teamBscore.value,
+          time: time.value,
+          league: league.value,
+          date: date.value,
+          tip: tip.value
+        },
         {
           headers: {
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${user}`,
-          },
+            Authorization: `Bearer ${user}`
+          }
         }
-      );
-      console.log(response.data);
+      )
+      alert('game posted')
     } catch (err) {
-      console.log(err);
+      console.log(err)
+    alert('No empty fields allowed')
+
     }
   } else {
-    alert('No empty fields allowed');
+    alert('No empty fields allowed')
   }
 }
 </script>
