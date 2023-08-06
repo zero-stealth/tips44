@@ -31,6 +31,7 @@
             <th>Account</th>
             <th>Payment</th>
             <th>Period</th>
+            <th>Date activation</th>
             <th>Vip package</th>
             <th>Vip status</th>
             <th>Delete</th>
@@ -46,6 +47,7 @@
             </td>
             <td>{{ account.paid }}</td>
             <td>{{ account.paid ? '1 Month' : '0 Month' }}</td>
+            <td>{{ paidDate  || 'no change'     }}</td>
             <td>
               <div class="Account-t-con">
                 <div
@@ -87,7 +89,7 @@
 
 <script setup>
 import axios from 'axios';
-import { ref, watchEffect, onMounted, computed } from 'vue';
+import { ref, watchEffect, onMounted, computed, watch } from 'vue';
 import NotPaid from '../icons/NotPaid.vue';
 import VipIcon from '../icons/VipIcon.vue';
 import Profile from '../assets/profile.jpg';
@@ -101,6 +103,10 @@ const accountCards = ref([]);
 const accountInfo = ref([]);
 const SearchAccount = ref('');
 const message = ref();
+const statusC = ref(null);
+const paidDate = ref(null);
+const futuresDate = ref(null);
+const endSub = ref(false);
 
 const accountsData = async () => {
   try {
@@ -110,21 +116,44 @@ const accountsData = async () => {
         Authorization: `Bearer ${user}`,
       },
     });
-    console.log(response.data);
+    statusC.value = response.data.paid;
+    if (response.data.updatedAt) {
+      getFutureDate(response.data.updatedAt);
+    }
     accountInfo.value = response.data.map((account) => ({
       ...account,
       status: account.paid,
       type: account.supreme,
     }));
-    console.log(accountInfo.value);
   } catch (err) {
     console.log(err);
   }
 };
 
-watchEffect(() => {
-  username.value = localStorage.getItem('username');
+function formatDate(date) {
+  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+  return date.toLocaleDateString(undefined, options);
+}
+
+function getFutureDate(date) {
+  const parsedDate = new Date(date);
+  paidDate.value = formatDate(parsedDate); 
+  const futureDate = new Date(parsedDate);
+  futureDate.setDate(parsedDate.getDate() + 30);
+  futuresDate.value = futureDate.toISOString();
+
+  const currentDate = new Date();
+  const currentDateInISOFormat = currentDate.toISOString();
+
+  const match = futureDate.toISOString() === currentDateInISOFormat;
+
+  endSub.value = match;
+}
+
+watch([statusC], () => {
+  getFutureDate(accountInfo.value[0]?.updatedAt); 
 });
+
 
 onMounted(() => {
   accountsData();
@@ -227,6 +256,15 @@ async function toggleVipType(account) {
     console.log(err);
   }
 }
+
+watchEffect(() => {
+  username.value = localStorage.getItem('username');
+  if (endSub.value === true) {
+    toggleStatus(accountInfo.value[0].paid);
+    paidDate.value = "no date set"
+  }
+
+});
 </script>
 
 <style>
