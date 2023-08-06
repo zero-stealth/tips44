@@ -216,6 +216,11 @@
     border-top: 1px solid var(--light-color);
   }
 
+  .Question-con span {
+    font-weight: 500;
+    color: var(--secondary-color);
+  }
+
   .Question-con h1 {
     font-size: 1rem;
     font-weight: 600;
