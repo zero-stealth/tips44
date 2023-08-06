@@ -145,7 +145,6 @@ const showDrp = () => {
 const logOut = () => {
   localStorage.removeItem('token')
   localStorage.removeItem('username')
-  isPaid.value = false
   username.value = null
   isAdmin.value = false
   window.location.reload()
