@@ -34,8 +34,8 @@
               Previous
             </button>
             <button class="btn-h" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-              <Arrow class="btn-icon icon-right" />
               Next
+              <Arrow class="btn-icon icon-right" />
             </button>
           </div>
         </div>
@@ -104,7 +104,6 @@ console.log(paid.value)
 const updateAuthStatus = () => {
   const token = JSON.parse(localStorage.getItem('token'))
 
-  username.value = localStorage.getItem('username')
 
   // Clear cardData if token does not exist
   if (!token) {
@@ -185,11 +184,9 @@ const getVipSupreme = async () => {
 const getAccountDetails = async () => {
   const token = JSON.parse(localStorage.getItem('token'))
   const id = localStorage.getItem('id')
-  console.log(token)
-  console.log(id)
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/auth/64cc8e9562bbf8bcd80aacbc`,
+      `https://tips90-server.onrender.com/auth/${id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -239,12 +236,6 @@ const updateCurrentDate = () => {
 
 updateCurrentDate()
 
-const formatFormation = (formation) => {
-  if (Array.isArray(formation)) {
-    return formation[0].split('-')
-  }
-  return []
-}
 
 watch([offset, username, paid], () => {
   updateAuthStatus()
