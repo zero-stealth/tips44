@@ -55,7 +55,7 @@
                 <tr v-for="(card, index) in SupremeData" :key="index">
                   <td>{{ card.time }}</td>
                   <td>{{ card.league }}</td>
-                  <td>{{ card.teamA }} vs {{ card.teamB }}</td>
+                    <td>{{ card.teamA }} <span class="vs-s">VS</span>  {{ card.teamB }}</td>
                   <td>{{ card.tip }}</td>
                   <td>{{ card.teamAscore }} - {{ card.teamBscore }}</td>
                 </tr>
@@ -64,7 +64,7 @@
                 <tr v-for="(card, index) in MegaData" :key="index">
                   <td>{{ card.time }}</td>
                   <td>{{ card.league }}</td>
-                  <td>{{ card.teamA }} vs {{ card.teamB }}</td>
+                    <td>{{ card.teamA }} <span class="vs-s">VS</span>  {{ card.teamB }}</td>
                   <td>{{ card.tip }}</td>
                   <td>{{ card.teamAscore }} - {{ card.teamBscore }}</td>
                 </tr>
