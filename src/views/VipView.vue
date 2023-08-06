@@ -3,21 +3,30 @@
     <div class="vip-wrapper">
       <div class="vip-notpaid" v-if="!paid">
         <div v-if="!username" class="vip-p">
-          <h1>Must be logged in or sign in to view</h1>
+          <h1>Sign in or log in to your account</h1>
           <div class="vip-sp">
-            <button class="vip-btn" @click="goSignin()">Sign in</button>
-            <button class="vip-btn" @click="goLogin()">Log in</button>
+            <button class="vip-btn" @click="goSignin()">
+              <ProfileIcon class="vip-pay-icon" />
+              Sign in
+            </button>
+            <button class="vip-btn" @click="goLogin()">
+              Log in
+              <ProfileIcon class="vip-pay-icon" />
+            </button>
           </div>
         </div>
         <div class="vip-p" v-else>
-          <h1>Your VIP account is in not activated 🌵</h1>
-          <button class="vip-btn" @click="payPage()">pay to activate</button>
+          <h1>Your VIP account is in not activated</h1>
+          <button class="vip-btn" @click="payPage()">
+            <MoneyIcon class="vip-pay-icon" />
+            Pay to activate
+          </button>
         </div>
       </div>
       <div v-else>
         <div class="main-header vip-m">
           <div class="header-info">
-            <h1>VIP tips {{ currentDate }}</h1>
+            <h1> {{ vipName }} {{ currentDate }}</h1>
           </div>
           <div class="header-btn">
             <button class="btn-h" :class="{ 'active-btn': offset > 0 }" @click="previousDay">
@@ -30,7 +39,7 @@
             </button>
           </div>
         </div>
-        <template v-if="paid && username && cardData.length > 0">
+        <template v-if="(paid && username && SupremeData.length > 0) || MegaData.length > 0">
           <div class="main-tb-c">
             <table class="main-table">
               <thead>
@@ -63,7 +72,9 @@
             </table>
           </div>
         </template>
-        <template v-else-if="paid && username && cardData.length === 0">
+        <template
+          v-else-if="(paid && username && MegaData.length === 0) || SupremeData.length === 0"
+        >
           <div class="home-freetip">
             <h1>No predictions yet! Check back later.</h1>
           </div>
@@ -84,6 +95,7 @@ const username = ref(null)
 const currentDate = ref('')
 const supreme = ref(false)
 const MegaData = ref([])
+const vipName = ref(null)
 const SupremeData = ref([])
 const paid = ref(false)
 const offset = ref(0)
@@ -100,6 +112,21 @@ const updateAuthStatus = () => {
     SupremeData.value = []
   }
 }
+
+const showName = () => {
+  switch (supreme.value) {
+  case true:
+    vipName.value = 'Vip Supreme tips'
+    break
+  case false:
+    vipName.value = 'Vip Mega tips'
+    break
+  default:
+    break
+}
+
+}
+
 
 const payPage = () => {
   router.push({ name: 'Pay', params: { vipName: 'SUPREME 2+' } })
@@ -158,25 +185,30 @@ const getVipSupreme = async () => {
 const getAccountDetails = async () => {
   const token = JSON.parse(localStorage.getItem('token'))
   const id = localStorage.getItem('id')
-
+  console.log(token)
+  console.log(id)
   try {
-    const response = await axios.get(`https://tips90-server.onrender.com/auth/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
+    const response = await axios.get(
+      `https://tips90-server.onrender.com/auth/64cc8e9562bbf8bcd80aacbc`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       }
-    })
+    )
     // console.log(response.data)
     username.value = response.data.username
     paid.value = response.data.paid
     supreme.value = response.data.supreme
-    // console.log(response.data.paid)
-    localStorage.setItem('paid', paid.value)
+    console.log(paid.value)
+    console.log(supreme.value)
   } catch (err) {
     console.log(err)
   }
 }
 
 onMounted(() => {
+  showName()
   getVipMega()
   getVipSupreme()
   updateAuthStatus()
@@ -216,8 +248,12 @@ const formatFormation = (formation) => {
 
 watch([offset, username, paid], () => {
   updateAuthStatus()
-  getPrediction()
+  getVipSupreme()
   getVipMega()
+})
+
+watch([supreme], () => {
+  showName();
 })
 </script>
 

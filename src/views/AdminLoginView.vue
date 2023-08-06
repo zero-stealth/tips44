@@ -59,9 +59,11 @@ const login = async () => {
       
       const token = response.data.token;
       if (token) {
+      const id = response.data._id
         const isAdmin = response.data.isAdmin;
         const adminusername = response.data.username;
 
+        localStorage.setItem('id', id);
         localStorage.setItem('admin', isAdmin);
         localStorage.setItem('username', adminusername);
         localStorage.setItem('token', JSON.stringify(token));

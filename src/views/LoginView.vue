@@ -69,14 +69,12 @@ const login = async () => {
 
       const token = responseData.token;
       if (token) {
-        const isPaid = responseData.paid;
         const token = responseData.token;
         const username = responseData.username;
         const id = responseData._id;
 
         localStorage.setItem('username', username);
         localStorage.setItem('token', JSON.stringify(token));
-        localStorage.setItem('paid', isPaid);
         localStorage.setItem('id', id);
 
         router.push({ name: 'Vip' });

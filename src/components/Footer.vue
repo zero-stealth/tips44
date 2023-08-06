@@ -28,7 +28,7 @@ const openIos = () => {
 }
 
 const openAndroid = () => {
-  window.open('https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME', '_blank')
+  window.open('https://play.google.com/store/apps/details?id=charisma.bettingtips', '_blank')
 }
 
 const openFacebook = () => {

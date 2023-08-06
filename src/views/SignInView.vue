@@ -40,7 +40,6 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 import SportBg from '../assets/sport-bg.png'
-import GoogleIcon from '../icons/googleIcon.vue'
 import countriesData from '../components/countries.json'
 
 const selectedCountry = ref('')
@@ -71,10 +70,8 @@ const create = async () => {
         selectedCountry: selectedCountry.value
       })
       const token = response.data.token
-      const isPaid = response.data.paid
       const id = response.data._id
       localStorage.setItem('token', token)
-      localStorage.setItem('paid', isPaid)
       localStorage.setItem('id', id)
       router.push({ name: 'Vip' })
     } catch (error) {
