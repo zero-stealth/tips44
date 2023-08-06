@@ -19,28 +19,28 @@
           </div>
         </div>
         <template v-if="cardData.length > 0">
-          <table class="main-table">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>League</th>
-                <th>Match</th>
-                <th>Tip</th>
-                <th>Score</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(card, index) in cardData" :key="index">
-                <td>{{ card.time }}</td>
-                <td>{{ card.league }}</td>
-                <td>{{ card.teamA }} vs {{ card.teamB }}</td>
-                <td>{{ card.tip }}</td>
-                <td>
-                {{ card.teamAscore }} - {{ card.teamBscore }}
-            </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="main-tb-c">
+            <table class="main-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>League</th>
+                  <th>Match</th>
+                  <th>Tip</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(card, index) in cardData" :key="index">
+                  <td>{{ card.time }}</td>
+                  <td>{{ card.league }}</td>
+                  <td>{{ card.teamA }} vs {{ card.teamB }}</td>
+                  <td>{{ card.tip }}</td>
+                  <td>{{ card.teamAscore }} - {{ card.teamBscore }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </template>
         <template v-else>
           <div class="home-freetip">

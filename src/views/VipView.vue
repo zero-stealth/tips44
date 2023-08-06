@@ -3,21 +3,15 @@
     <div class="vip-wrapper">
       <div class="vip-notpaid" v-if="!paid">
         <div v-if="!username" class="vip-p">
-          <h1>Must be logged in or  sign in to view</h1>
-        <div class="vip-sp">
-          <button class="vip-btn" @click="goSignin()">
-            Sign in
-          </button>
-          <button class="vip-btn" @click="goLogin()">
-            Log in
-          </button>
-        </div>
+          <h1>Must be logged in or sign in to view</h1>
+          <div class="vip-sp">
+            <button class="vip-btn" @click="goSignin()">Sign in</button>
+            <button class="vip-btn" @click="goLogin()">Log in</button>
+          </div>
         </div>
         <div class="vip-p" v-else>
           <h1>Your VIP account is in not activated 🌵</h1>
-          <button class="vip-btn" @click="payPage()">
-            pay to activate
-          </button>
+          <button class="vip-btn" @click="payPage()">pay to activate</button>
         </div>
       </div>
       <div v-else>
@@ -36,51 +30,38 @@
             </button>
           </div>
         </div>
-        <template  v-if="paid && username && cardData.length > 0">
-          <table class="main-table">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>League</th>
-            <th>Match</th>
-            <th>Tip</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody v-if="supreme == true">
-          <tr v-for="(card, index) in SupremeData" :key="index">
-            <td>{{ card.time }}</td>
-            <td>{{ card.league }}</td>
-            <td>{{ card.teamA }} vs {{ card.teamB }}</td>
-            <td>{{ card.tip }}</td>
-            <td>
-              <template
-                v-if="
-                  card.teamAscore !== null &&
-                  card.teamBscore !== null &&
-                  (card.teamAscore !== 0 || card.teamBscore !== 0)
-                "
-              >
-                {{ card.teamAscore }} - {{ card.teamBscore }}
-              </template>
-              <template v-else>
-                {{ card.time }}
-              </template>
-            </td>
-          </tr>
-        </tbody>
-        <tbody v-else>
-          <tr v-for="(card, index) in MegaData" :key="index">
-            <td>{{ card.time }}</td>
-            <td>{{ card.league }}</td>
-            <td>{{ card.teamA }} vs {{ card.teamB }}</td>
-            <td>{{ card.tip }}</td>
-            <td>
-                {{ card.teamAscore }} - {{ card.teamBscore }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <template v-if="paid && username && cardData.length > 0">
+          <div class="main-tb-c">
+            <table class="main-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>League</th>
+                  <th>Match</th>
+                  <th>Tip</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody v-if="supreme == true">
+                <tr v-for="(card, index) in SupremeData" :key="index">
+                  <td>{{ card.time }}</td>
+                  <td>{{ card.league }}</td>
+                  <td>{{ card.teamA }} vs {{ card.teamB }}</td>
+                  <td>{{ card.tip }}</td>
+                  <td>{{ card.teamAscore }} - {{ card.teamBscore }}</td>
+                </tr>
+              </tbody>
+              <tbody v-else>
+                <tr v-for="(card, index) in MegaData" :key="index">
+                  <td>{{ card.time }}</td>
+                  <td>{{ card.league }}</td>
+                  <td>{{ card.teamA }} vs {{ card.teamB }}</td>
+                  <td>{{ card.tip }}</td>
+                  <td>{{ card.teamAscore }} - {{ card.teamBscore }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </template>
         <template v-else-if="paid && username && cardData.length === 0">
           <div class="home-freetip">
@@ -97,7 +78,6 @@ import axios from 'axios'
 import Arrow from '../icons/arrow.vue'
 import { useRouter } from 'vue-router'
 import { ref, onMounted, watch } from 'vue'
-
 
 const router = useRouter()
 const username = ref(null)
@@ -122,7 +102,7 @@ const updateAuthStatus = () => {
 }
 
 const payPage = () => {
-  router.push({ name: 'Pay', params: { vipName: 'SUPREME 2+' }})
+  router.push({ name: 'Pay', params: { vipName: 'SUPREME 2+' } })
 }
 
 const goSignin = () => {
@@ -233,7 +213,6 @@ const formatFormation = (formation) => {
   }
   return []
 }
-
 
 watch([offset, username, paid], () => {
   updateAuthStatus()

@@ -18,7 +18,8 @@
     background-color: var(--primary-color);
   }
 
-  .match-table th, td {
+  .match-table th,
+  td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -31,34 +32,48 @@
   .header-info-h1 {
     width: 100%;
     display: flex;
-    font-size: .7rem;
+    font-size: 0.7rem;
     align-items: center;
     justify-content: center;
     color: var(--background-color);
     background-color: var(--primary-color);
   }
 
+  .main-tb-c {
+    overflow: hidden;
+    overflow-x: auto;
+  }
+  .main-table td {
+    white-space: nowrap;
+  }
+
   .main-table {
     width: 100%;
     border-collapse: collapse;
   }
-  
+
   .main-table th,
   .main-table td {
     padding: 10px;
-    border: 1px solid rgb(125, 241, 183);
+    text-align: center;
+    border: 1px solid rgb(98, 190, 144);
   }
-  
+
+  .main-table td {
+    font-size: 0.7rem;
+  }
+
   .main-table th {
-    background-color: rgb(193, 248, 220);
-    text-align: left;
+    background-color:  rgb(68, 230, 149);
+    color: var(--background-color);
+    font-weight: 500;
   }
-  
+
   .home-freetip {
     margin-top: 20px;
     text-align: center;
   }
-  
+
   .home-freetip h1 {
     font-size: 18px;
     color: #777;
@@ -70,5 +85,9 @@
   .main-bet {
     padding: 30px;
     min-height: 80%;
+  }
+
+  .main-table td {
+    font-size: 0.9rem;
   }
 }

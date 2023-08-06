@@ -20,7 +20,8 @@
       </div>
     </div>
     <template v-if="cardData.length > 0">
-      <table class="main-table">
+      <div class="main-tb-c">
+        <table class="main-table">
         <thead>
           <tr>
             <th>Time</th>
@@ -42,6 +43,7 @@
           </tr>
         </tbody>
       </table>
+      </div>  
     </template>
     <template v-else>
       <div class="home-freetip">

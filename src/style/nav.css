@@ -86,7 +86,7 @@
       width: 16px;
       height: 16px;
       transform: rotate(90deg);
-      fill: var(--primary-color);
+      fill: var(--background-color);
     }
 
     .sp-dp {
@@ -370,7 +370,7 @@
     }
 
     .logo-spp {
-      width: 120px;
+      width: 100px;
     }
 
     .nav-link-container {
@@ -378,7 +378,7 @@
     }
 
     .drop-down-panel {
-      top: 60px;
+      top: 70px;
     }
 
     .nav-menu {
@@ -437,5 +437,9 @@
     .hero-img {
       flex: 50%;
       height: 350px;
+    }
+
+    .drop-icon {
+      fill: var(--primary-color);
     }
   }
