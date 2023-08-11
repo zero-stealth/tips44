@@ -31,7 +31,7 @@
         </div>
         <div v-if="shouldShowScore" class="card-score">
           <span class="card-s">{{ teamAscore }}</span>
-          <span class="card-p">:</span>
+          <span class="card-p">-</span>
           <span class="card-s">{{ teamBscore }}</span>
         </div>
       </div>

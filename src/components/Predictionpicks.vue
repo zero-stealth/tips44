@@ -65,6 +65,7 @@
             <option value="Over 1.5 Goals">Over 1.5 Goals</option>
             <option value="Both Teams To Score">Both Team To Score</option>
             <option value="Under 2.5 Goals">Under 2.5 Goals</option>
+            <option value="none">None</option>
           </select>
         </div>
         <button type="submit" class="btn-f-f f-desktop">Submit</button>
