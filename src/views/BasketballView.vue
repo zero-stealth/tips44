@@ -5,7 +5,7 @@
       <div class="main-h">
         <div class="main-header">
           <div class="header-info">
-            <h1>Basketball Free tips {{ currentDate }}</h1>
+            <h1>Basketball tips {{ currentDate }}</h1>
           </div>
           <div class="header-btn">
             <button class="btn-h" :class="{ 'active-btn': offset > 0 }" @click="previousDay">

@@ -60,12 +60,12 @@ const router = createRouter({
       component: () => import('../views/NewsView.vue')
     },
     {
-      path: '/bet-of-day',
+      path: '/banker-of-the-day',
       name: 'Banker',
       component: () => import('../views/BankerView.vue')
     },
     {
-      path: '/daily-10+-tips',
+      path: '/Straight-win',
       name: 'Daily',
       component: () => import('../views/DailyView.vue')
     },
@@ -79,16 +79,6 @@ const router = createRouter({
       path: '/basketball',
       name: 'Basketball',
       component: () => import('../views/BasketballView.vue')
-    },
-    {
-      path: '/tennis',
-      name: 'Tennis',
-      component: () => import('../views/TennisView.vue')
-    },
-    {
-      path: '/hockey',
-      name: 'Hockey',
-      component: () => import('../views/HockeyView.vue')
     },
     {
       path: '/terms&condition',

@@ -16,7 +16,7 @@
             <img
               :src="teamAIcon"
               alt="card-img"
-              :class="[sport === 'Tennis' ? 'card-img circle-tennis' : 'card-img square-img']"
+              :class="[sport === 'Basketball' ? 'card-img circle-tennis' : 'card-img square-img']"
             />
           </div>
         </div>
@@ -41,7 +41,7 @@
             <img
               :src="teamBIcon"
               alt="card-img"
-              :class="[sport === 'Tennis' ? 'card-img circle-tennis' : 'card-img square-img']"
+              :class="[sport === 'Basketball' ? 'card-img circle-tennis' : 'card-img square-img']"
             />
           </div>
         </div>

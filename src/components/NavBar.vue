@@ -9,10 +9,8 @@
         <RouterLink :to="{ name: 'Home' }" class="nav-link"> Home </RouterLink>
         <!-- <div @click="openTelegram" class="nav-link">Telegram tips</div> -->
         <RouterLink :to="{ name: 'Banker' }" class="nav-link"> Banker of the day </RouterLink>
-        <RouterLink :to="{ name: 'Daily' }" class="nav-link"> Daily 10+ tips </RouterLink>
+        <RouterLink :to="{ name: 'Daily' }" class="nav-link"> Straight win </RouterLink>
         <RouterLink :to="{ name: 'Basketball' }" class="nav-link"> Basketball </RouterLink>
-        <RouterLink :to="{ name: 'Tennis' }" class="nav-link"> Tennis </RouterLink>
-        <RouterLink :to="{ name: 'Hockey' }" class="nav-link"> Hockey </RouterLink>
         <div class="drop-container">
           <div class="drop-down" @click="showDrop()">
             <span>More Predictions</span>
@@ -22,6 +20,7 @@
             <span @click="goToC('Double Chance')">Double Chance</span>
             <span @click="goToC('Over 2.5 Goals')">Over 2.5 Goals</span>
             <span @click="goToC('Over 1.5 Goals')">Over 1.5 Goals</span>
+            <span @click="goToC('Under 3.5 Goals')">Under 3.5 Goals</span>
             <span @click="goToC('Both Teams To Score')">Both Team To Score</span>
             <!-- <span @click="goTo('Bet Of The Day')">Bet Of The Day</span> -->
           </div>
@@ -64,13 +63,11 @@
           Home
         </RouterLink>
         <div class="drop-container spc">
-          <span @click="goTennis()" class="nav-link"> Tennis</span>
-          <span @click="goHockey()" class="nav-link"> Hockey</span>
           <span @click="goBasketball()" class="nav-link">Basketball</span>
-          <span @click="goDaily()" class="nav-link">Daily 10+ tips</span>
+          <span @click="goDaily()" class="nav-link">Straight win</span>
         </div>
         <div @click="openTelegramX" class="mobile-link">Telegram tips</div>
-        <RouterLink :to="{ name: 'Banker' }" class="mobile-link"> Bet Of the day </RouterLink>
+        <RouterLink :to="{ name: 'Banker' }" class="mobile-link"> Banker of the day </RouterLink>
         <div class="drop-container spos">
           <div class="drop-down" @click="showDrp()">
             <span>Prediction</span>
@@ -81,7 +78,7 @@
             <span @click="goTo('Over 2.5 Goals')">Over 2.5 Goals</span>
             <span @click="goTo('Over 1.5 Goals')">Over 1.5 Goals</span>
             <span @click="goTo('Both Teams To Score')">Both Team To Score</span>
-            <span @click="goTo('Under 2.5 Goals')">Under 2.5 Goals</span>
+            <span @click="goTo('Under 3.5 Goals')">Under 3.5 Goals</span>
           </div>
         </div>
         <!-- <span @click="goTo('Bet Of The Day')" class="nav-link">Bet Of The Day</span> -->
@@ -161,15 +158,7 @@ const goTo = (betname) => {
   showDrp()
 }
 
-const goTennis = () => {
-  router.push({ name: 'Tennis' })
-  showMenu()
-}
 
-const goHockey = () => {
-  router.push({ name: 'Hockey' })
-  showMenu()
-}
 
 const goDaily = () => {
   router.push({ name: 'Daily' })

@@ -29,11 +29,6 @@
           </button>
           <button @click="setActivePage(BetOfTheDay)" :class="getButtonClass(BetOfTheDay)">
             <FileIcon class="icon-panel" />
-            <span> Bet of the day </span>
-            <ArrowIcon class="icon-panel ap" />
-          </button>
-            <button @click="setActivePage(BankerView)" :class="getButtonClass(BankerView)">
-            <FileIcon class="icon-panel" />
             <span> Banker of day </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
@@ -59,7 +54,7 @@
           </button>
           <button @click="setActivePage(Daily)" :class="getButtonClass(Daily)">
             <FileIcon class="icon-panel" />
-            <span> Daily 10+ </span>
+            <span> Straight win </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
           <button @click="setActivePage(Upcomingtips)" :class="getButtonClass(Upcomingtips)">
@@ -70,16 +65,6 @@
           <button @click="setActivePage(BasketballGames)" :class="getButtonClass(BasketballGames)">
             <basketballIcon class="icon-panel" />
             <span> Basketball </span>
-            <ArrowIcon class="icon-panel ap" />
-          </button>
-          <button @click="setActivePage(TennisGames)" :class="getButtonClass(TennisGames)">
-            <tennisIcon class="icon-panel" />
-            <span>Tennis </span>
-            <ArrowIcon class="icon-panel ap" />
-          </button>
-          <button @click="setActivePage(HockeyGames)" :class="getButtonClass(HockeyGames)">
-            <hockeyicon class="icon-panel" />
-            <span>Hockey </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
           <button @click="logout" :class="getButtonClass(logout)">
@@ -101,8 +86,6 @@
 <script setup>
 import basketballIcon from '../icons/basketballIcon.vue'
 import { ref , watchEffect , shallowRef} from 'vue'
-import tennisIcon from '../icons/tennisIcon.vue'
-import hockeyicon from '../icons/hockeyicon.vue'
 import LogoutIcon from '../icons/logoutIcon.vue'
 import GroupIcon from '../icons/GroupIcon.vue'
 import ArrowIcon from '../icons/ArrowIcon.vue'
@@ -132,10 +115,7 @@ import BasketballGames from '../components/BasketballGames.vue'
 import Predictionpicks from '../components/Predictionpicks.vue'
 import Upcomingtips from '../components/UpcomingGames.vue'
 import VipMegaGames from '../components/VipMegaGames.vue'
-import TennisGames from '../components/TennisGames.vue'
-import HockeyGames from '../components/HockeyGames.vue'
 import BetOfTheDay from '../components/BetOfTheDay.vue'
-import BankerView from '../components/BankerView.vue'
 import FreeExpert from '../components/FreeExpert.vue'
 import Daily from '../components/Daily.vue'
 

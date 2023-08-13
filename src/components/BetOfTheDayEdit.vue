@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="form-container-h">
-      <h1>Bet Of the day update</h1>
+      <h1>Banker of the day update</h1>
     </div>
     <form @submit.prevent="handleSubmit" enctype="multipart/form-data" class="form-container">
       <div class="form-wrapper">

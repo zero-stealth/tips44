@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="form-container-h">
-      <h1>Daily 10+</h1>
+      <h1>Straight win</h1>
     </div>
     <form @submit.prevent="handleSubmit" class="form-container">
       <div class="form-wrapper">
@@ -64,7 +64,7 @@
             <option value="Over 2.5 Goals">Over 2.5 Goals</option>
             <option value="Over 1.5 Goals">Over 1.5 Goals</option>
             <option value="Both Teams To Score">Both Team To Score</option>
-            <option value="Under 2.5 Goals">Under 2.5 Goals</option>
+            <option value="Under 3.5 Goals">Under 3.5 Goals</option>
             <option value="none">None</option>
           </select>
         </div>

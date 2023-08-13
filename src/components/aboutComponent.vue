@@ -90,13 +90,13 @@
       <p>Explore our comprehensive range of free football predictions for major bet markets:</p>
       <ol>
         <li @click="goTo('Both Teams To Score')">Both Teams To Score tips</li>
-        <li @click="goTo('Under 2.5 Goals')">Under 2.5 Goals tips</li>
+        <li @click="goTo('Under 3.5 Goals')">Under 3.5 Goals tips</li>
         <li @click="goTo('Over 1.5 Goals')">Over 1.5 Goals tips</li>
         <li @click="goTo('Over 2.5 Goals')">Over 2.5 Goals tips</li>
         <li @click="goTo('Double Chance')">Double Chance tips</li>
-        <li @click="goToB()">Bet Of The Day tip</li>
-        <li @click="goToD()">Daily 10+ tips</li>
-        <li @click="goToH()">Hockey</li>
+        <li @click="goToB()">Banker of the day tip</li>
+        <li @click="goToD()">Straight win</li>
+        <li @click="goToH()">Basketball</li>
       </ol>
     </div>
     <div class="abt-p-in">
@@ -129,7 +129,7 @@ const goToD = () => {
 }
 
 const goToH = () => {
-  router.push({ name: 'Hockey' })
+  router.push({ name: 'Basketball' })
 }
 </script>
 <style>

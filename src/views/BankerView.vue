@@ -67,7 +67,7 @@ const getPrediction = async () => {
   const token = JSON.parse(localStorage.getItem('token'))
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/bankerPrediction/banker/${currentDate.value}`
+      `https://tips90-server.onrender.com/predictions/bet/betOfTheDay/${currentDate.value}`
     )
     cardData.value = response.data
   } catch (err) {

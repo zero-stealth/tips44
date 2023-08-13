@@ -83,10 +83,9 @@ const reset = () => {
         </div>
         <div class="d2-con">
           <RouterLink :to="{ name: 'Home' }" class="nav-lin">Home</RouterLink>
-          <RouterLink :to="{ name: 'Tennis' }" class="nav-lin">Tennis</RouterLink>
-          <RouterLink :to="{ name: 'Hockey' }" class="nav-lin">Hockey</RouterLink>
-          <RouterLink :to="{ name: 'Daily' }" class="nav-lin">Daily 10+ tips</RouterLink>
-          <RouterLink :to="{ name: 'Banker' }" class="nav-lin">Bet of the day</RouterLink>
+          <RouterLink :to="{ name: 'Basketball' }" class="nav-lin">Basketball</RouterLink>
+          <RouterLink :to="{ name: 'Daily' }" class="nav-lin">Straight win</RouterLink>
+          <RouterLink :to="{ name: 'Banker' }" class="nav-lin">Banker of the day</RouterLink>
         </div>
       </div>
       <div class="contact-d2">

@@ -72,8 +72,6 @@ const filteredCountries = computed(() => {
           <select class="sport-selector" v-model="sport">
             <option disabled value="">Select a sport</option>
             <option class="pay-op">Football</option>
-            <option class="pay-op">Tennis</option>
-            <option class="pay-op">Hockey</option>
             <option class="pay-op">Basketball</option>
           </select>
           <p>{{ errMsg }}</p>
@@ -438,8 +436,6 @@ const filteredCountries = computed(() => {
           <select class="sport-selector" v-model="sport">
             <option disabled value="">Select a sport</option>
             <option class="pay-op">Football</option>
-            <option class="pay-op">Tennis</option>
-            <option class="pay-op">Hockey</option>
             <option class="pay-op">Basketball</option>
           </select>
           <p>{{ errMsg }}</p>

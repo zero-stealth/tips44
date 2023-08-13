@@ -8,7 +8,7 @@
       <div class="acc-m gm-m ">
         <div class="main-header">
           <div class="header-info">
-            <h1>Bet of the day  ({{ currentDate }})</h1>
+            <h1>Banker of the day  ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
@@ -85,7 +85,7 @@
       <div class="acc-m gm-m">
         <div class="main-header">
           <div class="header-info">
-            <h1>Daily 10+ Tips ({{ currentDate }})</h1>
+            <h1>Straight win ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
@@ -151,81 +151,6 @@
               </td>
             </tr>
             <tr v-if="predictionData.length === 0">
-              <td colspan="8">No games yet!</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="acc-m gm-m">
-        <div class="main-header">
-          <div class="header-info">
-            <h1>Banker of the day ({{ currentDate }})</h1>
-          </div>
-          <div class="header-btn">
-             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
-              previous
-            </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
-              Today
-            </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
-              Tomorrow
-            </button>
-          </div>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>League</th>
-              <th>TeamA</th>
-              <th>TeamB</th>
-              <th>scoreA</th>
-              <th>scoreB</th>
-              <th>tip</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody v-for="item in BankerData">
-            <tr v-for="data in item" :key="data._id">
-              <td>
-                <div class="Account-tbl-img">
-      
-                  <span>{{ data.league }}</span>
-                </div>
-              </td>
-              <td>
-                <div class="Account-tbl-img">
-                  <span>{{ data.teamA }}</span>
-                </div>
-              </td>
-              <td>
-                <div class="Account-tbl-img">
-                  <span>{{ data.teamB }}</span>
-                </div>
-              </td>
-              <td>
-                <span>{{ data.teamAscore }}</span>
-              </td>
-              <td>
-                <span>{{ data.teamBscore }}</span>
-              </td>
-              <td>
-                <span>{{ data.tip }}</span>
-              </td>
-              <td>
-                <div class="Account-delete" @click="editGame(Banker, data._id)">
-                  <FileIcon class="icon-delete" />
-                </div>
-              </td>
-              <td>
-                <div class="Account-delete" @click="deletePrediction(data._id)">
-                  <DeleteIcon class="icon-delete" />
-                </div>
-              </td>
-            </tr>
-            <tr v-if="freeTipData.length === 0">
               <td colspan="8">No games yet!</td>
             </tr>
           </tbody>
@@ -304,7 +229,6 @@
           </tbody>
         </table>
       </div>
-
       <div class="acc-m gm-m">
         <div class="main-header">
           <div class="header-info">
@@ -381,7 +305,6 @@
           </tbody>
         </table>
       </div>
-
       <div class="acc-m gm-m">
         <div class="main-header">
           <div class="header-info">
@@ -450,7 +373,7 @@
                 </div>
               </td>
             </tr>
-            <tr v-if="vipData.length === 0">
+            <tr v-if="vipSupremeData.length === 0">
               <td colspan="8">No games yet!</td>
             </tr>
           </tbody>
@@ -524,82 +447,7 @@
                 </div>
               </td>
             </tr>
-            <tr v-if="vipData.length === 0">
-              <td colspan="8">No games yet!</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="acc-m gm-m">
-        <div class="main-header">
-          <div class="header-info">
-            <h1>Tennis bets ({{ currentDate }})</h1>
-          </div>
-          <div class="header-btn">
-             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
-              previous
-            </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
-              Today
-            </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
-              Tomorrow
-            </button>
-          </div>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>League</th>
-              <th>TeamA</th>
-              <th>TeamB</th>
-              <th>scoreA</th>
-              <th>scoreB</th>
-              <th>tip</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody v-for="item in tennisData">
-            <tr v-for="data in item" :key="data._id">
-              <td>
-                <div class="Account-tbl-img">
-      
-                  <span>{{ data.league }}</span>
-                </div>
-              </td>
-              <td>
-                <div class="Account-tbl-img">
-                  <span>{{ data.teamA }}</span>
-                </div>
-              </td>
-              <td>
-                <div class="Account-tbl-img">
-                  <span>{{ data.teamB }}</span>
-                </div>
-              </td>
-              <td>
-                <span>{{ data.teamAscore }}</span>
-              </td>
-              <td>
-                <span>{{ data.teamBscore }}</span>
-              </td>
-              <td>
-                <span>{{ data.tip }}</span>
-              </td>
-              <td>
-                <div class="Account-delete" @click="editSport(TennisGames, data._id)">
-                  <FileIcon class="icon-delete" />
-                </div>
-              </td>
-              <td>
-                <div class="Account-delete" @click="deleteSport(data._id)">
-                  <DeleteIcon class="icon-delete" />
-                </div>
-              </td>
-            </tr>
-            <tr v-if="tennisData.length === 0">
+            <tr v-if="vipMegaData.length === 0">
               <td colspan="8">No games yet!</td>
             </tr>
           </tbody>
@@ -608,81 +456,7 @@
       <div class="acc-m gm-m">
         <div class="main-header">
           <div class="header-info">
-            <h1>Hockey bets ({{ currentDate }})</h1>
-          </div>
-          <div class="header-btn">
-             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
-              previous
-            </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
-              Today
-            </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
-              Tomorrow
-            </button>
-          </div>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>League</th>
-              <th>TeamA</th>
-              <th>TeamB</th>
-              <th>scoreA</th>
-              <th>scoreB</th>
-              <th>tip</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody v-for="item in hockeyData">
-            <tr v-for="data in item" :key="data._id">
-              <td>
-                <div class="Account-tbl-img">
-      
-                  <span>{{ data.league }}</span>
-                </div>
-              </td>
-              <td>
-                <div class="Account-tbl-img">
-                  <span>{{ data.teamA }}</span>
-                </div>
-              </td>
-              <td>
-                <div class="Account-tbl-img">
-                  <span>{{ data.teamB }}</span>
-                </div>
-              </td>
-              <td>
-                <span>{{ data.teamAscore }}</span>
-              </td>
-              <td>
-                <span>{{ data.teamBscore }}</span>
-              </td>
-              <td>
-                <span>{{ data.tip }}</span>
-              </td>
-              <td>
-                <div class="Account-delete" @click="editSport(TennisGames, data._id)">
-                  <FileIcon class="icon-delete" />
-                </div>
-              </td>
-              <td>
-                <div class="Account-delete" @click="deleteSport(data._id)">
-                  <DeleteIcon class="icon-delete" />
-                </div>
-              </td>
-            </tr>
-            <tr v-if="tennisData.length === 0">
-              <td colspan="8">No games yet!</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="acc-m gm-m">
-        <div class="main-header">
-          <div class="header-info">
-            <h1>Basketball bets ({{ currentDate }})</h1>
+            <h1>Basketball  ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
              <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
@@ -776,10 +550,8 @@ import ExitIcon from '../icons/ExitIcon.vue'
 import FileIcon from '../icons/FileIcon.vue'
 import VipMega from './VipMegaGamesEdits.vue'
 import DeleteIcon from '../icons/DeleteIcon.vue'
-import Banker from '../components/BankerEdit.vue'
 import VipSupreme from './VipSupremeGamesEdits.vue'
 import BetOfTheDay from '../components/BetOfTheDayEdit.vue'
-import TennisGames from '../components/TennisGamesEdits.vue'
 import BasketballGames from '../components/BasketballEdit.vue'
 import UpcomingGames from '../components/UpcomingGamesEdits.vue'
 
@@ -796,13 +568,10 @@ const vipSupremeData = ref([])
 const predictionData = ref([])
 const freeTipData = ref([])
 const upcomingData = ref([])
-const tennisData = ref([])
 const dailyData = ref([])
 const expertData = ref([])
 const vipMegaData = ref([])
-const BankerData = ref([])
 const basketBallData = ref([])
-const hockeyData = ref([])
 
 const getBetOfTheDay = async () => {
   try {
@@ -817,18 +586,6 @@ const getBetOfTheDay = async () => {
   }
 }
 
-const getBanker = async () => {
-  try {
-    // const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/bankerPrediction/banker/${currentDate.value}`
-    )
-    console.log(response.data)
-    BankerData.value = response.data.length > 0 ? [response.data] : []
-  } catch (err) {
-    console.log(err)
-  }
-}
 const getdailyData = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
@@ -918,31 +675,6 @@ const getUpcoming = async () => {
   }
 }
 
-const getTennisBets = async () => {
-  try {
-    // const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get(
-      `https://tips90-server.onrender.com/sports/sport/Tennis/${currentDate.value}`
-    )
-    console.log(response.data)
-    tennisData.value = response.data.length > 0 ? [response.data] : []
-  } catch (err) {
-    console.log(err)
-  }
-}
-
-const getHockeyBets = async () => {
-  try {
-    // const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get(
-      `https://tips90-server.onrender.com/sports/sport/Hockey/${currentDate.value}`
-    )
-    console.log(response.data)
-    hockeyData.value = response.data.length > 0 ? [response.data] : []
-  } catch (err) {
-    console.log(err)
-  }
-}
 
 
 const getBasketballBets = async () => {
@@ -1045,11 +777,8 @@ onMounted(() => {
   getPredictions()
   getFreeTips()
   getUpcoming()
-  getBanker()
   getdailyData()
-  getHockeyBets()
   getexpertData()
-  getTennisBets()
   getVipMegaGames()
   getBasketballBets()
   getVipSupremeGames()
@@ -1093,7 +822,7 @@ const deleteSport = async (id) => {
       }
     )
     message.value = response.data.message
-    await getTennisBets()
+    awai
     await getBasketballBets()
   } catch (err) {
     message.value = 'deletion failed'
@@ -1111,11 +840,8 @@ watch(currentDate, () => {
   getPredictions()
   getFreeTips()
   getUpcoming()
-  getBanker()
   getdailyData()
-  getHockeyBets()
   getexpertData()
-  getTennisBets()
   getVipMegaGames()
   getBasketballBets()
   getVipSupremeGames()
