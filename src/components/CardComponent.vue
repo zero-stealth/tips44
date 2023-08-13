@@ -26,10 +26,10 @@
         <div class="card-in-s">
           <span>[{{ time }}]</span>
         </div>
-        <div v-if="!showScore">
+        <!-- <div v-if="!showScore">
           <span>vs</span>
-        </div>
-        <div v-if="shouldShowScore" class="card-score">
+        </div> -->
+        <div class="card-score">
           <span class="card-s">{{ teamAscore }}</span>
           <span class="card-p">-</span>
           <span class="card-s">{{ teamBscore }}</span>
