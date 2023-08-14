@@ -123,6 +123,7 @@ const activePage = shallowRef(AccountManagement)
 
 const setActivePage = (page) => {
   activePage.value = page
+  showMenu();
 }
 
 const getButtonClass = (page) => {
