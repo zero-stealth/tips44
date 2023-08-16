@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="form-container-h">
-      <h1>upcoming </h1>
+      <h1>Post Game</h1>
     </div>
     <form @submit.prevent="handleSubmit" enctype="multipart/form-data" class="form-container">
       <div class="form-wrapper">
@@ -15,7 +15,7 @@
           <input @change="handleTeamALogo" type="file" class="form-g-input" id="teamAIcon" accept="image/*" />
         </div>
         <div class="form-group">
-          <label for="formationA">Form:</label>
+          <label for="formationA">Formation:</label>
           <input v-model="formationA" type="text" class="form-g-input" placeholder="l-w-d-w" id="formationA" />
         </div>
         <div class="form-group">
@@ -56,9 +56,17 @@
             <option value="Over 2.5 Goals">Over 2.5 Goals</option>
             <option value="Over 1.5 Goals">Over 1.5 Goals</option>
             <option value="Both Teams To Score">Both Team To Score</option>
-            <option value="Under 2.5 Goals">Under 2.5 Goals</option>
-              <option value="Under 3.5 Goals">Straight Win</option>
+            <option value="Under 3.5 Goals">Under 3.5 Goals</option>
+            <option value="Under 3.5 Goals">Straight Win</option>
             <option value="none">None</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="status">Game category:</label>
+          <select v-model="Gamecategory" class="form-g-input" id="status">
+            <option disabled value="">Choose games category</option>
+            <option value="Bet-of-the-day">Bet Of The day</option>
+            <option value="Upcoming-games">Upcoming tips</option>
           </select>
         </div>
         <button type="submit" class="btn-f-f f-desktop">Submit</button>
@@ -92,7 +100,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref , watch } from 'vue';
 import axios from 'axios';
 
 const teamA = ref('');
@@ -106,11 +114,30 @@ const teamAPosition = ref('');
 const teamBPosition = ref('');
 const time = ref('');
 const category = ref('')
+const Gamecategory = ref('')
 const league = ref('');
 const teamAscore = ref(0);
 const teamBscore = ref(0);
 const date = ref('');
 const tip = ref('');
+const url = ref('');
+
+
+watch(Gamecategory, () => {
+  switch (Gamecategory.value) {
+    case 'Bet-of-the-day':
+    url.value = 'https://tips90-server.onrender.com/predictions/create/bet/betOfTheDay'
+      break;
+      case 'Upcoming-games':
+    url.value = 'https://tips90-server.onrender.com/predictions/create/upcoming/upcoming'
+      break;
+      case null || '':
+      alert('No empty fields allowed');
+      break;
+    default:
+      break;
+  }
+});
 
 function handleFileUpload(event, targetRef) {
   const file = event.target.files[0];
@@ -170,7 +197,7 @@ async function handleSubmit() {
       formData.append('tip', tip.value);
 
       const response = await axios.post(
-        'https://tips90-server.onrender.com/predictions/create/upcoming/upcoming',
+        `${url.value}`,
         formData,
         {
           headers: {
@@ -186,6 +213,8 @@ async function handleSubmit() {
     alert('No empty fields allowed');
   }
 }
+
+
 </script>
 
 <style>

@@ -47,7 +47,7 @@
             </td>
             <td>{{ account.paid }}</td>
             <td>{{ account.paid ? '1 Month' : '0 Month' }}</td>
-            <td>{{ paidDate  || 'no change'     }}</td> 
+            <td>{{ formatDate(account.updatedAt) || 'no change' }}</td> 
             <td>
               <div class="Account-t-con">
                 <div
@@ -131,6 +131,10 @@ const accountsData = async () => {
 };
 
 function formatDate(date) {
+  if (!(date instanceof Date)) {
+    date = new Date(date); 
+  }
+
   const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
   return date.toLocaleDateString(undefined, options);
 }
@@ -258,12 +262,22 @@ async function toggleVipType(account) {
 }
 
 watchEffect(() => {
-  username.value = localStorage.getItem('username');
-  if (endSub.value === true) {
-    toggleStatus(accountInfo.value[0].paid);
-    paidDate.value = "no date set"
-  }
+  // Update paidDate and VIP status when accountInfo or endSub changes
+  if (accountInfo.value.length > 0) {
+    getFutureDate(accountInfo.value[0]?.updatedAt);
+    paidDate.value = formatDate(accountInfo.value[0]?.updatedAt) || 'no change';
+    
+    // Toggle off VIP status after 30 days
+    if (endSub.value) {
+      const currentDate = new Date();
+      const futureDate = new Date(futuresDate.value);
 
+      if (currentDate >= futureDate) {
+        toggleStatus(accountInfo.value[0]);
+        endSub.value = false; // Reset the endSub flag
+      }
+    }
+  }
 });
 </script>
 

@@ -27,44 +27,14 @@
             <span>Game management</span>
             <ArrowIcon class="icon-panel ap" />
           </button>
-          <button @click="setActivePage(BetOfTheDay)" :class="getButtonClass(BetOfTheDay)">
+          <button @click="setActivePage(PostTableGames)" :class="getButtonClass(PostTableGames)">
             <FileIcon class="icon-panel" />
-            <span> Banker of day </span>
+            <span> Post Table Games </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
-          <button @click="setActivePage(FreeExpert)" :class="getButtonClass(FreeExpert)">
+          <button @click="setActivePage(PostCardGames)" :class="getButtonClass(PostCardGames)">
             <FileIcon class="icon-panel" />
-            <span> Free Expert  </span>
-            <ArrowIcon class="icon-panel ap" />
-          </button>
-          <button @click="setActivePage(Predictionpicks)" :class="getButtonClass(Predictionpicks)">
-            <FileIcon class="icon-panel" />
-            <span> Prediction picks </span>
-            <ArrowIcon class="icon-panel ap" />
-          </button>
-          <button @click="setActivePage(VipSupremeGames)" :class="getButtonClass(VipSupremeGames)">
-            <VipIcon class="icon-panel" />
-            <span> Vip Supreme prediction </span>
-            <ArrowIcon class="icon-panel ap" />
-          </button>
-          <button @click="setActivePage(VipMegaGames)" :class="getButtonClass(VipMegaGames)">
-            <VipIcon class="icon-panel" />
-            <span> Vip Mega prediction </span>
-            <ArrowIcon class="icon-panel ap" />
-          </button>
-          <button @click="setActivePage(Daily)" :class="getButtonClass(Daily)">
-            <FileIcon class="icon-panel" />
-            <span> Straight win </span>
-            <ArrowIcon class="icon-panel ap" />
-          </button>
-          <button @click="setActivePage(Upcomingtips)" :class="getButtonClass(Upcomingtips)">
-            <FileIcon class="icon-panel" />
-            <span> upcoming tips </span>
-            <ArrowIcon class="icon-panel ap" />
-          </button>
-          <button @click="setActivePage(BasketballGames)" :class="getButtonClass(BasketballGames)">
-            <basketballIcon class="icon-panel" />
-            <span> Basketball </span>
+            <span> Post Card Games </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
           <button @click="logout" :class="getButtonClass(logout)">
@@ -109,15 +79,9 @@ const showMenu = () => {
 }
 // pages
 import AccountManagement from '../components/AccountManagement.vue'
-import VipSupremeGames from '../components/VipSupremeGames.vue'
 import GameManagement from '../components/GameManagement.vue'
-import BasketballGames from '../components/BasketballGames.vue'
-import Predictionpicks from '../components/Predictionpicks.vue'
-import Upcomingtips from '../components/UpcomingGames.vue'
-import VipMegaGames from '../components/VipMegaGames.vue'
-import BetOfTheDay from '../components/BetOfTheDay.vue'
-import FreeExpert from '../components/FreeExpert.vue'
-import Daily from '../components/Daily.vue'
+import PostCardGames from '../components/PostCardGames.vue'
+import PostTableGames from '../components/PostTableGames.vue'
 
 const activePage = shallowRef(AccountManagement)
 

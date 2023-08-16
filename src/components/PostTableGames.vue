@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="form-container-h">
-      <h1>Prediction</h1>
+      <h1>Post Game</h1>
     </div>
     <form @submit.prevent="handleSubmit" class="form-container">
       <div class="form-wrapper">
@@ -64,9 +64,22 @@
             <option value="Over 2.5 Goals">Over 2.5 Goals</option>
             <option value="Over 1.5 Goals">Over 1.5 Goals</option>
             <option value="Both Teams To Score">Both Team To Score</option>
-            <option value="Under 2.5 Goals">Under 2.5 Goals</option>
-              <option value="Under 3.5 Goals">Straight Win</option>
+            <option value="Under 3.5 Goals">Under 3.5 Goals</option>
+            <option value="Under 3.5 Goals">Straight Win</option>
             <option value="none">None</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Gamecategory">Game category:</label>
+          <select v-model="Gamecategory" class="form-g-input" id="Gamecategory">
+            <option disabled value="">Choose games category</option>
+            <option value="free-expert">Free expert</option>
+            <option value="prediction-picks">Prediction picks</option>
+            <option value="vip-supreme">Vip supreme</option>
+            <option value="vip-mega">Vip mega</option>
+            <option value="tennis">Tennis</option>
+            <option value="basketball">Basketball</option>
+            <option value="straight-win">Straight win</option>
           </select>
         </div>
         <button type="submit" class="btn-f-f f-desktop">Submit</button>
@@ -100,8 +113,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import axios from 'axios'
+import { ref , watch } from 'vue';
+import axios from 'axios';
 
 const teamA = ref('')
 const teamB = ref('')
@@ -110,8 +123,45 @@ const league = ref('')
 const category = ref('')
 const teamAscore = ref(0)
 const teamBscore = ref(0)
+const Gamecategory = ref('')
 const tip = ref('')
 const date = ref('')
+const url = ref('');
+
+
+watch(Gamecategory, () => {
+  switch (Gamecategory.value) {
+    case 'free-expert':
+    url.value = 'https://tips90-server.onrender.com/predictions/create/freeExpert/expert'
+      break;
+      case 'prediction-picks':
+    url.value = 'https://tips90-server.onrender.com/predictions/create'
+      break;
+      case 'vip-supreme':
+    url.value = 'https://tips90-server.onrender.com/predictions/create/supremeVip/supreme'
+      break;
+      case 'vip-mega':
+    url.value = 'https://tips90-server.onrender.com/predictions/create/mega/vipMega'
+      break;
+      case 'basketball':
+    url.value = 'https://tips90-server.onrender.com/sports/create/Basketball'
+      break;
+    //   case 'free-tip':
+    // url.value = 'https://tips90-server.onrender.com/predictions/create/tip/freeTip'
+    //   break;
+    //   case 'tennis':
+    // url.value = 'https://tips90-server.onrender.com/sports/create/Tennis'
+    //   break;
+      case 'straight-win':
+    url.value = 'https://tips90-server.onrender.com/predictions/daily/dailyTen'
+      break;
+      case null || '':
+      alert('No empty fields allowed');
+      break;
+    default:
+      break;
+  }
+});
 
 async function handleSubmit() {
   if (
@@ -128,7 +178,7 @@ async function handleSubmit() {
     const user = JSON.parse(localStorage.getItem('token'))
     try {
       const response = await axios.post(
-        'https://tips90-server.onrender.com/predictions/create',
+        `${url.value}`,
         {
           teamAscore: teamAscore.value,
           teamBscore: teamBscore.value,
