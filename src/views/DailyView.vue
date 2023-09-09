@@ -18,7 +18,7 @@
             </button>
           </div>
         </div>
-        <template v-if="cardData.length > 0">
+        <template v-if="filter.length > 0">
           <div class="main-tb-c">
             <table class="main-table">
               <thead>
@@ -31,7 +31,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(card, index) in cardData" :key="index">
+                <tr v-for="(card, index) in filter" :key="index">
                   <td>{{ card.time }}</td>
                   <td>{{ card.league }}</td>
                   <td>{{ card.teamA }} <span class="vs-s">VS</span>  {{ card.teamB }}</td>
@@ -55,7 +55,7 @@
 
 <script setup>
 import axios from 'axios'
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
 import Arrow from '../icons/arrow.vue'
 import OtherPackage from '../components/OtherPackage.vue'
 import important from '../components/ImportantComponent.vue'
@@ -63,12 +63,19 @@ import important from '../components/ImportantComponent.vue'
 const currentDate = ref('')
 const cardData = ref([])
 
+const filter = computed(() => {
+  const allowedTips = 'AWAY WIN' ||'HOME WIN';
+  return cardData.value.filter((d) => d.tip.includes(allowedTips));
+});
+
+console.log(filter)
+
 async function getPrediction() {
   const token = JSON.parse(localStorage.getItem('token'))
 
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/daily-ten-prediction/dailyTen/${currentDate.value}`,
+      `https://tips90-server.onrender.com/predictions/free-expert/expert/${currentDate.value}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -76,7 +83,6 @@ async function getPrediction() {
       }
     )
     cardData.value = response.data
-    console.log(cardData.value)
   } catch (err) {
     console.log(err)
   }
