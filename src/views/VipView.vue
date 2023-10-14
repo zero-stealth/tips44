@@ -57,7 +57,13 @@
                   <td>{{ card.league }}</td>
                     <td>{{ card.teamA }} <span class="vs-s">VS</span>  {{ card.teamB }}</td>
                   <td>{{ card.tip }}</td>
-                  <td>{{ card.teamAscore }} - {{ card.teamBscore }}</td>
+                   <td class="td-sd">
+                {{ card.teamAscore }} - {{ card.teamBscore }}
+                <div class="icon-sd" v-if="offset < 0">
+                  <PassedIcon class="icon-sd-s icon-g" v-if="card.showScore === 'true'" />
+                  <FailedIcon class="icon-sd-s icon-f" v-else />
+                </div>
+              </td>
                 </tr>
               </tbody>
               <tbody v-else>
@@ -66,7 +72,13 @@
                   <td>{{ card.league }}</td>
                     <td>{{ card.teamA }} <span class="vs-s">VS</span>  {{ card.teamB }}</td>
                   <td>{{ card.tip }}</td>
-                  <td>{{ card.teamAscore }} - {{ card.teamBscore }}</td>
+                   <td class="td-sd">
+                {{ card.teamAscore }} - {{ card.teamBscore }}
+                <div class="icon-sd" v-if="offset < 0">
+                  <PassedIcon class="icon-sd-s icon-g" v-if="card.showScore === 'true'" />
+                  <FailedIcon class="icon-sd-s icon-f" v-else />
+                </div>
+              </td>
                 </tr>
               </tbody>
             </table>
@@ -89,6 +101,8 @@ import axios from 'axios'
 import Arrow from '../icons/arrow.vue'
 import { useRouter } from 'vue-router'
 import { ref, onMounted, watch } from 'vue'
+import PassedIcon from '../icons/PassedIcon.vue'
+import FailedIcon from '../icons/FailedIcon.vue'
 
 const router = useRouter()
 const username = ref(null)
@@ -166,7 +180,7 @@ const getVipSupreme = async () => {
 
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/vipSupreme/supreme/${currentDate.value}`,
+      `${SERVER_HOST}/predictions/vipSupreme/supreme/${currentDate.value}`,
       {
         headers: {
           Authorization: `Bearer ${token}`

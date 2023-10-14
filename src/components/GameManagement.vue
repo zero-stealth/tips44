@@ -709,12 +709,12 @@ const editSport = (sport, id) => {
   showEdit()
 }
 
-async function updateGame(teamAscore, teamBscore, showScore) {
+async function updateGame(teamAscore, showResult, teamBscore, showScore) {
   try {
     const token = JSON.parse(localStorage.getItem('token'))
     const response = await axios.put(
      `${SERVER_HOST}/predictions/update/${gameId.value}`,
-      { teamAscore, teamBscore, showScore },
+      { teamAscore, teamBscore, showScore, showResult },
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -725,12 +725,12 @@ async function updateGame(teamAscore, teamBscore, showScore) {
   } catch (error) { /* empty */ }
 }
 
-async function updateSport(teamAscore, teamBscore, showScore) {
+async function updateSport(teamAscore, showResult, teamBscore, showScore) {
   try {
     const token = JSON.parse(localStorage.getItem('token'))
     const response = await axios.put(
      `${SERVER_HOST}/sports/update/${sportId.value}`,
-      { teamAscore, teamBscore, showScore },
+      { teamAscore, teamBscore, showScore, showResult },
       {
         headers: {
           Authorization: `Bearer ${token}`

@@ -19,6 +19,14 @@
       </div>
       <div class="form-wrapper">
         <div class="form-group">
+          <label for="result">Choose result</label>
+          <select v-model="showResult" class="form-g-input" id="result">
+            <option disabled>Choose result</option>
+            <option value="true">Passed</option>
+            <option value="false">Failed</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label for="score">Show score:</label>
           <input v-model="showScore" type="text" class="form-g-input" placeholder="true" id="score" />
         </div>
@@ -49,6 +57,7 @@ const emit = defineEmits('formSubmit')
 const teamAscore = ref()
 const teamBscore = ref()
 const showScore = ref();
+const showResult = ref();
 
 
 async function handleSubmit() {
@@ -59,7 +68,7 @@ async function handleSubmit() {
     teamBscore.value !== null 
   ) {
     try {
-      emit('formSubmit', teamAscore.value, teamBscore.value, showScore.value)
+      emit('formSubmit', teamAscore.value, showResult.value, teamBscore.value, showScore.value)
     } catch (err) {
       console.log(err)
     }

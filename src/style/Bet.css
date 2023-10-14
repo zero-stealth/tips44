@@ -62,11 +62,12 @@
   .td-sd {
     gap: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
   }
 
   .icon-sd-s {
-    height: 18px;
+    height: 16px;
 
   }
 
@@ -86,6 +87,16 @@
     padding: 30px;
     min-height: 80%;
   }
+
+  .icon-sd-s {
+    height: 18px;
+
+  }
+
+  .td-sd {
+    flex-direction: row;
+  }
+
 
   .main-table th,
   .main-table td {
