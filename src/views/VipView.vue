@@ -60,7 +60,7 @@
                    <td class="td-sd">
                 {{ card.teamAscore }} - {{ card.teamBscore }}
                 <div class="icon-sd" v-if="offset < 0">
-                  <PassedIcon class="icon-sd-s icon-g" v-if="card.showScore === 'true'" />
+                  <PassedIcon class="icon-sd-s icon-g" v-if="card.showResult === true" />
                   <FailedIcon class="icon-sd-s icon-f" v-else />
                 </div>
               </td>
@@ -75,7 +75,7 @@
                    <td class="td-sd">
                 {{ card.teamAscore }} - {{ card.teamBscore }}
                 <div class="icon-sd" v-if="offset < 0">
-                  <PassedIcon class="icon-sd-s icon-g" v-if="card.showScore === 'true'" />
+                  <PassedIcon class="icon-sd-s icon-g" v-if="card.showResult === true" />
                   <FailedIcon class="icon-sd-s icon-f" v-else />
                 </div>
               </td>

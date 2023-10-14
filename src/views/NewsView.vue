@@ -1,7 +1,6 @@
 <script setup>
 import axios from 'axios'
 import { useRouter } from 'vue-router'
-import news from '../assets/news.png'
 import ArrowIcon from '@/icons/ArrowIcon.vue'
 import { ref, onMounted, computed } from 'vue'
 

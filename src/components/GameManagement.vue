@@ -578,7 +578,6 @@ const getBetOfTheDay = async () => {
     const response = await axios.get(
      `${SERVER_HOST}/predictions/bet/betOfTheDay/${currentDate.value}`
     )
-    console.log(response.data)
     cardData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
@@ -591,7 +590,6 @@ const getdailyData = async () => {
     const response = await axios.get(
      `${SERVER_HOST}/predictions/daily-ten-prediction/dailyTen/${currentDate.value}`
     )
-    console.log(response.data)
     dailyData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
@@ -603,7 +601,7 @@ const getexpertData = async () => {
     const response = await axios.get(
      `${SERVER_HOST}/predictions/free-expert/expert/${currentDate.value}`
     )
-    console.log(response.data)
+    
     expertData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
@@ -615,7 +613,7 @@ const getVipSupremeGames = async () => {
     const response = await axios.get(
      `${SERVER_HOST}/predictions/vipSupreme/supreme/${currentDate.value}`
     )
-    console.log(response.data)
+    
     vipSupremeData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
@@ -627,7 +625,7 @@ const getVipMegaGames = async () => {
     const response = await axios.get(
      `${SERVER_HOST}/predictions/vipMega/vipMega/${currentDate.value}`
     )
-    console.log(response.data)
+    
     vipMegaData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
@@ -641,7 +639,7 @@ const getPredictions = async () => {
     const response = await axios.get(
      `${SERVER_HOST}/predictions/${currentDate.value}`
     )
-    console.log(response.data)
+    
     predictionData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
@@ -654,7 +652,7 @@ const getFreeTips = async () => {
     const response = await axios.get(
      `${SERVER_HOST}/predictions/tips/freeTip/${currentDate.value}`
     )
-    console.log(response.data)
+    
     freeTipData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
@@ -667,7 +665,7 @@ const getUpcoming = async () => {
     const response = await axios.get(
      `${SERVER_HOST}/predictions/upcomingPredictions/upcoming/${currentDate.value}`
     )
-    console.log(response.data)
+    
     upcomingData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
@@ -682,7 +680,7 @@ const getBasketballBets = async () => {
     const response = await axios.get(
      `${SERVER_HOST}/sports/sport/Basketball/${currentDate.value}`
     )
-    console.log(response.data)  
+   
     basketBallData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
@@ -721,7 +719,6 @@ async function updateGame(teamAscore, showResult, teamBscore, showScore) {
         }
       }
     )
-    console.log(response.data)
   } catch (error) { /* empty */ }
 }
 
@@ -737,7 +734,6 @@ async function updateSport(teamAscore, showResult, teamBscore, showScore) {
         }
       }
     )
-    console.log(response.data)
   } catch (error) { /* empty */ }
 }
 
