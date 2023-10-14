@@ -88,7 +88,7 @@ const create = () => {
 const resetAuth = async () => {
   if (email.value !== '' && password.value !== '') {
     try {
-      const response = await axios.post(`${SERVER_HOST}/auth/reset', {
+      const response = await axios.post(`${SERVER_HOST}/auth/reset`, {
         email: email.value,
         password: password.value
       })
@@ -99,7 +99,6 @@ const resetAuth = async () => {
     }
   } else {
     errMsg.value = 'Write something'
-    reset()
   }
 }
 </script>
