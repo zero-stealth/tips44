@@ -85,19 +85,7 @@ const create = async () => {
   }
 }
 
-const useGoogle = async () => {
-  try {
-    const response = await axios.get('https://tips90-server.onrender.com/auth/auth/google')
 
-    // Handle the response from the server
-    // You may redirect the user to the returned URL or perform other operations based on the response
-    router.push({ name: 'Home' })
-  } catch (error) {
-    // Handle the error
-    errMsg.value = error;
-    alert(errMsg.value)
-  }
-}
 
 const login = () => {
   router.push({ name: 'Login' })

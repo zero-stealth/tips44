@@ -58,6 +58,26 @@
     font-size: 18px;
     color: #777;
   }
+
+  .td-sd {
+    gap: 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .icon-sd-s {
+    height: 18px;
+
+  }
+
+  .icon-g {
+    fill: var(--green-color);
+  }
+
+  .icon-f {
+    fill: var(--tertiary-color);
+
+  }
 }
 
 /* using it as global style for larger devices  */

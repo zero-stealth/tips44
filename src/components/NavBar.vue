@@ -107,7 +107,6 @@
 <script setup>
 import MobileMenuIcon from '../icons/mobileMenuIcon.vue'
 import { RouterLink, useRouter } from 'vue-router'
-import { countries } from 'country-flags-svg'
 import ProfileIcon from '../icons/profileIcon.vue'
 import GroupIcon from '../icons/GroupIcon.vue'
 import ExitIcon from '../icons/ExitIcon.vue'
@@ -121,7 +120,6 @@ const isOpen = ref(false)
 const isDropOpen = ref(false)
 const isDrpOpen = ref(false)
 const token = ref(null)
-const countryData = countries
 
 watchEffect(() => {
   token.value = localStorage.getItem('token')
@@ -142,8 +140,6 @@ const showDrp = () => {
 const logOut = () => {
   localStorage.removeItem('token')
   localStorage.removeItem('username')
-  username.value = null
-  isAdmin.value = false
   window.location.reload()
 }
 
@@ -180,9 +176,6 @@ const goSignin = () => {
   // showMenu();
 }
 
-const openTelegram = () => {
-  window.open('https://t.me/+p9eRLjKRtv45Y2Fk', '_blank')
-}
 
 const openTelegramX = () => {
   window.open('https://t.me/+p9eRLjKRtv45Y2Fk', '_blank')

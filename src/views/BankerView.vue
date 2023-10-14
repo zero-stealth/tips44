@@ -35,9 +35,13 @@
             <td>{{ card.league }}</td>
             <td>{{ card.teamA }} <span class="vs-s">VS</span>  {{ card.teamB }}</td>
             <td>{{ card.tip }}</td>
-            <td>
+            <td class="td-sd">
                 {{ card.teamAscore }} - {{ card.teamBscore }}
-            </td>
+                <div class="icon-sd" v-if="offset === -1 ">
+                  <PassedIcon class="icon-sd-s icon-g" v-if="card.showScore === 'true'" />
+                  <FailedIcon class="icon-sd-s icon-f" v-else />
+                </div>
+              </td>
           </tr>
         </tbody>
       </table>
@@ -55,19 +59,21 @@
 <script setup>
 import important from '../components/ImportantComponent.vue'
 import OtherPackage from '../components/OtherPackage.vue'
+import PassedIcon from '../icons/PassedIcon.vue'
+import FailedIcon from '../icons/FailedIcon.vue'
 import { ref, watchEffect, onMounted } from 'vue'
 import axios from 'axios'
 
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 const currentDate = ref('')
 const offset = ref(0)
 
 const cardData = ref([])
 
 const getPrediction = async () => {
-  const token = JSON.parse(localStorage.getItem('token'))
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/bet/betOfTheDay/${currentDate.value}`
+      `${SERVER_HOST}/predictions/bet/betOfTheDay/${currentDate.value}`
     )
     cardData.value = response.data
   } catch (err) {
@@ -95,13 +101,6 @@ const updateCurrentDate = () => {
 }
 
 updateCurrentDate()
-const formatFormation = (formation) => {
-  if (formation && formation.length > 0) {
-    // Check if formation exists and has at least one element
-    return formation[0].split('-')
-  }
-  return []
-}
 
 watchEffect(() => {
   getPrediction()

@@ -40,9 +40,7 @@ const showPayment = () => {
     reveal.value = 'India'
   } else if (Selectedcountry.value !== '' && Selectedcountry.value === 'MW') {
     reveal.value = 'Malawi'
-  } else if (Selectedcountry.value !== '' && Selectedcountry.value === 'TZ') {
-    reveal.value = 'Tanzania'
-  } else {
+   } else {
     reveal.value = 'others'
   }
 }
@@ -419,7 +417,7 @@ const filteredCountries = computed(() => {
           </ul>
         </div>
       </div>
-      <div v-else="reveal === ''"></div>
+      <div v-else></div>
     </div>
   </div>
   <div class="pay-monitor" v-else-if="routeParamName == 'MEGA ODDS'"> 
@@ -790,7 +788,7 @@ const filteredCountries = computed(() => {
           </ul>
         </div>
       </div>
-      <div v-else="reveal === ''"></div>
+      <div v-else></div>
     </div>
   </div>
   <div v-else>

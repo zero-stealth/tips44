@@ -54,7 +54,6 @@
   </div>
 </template>
 <script setup>
-import basketballIcon from '../icons/basketballIcon.vue'
 import { ref , watchEffect , shallowRef} from 'vue'
 import LogoutIcon from '../icons/logoutIcon.vue'
 import GroupIcon from '../icons/GroupIcon.vue'
@@ -62,7 +61,6 @@ import ArrowIcon from '../icons/ArrowIcon.vue'
 import ExitIcon from '../icons/ExitIcon.vue'
 import DrawIcon from '../icons/DrawIcon.vue'
 import FileIcon from '../icons/FileIcon.vue'
-import VipIcon from '../icons/VipIcon.vue'
 import banner from '../assets/profile.jpg'
 import { useRouter } from 'vue-router'
 

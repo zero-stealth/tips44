@@ -98,7 +98,6 @@ import AdminIcon from '../icons/AdminIcon.vue';
 import DeleteIcon from '../icons/DeleteIcon.vue';
 import ProfileIcon from '../icons/profileIcon.vue';
 
-const username = ref(null);
 const accountCards = ref([]);
 const accountInfo = ref([]);
 const SearchAccount = ref('');
@@ -107,11 +106,13 @@ const statusC = ref(null);
 const paidDate = ref(null);
 const futuresDate = ref(null);
 const endSub = ref(false);
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
+
 
 const accountsData = async () => {
   try {
     const user = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get(`https://tips90-server.onrender.com/auth`, {
+    const response = await axios.get(`${SERVER_HOST}/auth`, {
       headers: {
         Authorization: `Bearer ${user}`,
       },
@@ -170,7 +171,7 @@ const accountData = computed(() => {
 const deleteAccount = async (id) => {
   try {
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.delete(`https://tips90-server.onrender.com/auth/delete/${id}`,{
+    const response = await axios.delete(`${SERVER_HOST}/auth/delete/${id}`,{
       headers:{
         Authorization: `Bearer ${token}`
       }
@@ -235,7 +236,7 @@ async function toggleStatus(account) {
   account.status = !account.status;
 
   try {
-    const response = await axios.put(`https://tips90-server.onrender.com/auth/update/${account._id}`, {
+    const response = await axios.put(`${SERVER_HOST}/auth/update/${account._id}`, {
       paid: account.status,
     });
 
@@ -250,7 +251,7 @@ async function toggleVipType(account) {
   account.type = !account.type;
 
   try {
-    const response = await axios.put(`https://tips90-server.onrender.com/auth/update/${account._id}`, {
+    const response = await axios.put(`${SERVER_HOST}/auth/update/${account._id}`, {
       supreme: account.type,
     });
 

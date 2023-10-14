@@ -2,11 +2,7 @@
   <div
     class="auth-container"
     :style="{
-      backgroundImage: `linear-gradient(
-      110deg,
-      rgba(3, 30, 60, 0.8),
-      rgba(3, 30, 60, 0.7)
-    ), url(${SportBg})`
+      backgroundImage: `linear-gradient(110deg, rgba(3, 30, 60, 0.8), rgba(3, 30, 60, 0.7)), url(${SportBg})`
     }"
   >
     <div class="form-l-wrapper">
@@ -26,9 +22,7 @@
       </form>
       <span>or</span>
       <div class="l-alternatives">
-        <button class="alt-btn"  @click="create">
-        Create an account
-        </button>
+        <button class="alt-btn" @click="create">Create an account</button>
       </div>
     </div>
   </div>
@@ -38,7 +32,6 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
-import SportBg from '../assets/sport-bg.png'
 
 const resetPage = ref(false)
 const router = useRouter()
@@ -46,17 +39,19 @@ const password = ref('')
 const title = ref('Login')
 const errMsg = ref('')
 const email = ref('')
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
+
 
 const login = async () => {
   if (email.value !== '' && password.value !== '') {
     try {
-      const response = await axios.post('https://tips90-server.onrender.com/auth/login', {
+      const response = await axios.post(`${SERVER_HOST}/auth/login`, {
         email: email.value,
         password: password.value
       });
 
-      console.log(response.data); 
-      
+      console.log(response.data);
+
       const token = response.data.token;
       if (token) {
       const id = response.data._id
@@ -93,7 +88,7 @@ const create = () => {
 const resetAuth = async () => {
   if (email.value !== '' && password.value !== '') {
     try {
-      const response = await axios.post('https://tips90-server.onrender.com/auth/reset', {
+      const response = await axios.post(`${SERVER_HOST}/auth/reset', {
         email: email.value,
         password: password.value
       })
@@ -107,8 +102,6 @@ const resetAuth = async () => {
     reset()
   }
 }
-
-
 </script>
 
 <style>

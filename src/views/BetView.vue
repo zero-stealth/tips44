@@ -35,9 +35,13 @@
             <td>{{ card.league }}</td>
             <td>{{ card.teamA }} <span class="vs-s">VS</span>  {{ card.teamB }}</td>
             <td>{{ card.tip }}</td>
-            <td>
+            <td class="td-sd">
                 {{ card.teamAscore }} - {{ card.teamBscore }}
-            </td>
+                <div class="icon-sd" v-if="offset === -1 ">
+                  <PassedIcon class="icon-sd-s icon-g" v-if="card.showScore === 'true'" />
+                  <FailedIcon class="icon-sd-s icon-f" v-else />
+                </div>
+              </td>
           </tr>
         </tbody>
       </table>
@@ -55,6 +59,8 @@
 <script setup>
 import important from '../components/ImportantComponent.vue'
 import OtherPackage from '../components/OtherPackage.vue'
+import PassedIcon from '../icons/PassedIcon.vue'
+import FailedIcon from '../icons/FailedIcon.vue'
 import { ref, watchEffect, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
@@ -64,14 +70,15 @@ const currentDate = ref('')
 const offset = ref(0)
 const paramValue = ref('')
 const betName = ref('')
-
 const cardData = ref([])
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
+
 
 const predictions = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/prediction/${betName.value}/${currentDate.value}`
+      `${SERVER_HOST}/predictions/prediction/${betName.value}/${currentDate.value}`
     )
 
     cardData.value = response.data
@@ -80,10 +87,6 @@ const predictions = async () => {
   }
 }
 
-const handleBetNameChange = async (newBetName) => {
-  betName.value = newBetName
-  await predictions()
-}
 
 onMounted(() => {
   watchEffect(() => {
@@ -109,12 +112,6 @@ const updateCurrentDate = () => {
   currentDate.value = getFormattedDate(offset.value)
 }
 
-const formatFormation = (formation) => {
-  if (Array.isArray(formation)) {
-    return formation[0].split('-');
-  }
-  return [];
-};
 
 watchEffect(() => {
   paramValue.value = router.currentRoute.value.params.betName

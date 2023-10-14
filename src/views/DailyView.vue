@@ -34,9 +34,15 @@
                 <tr v-for="(card, index) in filter" :key="index">
                   <td>{{ card.time }}</td>
                   <td>{{ card.league }}</td>
-                  <td>{{ card.teamA }} <span class="vs-s">VS</span>  {{ card.teamB }}</td>
+                  <td>{{ card.teamA }} <span class="vs-s">VS</span> {{ card.teamB }}</td>
                   <td>{{ card.tip }}</td>
-                  <td>{{ card.teamAscore }} - {{ card.teamBscore }}</td>
+                  <td class="td-sd">
+                    {{ card.teamAscore }} - {{ card.teamBscore }}
+                    <div class="icon-sd" v-if="offset < 0 ">
+                      <PassedIcon class="icon-sd-s icon-g" v-if="card.showScore === 'true'" />
+                      <FailedIcon class="icon-sd-s icon-f" v-else />
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -57,16 +63,19 @@
 import axios from 'axios'
 import { ref, onMounted, watch, computed } from 'vue'
 import Arrow from '../icons/arrow.vue'
+import PassedIcon from '../icons/PassedIcon.vue'
+import FailedIcon from '../icons/FailedIcon.vue'
 import OtherPackage from '../components/OtherPackage.vue'
 import important from '../components/ImportantComponent.vue'
 
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 const currentDate = ref('')
 const cardData = ref([])
 
 const filter = computed(() => {
-  const allowedTips = 'AWAY WIN' ||'HOME WIN';
-  return cardData.value.filter((d) => d.tip.includes(allowedTips));
-});
+  const allowedTips = 'AWAY WIN' || 'HOME WIN'
+  return cardData.value.filter((d) => d.tip.includes(allowedTips))
+})
 
 console.log(filter)
 
@@ -75,7 +84,7 @@ async function getPrediction() {
 
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/free-expert/expert/${currentDate.value}`,
+      `${SERVER_HOST}/predictions/free-expert/expert/${currentDate.value}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -122,12 +131,6 @@ watch(currentDate, () => {
   getPrediction()
 })
 
-const formatFormation = (formation) => {
-  if (Array.isArray(formation)) {
-    return formation[0].split('-')
-  }
-  return []
-}
 </script>
 
 <style>

@@ -19,9 +19,9 @@
         </div>
       </div>
       <template v-if="cardData.length > 0">
-      <div v-for="item in cardData" class="main-h-card">
+      <div v-for="item in cardData" class="main-h-card" :key="item._id">
         <Card
-          v-for="(card, index) in item"
+          v-for="(card) in item"
           :key="card._id"
           :tip="card.tip"
           :status="card.status"
@@ -120,10 +120,9 @@ const currentDate = ref('')
 const router = useRouter()
 const cardData = ref([])
 const newsData = ref([])
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 
-const showCard = (cardID) => {
-  router.push({ name: 'Tips', params: { id: cardID } })
-}
+
 
 const newsInfo = (newsID) => {
   router.push({ name: 'News', params: { id: newsID } })
@@ -161,17 +160,12 @@ const getNews = async () => {
   }
 }
 
-const randomNewsData = computed(() => {
-  const shuffledNews = newsData.value.slice().sort(() => Math.random() - 0.5);
-  return shuffledNews.slice(0, 8);
-});
 
 
 const predictions = async () => {
   try {
-    const token = localStorage.getItem('token')
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/bet/betOfTheDay/${currentDate.value}`
+      `${SERVER_HOST}/predictions/bet/betOfTheDay/${currentDate.value}`
     )
     console.log(response.data)
     cardData.value = response.data.length > 0 ? [response.data] : []

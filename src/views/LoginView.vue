@@ -50,6 +50,8 @@ const password = ref('')
 const title = ref('Login to your account')
 const errMsg = ref('')
 const email = ref('')
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
+
 
 const reset = () => {
   password.value = ''
@@ -60,7 +62,7 @@ const reset = () => {
 const login = async () => {
   if (email.value !== '' && password.value !== '') {
     try {
-      const response = await axios.post('https://tips90-server.onrender.com/auth/login', {
+      const response = await axios.post( `${SERVER_HOST}/auth/login`, {
         email: email.value,
         password: password.value
       });
@@ -103,7 +105,7 @@ const create = () => {
 const resetAuth = async () => {
   if (email.value !== '' && password.value !== '') {
     try {
-      const response = await axios.put('https://tips90-server.onrender.com/auth/reset', {
+      const response = await axios.put( `${SERVER_HOST}/auth/reset`, {
         email: email.value,
         password: password.value
       })

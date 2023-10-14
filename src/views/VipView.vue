@@ -99,6 +99,8 @@ const vipName = ref(null)
 const SupremeData = ref([])
 const paid = ref(false)
 const offset = ref(0)
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
+
 
 console.log(paid.value)
 const updateAuthStatus = () => {
@@ -139,16 +141,13 @@ const goLogin = () => {
   router.push({ name: 'Login' })
 }
 
-const showCard = (cardID) => {
-  router.push({ name: 'Tips', params: { id: cardID } })
-}
 
 const getVipMega = async () => {
   const token = JSON.parse(localStorage.getItem('token'))
 
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/vipMega/vipMega/${currentDate.value}`,
+      `${SERVER_HOST}/predictions/vipMega/vipMega/${currentDate.value}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -186,7 +185,7 @@ const getAccountDetails = async () => {
   const id = localStorage.getItem('id')
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/auth/${id}`,
+      `${SERVER_HOST}/auth/${id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`

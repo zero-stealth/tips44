@@ -46,6 +46,8 @@ const password = ref('')
 const errMsg = ref('')
 const email = ref('')
 const confirmPassword = ref('')
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
+
 
 const reset = () => {
   email.value = ''
@@ -58,7 +60,7 @@ const reset = () => {
 const create = async () => {
   if (username.value !== '' && password.value !== '') {
     try {
-      const response = await axios.post('https://tips90-server.onrender.com/auth/register-admin', {
+      const response = await axios.post( `${SERVER_HOST}/auth/register-admin`, {
         username: username.value,
         email: email.value,
         password: password.value,

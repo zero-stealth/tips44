@@ -543,7 +543,7 @@
 
 <script setup>
 import axios from 'axios'
-import { ref, watchEffect, onMounted, computed, watch, shallowRef } from 'vue'
+import { ref, watchEffect, onMounted, watch, shallowRef } from 'vue'
 import Daily from './DailyEdit.vue'
 import Expert  from './FreeExpertEdit.vue'
 import ExitIcon from '../icons/ExitIcon.vue'
@@ -557,12 +557,10 @@ import UpcomingGames from '../components/UpcomingGamesEdits.vue'
 
 
 const username = ref(null)
-const accountInfo = ref([])
 const currentDate = ref('')
 const offset = ref(0)
 const message = ref()
 const isGameOpen = ref(false)
-
 const cardData = ref([])
 const vipSupremeData = ref([])
 const predictionData = ref([])
@@ -572,12 +570,13 @@ const dailyData = ref([])
 const expertData = ref([])
 const vipMegaData = ref([])
 const basketBallData = ref([])
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 
 const getBetOfTheDay = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/bet/betOfTheDay/${currentDate.value}`
+     `${SERVER_HOST}/predictions/bet/betOfTheDay/${currentDate.value}`
     )
     console.log(response.data)
     cardData.value = response.data.length > 0 ? [response.data] : []
@@ -590,7 +589,7 @@ const getdailyData = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/daily-ten-prediction/dailyTen/${currentDate.value}`
+     `${SERVER_HOST}/predictions/daily-ten-prediction/dailyTen/${currentDate.value}`
     )
     console.log(response.data)
     dailyData.value = response.data.length > 0 ? [response.data] : []
@@ -602,7 +601,7 @@ const getexpertData = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/free-expert/expert/${currentDate.value}`
+     `${SERVER_HOST}/predictions/free-expert/expert/${currentDate.value}`
     )
     console.log(response.data)
     expertData.value = response.data.length > 0 ? [response.data] : []
@@ -614,7 +613,7 @@ const getexpertData = async () => {
 const getVipSupremeGames = async () => {
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/vipSupreme/supreme/${currentDate.value}`
+     `${SERVER_HOST}/predictions/vipSupreme/supreme/${currentDate.value}`
     )
     console.log(response.data)
     vipSupremeData.value = response.data.length > 0 ? [response.data] : []
@@ -626,7 +625,7 @@ const getVipSupremeGames = async () => {
 const getVipMegaGames = async () => {
   try {
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/vipMega/vipMega/${currentDate.value}`
+     `${SERVER_HOST}/predictions/vipMega/vipMega/${currentDate.value}`
     )
     console.log(response.data)
     vipMegaData.value = response.data.length > 0 ? [response.data] : []
@@ -640,7 +639,7 @@ const getPredictions = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/${currentDate.value}`
+     `${SERVER_HOST}/predictions/${currentDate.value}`
     )
     console.log(response.data)
     predictionData.value = response.data.length > 0 ? [response.data] : []
@@ -653,7 +652,7 @@ const getFreeTips = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/tips/freeTip/${currentDate.value}`
+     `${SERVER_HOST}/predictions/tips/freeTip/${currentDate.value}`
     )
     console.log(response.data)
     freeTipData.value = response.data.length > 0 ? [response.data] : []
@@ -666,7 +665,7 @@ const getUpcoming = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://tips90-server.onrender.com/predictions/upcomingPredictions/upcoming/${currentDate.value}`
+     `${SERVER_HOST}/predictions/upcomingPredictions/upcoming/${currentDate.value}`
     )
     console.log(response.data)
     upcomingData.value = response.data.length > 0 ? [response.data] : []
@@ -681,7 +680,7 @@ const getBasketballBets = async () => {
   try {
     // const token = JSON.parse(localStorage.getItem('token'));
     const response = await axios.get(
-      `https://tips90-server.onrender.com/sports/sport/Basketball/${currentDate.value}`
+     `${SERVER_HOST}/sports/sport/Basketball/${currentDate.value}`
     )
     console.log(response.data)  
     basketBallData.value = response.data.length > 0 ? [response.data] : []
@@ -714,7 +713,7 @@ async function updateGame(teamAscore, teamBscore, showScore) {
   try {
     const token = JSON.parse(localStorage.getItem('token'))
     const response = await axios.put(
-      `https://tips90-server.onrender.com/predictions/update/${gameId.value}`,
+     `${SERVER_HOST}/predictions/update/${gameId.value}`,
       { teamAscore, teamBscore, showScore },
       {
         headers: {
@@ -723,14 +722,14 @@ async function updateGame(teamAscore, teamBscore, showScore) {
       }
     )
     console.log(response.data)
-  } catch (error) {}
+  } catch (error) { /* empty */ }
 }
 
 async function updateSport(teamAscore, teamBscore, showScore) {
   try {
     const token = JSON.parse(localStorage.getItem('token'))
     const response = await axios.put(
-      `https://tips90-server.onrender.com/sports/update/${sportId.value}`,
+     `${SERVER_HOST}/sports/update/${sportId.value}`,
       { teamAscore, teamBscore, showScore },
       {
         headers: {
@@ -739,7 +738,7 @@ async function updateSport(teamAscore, teamBscore, showScore) {
       }
     )
     console.log(response.data)
-  } catch (error) {}
+  } catch (error) { /* empty */ }
 }
 
 
@@ -784,16 +783,13 @@ onMounted(() => {
   getVipSupremeGames()
 })
 
-const accountData = computed(() => {
-  return accountInfo.value
-})
 
 const deletePrediction = async (id) => {
   try {
     const token = JSON.parse(localStorage.getItem('token'))
 
     const response = await axios.delete(
-      `https://tips90-server.onrender.com/predictions/delete/${id}`,
+     `${SERVER_HOST}/predictions/delete/${id}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }
@@ -803,7 +799,6 @@ const deletePrediction = async (id) => {
     await getFreeTips()
     await getUpcoming()
     await getBetOfTheDay()
-    await getVipGames()
   } catch (err) {
     message.value = 'deletion failed'
   }
@@ -816,13 +811,12 @@ const deleteSport = async (id) => {
     const token = JSON.parse(localStorage.getItem('token'))
 
     const response = await axios.delete(
-      `https://tips90-server.onrender.com/sports/delete/${id}`,
+     `${SERVER_HOST}/sports/delete/${id}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }
     )
     message.value = response.data.message
-    awai
     await getBasketballBets()
   } catch (err) {
     message.value = 'deletion failed'

@@ -127,33 +127,34 @@ const Gamecategory = ref('')
 const tip = ref('')
 const date = ref('')
 const url = ref('');
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 
 
 watch(Gamecategory, () => {
   switch (Gamecategory.value) {
     case 'free-expert':
-    url.value = 'https://tips90-server.onrender.com/predictions/create/freeExpert/expert'
+    url.value =  `${SERVER_HOST}/predictions/create/freeExpert/expert`
       break;
       case 'prediction-picks':
-    url.value = 'https://tips90-server.onrender.com/predictions/create'
+    url.value =  `${SERVER_HOST}/predictions/create`
       break;
       case 'vip-supreme':
-    url.value = 'https://tips90-server.onrender.com/predictions/create/supremeVip/supreme'
+    url.value =  `${SERVER_HOST}/predictions/create/supremeVip/supreme`
       break;
       case 'vip-mega':
-    url.value = 'https://tips90-server.onrender.com/predictions/create/mega/vipMega'
+    url.value =  `${SERVER_HOST}/predictions/create/mega/vipMega`
       break;
       case 'basketball':
-    url.value = 'https://tips90-server.onrender.com/sports/create/Basketball'
+    url.value =  `${SERVER_HOST}/sports/create/Basketball`
       break;
     //   case 'free-tip':
-    // url.value = 'https://tips90-server.onrender.com/predictions/create/tip/freeTip'
+    // url.value =  `${SERVER_HOST}/predictions/create/tip/freeTip`
     //   break;
     //   case 'tennis':
-    // url.value = 'https://tips90-server.onrender.com/sports/create/Tennis'
+    // url.value =  `${SERVER_HOST}/sports/create/Tennis`
     //   break;
       case 'straight-win':
-    url.value = 'https://tips90-server.onrender.com/predictions/daily/dailyTen'
+    url.value =  `${SERVER_HOST}/predictions/daily/dailyTen`
       break;
       case null || '':
       alert('No empty fields allowed');

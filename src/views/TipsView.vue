@@ -19,9 +19,11 @@ const teamBIcon = ref("")
 const league = ref("")
 const leagueIcon = ref("")
 const time = ref("")
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
+
 
 async function getTip(){
-  const response = await axios.get(`https://tips90-server.onrender.com/predictions/single/${props.id}`)
+  const response = await axios.get(`${SERVER_HOST}/predictions/single/${props.id}`)
   teamA.value = response.data.teamA
   teamB.value = response.data.teamB
   teamAIcon.value = response.data.teamAIcon

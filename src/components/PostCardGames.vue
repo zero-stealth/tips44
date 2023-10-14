@@ -121,15 +121,17 @@ const teamBscore = ref(0);
 const date = ref('');
 const tip = ref('');
 const url = ref('');
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
+
 
 
 watch(Gamecategory, () => {
   switch (Gamecategory.value) {
     case 'Bet-of-the-day':
-    url.value = 'https://tips90-server.onrender.com/predictions/create/bet/betOfTheDay'
+    url.value =   `${SERVER_HOST}/predictions/create/bet/betOfTheDay`
       break;
       case 'Upcoming-games':
-    url.value = 'https://tips90-server.onrender.com/predictions/create/upcoming/upcoming'
+    url.value =   `${SERVER_HOST}/predictions/create/upcoming/upcoming`
       break;
       case null || '':
       alert('No empty fields allowed');
@@ -207,8 +209,7 @@ async function handleSubmit() {
         }
       );
       alert('game posted')
-    } catch (err) {
-    }
+    } catch (err) { /* empty */ }
   } else {
     alert('No empty fields allowed');
   }
