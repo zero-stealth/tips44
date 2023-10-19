@@ -3,13 +3,11 @@ import TelegramIcon from '../icons/telegram.vue'
 import PayIcon from '../icons/payIcon.vue'
 import VipIcon from '../icons/VipIcon.vue'
 import { useRouter } from 'vue-router'
-import { ref } from 'vue'
 
 const router = useRouter()
-const isOpen = ref(false)
 
 const goPay = () => {
-  router.push({ name: 'Pay', params: { vipName: 'SUPREME 2+' } })
+  router.push({ name: 'Pay', params: { vipName: 'Supreme VIP' } })
 }
 
 const openTelegram = () => {

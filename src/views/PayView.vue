@@ -1,8 +1,8 @@
 <script setup>
 import countriesData from '../components/countries.json'
 import MoneyIcon from '../icons/payIcon.vue'
-import { useRoute,useRouter } from 'vue-router'
-import { ref, computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { ref } from 'vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -10,7 +10,6 @@ const Selectedcountry = ref('')
 const sport = ref('')
 const reveal = ref('')
 const errMsg = ref('')
-const searchTerm = ref('')
 const routeParamName = route.params.vipName
 
 const goVip = () => {
@@ -40,58 +39,31 @@ const showPayment = () => {
     reveal.value = 'India'
   } else if (Selectedcountry.value !== '' && Selectedcountry.value === 'MW') {
     reveal.value = 'Malawi'
-   } else {
+  } else {
     reveal.value = 'others'
   }
 }
-
-const filteredCountries = computed(() => {
-  const term = searchTerm.value.toLowerCase()
-  return countriesData.filter(
-    (country) =>
-      country.name.toLowerCase().includes(term) || country.code.toUpperCase().includes(term)
-  )
-})
 </script>
 
 <template>
-  <div class="pay-monitor" v-if="routeParamName == 'SUPREME 2+'">
+  <div class="pay-monitor" v-if="routeParamName == 'Supreme VIP'">
     {{ routeParamName }}
     <div class="desknav-layout">
       <desktopNav class="desk-show" />
     </div>
     <div class="pay-contain">
-      <div class="pay-header">
-        <div class="sport-s-contain">
-          <div class="game-tips">
-            <label class="sport-label">Choose a sport</label>
-            <span>Telegram tips </span>
-          </div>
-          <select class="sport-selector" v-model="sport">
-            <option disabled value="">Select a sport</option>
-            <option class="pay-op">Football</option>
-            <option class="pay-op">Basketball</option>
-          </select>
-          <p>{{ errMsg }}</p>
-        </div>
-      </div>
       <div class="pay-title">
         <span></span>
         <MoneyIcon class="icon-pay" />
-        <h1>Subscribe to VIP plan or <span @click="goVip" > Go to Vip</span></h1> 
+        <h1>Subscribe to VIP plan or <span @click="goVip"> Go to Vip</span></h1>
       </div>
       <div class="pay-main">
         <div class="sport-s-contain">
-          <label>Please select one</label>
-          <input
-            type="text"
-            class="sport-selector"
-            v-model="searchTerm"
-            placeholder="Search country"
-          />
+          <label>Choose a country </label>
+
           <select class="sport-selector" v-model="Selectedcountry">
-            <option disabled value="">Select a country</option>
-            <option v-for="country in filteredCountries" :key="country.code" :value="country.code">
+            <option disabled value="">country...</option>
+            <option v-for="country in countriesData" :key="country.code" :value="country.code">
               {{ country.name }}
             </option>
           </select>
@@ -105,7 +77,7 @@ const filteredCountries = computed(() => {
             <h1>
               2 - 5 odds daily <br />
               Payment for One Month <br />
-              Amount paid: ( 50 dollars , 45 Euros, $40 Pounds)  <br />
+              Amount paid: ( 50 dollars , 45 Euros, $40 Pounds) <br />
             </h1>
           </div>
           <div class="pay-card-h">
@@ -144,7 +116,7 @@ const filteredCountries = computed(() => {
             <h1>
               2 - 5 odds daily <br />
               Payment for One Month <br />
-              Amount paid: (2,500 ksh)  <br />
+              Amount paid: (2,500 ksh) <br />
             </h1>
           </div>
           <div class="pay-card-h">
@@ -154,7 +126,7 @@ const filteredCountries = computed(() => {
               Amount paid: (1,200 ksh) <br />
             </h1>
           </div>
-          </div>
+        </div>
         <div class="method-head">
           <h1>Available methods of payment for your country:</h1>
         </div>
@@ -166,6 +138,43 @@ const filteredCountries = computed(() => {
             <li>Name will be <span>HANNINGTONE ODUONG </span></li>
           </ul>
         </div>
+        <div class="extra-container">
+          <div class="extra-v">
+            <div class="Question">
+              <div class="Question-con">
+                <h1>Q: How guaranteed are your games?</h1>
+                <p>
+                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
+                  that score up to 96% in their accuracy rate. You are guaranteed to make
+                  substantial profits.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: What happens for failed predictions?</h1>
+                <p>
+                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
+                  one day FREE as a replacement on your subscription. We will keep adding an extra
+                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: How do I get these daily games sent to me?</h1>
+                <p>
+                  <span>Answer:</span> We post games on our platform
+                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
+                  using your email and password or through social accounts to view games.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: Why don't we post results</h1>
+                <p>
+                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
+                  and swindle unsuspecting victims.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'niger'">
         <div class="info-pay-h">
@@ -173,7 +182,7 @@ const filteredCountries = computed(() => {
             <h1>
               2 - 5 odds daily <br />
               Payment for One Month <br />
-              Amount paid: (7000 Naira)  <br />
+              Amount paid: (7000 Naira) <br />
             </h1>
           </div>
           <div class="pay-card-h">
@@ -183,15 +192,52 @@ const filteredCountries = computed(() => {
               Amount paid: (5000 Naira) <br />
             </h1>
           </div>
-          </div>
+        </div>
         <div class="method-head">
           <h1>Available methods of payment for your country:</h1>
         </div>
         <div class="method-pay">
           <ul>
             <li>Name will be<span>SAMUEL AYODELE</span></li>
-            <li> Send money to  <span>7035213038 Opay</span></li>
+            <li>Send money to <span>7035213038 Opay</span></li>
           </ul>
+        </div>
+        <div class="extra-container">
+          <div class="extra-v">
+            <div class="Question">
+              <div class="Question-con">
+                <h1>Q: How guaranteed are your games?</h1>
+                <p>
+                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
+                  that score up to 96% in their accuracy rate. You are guaranteed to make
+                  substantial profits.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: What happens for failed predictions?</h1>
+                <p>
+                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
+                  one day FREE as a replacement on your subscription. We will keep adding an extra
+                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: How do I get these daily games sent to me?</h1>
+                <p>
+                  <span>Answer:</span> We post games on our platform
+                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
+                  using your email and password or through social accounts to view games.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: Why don't we post results</h1>
+                <p>
+                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
+                  and swindle unsuspecting victims.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'ghana'">
@@ -200,7 +246,7 @@ const filteredCountries = computed(() => {
             <h1>
               2 - 5 odds daily <br />
               Payment for One Month <br />
-              Amount paid: (200 Cedis)  <br />
+              Amount paid: (200 Cedis) <br />
             </h1>
           </div>
           <div class="pay-card-h">
@@ -210,7 +256,7 @@ const filteredCountries = computed(() => {
               Amount paid: (105 cedis) <br />
             </h1>
           </div>
-          </div>
+        </div>
         <div class="method-head">
           <h1>Available methods of payment for your country:</h1>
         </div>
@@ -220,6 +266,43 @@ const filteredCountries = computed(() => {
             <li>MOMO Name will be <span>RICHARD BAAFI</span></li>
           </ul>
         </div>
+        <div class="extra-container">
+          <div class="extra-v">
+            <div class="Question">
+              <div class="Question-con">
+                <h1>Q: How guaranteed are your games?</h1>
+                <p>
+                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
+                  that score up to 96% in their accuracy rate. You are guaranteed to make
+                  substantial profits.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: What happens for failed predictions?</h1>
+                <p>
+                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
+                  one day FREE as a replacement on your subscription. We will keep adding an extra
+                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: How do I get these daily games sent to me?</h1>
+                <p>
+                  <span>Answer:</span> We post games on our platform
+                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
+                  using your email and password or through social accounts to view games.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: Why don't we post results</h1>
+                <p>
+                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
+                  and swindle unsuspecting victims.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'southA'">
         <div class="info-pay-h">
@@ -227,7 +310,7 @@ const filteredCountries = computed(() => {
             <h1>
               2 - 5 odds daily <br />
               Payment for One Month <br />
-              Amount paid: (500 Rand)  <br />
+              Amount paid: (500 Rand) <br />
             </h1>
           </div>
           <div class="pay-card-h">
@@ -237,7 +320,7 @@ const filteredCountries = computed(() => {
               Amount paid: (250 rand) <br />
             </h1>
           </div>
-          </div>
+        </div>
         <div class="method-head">
           <h1>Available methods of payment for your country:</h1>
         </div>
@@ -249,6 +332,43 @@ const filteredCountries = computed(() => {
             <li>Name will be <span>Tamsanqa Matshitshi</span></li>
           </ul>
         </div>
+        <div class="extra-container">
+          <div class="extra-v">
+            <div class="Question">
+              <div class="Question-con">
+                <h1>Q: How guaranteed are your games?</h1>
+                <p>
+                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
+                  that score up to 96% in their accuracy rate. You are guaranteed to make
+                  substantial profits.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: What happens for failed predictions?</h1>
+                <p>
+                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
+                  one day FREE as a replacement on your subscription. We will keep adding an extra
+                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: How do I get these daily games sent to me?</h1>
+                <p>
+                  <span>Answer:</span> We post games on our platform
+                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
+                  using your email and password or through social accounts to view games.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: Why don't we post results</h1>
+                <p>
+                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
+                  and swindle unsuspecting victims.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'Tanzania'">
         <div class="info-pay-h">
@@ -256,7 +376,7 @@ const filteredCountries = computed(() => {
             <h1>
               2 - 5 odds daily <br />
               Payment for One Month <br />
-              Amount paid: (40,000 TZS)  <br />
+              Amount paid: (40,000 TZS) <br />
             </h1>
           </div>
           <div class="pay-card-h">
@@ -266,7 +386,7 @@ const filteredCountries = computed(() => {
               Amount paid: (20000 TZS) <br />
             </h1>
           </div>
-          </div>
+        </div>
         <div class="method-head">
           <h1>Available methods of payment for your country:</h1>
         </div>
@@ -278,6 +398,43 @@ const filteredCountries = computed(() => {
             <li>Name will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
+        <div class="extra-container">
+          <div class="extra-v">
+            <div class="Question">
+              <div class="Question-con">
+                <h1>Q: How guaranteed are your games?</h1>
+                <p>
+                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
+                  that score up to 96% in their accuracy rate. You are guaranteed to make
+                  substantial profits.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: What happens for failed predictions?</h1>
+                <p>
+                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
+                  one day FREE as a replacement on your subscription. We will keep adding an extra
+                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: How do I get these daily games sent to me?</h1>
+                <p>
+                  <span>Answer:</span> We post games on our platform
+                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
+                  using your email and password or through social accounts to view games.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: Why don't we post results</h1>
+                <p>
+                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
+                  and swindle unsuspecting victims.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'Uganda'">
         <div class="info-pay-h">
@@ -285,7 +442,7 @@ const filteredCountries = computed(() => {
             <h1>
               2 - 5 odds daily <br />
               Payment for One Month <br />
-              Amount paid: (80000 UGX )  <br />
+              Amount paid: (80000 UGX ) <br />
             </h1>
           </div>
           <div class="pay-card-h">
@@ -295,7 +452,7 @@ const filteredCountries = computed(() => {
               Amount paid: (35000 UGX) <br />
             </h1>
           </div>
-          </div>
+        </div>
         <div class="method-head">
           <h1>Available methods of payment for your country:</h1>
         </div>
@@ -307,6 +464,43 @@ const filteredCountries = computed(() => {
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
+        <div class="extra-container">
+          <div class="extra-v">
+            <div class="Question">
+              <div class="Question-con">
+                <h1>Q: How guaranteed are your games?</h1>
+                <p>
+                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
+                  that score up to 96% in their accuracy rate. You are guaranteed to make
+                  substantial profits.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: What happens for failed predictions?</h1>
+                <p>
+                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
+                  one day FREE as a replacement on your subscription. We will keep adding an extra
+                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: How do I get these daily games sent to me?</h1>
+                <p>
+                  <span>Answer:</span> We post games on our platform
+                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
+                  using your email and password or through social accounts to view games.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: Why don't we post results</h1>
+                <p>
+                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
+                  and swindle unsuspecting victims.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'Zambia'">
         <div class="info-pay-h">
@@ -314,7 +508,7 @@ const filteredCountries = computed(() => {
             <h1>
               2 - 5 odds daily <br />
               Payment for One Month <br />
-              Amount paid: (500 Kwacha  )  <br />
+              Amount paid: (500 Kwacha ) <br />
             </h1>
           </div>
           <div class="pay-card-h">
@@ -324,7 +518,7 @@ const filteredCountries = computed(() => {
               Amount paid: (200 kwacha) <br />
             </h1>
           </div>
-          </div>
+        </div>
         <div class="method-head">
           <h1>Available methods of payment for your country:</h1>
         </div>
@@ -336,6 +530,43 @@ const filteredCountries = computed(() => {
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
+        <div class="extra-container">
+          <div class="extra-v">
+            <div class="Question">
+              <div class="Question-con">
+                <h1>Q: How guaranteed are your games?</h1>
+                <p>
+                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
+                  that score up to 96% in their accuracy rate. You are guaranteed to make
+                  substantial profits.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: What happens for failed predictions?</h1>
+                <p>
+                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
+                  one day FREE as a replacement on your subscription. We will keep adding an extra
+                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: How do I get these daily games sent to me?</h1>
+                <p>
+                  <span>Answer:</span> We post games on our platform
+                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
+                  using your email and password or through social accounts to view games.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: Why don't we post results</h1>
+                <p>
+                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
+                  and swindle unsuspecting victims.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'Rwanda'">
         <div class="info-pay-h">
@@ -343,10 +574,10 @@ const filteredCountries = computed(() => {
             <h1>
               2 - 5 odds daily <br />
               Payment for One Month <br />
-              Amount paid: (25,000 Rwandan Franc  )  <br />
+              Amount paid: (25,000 Rwandan Franc ) <br />
             </h1>
           </div>
-          </div>
+        </div>
         <div class="method-head">
           <h1>Available methods of payment for your country:</h1>
         </div>
@@ -358,6 +589,43 @@ const filteredCountries = computed(() => {
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
+        <div class="extra-container">
+          <div class="extra-v">
+            <div class="Question">
+              <div class="Question-con">
+                <h1>Q: How guaranteed are your games?</h1>
+                <p>
+                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
+                  that score up to 96% in their accuracy rate. You are guaranteed to make
+                  substantial profits.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: What happens for failed predictions?</h1>
+                <p>
+                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
+                  one day FREE as a replacement on your subscription. We will keep adding an extra
+                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: How do I get these daily games sent to me?</h1>
+                <p>
+                  <span>Answer:</span> We post games on our platform
+                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
+                  using your email and password or through social accounts to view games.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: Why don't we post results</h1>
+                <p>
+                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
+                  and swindle unsuspecting victims.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'Malawi'">
         <div class="info-pay-h">
@@ -365,7 +633,7 @@ const filteredCountries = computed(() => {
             <h1>
               2 - 5 odds daily <br />
               Payment for One Month <br />
-              Amount paid: (20,000 MWK)  <br />
+              Amount paid: (20,000 MWK) <br />
             </h1>
           </div>
           <div class="pay-card-h">
@@ -375,7 +643,7 @@ const filteredCountries = computed(() => {
               Amount paid: (10000 MWK) <br />
             </h1>
           </div>
-          </div>
+        </div>
         <div class="method-head">
           <h1>Available methods of payment for your country:</h1>
         </div>
@@ -387,6 +655,43 @@ const filteredCountries = computed(() => {
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
+        <div class="extra-container">
+          <div class="extra-v">
+            <div class="Question">
+              <div class="Question-con">
+                <h1>Q: How guaranteed are your games?</h1>
+                <p>
+                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
+                  that score up to 96% in their accuracy rate. You are guaranteed to make
+                  substantial profits.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: What happens for failed predictions?</h1>
+                <p>
+                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
+                  one day FREE as a replacement on your subscription. We will keep adding an extra
+                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: How do I get these daily games sent to me?</h1>
+                <p>
+                  <span>Answer:</span> We post games on our platform
+                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
+                  using your email and password or through social accounts to view games.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: Why don't we post results</h1>
+                <p>
+                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
+                  and swindle unsuspecting victims.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'India'">
         <div class="info-pay-h">
@@ -394,7 +699,7 @@ const filteredCountries = computed(() => {
             <h1>
               2 - 5 odds daily <br />
               Payment for One Month <br />
-              Amount paid: (2500 Rupees)  <br />
+              Amount paid: (2500 Rupees) <br />
             </h1>
           </div>
           <div class="pay-card-h">
@@ -404,7 +709,7 @@ const filteredCountries = computed(() => {
               Amount paid: (1500 Rupees) <br />
             </h1>
           </div>
-          </div>
+        </div>
         <div class="method-head">
           <h1>Available methods of payment for your country:</h1>
         </div>
@@ -416,11 +721,48 @@ const filteredCountries = computed(() => {
             <li>Initials will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
+        <div class="extra-container">
+          <div class="extra-v">
+            <div class="Question">
+              <div class="Question-con">
+                <h1>Q: How guaranteed are your games?</h1>
+                <p>
+                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
+                  that score up to 96% in their accuracy rate. You are guaranteed to make
+                  substantial profits.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: What happens for failed predictions?</h1>
+                <p>
+                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
+                  one day FREE as a replacement on your subscription. We will keep adding an extra
+                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: How do I get these daily games sent to me?</h1>
+                <p>
+                  <span>Answer:</span> We post games on our platform
+                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
+                  using your email and password or through social accounts to view games.
+                </p>
+              </div>
+              <div class="Question-con">
+                <h1>Q: Why don't we post results</h1>
+                <p>
+                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
+                  and swindle unsuspecting victims.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div v-else></div>
     </div>
   </div>
-  <div class="pay-monitor" v-else-if="routeParamName == 'MEGA ODDS'"> 
+  <!-- <div class="pay-monitor" v-else-if="routeParamName == 'MEGA ODDS'"> 
     <div class="desknav-layout">
       <desktopNav class="desk-show" />
     </div>
@@ -428,9 +770,6 @@ const filteredCountries = computed(() => {
       <div class="pay-header">
         <div class="sport-s-contain">
           <div class="game-tips">
-            <label class="sport-label">Choose a sport</label>
-            <span>Telegram tips </span>
-          </div>
           <select class="sport-selector" v-model="sport">
             <option disabled value="">Select a sport</option>
             <option class="pay-op">Football</option>
@@ -790,79 +1129,8 @@ const filteredCountries = computed(() => {
       </div>
       <div v-else></div>
     </div>
-  </div>
-  <div v-else>
-  </div>
-  <div class="extra-container">
-    <div class="extra-info">
-      <div class="method-head">
-        <h1>PAYMENTS THROUGH WESTERN UNION, MONEYGRAM, RIA MONEY, AND WORLD REMIT</h1>
-      </div>
-      <div class="step-pay">
-        <p>
-          Please ask us for the account information over WhatsApp  0743247861 if you prefer sending
-          money via Western Union, MoneyGram/Ria Money, or World Remit.
-        </p>
-      </div>
-      <div class="method-head">
-        <h1>French speaking african countries</h1>
-      </div>
-      <div class="step-pay">
-        <p>
-          Transfert d'argent Western Union Ce mode de paiement convient à 8 états indépendants en
-          Afrique de l'Ouest qui sont, le Bénin🇧🇯, le Burkina Faso 🇧🇫, la Côte d'Ivoire 🇨🇮, le
-          Mali🇲🇱, le Niger🇳🇪, le Sénégal🇸🇳 et le Togo 🇹🇬 L'abonnement VIP est de 15,000 francs CFA
-        </p>
-      </div>
-      <div class="method-head">
-        <h1>PLEASE NOTE:</h1>
-      </div>
-      <div class="step-pay">
-        <p>
-          <span></span> If your
-          <bold><span>preferred way of payment is not included</span></bold> in the above list, feel
-          free to <span>Contact us via WhatsApp 074347861 </span> for more information. Ask for
-          assistance over WhatsApp if you're having <span>trouble transacting </span> as well. SPEAK
-          TO US RIGHT AWAY
-        </p>
-      </div>
-    </div>
-    <div class="extra-v">
-      <div class="Question">
-          <div class="Question-con">
-            <h1>Q: How guaranteed are your games?</h1>
-            <p>
-              <span>Answer:</span> We have a team of top-notch well-researched/informed experts that
-              score up to 96% in their accuracy rate. You are guaranteed to make substantial
-              profits.
-            </p>
-          </div>
-          <div class="Question-con">
-            <h1>Q: What happens for failed predictions?</h1>
-            <p>
-              <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra one
-              day FREE as a replacement on your subscription. We will keep adding an extra day until
-              you WIN! This is exclusive for VIP subscribers ONLY.
-            </p>
-          </div>
-          <div class="Question-con">
-            <h1>Q: How do I get these daily games sent to me?</h1>
-            <p>
-              <span>Answer:</span> We post games on our platform <span>https://tips90predict.com/vip</span>.
-              You need to log in on the website using your email and password or through social
-              accounts to view games.
-            </p>
-          </div>
-          <div class="Question-con">
-            <h1>Q: Why don't we post results</h1>
-            <p>
-              <span>Answer:</span> We don't disclose results because fraudsters take screenshots
-              and swindle unsuspecting victims.
-            </p>
-          </div>
-        </div>
-  </div>
-  </div>
+  </div> -->
+  <div v-else></div>
 </template>
 <style>
 @import '../style/Home.css';

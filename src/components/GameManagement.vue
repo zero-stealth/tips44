@@ -379,7 +379,7 @@
           </tbody>
         </table>
       </div>
-      <div class="acc-m gm-m">
+      <!-- <div class="acc-m gm-m">
         <div class="main-header">
           <div class="header-info">
             <h1>Vip Mega games ({{ currentDate }})</h1>
@@ -452,7 +452,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> -->
       <div class="acc-m gm-m">
         <div class="main-header">
           <div class="header-info">
@@ -527,6 +527,46 @@
           </tbody>
         </table>
       </div>
+      <div class="acc-m gm-m">
+        <div class="main-header">
+          <div class="header-info">
+            <h1>Vip Result Posted</h1>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Date&Day</th>
+              <th>Result</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody v-for="item in vipResultData">
+            <tr v-for="data in item" :key="data._id">
+              <td>
+                <span>{{ data.gameName  }}</span>
+              </td>
+                <td>
+                <span>{{ data.gameScore }}</span>
+              </td>
+              <td>
+                <div class="Account-delete" @click="editVipResult(VipEditPage, data._id)">
+                  <FileIcon class="icon-delete" />
+                </div>
+              </td>
+              <td>
+                <div class="Account-delete" @click="deleteVipResult(data._id)">
+                  <DeleteIcon class="icon-delete" />
+                </div>
+              </td>
+            </tr>
+            <tr v-if="vipResultData.length === 0">
+              <td colspan="8">No Result yet!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
   <Teleport to="body">
@@ -535,7 +575,7 @@
         <ExitIcon class="icon-exit" @click="showEdit()" />
       </div>
       <div class="game-main-p">
-        <component @formSubmit="updateGame" @formSubmitSport="updateSport" :is="activePage" />
+        <component @formSubmit="updateGame"  @formVipResultSubmit="updateVipResult"  @formSubmitSport="updateSport" :is="activePage" />
       </div>
     </div>
   </Teleport>
@@ -548,12 +588,14 @@ import Daily from './DailyEdit.vue'
 import Expert  from './FreeExpertEdit.vue'
 import ExitIcon from '../icons/ExitIcon.vue'
 import FileIcon from '../icons/FileIcon.vue'
-import VipMega from './VipMegaGamesEdits.vue'
+// import VipMega from './VipMegaGamesEdits.vue'
 import DeleteIcon from '../icons/DeleteIcon.vue'
 import VipSupreme from './VipSupremeGamesEdits.vue'
 import BetOfTheDay from '../components/BetOfTheDayEdit.vue'
 import BasketballGames from '../components/BasketballEdit.vue'
 import UpcomingGames from '../components/UpcomingGamesEdits.vue'
+import VipEditPage from '../components/VipresultsComponentEdits.vue'
+
 
 
 const username = ref(null)
@@ -568,7 +610,8 @@ const freeTipData = ref([])
 const upcomingData = ref([])
 const dailyData = ref([])
 const expertData = ref([])
-const vipMegaData = ref([])
+const vipResultData = ref([])
+// const vipMegaData = ref([])
 const basketBallData = ref([])
 const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 
@@ -620,18 +663,28 @@ const getVipSupremeGames = async () => {
   }
 }
 
-const getVipMegaGames = async () => {
-  try {
-    const response = await axios.get(
-     `${SERVER_HOST}/predictions/vipMega/vipMega/${currentDate.value}`
-    )
+// const getVipMegaGames = async () => {
+//   try {
+//     const response = await axios.get(
+//      `${SERVER_HOST}/predictions/vipMega/vipMega/${currentDate.value}`
+//     )
     
-    vipMegaData.value = response.data.length > 0 ? [response.data] : []
+//     vipMegaData.value = response.data.length > 0 ? [response.data] : []
+//   } catch (err) {
+//     console.log(err)
+//   }
+// }
+
+const getVipResult = async () => {
+  try {
+    // const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.get(`${SERVER_HOST}/score/`)
+    // console.log(response.data)
+    vipResultData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)
   }
 }
-
 
 const getPredictions = async () => {
   try {
@@ -694,6 +747,8 @@ const showEdit = () => {
 const activePage = shallowRef(BetOfTheDay)
 const gameId = ref('')
 const sportId = ref('')
+const ScoreId = ref('')
+
 
 const editGame = (game, id) => {
   activePage.value = game
@@ -705,6 +760,37 @@ const editSport = (sport, id) => {
   activePage.value = sport
   sportId.value = id
   showEdit()
+}
+
+const editVipResult = (vip, id) => {
+  activePage.value = vip
+  ScoreId.value = id
+  showEdit()
+
+}
+
+
+async function updateVipResult(formData) {
+  try {
+    const token = JSON.parse(localStorage.getItem('token'))
+    const formDatass = new FormData()
+    if (formData.Result !== '') {
+      formDatass.append('gameScore', formDatass.Result)
+    }
+    if (formData.dayDate !== '') {
+      formDatass.append('gameName', formDatass.dayDate)
+    }
+
+    const response = await axios.put(`${SERVER_HOST}/score/updatescore/${ScoreId.value}`, formDatass, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    // console.log(response.data)
+    alert('Vip result updated')
+  } catch (error) {
+    console.error('Error updating vip result:', error)
+  }
 }
 
 async function updateGame(teamAscore, showResult, teamBscore, showScore) {
@@ -774,7 +860,9 @@ onMounted(() => {
   getUpcoming()
   getdailyData()
   getexpertData()
-  getVipMegaGames()
+  getVipResult()
+
+  // getVipMegaGames()
   getBasketballBets()
   getVipSupremeGames()
 })
@@ -832,7 +920,7 @@ watch(currentDate, () => {
   getUpcoming()
   getdailyData()
   getexpertData()
-  getVipMegaGames()
+  // getVipMegaGames()
   getBasketballBets()
   getVipSupremeGames()
 });

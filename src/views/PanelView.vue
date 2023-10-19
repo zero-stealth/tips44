@@ -37,6 +37,11 @@
             <span> Post Card Games </span>
             <ArrowIcon class="icon-panel ap" />
           </button>
+          <button @click="setActivePage(VipResult)" :class="getButtonClass(VipResult)">
+            <FileIcon class="icon-panel" />
+            <span> Post Vip Result </span>
+            <ArrowIcon class="icon-panel ap" />
+          </button>
           <button @click="logout" :class="getButtonClass(logout)">
             <LogoutIcon class="icon-panel" />
             <span>Logout </span>
@@ -77,6 +82,7 @@ const showMenu = () => {
 }
 // pages
 import AccountManagement from '../components/AccountManagement.vue'
+import VipResult from '../components/VipresultsComponent.vue'
 import GameManagement from '../components/GameManagement.vue'
 import PostCardGames from '../components/PostCardGames.vue'
 import PostTableGames from '../components/PostTableGames.vue'

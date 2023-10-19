@@ -39,7 +39,7 @@
             </button>
           </div>
         </div>
-        <template v-if="(paid && username && SupremeData.length > 0) || MegaData.length > 0">
+        <template v-if="(paid && username && SupremeData.length > 0)">
           <div class="main-tb-c">
             <table class="main-table">
               <thead>
@@ -51,7 +51,7 @@
                   <th>Score</th>
                 </tr>
               </thead>
-              <tbody v-if="supreme == true">
+              <tbody>
                 <tr v-for="(card, index) in SupremeData" :key="index">
                   <td>{{ card.time }}</td>
                   <td>{{ card.league }}</td>
@@ -66,7 +66,7 @@
               </td>
                 </tr>
               </tbody>
-              <tbody v-else>
+              <!-- <tbody v-else>
                 <tr v-for="(card, index) in MegaData" :key="index">
                   <td>{{ card.time }}</td>
                   <td>{{ card.league }}</td>
@@ -80,12 +80,12 @@
                 </div>
               </td>
                 </tr>
-              </tbody>
+              </tbody> -->
             </table>
           </div>
         </template>
         <template
-          v-else-if="(paid && username && MegaData.length === 0) || SupremeData.length === 0"
+          v-else-if="(paid && username && SupremeData.length === 0) "
         >
           <div class="home-freetip">
             <h1>No predictions yet! Check back later.</h1>
@@ -156,24 +156,24 @@ const goLogin = () => {
 }
 
 
-const getVipMega = async () => {
-  const token = JSON.parse(localStorage.getItem('token'))
+// const getVipMega = async () => {
+//   const token = JSON.parse(localStorage.getItem('token'))
 
-  try {
-    const response = await axios.get(
-      `${SERVER_HOST}/predictions/vipMega/vipMega/${currentDate.value}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }
-    )
-    console.log(response.data)
-    MegaData.value = response.data
-  } catch (err) {
-    console.log(err)
-  }
-}
+//   try {
+//     const response = await axios.get(
+//       `${SERVER_HOST}/predictions/vipMega/vipMega/${currentDate.value}`,
+//       {
+//         headers: {
+//           Authorization: `Bearer ${token}`
+//         }
+//       }
+//     )
+//     console.log(response.data)
+//     MegaData.value = response.data
+//   } catch (err) {
+//     console.log(err)
+//   }
+// }
 
 const getVipSupreme = async () => {
   const token = JSON.parse(localStorage.getItem('token'))
@@ -219,7 +219,7 @@ const getAccountDetails = async () => {
 
 onMounted(() => {
   showName()
-  getVipMega()
+  // getVipMega()
   getVipSupreme()
   updateAuthStatus()
   getAccountDetails()
@@ -253,7 +253,7 @@ updateCurrentDate()
 watch([offset, username, paid], () => {
   updateAuthStatus()
   getVipSupreme()
-  getVipMega()
+  // getVipMega()
 })
 
 watch([supreme], () => {

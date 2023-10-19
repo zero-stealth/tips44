@@ -7,8 +7,8 @@
   >
     <h1>Vip Packages</h1>
     <div class="prediction-p">
-      <OtherVip class="vip" buttonName="SUPREME 2+" buttonOdds="2-5 odds" />
-      <OtherVip buttonName="MEGA ODDS" buttonOdds="5-10 odds" />
+      <OtherVip class="vip" buttonName="Supreme VIP" />
+      <!-- <OtherVip buttonName="MEGA ODDS" buttonOdds="5-10 odds" /> -->
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
     <button class="other-p-btn" @click="goTo()">
     {{ buttonName }}
-    <span> {{ buttonOdds }}</span>
+    <!-- <span> {{ buttonOdds }}</span> -->
     </button>
 </template>
 

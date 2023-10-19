@@ -76,7 +76,7 @@
             <option value="free-expert">Free expert</option>
             <option value="prediction-picks">Prediction picks</option>
             <option value="vip-supreme">Vip supreme</option>
-            <option value="vip-mega">Vip mega</option>
+            <!-- <option value="vip-mega">Vip mega</option> -->
             <option value="tennis">Tennis</option>
             <option value="basketball">Basketball</option>
             <option value="straight-win">Straight win</option>
@@ -141,9 +141,9 @@ watch(Gamecategory, () => {
       case 'vip-supreme':
     url.value =  `${SERVER_HOST}/predictions/create/supremeVip/supreme`
       break;
-      case 'vip-mega':
-    url.value =  `${SERVER_HOST}/predictions/create/mega/vipMega`
-      break;
+    //   case 'vip-mega':
+    // url.value =  `${SERVER_HOST}/predictions/create/mega/vipMega`
+    //   break;
       case 'basketball':
     url.value =  `${SERVER_HOST}/sports/create/Basketball`
       break;

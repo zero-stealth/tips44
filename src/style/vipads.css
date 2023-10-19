@@ -1,0 +1,149 @@
+@media screen {
+    .ads-v-main{ 
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        background-color: var(--primary-color);
+       
+    }
+
+    .ads-m1-h h1 {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+
+    }
+
+    .ads-m-btn {
+        margin: 10px;
+        padding: 20px 40px;
+        border-radius: 8px;
+        text-transform: uppercase;
+        color: var(--background-color);
+        background-color: var(--secondary-color);
+    }
+
+    .ads-m-btn:hover {
+        background-color: var(--light-primary-color);
+    }
+
+    .m1-ads {
+        width: 100%;
+        display: flex;
+        padding: 20px;
+        text-align: center;
+        flex-direction: column;
+        color: var(--background-color);
+        background-color: var(--primary-color);
+    }
+
+    .m1-ads-info {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+
+    }
+
+    .m1-ads-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .m1-ads-time {
+        width: 100%;
+        display: flex;
+        padding: 10px;
+        border-radius: 12px;
+        justify-content: space-around;
+        background-color: var(--background-color);
+    }
+
+    .ads-time {
+        display: flex;
+        flex-direction: column;
+        color: var(--primary-color);
+    }
+
+    .ads-time h1 {
+        color: var(--secondary-color);
+    }
+
+    .vip-results-d {
+        display: flex;
+        text-align: center;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        color: var(--grey-color);
+    }
+
+    .vip-results-pn {
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .vip-results-cont {
+        gap: 4px;
+        padding: 4px;
+        display: flex;
+        border-radius: 8px;
+        flex-direction: column;
+        justify-content: space-between;
+        border:  1px solid var(--grey-color);
+
+    }
+
+    .vip-results-cont span {
+        font-size: .7rem;
+    }
+
+    .icon-rs {
+        width: 16px;
+        height: 16px;
+        fill: var(--grey-color);
+    }
+
+   
+    .icon-won {
+        fill: var(--green-color);
+    }
+
+    .icon-fail {
+        fill: var(--red-color);
+    }
+
+    .icon-cancel {
+        fill: var(--red-color);
+    }
+}
+
+
+/* using it as global style for larger devices  */
+@media only screen and (min-width: 48em) {
+
+    .ads-v-main{ 
+        margin: 80px;
+       
+    }
+
+    .m1-ads {
+        width: 60%;
+    }
+
+    .vip-results-cont {
+        padding: 10px;   
+
+    }
+
+    .icon-rs {
+        width: 20px;
+        height: 20px;
+    }
+
+
+}
