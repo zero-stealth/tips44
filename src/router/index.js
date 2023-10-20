@@ -186,6 +186,7 @@ const router = createRouter({
     }
   ]
 })
+
 const currentUser = () => {
   const token = localStorage.getItem('token');
   return !!token; // Return true if token exists, false otherwise

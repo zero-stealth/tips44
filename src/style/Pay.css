@@ -103,6 +103,33 @@
     background-color: var(--primary-color);
   }
 
+  
+  .pay-main-x {
+    gap: 10px;
+    display: flex;
+    padding: 10px;
+    border-radius: 8px;
+    flex-direction: column;
+    background-color: var(--primary-color);
+  }
+
+  .pay-main-x span {
+    font-weight: 800;
+    color: var(--secondary-color);
+  }
+
+  .pay-main-x h1 {
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  .pay-main-x  li {
+    font-size: .9rem;
+    list-style: square;
+    
+  }
+
   .pay-btn {
     padding: 10px;
     font-size: 0.8rem;
@@ -261,6 +288,11 @@
 
   .pay-main {
     padding: 20px;
+  }
+
+  .pay-main-x {
+    padding: 20px;
+
   }
 
   .step-pay {

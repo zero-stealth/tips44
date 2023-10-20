@@ -47,7 +47,6 @@ const showPayment = () => {
 
 <template>
   <div class="pay-monitor" v-if="routeParamName == 'Supreme VIP'">
-    {{ routeParamName }}
     <div class="desknav-layout">
       <desktopNav class="desk-show" />
     </div>
@@ -56,6 +55,14 @@ const showPayment = () => {
         <span></span>
         <MoneyIcon class="icon-pay" />
         <h1>Subscribe to VIP plan or <span @click="goVip"> Go to Vip</span></h1>
+      </div>
+      <div class="pay-main-x">
+        <h1>
+          <span>NOTE: </span>
+          This subscription is valid for 31 days with no hidden or extra charge
+        </h1>
+        <li>Tips90predict VIP account is activated once your payment is received</li> 
+        <li>Choose a country to get payment details</li>   
       </div>
       <div class="pay-main">
         <div class="sport-s-contain">

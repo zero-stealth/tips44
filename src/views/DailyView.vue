@@ -73,11 +73,10 @@ const currentDate = ref('')
 const cardData = ref([])
 
 const filter = computed(() => {
-  const allowedTips = 'AWAY WIN' || 'HOME WIN'
-  return cardData.value.filter((d) => d.tip.includes(allowedTips))
-})
+  const allowedTips = ['AWAY WIN', 'HOME WIN'];
+  return cardData.value.filter((d) => allowedTips.includes(d.tip));
+});
 
-console.log(filter)
 
 async function getPrediction() {
   const token = JSON.parse(localStorage.getItem('token'))
