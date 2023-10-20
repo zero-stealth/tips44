@@ -192,7 +192,7 @@ const nextDay = () => {
 }
 
 const goFacebook = () => {
-  window.open('https://wa.me/254743247861?text=Hi+there+Charisma+Betting+Tips', '_blank')
+  window.open('https://www.facebook.com/profile.php?id=100063590618259', '_blank')
 }
 
 const goWhatsapp = () => {

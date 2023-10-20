@@ -9,7 +9,7 @@
         <h2>Vip results</h2>
         <div class="vip-results-d">
           <div class="vip-results-pn" v-for="data in vipResultData.slice(0, 6)" :key="data._id">
-            <span>{{ ShowName(data.gameName) }}</span>
+            <h1>{{ ShowName(data.gameName) }}</h1>
             <div class="vip-results-cont">
               <span>{{ ShowDate(data.gameName) }}</span>
               <div class="results-s">

@@ -907,6 +907,24 @@ const deleteSport = async (id) => {
   }
   alert("deleted")
 }
+
+
+const deleteVipResult = async (id) => {
+  try {
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    const response = await axios.delete(`${SERVER_HOST}/score/delete/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    message.value = response.data.message
+    await getVipResult()
+  } catch (err) {
+    message.value = 'deletion failed'
+  }
+  alert('deleted')
+}
+
+
 const showscore = ref(localStorage.getItem('showscore') === 'true')
 
 watch(showscore, (value) => {
