@@ -5,7 +5,7 @@
       backgroundImage: `url(${banner})`
     }"
   >
-    <h1>Vip Packages</h1>
+    <h1>{{ $t('otherPackage.otherp-h1') }}</h1>
     <div class="prediction-p">
       <OtherVip class="vip" buttonName="Supreme VIP" />
       <!-- <OtherVip buttonName="MEGA ODDS" buttonOdds="5-10 odds" /> -->

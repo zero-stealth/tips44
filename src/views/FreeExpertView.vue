@@ -1,7 +1,7 @@
 <template>
   <div class="main-bet">
     <div class="header-info-h1">
-      <h1>Free Expert predictions</h1>
+      <h1>{{ $t('expert.ex-h1') }}</h1>
     </div>
     <div class="main-header">
       <div class="header-info">
@@ -9,13 +9,13 @@
       </div>
       <div class="header-btn">
         <button class="btn-h" :class="{ 'active-btn': offset === -1 }" @click="setOffset(-1)">
-          Yesterday
+          {{ $t('banker.banker-btn1') }}
         </button>
         <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
-          Today
+          {{ $t('banker.banker-btn2') }}
         </button>
         <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
-          Tomorrow
+          {{ $t('banker.banker-btn3') }}
         </button>
       </div>
     </div>
@@ -24,11 +24,11 @@
         <table class="main-table">
           <thead>
             <tr>
-              <th>Time</th>
-              <th>League</th>
-              <th>Match</th>
-              <th>Tip</th>
-              <th>Score</th>
+              <th>{{ $t('table.table-t1') }}</th>
+              <th>{{ $t('table.table-t2') }}</th>
+              <th>{{ $t('table.table-t3') }}</th>
+              <th>{{ $t('table.table-t4') }}</th>
+              <th>{{ $t('table.table-t5') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -51,7 +51,7 @@
     </template>
     <template v-else>
       <div class="home-freetip">
-        <h1>No predictions yet! Check back later.</h1>
+        <h1> {{ $t('banker.banker-h3') }}</h1>
       </div>
     </template>
   </div>
@@ -69,8 +69,6 @@ const currentDate = ref('')
 const offset = ref(0)
 
 const cardData = ref([])
-
-
 
 const predictions = async () => {
   try {

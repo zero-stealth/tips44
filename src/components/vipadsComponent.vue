@@ -2,11 +2,10 @@
   <div class="ads-v-main">
     <div class="m1-ads">
       <p>
-        VIP is recommended by our team of experts for those who consider betting as a way of gaining
-        profit.
+        {{ $t('vipads.vpad-p1') }}
       </p>
       <div class="m1-ads-info">
-        <h2>Vip results</h2>
+        <h2>{{ $t('vipads.vpad-h1') }}</h2>
         <div class="vip-results-d">
           <div class="vip-results-pn" v-for="data in vipResultData.slice(0, 6)" :key="data._id">
             <h1>{{ ShowName(data.gameName) }}</h1>
@@ -21,7 +20,7 @@
             </div>
           </div>
         </div>
-        <button class="ads-m-btn" @click="goPay">VIP SUBSCRIPTION</button>
+        <button class="ads-m-btn" @click="goPay">{{ $t('vipads.vpad-btn1') }}</button>
       </div>
     </div>
   </div>

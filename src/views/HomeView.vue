@@ -5,15 +5,15 @@
     <div class="main-h">
       <div class="main-header">
         <div class="header-info">
-          <h1>Banker of the day {{ currentDate }}</h1>
+          <h1>{{ $t('banker.banker-h2') }} {{ currentDate }}</h1>
         </div>
         <div class="header-btn">
           <button class="btn-h" :class="{ 'active-btn': offset > 0 }" @click="previousDay">
             <Arrow class="btn-icon icon-left" />
-            Previous
+            {{ $t('basketball.b-btn1') }} 
           </button>
           <button class="btn-h" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-            Next
+            {{ $t('basketball.b-btn2') }}
             <Arrow class="btn-icon icon-right" />
           </button>
         </div>
@@ -42,7 +42,7 @@
       </template>
       <template v-else>
         <div class="home-freetip">
-          <h1>No predictions yet! Check back later.</h1>
+          <h1> {{ $t('banker.banker-h3') }}</h1>
         </div>
       </template>
     </div>
@@ -51,16 +51,16 @@
       <div class="social-l">
         <button @click="goFacebook()" class="btn-s s-f">
           <facebookIcon class="btn-if" />
-          Facebook Tips
+          {{ $t('home.home-btn1') }}
         </button>
         <button @click="goWhatsapp()" class="btn-s s-w">
           <whatsappIcon class="btn-if" />
-          Whatsapp
+          {{ $t('home.home-btn2') }}
         </button>
       </div>
       <button @click="goTelegram()" class="btn-s s-t">
         <telegramIcon class="btn-if" />
-        Telegram Tips
+        {{ $t('home.home-btn3') }}
       </button>
     </div>
     <VipAdsComponent />
@@ -68,14 +68,14 @@
     <div class="news-main">
       <div class="news-header">
         <div class="news-info">
-          <h1>Sport News</h1>
+          <h1> {{ $t('home.home-h1') }}</h1>
         </div>
         <div class="news-link">
           <Arrow class="news-icon icon-left" />
           <Arrow class="news-icon icon-left" />
 
-          <span v-if="showMoreButton" @click="showMoreNews">more news</span>
-          <span v-else @click="showLessNews">less news</span>
+          <span v-if="showMoreButton" @click="showMoreNews">{{ $t('home.home-m1') }}</span>
+          <span v-else @click="showLessNews">{{ $t('home.home-m2') }}</span>
           <Arrow class="news-icon" />
           <Arrow class="news-icon" />
         </div>

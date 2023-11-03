@@ -28,7 +28,9 @@
   .header-info-h1 {
     width: 100%;
     display: flex;
+    padding: 10px;
     font-size: .7rem;
+    text-align: center;
     align-items: center;
     justify-content: center;
     color: var(--background-color);

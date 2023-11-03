@@ -51,7 +51,7 @@ const filteredNewsData = computed(() => {
       >
         <div class="details-h">
           <ArrowIcon class="details-arrow" @click="goBack()" />
-          <h2>Sport news</h2>
+          <h2> {{ $t('sport.sport-h1') }}</h2>
           <span></span>
         </div>
       </div>

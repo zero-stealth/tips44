@@ -17,20 +17,20 @@ const openTelegram = () => {
 <template>
   <div class="imp-section">
     <div class="imp-info">
-      <h1>Exclusive offers</h1>
+      <h1> {{ $t('important.imp-h1') }}</h1>
     </div>
     <div class="nav-important">
       <button class="nav-i-btn" @click="openTelegram()">
         <TelegramIcon class="icon-nav" />
-        Join telegram
+        {{ $t('important.imp-btn1') }}
       </button>
       <a href="#vip" class="nav-i-btn">
         <VipIcon class="icon-nav " />
-        VIP Packages
+        {{ $t('important.imp-btn2') }}
       </a>
       <button class="nav-i-btn" @click="goPay()">
         <PayIcon class="icon-nav" />
-        How to pay
+        {{ $t('important.imp-btn3') }}
       </button>
     </div>
   </div>

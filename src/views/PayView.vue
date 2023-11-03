@@ -54,19 +54,19 @@ const showPayment = () => {
       <div class="pay-title">
         <span></span>
         <MoneyIcon class="icon-pay" />
-        <h1>Subscribe to VIP plan or <span @click="goVip"> Go to Vip</span></h1>
+        <h1>{{ $t('pay.span1') }} <span @click="goVip"> {{ $t('pay.span15') }}</span></h1>
       </div>
       <div class="pay-main-x">
-        <h1>
-          <span>NOTE: </span>
-          This subscription is valid for 31 days with no hidden or extra charge
+        <h1> 
+          <span>{{ $t('pay.span2') }} </span>
+          {{ $t('pay.h1-1') }} 
         </h1>
-        <li>Tips90predict VIP account is activated once your payment is received</li> 
-        <li>Choose a country to get payment details</li>   
+        <li>{{ $t('pay.p1') }}</li> 
+        <li>{{ $t('pay.p2') }}</li>   
       </div>
       <div class="pay-main">
         <div class="sport-s-contain">
-          <label>Choose a country </label>
+          <label>{{ $t('pay.op') }} </label>
 
           <select class="sport-selector" v-model="Selectedcountry">
             <option disabled value="">country...</option>
@@ -74,7 +74,7 @@ const showPayment = () => {
               {{ country.name }}
             </option>
           </select>
-          <button class="pay-btn" @click="showPayment">Proceed</button>
+          <button class="pay-btn" @click="showPayment">{{ $t('pay.btn1') }}</button>
         </div>
         <p>{{ errMsg }}</p>
       </div>
@@ -82,38 +82,38 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: ( 50 dollars , 45 Euros, $40 Pounds) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: ( 50 dollars , 45 Euros, $40 Pounds) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: ( 25 dollars) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: ( 25 dollars) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
-          <h1>PAY USING SKRILL</h1>
-          <p>All payments should be made ONLY to <span>tycoonsultan254@gmail.com</span></p>
-        </div>
+          <h1>{{ $t('pay.h1-4') }}</h1>
+          <p>{{ $t('pay.p3') }} <span>tycoonsultan254@gmail.com</span></p>
+        </div> 
         <div class="method-pay">
-          <h1>PAY USING PAYPAL</h1>
+          <h1>{{ $t('pay.h1-6') }}</h1>
           <ul>
-            <li>Go to your PayPal account</li>
-            <li>Use <span>leahnyambura710@gmail.com</span></li>
+            <li>{{ $t('pay.li20') }}</li>
+            <li>{{ $t('pay.li2') }} <span>leahnyambura710@gmail.com</span></li>
           </ul>
-        </div>
+        </div>{{ $t('pay.li21') }}
         <div class="method-pay">
-          <h1>PAY USING NETELLER</h1>
+          <h1>{{ $t('pay.h1-12') }}</h1>
           <ul>
-            <li>Go to your NETELLER account</li>
-            <li>Use <span>manuumedjs@gmail.com </span></li>
+            <li>{{ $t('pay.li21') }}</li>
+            <li>{{ $t('pay.li2') }} <span>manuumedjs@gmail.com </span></li>
           </ul>
         </div>
       </div>
@@ -121,62 +121,56 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (2,500 ksh) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (2,500 ksh) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (1,200 ksh) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (1,200 ksh) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
-          <h1>PAY USING MPESA</h1>
+          <h1>{{ $t('pay.h1-13') }}</h1>
           <ul>
-            <li>Go to your M-Pesa app</li>
-            <li>Send money to <span>0743247861</span></li>
-            <li>Name will be <span>HANNINGTONE ODUONG </span></li>
+            <li>{{ $t('pay.li22') }}</li>
+            <li>{{ $t('pay.li23') }} <span>0743247861</span></li>
+            <li>{{ $t('pay.li24') }} <span>HANNINGTONE ODUONG </span></li>
           </ul>
         </div>
         <div class="extra-container">
           <div class="extra-v">
             <div class="Question">
               <div class="Question-con">
-                <h1>Q: How guaranteed are your games?</h1>
+                <h1>{{ $t('pay.h1-7') }}</h1>
                 <p>
-                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
-                  that score up to 96% in their accuracy rate. You are guaranteed to make
-                  substantial profits.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span6') }}.
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: What happens for failed predictions?</h1>
+                <h1>{{ $t('pay.h1-8') }}</h1>
                 <p>
-                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
-                  one day FREE as a replacement on your subscription. We will keep adding an extra
-                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                  <span>{{ $t('pay.span5') }}:</span>{{ $t('pay.span8') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: How do I get these daily games sent to me?</h1>
+                <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
-                  <span>Answer:</span> We post games on our platform
-                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
-                  using your email and password or through social accounts to view games.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
+                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: Why don't we post results</h1>
+                <h1>{{ $t('pay.h1-11') }}</h1>
                 <p>
-                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
-                  and swindle unsuspecting victims.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span12') }}
                 </p>
               </div>
             </div>
@@ -187,60 +181,54 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (7000 Naira) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (7000 Naira) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (5000 Naira) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (5000 Naira) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <ul>
-            <li>Name will be<span>SAMUEL AYODELE</span></li>
-            <li>Send money to <span>7035213038 Opay</span></li>
+            <li>{{ $t('pay.li24') }}<span>SAMUEL AYODELE</span></li>
+            <li>{{ $t('pay.li23') }} <span>7035213038 Opay</span></li>
           </ul>
         </div>
         <div class="extra-container">
           <div class="extra-v">
             <div class="Question">
               <div class="Question-con">
-                <h1>Q: How guaranteed are your games?</h1>
+                <h1>{{ $t('pay.h1-7') }}</h1>
                 <p>
-                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
-                  that score up to 96% in their accuracy rate. You are guaranteed to make
-                  substantial profits.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span6') }}.
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: What happens for failed predictions?</h1>
+                <h1>{{ $t('pay.h1-8') }}</h1>
                 <p>
-                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
-                  one day FREE as a replacement on your subscription. We will keep adding an extra
-                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                  <span>{{ $t('pay.span5') }}:</span>{{ $t('pay.span8') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: How do I get these daily games sent to me?</h1>
+                <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
-                  <span>Answer:</span> We post games on our platform
-                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
-                  using your email and password or through social accounts to view games.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
+                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: Why don't we post results</h1>
+                <h1>{{ $t('pay.h1-11') }}</h1>
                 <p>
-                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
-                  and swindle unsuspecting victims.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span12') }}
                 </p>
               </div>
             </div>
@@ -251,60 +239,54 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (200 Cedis) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (200 Cedis) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (105 cedis) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (105 cedis) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <ul>
-            <li>Send money to MOMO Number <span>0247192693</span></li>
-            <li>MOMO Name will be <span>RICHARD BAAFI</span></li>
+            <li>{{ $t('pay.li23') }} MOMO Number <span>0247192693</span></li>
+            <li>MOMO {{ $t('pay.li24') }} <span>RICHARD BAAFI</span></li>
           </ul>
         </div>
         <div class="extra-container">
           <div class="extra-v">
             <div class="Question">
               <div class="Question-con">
-                <h1>Q: How guaranteed are your games?</h1>
+                <h1>{{ $t('pay.h1-7') }}</h1>
                 <p>
-                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
-                  that score up to 96% in their accuracy rate. You are guaranteed to make
-                  substantial profits.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span6') }}.
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: What happens for failed predictions?</h1>
+                <h1>{{ $t('pay.h1-8') }}</h1>
                 <p>
-                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
-                  one day FREE as a replacement on your subscription. We will keep adding an extra
-                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                  <span>{{ $t('pay.span5') }}:</span>{{ $t('pay.span8') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: How do I get these daily games sent to me?</h1>
+                <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
-                  <span>Answer:</span> We post games on our platform
-                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
-                  using your email and password or through social accounts to view games.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
+                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: Why don't we post results</h1>
+                <h1>{{ $t('pay.h1-11') }}</h1>
                 <p>
-                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
-                  and swindle unsuspecting victims.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span12') }}
                 </p>
               </div>
             </div>
@@ -315,62 +297,56 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (500 Rand) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (500 Rand) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (250 rand) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (250 rand) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <ul>
             <li>
-              Send money to Account Number <span>1383649934</span> at <span> Capitec Bank</span>
+              {{ $t('pay.li23') }} {{ $t('pay.spanh1') }} <span>1383649934</span> at <span> Capitec Bank</span>
             </li>
-            <li>Name will be <span>Tamsanqa Matshitshi</span></li>
+            <li>{{ $t('pay.li24') }} <span>Tamsanqa Matshitshi</span></li>
           </ul>
         </div>
         <div class="extra-container">
           <div class="extra-v">
             <div class="Question">
               <div class="Question-con">
-                <h1>Q: How guaranteed are your games?</h1>
+                <h1>{{ $t('pay.h1-7') }}</h1>
                 <p>
-                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
-                  that score up to 96% in their accuracy rate. You are guaranteed to make
-                  substantial profits.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span6') }}.
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: What happens for failed predictions?</h1>
+                <h1>{{ $t('pay.h1-8') }}</h1>
                 <p>
-                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
-                  one day FREE as a replacement on your subscription. We will keep adding an extra
-                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                  <span>{{ $t('pay.span5') }}:</span>{{ $t('pay.span8') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: How do I get these daily games sent to me?</h1>
+                <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
-                  <span>Answer:</span> We post games on our platform
-                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
-                  using your email and password or through social accounts to view games.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
+                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: Why don't we post results</h1>
+                <h1>{{ $t('pay.h1-11') }}</h1>
                 <p>
-                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
-                  and swindle unsuspecting victims.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span12') }}
                 </p>
               </div>
             </div>
@@ -381,62 +357,56 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (40,000 TZS) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (40,000 TZS) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (20000 TZS) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (20000 TZS) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>Using Vodacom line</h1>
           <ul>
             <li>Dial <span>*150*00#</span> while in Tanzania</li>
-            <li>Send money to MPESA Kenya nambari <span> 0743247861 </span></li>
-            <li>Name will be <span>HANNINGTONE ODUONG’ </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya nambari <span> 0743247861 </span></li>
+            <li>{{ $t('pay.li24') }} <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
         <div class="extra-container">
           <div class="extra-v">
             <div class="Question">
               <div class="Question-con">
-                <h1>Q: How guaranteed are your games?</h1>
+                <h1>{{ $t('pay.h1-7') }}</h1>
                 <p>
-                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
-                  that score up to 96% in their accuracy rate. You are guaranteed to make
-                  substantial profits.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span6') }}.
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: What happens for failed predictions?</h1>
+                <h1>{{ $t('pay.h1-8') }}</h1>
                 <p>
-                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
-                  one day FREE as a replacement on your subscription. We will keep adding an extra
-                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                  <span>{{ $t('pay.span5') }}:</span>{{ $t('pay.span8') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: How do I get these daily games sent to me?</h1>
+                <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
-                  <span>Answer:</span> We post games on our platform
-                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
-                  using your email and password or through social accounts to view games.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
+                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: Why don't we post results</h1>
+                <h1>{{ $t('pay.h1-11') }}</h1>
                 <p>
-                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
-                  and swindle unsuspecting victims.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span12') }}
                 </p>
               </div>
             </div>
@@ -447,27 +417,27 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (80000 UGX ) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (80000 UGX ) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (35000 UGX) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (35000 UGX) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>Using MTN</h1>
           <ul>
             <li>Dial <span>*165#</span></li>
-            <li>Send money to MPESA Kenya enter <span> 254743247861 </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya enter <span> 254743247861 </span></li>
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
@@ -475,34 +445,28 @@ const showPayment = () => {
           <div class="extra-v">
             <div class="Question">
               <div class="Question-con">
-                <h1>Q: How guaranteed are your games?</h1>
+                <h1>{{ $t('pay.h1-7') }}</h1>
                 <p>
-                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
-                  that score up to 96% in their accuracy rate. You are guaranteed to make
-                  substantial profits.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span6') }}.
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: What happens for failed predictions?</h1>
+                <h1>{{ $t('pay.h1-8') }}</h1>
                 <p>
-                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
-                  one day FREE as a replacement on your subscription. We will keep adding an extra
-                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                  <span>{{ $t('pay.span5') }}:</span>{{ $t('pay.span8') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: How do I get these daily games sent to me?</h1>
+                <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
-                  <span>Answer:</span> We post games on our platform
-                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
-                  using your email and password or through social accounts to view games.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
+                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: Why don't we post results</h1>
+                <h1>{{ $t('pay.h1-11') }}</h1>
                 <p>
-                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
-                  and swindle unsuspecting victims.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span12') }}
                 </p>
               </div>
             </div>
@@ -513,27 +477,27 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (500 Kwacha ) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (500 Kwacha ) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (200 kwacha) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (200 kwacha) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>Airtel Money Line only</h1>
           <ul>
             <li>Dial <span>*778#</span></li>
-            <li>Send money to MPESA Kenya enter <span> 254786169785 </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya enter <span> 254786169785 </span></li>
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
@@ -541,34 +505,28 @@ const showPayment = () => {
           <div class="extra-v">
             <div class="Question">
               <div class="Question-con">
-                <h1>Q: How guaranteed are your games?</h1>
+                <h1>{{ $t('pay.h1-7') }}</h1>
                 <p>
-                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
-                  that score up to 96% in their accuracy rate. You are guaranteed to make
-                  substantial profits.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span6') }}.
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: What happens for failed predictions?</h1>
+                <h1>{{ $t('pay.h1-8') }}</h1>
                 <p>
-                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
-                  one day FREE as a replacement on your subscription. We will keep adding an extra
-                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                  <span>{{ $t('pay.span5') }}:</span>{{ $t('pay.span8') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: How do I get these daily games sent to me?</h1>
+                <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
-                  <span>Answer:</span> We post games on our platform
-                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
-                  using your email and password or through social accounts to view games.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
+                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: Why don't we post results</h1>
+                <h1>{{ $t('pay.h1-11') }}</h1>
                 <p>
-                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
-                  and swindle unsuspecting victims.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span12') }}
                 </p>
               </div>
             </div>
@@ -579,20 +537,20 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (25,000 Rwandan Franc ) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (25,000 Rwandan Franc ) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>Using MTN</h1>
           <ul>
             <li>Dial <span>*830#</span></li>
-            <li>Send money to MPESA Kenya enter <span> 254743247861 </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya enter <span> 254743247861 </span></li>
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
@@ -600,34 +558,28 @@ const showPayment = () => {
           <div class="extra-v">
             <div class="Question">
               <div class="Question-con">
-                <h1>Q: How guaranteed are your games?</h1>
+                <h1>{{ $t('pay.h1-7') }}</h1>
                 <p>
-                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
-                  that score up to 96% in their accuracy rate. You are guaranteed to make
-                  substantial profits.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span6') }}.
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: What happens for failed predictions?</h1>
+                <h1>{{ $t('pay.h1-8') }}</h1>
                 <p>
-                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
-                  one day FREE as a replacement on your subscription. We will keep adding an extra
-                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                  <span>{{ $t('pay.span5') }}:</span>{{ $t('pay.span8') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: How do I get these daily games sent to me?</h1>
+                <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
-                  <span>Answer:</span> We post games on our platform
-                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
-                  using your email and password or through social accounts to view games.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
+                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: Why don't we post results</h1>
+                <h1>{{ $t('pay.h1-11') }}</h1>
                 <p>
-                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
-                  and swindle unsuspecting victims.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span12') }}
                 </p>
               </div>
             </div>
@@ -638,27 +590,27 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (20,000 MWK) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (20,000 MWK) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (10000 MWK) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (10000 MWK) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>(international transfer) (international transfer)</h1>
           <ul>
             <li>Dial <span>*211# </span></li>
-            <li>Send money to MPESA Kenya enter <span> 25786169785 </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya enter <span> 25786169785 </span></li>
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
@@ -666,34 +618,28 @@ const showPayment = () => {
           <div class="extra-v">
             <div class="Question">
               <div class="Question-con">
-                <h1>Q: How guaranteed are your games?</h1>
+                <h1>{{ $t('pay.h1-7') }}</h1>
                 <p>
-                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
-                  that score up to 96% in their accuracy rate. You are guaranteed to make
-                  substantial profits.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span6') }}.
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: What happens for failed predictions?</h1>
+                <h1>{{ $t('pay.h1-8') }}</h1>
                 <p>
-                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
-                  one day FREE as a replacement on your subscription. We will keep adding an extra
-                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                  <span>{{ $t('pay.span5') }}:</span>{{ $t('pay.span8') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: How do I get these daily games sent to me?</h1>
+                <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
-                  <span>Answer:</span> We post games on our platform
-                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
-                  using your email and password or through social accounts to view games.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
+                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: Why don't we post results</h1>
+                <h1>{{ $t('pay.h1-11') }}</h1>
                 <p>
-                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
-                  and swindle unsuspecting victims.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span12') }}
                 </p>
               </div>
             </div>
@@ -704,27 +650,27 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (2500 Rupees) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (2500 Rupees) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              2 - 5 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (1500 Rupees) <br />
+              2 - 5 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (1500 Rupees) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>Using Skrill</h1>
           <ul>
             <li>Dial <span>*211# </span></li>
-            <li>Send money to MPESA Kenya enter<span>(254)743247861 </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya enter<span>(254)743247861 </span></li>
             <li>Initials will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
@@ -732,34 +678,28 @@ const showPayment = () => {
           <div class="extra-v">
             <div class="Question">
               <div class="Question-con">
-                <h1>Q: How guaranteed are your games?</h1>
+                <h1>{{ $t('pay.h1-7') }}</h1>
                 <p>
-                  <span>Answer:</span> We have a team of top-notch well-researched/informed experts
-                  that score up to 96% in their accuracy rate. You are guaranteed to make
-                  substantial profits.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span6') }}.
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: What happens for failed predictions?</h1>
+                <h1>{{ $t('pay.h1-8') }}</h1>
                 <p>
-                  <span>Answer:</span> Keep in mind that in case of any loss, we will add an extra
-                  one day FREE as a replacement on your subscription. We will keep adding an extra
-                  day until you WIN! This is exclusive for VIP subscribers ONLY.
+                  <span>{{ $t('pay.span5') }}:</span>{{ $t('pay.span8') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: How do I get these daily games sent to me?</h1>
+                <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
-                  <span>Answer:</span> We post games on our platform
-                  <span>https://tips90predict.com/vip</span>. You need to log in on the website
-                  using your email and password or through social accounts to view games.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
+                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
-                <h1>Q: Why don't we post results</h1>
+                <h1>{{ $t('pay.h1-11') }}</h1>
                 <p>
-                  <span>Answer:</span> We don't disclose results because fraudsters take screenshots
-                  and swindle unsuspecting victims.
+                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span12') }}
                 </p>
               </div>
             </div>
@@ -788,7 +728,7 @@ const showPayment = () => {
       <div class="pay-title">
         <span></span>
         <MoneyIcon class="icon-pay" />
-        <h1>Subscribe to VIP plan or <span @click="goVip" > Go to Vip</span></h1> 
+        <h1>{{ $t('pay.span1') }} <span @click="goVip" > {{ $t('pay.span15') }}</span></h1> 
       </div>
       <div class="pay-main">
         <div class="sport-s-contain">
@@ -805,7 +745,7 @@ const showPayment = () => {
               {{ country.name }}
             </option>
           </select>
-          <button class="pay-btn" @click="showPayment">Proceed</button>
+          <button class="pay-btn" @click="showPayment">{{ $t('pay.btn1') }}</button>
         </div>
         <p>{{ errMsg }}</p>
       </div>
@@ -813,38 +753,38 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: ( 50 dollars , 45 Euros, $40 Pounds)  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: ( 50 dollars , 45 Euros, $40 Pounds)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: ( 25 dollars) <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: ( 25 dollars) <br />
             </h1>
           </div>
         </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
-          <h1>PAY USING SKRILL</h1>
-          <p>All payments should be made ONLY to <span>tycoonsultan254@gmail.com</span></p>
+          <h1>{{ $t('pay.h1-4') }}</h1>
+          <p>{{ $t('pay.p3') }} <span>tycoonsultan254@gmail.com</span></p>
         </div>
         <div class="method-pay">
-          <h1>PAY USING PAYPAL</h1>
+          <h1>{{ $t('pay.h1-6') }}</h1>
           <ul>
-            <li>Go to your PayPal account</li>
-            <li>Use <span>leahnyambura710@gmail.com</span></li>
+            <li>{{ $t('pay.li20') }}</li>
+            <li>{{ $t('pay.li2') }} <span>leahnyambura710@gmail.com</span></li>
           </ul>
         </div>
         <div class="method-pay">
-          <h1>PAY USING NETELLER</h1>
+          <h1>{{ $t('pay.h1-12') }}</h1>
           <ul>
-            <li>Go to your NETELLER account</li>
-            <li>Use <span>manuumedjs@gmail.com </span></li>
+            <li>{{ $t('pay.li21') }}</li>
+            <li>{{ $t('pay.li2') }} <span>manuumedjs@gmail.com </span></li>
           </ul>
         </div>
       </div>
@@ -852,28 +792,28 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (1,600 ksh)  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (1,600 ksh)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (800 ksh) <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (800 ksh) <br />
             </h1>
           </div>
           </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
-          <h1>PAY USING MPESA</h1>
+          <h1>{{ $t('pay.h1-13') }}</h1>
           <ul>
-            <li>Go to your M-Pesa app</li>
-            <li>Send money to <span>0743247861</span></li>
-            <li>Name will be <span>HANNINGTONE ODUONG </span></li>
+            <li>{{ $t('pay.li22') }}</li>
+            <li>{{ $t('pay.li23') }} <span>0743247861</span></li>
+            <li>{{ $t('pay.li24') }} <span>HANNINGTONE ODUONG </span></li>
           </ul>
         </div>
       </div>
@@ -881,26 +821,26 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (7000 Naira)  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (7000 Naira)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (4000 Naira) <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (4000 Naira) <br />
             </h1>
           </div>
           </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <ul>
-            <li>Name will be<span>SAMUEL AYODELE</span></li>
-            <li> Send money to  <span>7035213038 Opay</span></li>
+            <li>{{ $t('pay.li24') }}<span>SAMUEL AYODELE</span></li>
+            <li> {{ $t('pay.li23') }}  <span>7035213038 Opay</span></li>
           </ul>
         </div>
       </div>
@@ -908,26 +848,26 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (170 Cedis)  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (170 Cedis)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              5 - 10odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (100 cedis) <br />
+              5 - 10{{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (100 cedis) <br />
             </h1>
           </div>
           </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <ul>
-            <li>Send money to MOMO Number <span>0247192693</span></li>
-            <li>MOMO Name will be <span>RICHARD BAAFI</span></li>
+            <li>{{ $t('pay.li23') }} MOMO Number <span>0247192693</span></li>
+            <li>MOMO {{ $t('pay.li24') }} <span>RICHARD BAAFI</span></li>
           </ul>
         </div>
       </div>
@@ -935,28 +875,28 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (350 Rand)  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (350 Rand)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (250 rand) <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (250 rand) <br />
             </h1>
           </div>
           </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <ul>
             <li>
-              Send money to Account Number <span>1383649934</span> at <span> Capitec Bank</span>
+              {{ $t('pay.li23') }} {{ $t('pay.spanh1') }} <span>1383649934</span> at <span> Capitec Bank</span>
             </li>
-            <li>Name will be <span>Tamsanqa Matshitshi</span></li>
+            <li>{{ $t('pay.li24') }} <span>Tamsanqa Matshitshi</span></li>
           </ul>
         </div>
       </div>
@@ -964,28 +904,28 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (40,000 TZS)  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (40,000 TZS)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (20,000 TZS) <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (20,000 TZS) <br />
             </h1>
           </div>
           </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>Using Vodacom line</h1>
           <ul>
             <li>Dial <span>*150*00#</span> while in Tanzania</li>
-            <li>Send money to MPESA Kenya nambari <span> 0743247861 </span></li>
-            <li>Name will be <span>HANNINGTONE ODUONG’ </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya nambari <span> 0743247861 </span></li>
+            <li>{{ $t('pay.li24') }} <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
       </div>
@@ -993,27 +933,27 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (50, 000 UGX)  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (50, 000 UGX)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (30,000 UGXX) <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (30,000 UGXX) <br />
             </h1>
           </div>
           </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>Using MTN</h1>
           <ul>
             <li>Dial <span>*165#</span></li>
-            <li>Send money to MPESA Kenya enter <span> 254743247861 </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya enter <span> 254743247861 </span></li>
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
@@ -1022,27 +962,27 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (300 Kwacha  )  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (300 Kwacha  )  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (150 kwacha) <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (150 kwacha) <br />
             </h1>
           </div>
           </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>Airtel Money Line only</h1>
           <ul>
             <li>Dial <span>*778#</span></li>
-            <li>Send money to MPESA Kenya enter <span> 254786169785 </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya enter <span> 254786169785 </span></li>
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
@@ -1051,27 +991,27 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (16,000 Rwandan Franc  )  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (16,000 Rwandan Franc  )  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (10,000 Rwandan Franc  )  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (10,000 Rwandan Franc  )  <br />
             </h1>
           </div>
           </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>Using MTN</h1>
           <ul>
             <li>Dial <span>*830#</span></li>
-            <li>Send money to MPESA Kenya enter <span> 254743247861 </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya enter <span> 254743247861 </span></li>
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
@@ -1080,27 +1020,27 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (15000 MWK)  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (15000 MWK)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (8000 MWK) <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (8000 MWK) <br />
             </h1>
           </div>
           </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>(international transfer) (international transfer)</h1>
           <ul>
             <li>Dial <span>*211# </span></li>
-            <li>Send money to MPESA Kenya enter <span> 25786169785 </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya enter <span> 25786169785 </span></li>
             <li>Call sign will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>
@@ -1109,27 +1049,27 @@ const showPayment = () => {
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Month <br />
-              Amount paid: (2500 Rupees)  <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br2') }} <br />
+              {{ $t('pay.br3') }}: (2500 Rupees)  <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
-              5 - 10 odds daily <br />
-              Payment for One Week <br />
-              Amount paid: (1500 Rupees) <br />
+              5 - 10 {{ $t('pay.br1') }} <br />
+              {{ $t('pay.br4') }} <br />
+              {{ $t('pay.br3') }}: (1500 Rupees) <br />
             </h1>
           </div>
           </div>
         <div class="method-head">
-          <h1>Available methods of payment for your country:</h1>
+          <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
           <h1>Using Skrill</h1>
           <ul>
             <li>Dial <span>*211# </span></li>
-            <li>Send money to MPESA Kenya enter<span>(254)743247861 </span></li>
+            <li>{{ $t('pay.li23') }} MPESA Kenya enter<span>(254)743247861 </span></li>
             <li>Initials will be <span>HANNINGTONE ODUONG’ </span></li>
           </ul>
         </div>

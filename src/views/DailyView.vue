@@ -5,15 +5,15 @@
       <div class="main-h">
         <div class="main-header">
           <div class="header-info">
-            <h1>Straight win {{ currentDate }}</h1>
+            <h1>{{ $t('straight.s-h1') }} {{ currentDate }}</h1>
           </div>
           <div class="header-btn">
             <button class="btn-h" :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               <Arrow class="btn-icon icon-left" />
-              Previous
+              {{ $t('basketball.b-btn1') }}
             </button>
             <button class="btn-h" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-              Next
+              {{ $t('basketball.b-btn2') }}
               <Arrow class="btn-icon icon-right" />
             </button>
           </div>
@@ -23,11 +23,11 @@
             <table class="main-table">
               <thead>
                 <tr>
-                  <th>Time</th>
-                  <th>League</th>
-                  <th>Match</th>
-                  <th>Tip</th>
-                  <th>Score</th>
+                  <th>{{ $t('table.table-t1') }}</th>
+                  <th>{{ $t('table.table-t2') }}</th>
+                  <th>{{ $t('table.table-t3') }}</th>
+                  <th>{{ $t('table.table-t4') }}</th>
+                  <th>{{ $t('table.table-t5') }}</th>
                 </tr>
               </thead>
               <tbody>
@@ -38,9 +38,9 @@
                   <td>{{ card.tip }}</td>
                   <td class="td-sd">
                     {{ card.teamAscore }} - {{ card.teamBscore }}
-                    <div class="icon-sd" v-if="offset < 0 ">
+                    <div class="icon-sd" v-if="offset < 0">
                       <PassedIcon class="icon-sd-s icon-g" v-if="card.showResult === true" />
-                  <FailedIcon class="icon-sd-s icon-f" v-else />
+                      <FailedIcon class="icon-sd-s icon-f" v-else />
                     </div>
                   </td>
                 </tr>
@@ -50,7 +50,7 @@
         </template>
         <template v-else>
           <div class="home-freetip">
-            <h1>No predictions yet! Check back later.</h1>
+            <h1>{{ $t('banker.banker-h3') }}</h1>
           </div>
         </template>
       </div>
@@ -73,10 +73,9 @@ const currentDate = ref('')
 const cardData = ref([])
 
 const filter = computed(() => {
-  const allowedTips = ['AWAY WIN', 'HOME WIN'];
-  return cardData.value.filter((d) => allowedTips.includes(d.tip));
-});
-
+  const allowedTips = ['AWAY WIN', 'HOME WIN']
+  return cardData.value.filter((d) => allowedTips.includes(d.tip))
+})
 
 async function getPrediction() {
   const token = JSON.parse(localStorage.getItem('token'))
@@ -129,7 +128,6 @@ updateCurrentDate()
 watch(currentDate, () => {
   getPrediction()
 })
-
 </script>
 
 <style>

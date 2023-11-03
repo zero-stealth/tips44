@@ -1,141 +1,82 @@
 <template>
   <div class="abt-info-p info-dn">
-    <h1>Our Terms & Condition</h1>
+    <h1>{{ $t('terms.terms-h1') }}</h1>
     <div class="abt-p-in">
       <p>
-        By accessing or using predictions and betting tips on the Predict.com website or any of our
-        affiliate sites, pages, accounts, or signing up on the website, you agree to be bound by and
-        comply with:
+        {{ $t('terms.terms-p1') }}
       </p>
     </div>
     <div class="abt-p-in">
       <ul>
-        <li>Privacy Policy</li>
-        <li>Disclaimer Notice</li>
-        <li>Our Terms and Conditions</li>
-        <li>The rules applicable to our betting or gaming products</li>
+        <li>{{ $t('terms.terms-l1') }}</li>
+        <li>{{ $t('terms.terms-l2') }}</li>
+        <li>{{ $t('terms.terms-l3') }}</li>
+        <li>{{ $t('terms.terms-l4') }}</li>
       </ul>
     </div>
     <div class="abt-p-in">
       <p>
-        Please carefully read the Terms and if you do not accept them, refrain from using the
-        website.
+        {{ $t('terms.terms-p2') }}
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        The betting tips, predictions, analysis, previews, and statistics published on Predict.com
-        are our recommendations and personal opinions. They are not definitive or guaranteed
-        predictions with no possibility of loss. Every user of Predict.com engages in betting at
-        their own risk.
+        {{ $t('terms.terms-p3') }}
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        We strongly advise and encourage responsible betting. Do not wager more than you can afford
-        to lose. Predict.com cannot be held responsible for the actions of its users and visitors.
-        Any profits or losses resulting from gambling are solely the user's responsibility. Refunds
-        for payments made are not granted
+        {{ $t('terms.terms-p4') }}
+       
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        Betting may be illegal in certain countries or regions, so we urge all users to comply with
-        the relevant regulations in their jurisdiction. Users are responsible for acting in
-        accordance with their local laws. Reproduction and unauthorized use of materials such as
-        tips, analysis, and strategies from Predict.com are strictly prohibited. If you wish to
-        reproduce any original content from the site, please contact us to discuss your request.
+        {{ $t('terms.terms-p5') }}
+       
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        The bet codes associated with events previewed on the site belong exclusively to our
-        affiliate bookmakers. Users will be informed about the specific sites to which the codes
-        pertain. Any opinions expressed regarding strategies, bookmakers, and football predictions,
-        among others, are subjective and do not represent a broader, inferred population.
-        Predict.com does not publish sports fixtures or fixture lists, and currently has no
-        intention to do so. We make every effort not to infringe copyright regarding fixture
-        publications by bookmakers and do not possess any license to publish fixtures. If you
-        believe that any data published on Predict.com violates copyright, please contact us
-        immediately
+        {{ $t('terms.terms-p6') }}
+      
       </p>
     </div>
     <div class="abt-p-in">
-      <h1>LIABILITY</h1>
+      <h1>{{ $t('terms.terms-h2') }}</h1>
       <p>
-        Predict does not accept any liability for damages, liabilities, or losses arising from or
-        connected to the services, picks, and predictions on the website or its affiliates. While we
-        strive to ensure the accuracy of the information on the website, we do not guarantee the
-        accuracy or completeness of the information and material provided. The website may contain
-        typographical errors, inaccuracies, or outdated information. Predict.com is under no
-        obligation to update such material. The information and material on the website are provided
-        "as is," without any conditions, warranties, or other terms. Therefore, to the maximum
-        extent permitted by law, Predict provides the website on the basis of excluding all
-        representations, express or implied warranties, conditions, and other terms that might have
-        an effect in relation to the website, except as expressly stated in these terms and
-        conditions.
+        {{ $t('terms.terms-p7') }}
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        Predict ensures the accuracy and currency of all information presented on its site. However,
-        Predict.com cannot be held responsible for users' individual calculations or accumulations,
-        as we provide accumulations in our Accumulator category. By accessing or using predictions
-        and betting tips on the Predict.com website or any of our affiliate sites, pages, accounts,
-        or signing up on the website, you agree to be bound by our terms and conditions. By creating
-        a profile and signing up to use Predict.com, you confirm your acceptance of the summarized
-        terms and conditions. Additionally, by signing up, you have entrusted us with your email and
-        subscription details, and we are obligated to protect your information.
+        {{ $t('terms.terms-p8') }}
       </p>
     </div>
     <div class="abt-p-in">
-      <h1>EXTRA PROVISIONS</h1>
+      <h1>{{ $t('terms.terms-h3') }}</h1>
       <p>
-        These Terms and Conditions, along with the Privacy Policy, Cookies Policy, Rules, and any
-        referenced documents, guidelines, or rules posted on the website, constitute the entire
-        agreement and understanding between the parties, superseding any prior agreements related to
-        the subject matter. You acknowledge and agree that by entering into and agreeing to these
-        Terms and Conditions, the Privacy Policy, Cookies Policy, Rules, and any referenced
-        documents, guidelines, or rules, you do not rely on any statement, representation, warranty,
-        understanding, promise, or assurance (whether negligently or innocently made) of any person
-        other than what is expressly set out therein. Nothing in this clause shall limit or exclude
-        any liability for fraud or fraudulent misrepresentation.
+        {{ $t('terms.terms-p9') }}
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        No delay, failure, or omission (in whole or in part) in enforcing, exercising, or pursuing
-        any right, power, privilege, claim, or remedy provided by these Terms and Conditions or by
-        law shall be considered a waiver of that right, power, privilege, claim, or remedy in
-        respect to the circumstances at hand or bar the enforcement of that or any other right,
-        power, privilege, claim, or remedy in any other instance at any time.
+        {{ $t('terms.terms-p10') }}
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        If any provision of these Terms and Conditions is found invalid or unenforceable by any
-        court or administrative body of competent jurisdiction, such invalidity or unenforceability
-        shall not affect the validity of the remaining provisions, which shall remain in full force
-        and effect.
+        {{ $t('terms.terms-p11') }}
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        These Terms and Conditions do not create a partnership, joint venture, or principal-agent
-        relationship between the parties, and no party has the authority to bind any other party
-        unless expressly provided otherwise in these Terms and Conditions.
+        {{ $t('terms.terms-p12') }}
       </p>
     </div>
     <div class="abt-p-in">
       <p>
-        Predict shall not be in breach of these Terms and Conditions or liable for any delay or
-        failure to perform its obligations if such delay or failure results from events,
-        circumstances, or causes beyond its reasonable control. These may include, but are not
-        limited to, telecommunications network failures, power failures, failures in third-party
-        computer hardware or software, fire, lightning, explosion, flood, severe weather, industrial
-        disputes or lock-outs, terrorist activity, and acts of government or other competent
-        authorities. In such circumstances, the time for performance shall be extended by a period
-        equivalent to the delay or failure.
+        {{ $t('terms.terms-p13') }}
       </p>
     </div>
   </div>

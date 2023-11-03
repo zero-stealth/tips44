@@ -3,67 +3,67 @@
     <div class="vip-wrapper">
       <div class="vip-notpaid" v-if="!paid">
         <div v-if="!username" class="vip-p">
-          <h1>Sign in or log in to your account</h1>
+          <h1>{{ $t('vip.vip-h1') }}</h1>
           <div class="vip-sp">
             <button class="vip-btn" @click="goSignin()">
               <ProfileIcon class="vip-pay-icon" />
-              Sign in
+              {{ $t('vip.vip-btn1') }}
             </button>
             <button class="vip-btn" @click="goLogin()">
-              Log in
+              {{ $t('vip.vip-btn2') }}
               <ProfileIcon class="vip-pay-icon" />
             </button>
           </div>
         </div>
         <div class="vip-p" v-else>
-          <h1>Your VIP account is in not activated</h1>
+          <h1>{{ $t('vip.vip-h2') }}</h1>
           <button class="vip-btn" @click="payPage()">
             <MoneyIcon class="vip-pay-icon" />
-            Pay to activate
+            {{ $t('vip.vip-btn3') }}
           </button>
         </div>
       </div>
       <div v-else>
         <div class="main-header vip-m">
           <div class="header-info">
-            <h1> {{ vipName }} {{ currentDate }}</h1>
+            <h1>{{ vipName }} {{ currentDate }}</h1>
           </div>
           <div class="header-btn">
             <button class="btn-h" :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               <Arrow class="btn-icon icon-left" />
-              Previous
+              {{ $t('basketball.b-btn1') }}
             </button>
             <button class="btn-h" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-              Next
+              {{ $t('basketball.b-btn2') }}
               <Arrow class="btn-icon icon-right" />
             </button>
           </div>
         </div>
-        <template v-if="(paid && username && SupremeData.length > 0)">
+        <template v-if="paid && username && SupremeData.length > 0">
           <div class="main-tb-c">
             <table class="main-table">
               <thead>
                 <tr>
-                  <th>Time</th>
-                  <th>League</th>
-                  <th>Match</th>
-                  <th>Tip</th>
-                  <th>Score</th>
+                  <th>{{ $t('table.table-t1') }}</th>
+                  <th>{{ $t('table.table-t2') }}</th>
+                  <th>{{ $t('table.table-t3') }}</th>
+                  <th>{{ $t('table.table-t4') }}</th>
+                  <th>{{ $t('table.table-t5') }}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="(card, index) in SupremeData" :key="index">
                   <td>{{ card.time }}</td>
                   <td>{{ card.league }}</td>
-                    <td>{{ card.teamA }} <span class="vs-s">VS</span>  {{ card.teamB }}</td>
+                  <td>{{ card.teamA }} <span class="vs-s">VS</span> {{ card.teamB }}</td>
                   <td>{{ card.tip }}</td>
-                   <td class="td-sd">
-                {{ card.teamAscore }} - {{ card.teamBscore }}
-                <div class="icon-sd" v-if="offset < 0">
-                  <PassedIcon class="icon-sd-s icon-g" v-if="card.showResult === true" />
-                  <FailedIcon class="icon-sd-s icon-f" v-else />
-                </div>
-              </td>
+                  <td class="td-sd">
+                    {{ card.teamAscore }} - {{ card.teamBscore }}
+                    <div class="icon-sd" v-if="offset < 0">
+                      <PassedIcon class="icon-sd-s icon-g" v-if="card.showResult === true" />
+                      <FailedIcon class="icon-sd-s icon-f" v-else />
+                    </div>
+                  </td>
                 </tr>
               </tbody>
               <!-- <tbody v-else>
@@ -84,11 +84,9 @@
             </table>
           </div>
         </template>
-        <template
-          v-else-if="(paid && username && SupremeData.length === 0) "
-        >
+        <template v-else-if="paid && username && SupremeData.length === 0">
           <div class="home-freetip">
-            <h1>No predictions yet! Check back later.</h1>
+            <h1>{{ $t('banker.banker-h3') }}</h1>
           </div>
         </template>
       </div>
@@ -115,11 +113,9 @@ const paid = ref(false)
 const offset = ref(0)
 const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 
-
 console.log(paid.value)
 const updateAuthStatus = () => {
   const token = JSON.parse(localStorage.getItem('token'))
-
 
   // Clear cardData if token does not exist
   if (!token) {
@@ -130,18 +126,16 @@ const updateAuthStatus = () => {
 
 const showName = () => {
   switch (supreme.value) {
-  case true:
-    vipName.value = 'Vip Supreme tips'
-    break
-  case false:
-    vipName.value = 'Vip Mega tips'
-    break
-  default:
-    break
+    case true:
+      vipName.value = 'Vip Supreme tips'
+      break
+    case false:
+      vipName.value = 'Vip Mega tips'
+      break
+    default:
+      break
+  }
 }
-
-}
-
 
 const payPage = () => {
   router.push({ name: 'Pay', params: { vipName: 'SUPREME 2+' } })
@@ -154,7 +148,6 @@ const goSignin = () => {
 const goLogin = () => {
   router.push({ name: 'Login' })
 }
-
 
 // const getVipMega = async () => {
 //   const token = JSON.parse(localStorage.getItem('token'))
@@ -198,14 +191,11 @@ const getAccountDetails = async () => {
   const token = JSON.parse(localStorage.getItem('token'))
   const id = localStorage.getItem('id')
   try {
-    const response = await axios.get(
-      `${SERVER_HOST}/auth/${id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
+    const response = await axios.get(`${SERVER_HOST}/auth/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
       }
-    )
+    })
     // console.log(response.data)
     username.value = response.data.username
     paid.value = response.data.paid
@@ -249,7 +239,6 @@ const updateCurrentDate = () => {
 
 updateCurrentDate()
 
-
 watch([offset, username, paid], () => {
   updateAuthStatus()
   getVipSupreme()
@@ -257,7 +246,7 @@ watch([offset, username, paid], () => {
 })
 
 watch([supreme], () => {
-  showName();
+  showName()
 })
 </script>
 

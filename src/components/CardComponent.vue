@@ -49,7 +49,7 @@
       </div>
     </div>
     <div class="Tip">
-          <h4>Tip:</h4>
+          <h4>{{ $t('card.card-h4') }}:</h4>
           <span>{{ tip }}</span>
         </div>
     <div class="card-footer">
@@ -65,7 +65,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps({
   formationA: {
@@ -131,9 +131,6 @@ const props = defineProps({
 const formationsA = ref(props.formationA);
 const formationsB = ref(props.formationB);
 
-const shouldShowScore = computed(() => {
-  return props.showScore && props.teamAscore !== undefined && props.teamBscore !== undefined;
-});
 
 </script>
 

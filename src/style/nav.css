@@ -4,442 +4,518 @@
     position: sticky;
     z-index: 100;
     top: 0;
-
   }
 
-    .nav-container {
-      display: flex;
-      font-size: 1rem;
-      padding: 15px 20px;
-      align-items: center;
-      flex-direction: row-reverse;
-      color: var(--background-color);
-      justify-content: space-between;
-      background-color: var(--background-color);
-      
-    }
-    
-    .nav-container span {
-      color: var(--primary-color);
-    }
-
-    .logo-spp {
-      width: 100px;
-    }
-
-    .nav-link-container {
-      gap: 50px;
-      display: none;
-    }
-
-    .nav-link {
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      text-transform: capitalize;
-      color: var(--primary-color);
-
-    }
-
-    .router-link-active {
-      color: var(--secondary-color);
-    }
-
-    .nav-link:hover {
-      color: var(--secondary-color);
-    }
-
-
-    .nav-menu {
-      display: flex;
-    }
-
-    .drop-container {
-      gap: 10px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .spc span {
-      color: var(--background-color);
-    }
-
- 
-
-    .drop-down {
-      gap: 10px;
-      display: flex;
-      cursor: pointer;
-      align-items: center;
-      color: var(--background-color);
-    }
-
-    .drop-down:hover span {
-      color: var(--secondary-color);
-    }
-
-    .drop-down:hover .drop-icon {
-      fill: var(--secondary-color);
-    }
-
-    .drop-icon {
-      width: 16px;
-      height: 16px;
-      transform: rotate(90deg);
-      fill: var(--background-color);
-    }
-
-    .sp-dp {
-      fill: var(--background-color);
-    } 
-    .drop-down-panel {
-      top: 350px;
-      display: flex;
-      font-size: 0.8rem;
-      border-radius: 4px;
-      position: absolute;
-      flex-direction: column;
-      color: var(--primary-color);
-      background-color: var(--background-color);
-    }
-
-    .drp-down-panel {
-      top: 210px;
-      display: flex;
-      font-size: 0.8rem;
-      border-radius: 4px;
-      position: absolute;
-      flex-direction: column;
-      color: var(--primary-color);
-      background-color: var(--background-color);
-    }
-
-
-    .drop-down-panel span {
-      cursor: pointer;
-      padding: 5px;
-    }
-    
-    .spos-c{
-      top: 4px;
-      position: relative;
-
-    }
-    .drp-down-panel span {
-      cursor: pointer;
-      padding: 5px;
-    }
-
-    .drop-down-panel span:hover {
-      border-radius: 4px;
-      color: var(--background-color);
-      background-color: var(--secondary-color);
-    }
-
-    .drp-down-panel span:hover {
-      border-radius: 4px;
-      color: var(--background-color);
-      background-color: var(--secondary-color);
-    }
-
-    .show {
-      display: flex;
-    }
-
-    .hide {
-      display: none;
-    }
-
-    .showDrp {
-      display: flex;
-    }
-
-    .hideDrp {
-      display: none;
-    }
-
-    .menu-icon-nav {
-      width: 20px;
-      height: 20px;
-      fill: var(--primary-color);
-    }
-
-    .nav-btn-container {
-      gap: 20px;
-      display: none;
-      align-items: center;
-    }
-
-    .nav-btn,
-    .mobile-btn {
-      gap: 5px;
-      width: 90px;
-      height: 35px;
-      padding: 10px;
-      display: flex;
-      cursor: pointer;
-      font-size: 0.7rem;
-      border-radius: 4px;
-      align-items: center;
-      justify-content: center;
-      text-transform: uppercase;
-    }
-
-    .btn-logout {
-      width: 100%;
-    }
-
-    .btn-r {
-      background-color: var(--background-color);
-    }
-
-    .btn-l {
-      color: var(--background-color);
-      background-color: var(--secondary-color);
-    }
-
-    .r-icon {
-      height: 20px;
-      
-    }
-    
-    .l-icon {
-      height: 16px;
-      fill: var(--background-color);
-    }
-
-
-
-    .hero-section {
-      gap: 20px;
-      display: flex;
-      padding-top: 50px;
-      background-size: cover;
-      flex-direction: column;
-      background-position: right;
-      background-repeat: no-repeat;
-      background-color: var(--primary-color);
-      /* box-shadow: inset 0 0 0 2000px rgb(3, 30, 60 3); */
-    }
-
-    .btn-view {
-      height: 30%;
-
-    }
-
-    .hero-s-contain {
-      gap: 20px;
-      display: flex;
-      height: inherit;
-      flex-direction: column;
-
-    }
-
-    .hero-info {
-      gap: 10px;
-      margin: 10px;
-      height: 100%;
-      display: flex;
-      padding: 12px;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-      color: var(--background-color);
-      background-color: var(--primary-color);
-    }
-
-    .hero-info h1 {
-      text-align: center;
-      font-weight: 600;
-      font-size: 1.5rem;
-    }
-
-    .hero-info span {
-      color: var(--tertiary-color);
-    }
-
-    .hero-info p {
-      text-align: center;
-      font-size: 1rem;
-      font-weight: 300;
-    }
-
-    .hero-img {
-      height: 20vh;
-      padding: 10px;
-      border-radius: 4px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-
-    /* mobile responsive */
-
-    .mobile-exit {
-      display: flex;
-      padding: 20px 10px;
-      justify-content: end;
-    }
-
-    .icon-exit {
-      height: 28px;
-      fill: var(--background-color);
-    }
-
-    .mobile-bar {
-      top: 0;
-      right: 0;
-      width: 0;
-      bottom: 0;
-      left: -100px;
-      padding: 20px;
-      z-index: 9999;
-      position: fixed;
-      background-size: contain;
-      background-repeat: repeat;
-      color: var(--background-color);
-      transition: all 0.5s ease 0s;
-      -webkit-transition: all 0.5s ease 0s;
-      background-color: var(--primary-color);
-    }
-
-    .mobile-container,
-    .mobile-link-container {
-      gap: 20px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .mobile-link {
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      text-transform: capitalize;
-      color: var(--background-color);
-    }
-
-    .router-link-active {
-      color: var(--secondary-color);
-    }
-
-    .mobile-link:hover {
-      color: var(--secondary-color);
-    }
-
-    .mobile-selector {
-      gap: 10px;
-      border: none;
-      display: flex;
-      padding: 0 10px;
-      font-size: 1rem;
-      border-radius: none;
-      text-transform: capitalize;
-      background-color: var(--primary-color);
-    }
-
-    .mobile-selector option {
-      font-size: 0.8rem;
-      padding: 10px;
-    }
-
-    .mobile-btn-container {
-      gap: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-    }
-
-    .open {
-      width: 75%;
-      left: 0;
-    }
-
-    .close {
-      width: 0;
-      left: -100px;
-    }
-
-    /* mobile responsive */
+  .nav-container {
+    display: flex;
+    font-size: 1rem;
+    padding: 15px 10px;
+    align-items: center;
+    flex-direction: row-reverse;
+    color: var(--background-color);
+    justify-content: space-between;
+    background-color: var(--background-color);
   }
 
-  /* using it as global style for larger devices  */
-  @media only screen and (min-width: 48em) {
-    .nav-container {
-      padding: 25px 20px;
-      flex-direction: row;
-    }
-
-    .logo-spp {
-      width: 90px;
-    }
-
-    .nav-link-container {
-      display: flex;
-    }
-
-    .drop-down-panel {
-      top: 70px;
-    }
-
-    .nav-menu {
-      display: none;
-    }
-
-    .nav-btn-container {
-      display: flex;
-    }
-
-    .nav-important {
-      gap: 0;
-      width: 50%;
-      padding: 10px 100px;
-    }
-
-    .nav-i-btn {
-      height: 45px;
-      width: 150px;
-      font-size: 0.7rem;
-    }
-
-    .hero-section {
-      height: 68vh;
-      padding-top: 50px;
-      
-      
-    }
-
-    .btn-view {
-      height: 20%;
-    }
-    .hero-s-contain {
-      gap: 20px;
-      padding: 30px;
-      flex-direction: row;
-    }
-
-    .hero-info {
-      flex: 50%;
-      height: 100%;
-      padding: 20px;
-      margin: 0;
-    }
-
-    .hero-info h1 {
-      text-align: start;
-      font-size: 2.8rem;
-    }
-
-    .hero-info p {
-      text-align: start;
-      padding-right: 50px;
-    }
-
-    .hero-img {
-      flex: 50%;
-      height: 350px;
-    }
-
-    .drop-icon {
-      fill: var(--primary-color);
-    }
+  .nav-container span {
+    color: var(--primary-color);
   }
+
+  .logo-spp {
+    height: 40px;
+  }
+
+  .nav-link-container {
+    gap: 50px;
+    display: none;
+  }
+
+  .nav-link {
+    cursor: pointer;
+    font-size: 0.8rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--primary-color);
+  }
+
+  .router-link-active {
+    color: var(--secondary-color);
+  }
+
+  .nav-link:hover {
+    color: var(--secondary-color);
+  }
+
+  .nav-menu {
+    display: flex;
+  }
+
+  .drop-container {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .spc span {
+    font-size: 0.9rem;
+    color: var(--background-color);
+  }
+
+  .drop-down {
+    gap: 10px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    color: var(--background-color);
+  }
+
+  .drop-down span {
+    font-size: 0.8rem;
+  }
+
+  .drop-down:hover span {
+    color: var(--secondary-color);
+  }
+
+  .drop-down:hover .drop-icon {
+    fill: var(--secondary-color);
+  }
+
+  .drop-icon {
+    width: 16px;
+    height: 16px;
+    transform: rotate(90deg);
+    fill: var(--background-color);
+  }
+
+  .sp-dp {
+    fill: var(--background-color);
+  }
+  .drop-down-panel {
+    top: 350px;
+    display: flex;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    position: absolute;
+    flex-direction: column;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+  }
+
+  .drp-down-panel {
+    top: 210px;
+    display: flex;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    position: absolute;
+    flex-direction: column;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+  }
+
+  .drop-down-panel span {
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .spos span {
+    font-size: 0.9rem;
+  }
+
+  .spos-c span {
+    font-size: 0.9rem;
+  }
+
+  .spos-c {
+    top: 4px;
+    position: relative;
+  }
+  .drp-down-panel span {
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .drop-down-panel span:hover {
+    border-radius: 4px;
+    color: var(--background-color);
+    background-color: var(--secondary-color);
+  }
+
+  .drp-down-panel span:hover {
+    border-radius: 4px;
+    color: var(--background-color);
+    background-color: var(--secondary-color);
+  }
+
+  .show {
+    display: flex;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .showDrp {
+    display: flex;
+  }
+
+  .hideDrp {
+    display: none;
+  }
+
+  .menu-icon-nav {
+    width: 30px;
+    height: 30px;
+    fill: var(--primary-color);
+  }
+
+  .nav-btn-container {
+    gap: 20px;
+    display: none;
+    align-items: center;
+  }
+
+  .nav-btn,
+  .mobile-btn {
+    gap: 5px;
+    height: 35px;
+    padding: 10px;
+    display: flex;
+    cursor: pointer;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    width: fit-content;
+    min-width: 80px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-btn {
+    width: 100%;
+  }
+
+  .btn-logout {
+    width: 100%;
+  }
+
+  .btn-r {
+    background-color: var(--background-color);
+  }
+
+  .btn-l {
+    color: var(--background-color);
+    background-color: var(--secondary-color);
+  }
+
+  .r-icon {
+    height: 20px;
+  }
+
+  .l-icon {
+    height: 16px;
+    fill: var(--background-color);
+  }
+
+  .hero-section {
+    gap: 20px;
+    display: flex;
+    padding-top: 50px;
+    background-size: cover;
+    flex-direction: column;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-color: var(--primary-color);
+    /* box-shadow: inset 0 0 0 2000px rgb(3, 30, 60 3); */
+  }
+
+  .btn-view {
+    height: 30%;
+  }
+
+  .hero-s-contain {
+    gap: 20px;
+    display: flex;
+    height: inherit;
+    flex-direction: column;
+  }
+
+  .hero-info {
+    gap: 10px;
+    margin: 10px;
+    height: 100%;
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--background-color);
+    background-color: var(--primary-color);
+  }
+
+  .hero-info h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  .hero-info span {
+    color: var(--tertiary-color);
+  }
+
+  .hero-info p {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .hero-img {
+    height: 20vh;
+    padding: 10px;
+    border-radius: 4px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* mobile responsive */
+
+  .mobile-exit {
+    display: flex;
+    padding: 20px 10px;
+    justify-content: end;
+  }
+
+  .icon-exit {
+    height: 28px;
+    fill: var(--background-color);
+  }
+
+  .mobile-bar {
+    top: 0;
+    right: 0;
+    width: 0;
+    bottom: 0;
+    left: -1000px;
+    padding: 20px;
+    z-index: 9999;
+    position: fixed;
+    background-size: contain;
+    background-repeat: repeat;
+    color: var(--background-color);
+    transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    background-color: var(--primary-color);
+  }
+
+  .mobile-container,
+  .mobile-link-container {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-link {
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--background-color);
+  }
+
+  .router-link-active {
+    color: var(--secondary-color);
+  }
+
+  .mobile-link:hover {
+    color: var(--secondary-color);
+  }
+
+  .mobile-selector {
+    gap: 10px;
+    border: none;
+    display: flex;
+    padding: 0 10px;
+    font-size: 1rem;
+    border-radius: none;
+    text-transform: capitalize;
+    background-color: var(--primary-color);
+  }
+
+  .mobile-selector option {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+
+  .mobile-btn-container {
+    gap: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .open {
+    width: 75%;
+    left: 0;
+  }
+
+  .close {
+    width: 0;
+    left: -1000px;
+  }
+
+  .web-translate {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .web-drop-down {
+    gap: 20px;
+    display: flex;
+    height: 40px;
+    width: 100px;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid var(--background-color);
+  }
+
+  .web-translate-icon {
+    height: 24px;
+    width: 24px;
+    fill: var(--background-color);
+  }
+
+  .web-type {
+    top: 80%;
+    gap: 10px;
+    padding: 10px;
+    display: flex;
+    position: absolute;
+    border-radius: 6px;
+    flex-direction: column;
+    color: var(--background-color);
+    background-color: var(--primary-color);
+  }
+
+  .web-type:hover span {
+    background-color: var(--primary-color);
+  }
+
+  .locale-changer {
+    height: 36px;
+    width: 90px;
+    outline: none;
+    padding: 10px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    color: var(--background-color);
+    background-color: var(--primary-color);
+    border: 1px solid var(--background-color);
+  }
+
+  .locale-changer::placeholder {
+    padding: 10px;
+    color: var(--primary-color);
+  }
+
+  .locale-op {
+    padding: 10px;
+    background-color: var(--primary-color);
+  }
+
+  /* mobile responsive */
+}
+
+/* using it as global style for larger devices  */
+@media only screen and (min-width: 48em) {
+  .nav-container {
+    padding: 20px 20px;
+    flex-direction: row;
+  }
+
+  .mb-locale {
+    display: none;
+  }
+
+  .locale-changer {
+    width: 100px;
+  }
+
+  .logo-spp {
+    height: 50px;
+    width: 90px;
+  }
+
+  .nav-link-container {
+    display: flex;
+  }
+
+  .drop-down-panel {
+    top: 70px;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-btn-container {
+    display: flex;
+  }
+
+  .nav-important {
+    gap: 0;
+    width: 50%;
+    padding: 10px 100px;
+  }
+
+  .nav-i-btn {
+    height: 45px;
+    width: 150px;
+    font-size: 0.7rem;
+  }
+
+  .hero-section {
+    height: 68vh;
+    padding-top: 50px;
+  }
+
+  .btn-view {
+    height: 20%;
+  }
+  .hero-s-contain {
+    gap: 20px;
+    padding: 30px 10px;
+    flex-direction: row;
+  }
+
+  .hero-info {
+    flex: 50%;
+    height: 100%;
+    padding: 20px;
+    margin: 0;
+  }
+
+  .hero-info h1 {
+    text-align: start;
+    font-size: 1.9rem;
+  }
+
+  .hero-info p {
+    font-size: 0.9rem;
+    text-align: start;
+    padding-right: 50px;
+  }
+
+  .hero-img {
+    flex: 50%;
+    height: 350px;
+  }
+
+  .drop-icon {
+    fill: var(--primary-color);
+  }
+}

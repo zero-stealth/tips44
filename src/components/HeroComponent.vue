@@ -11,13 +11,11 @@ import banner from '../assets/banner.jpg'
     <div class="hero-s-contain">
       <div class="hero-info">
         <h1>
-          Access <span>free tips</span> and relish <span>daily victories </span> across all sporting
-          <span>events.</span>
+          {{ $t('hero.hero-h1') }} <span>{{ $t('hero.hero-span1') }}</span>{{ $t('hero.hero-span2') }}<span> {{ $t('hero.hero-span3') }}</span>{{ $t('hero.hero-span4') }}
+          <span>{{ $t('hero.hero-span5') }}.</span>
         </h1>
         <p>
-          Tips90predict is a web-based platform that provides extremely precise predictions for
-          football, soccer, basketball, and tennis, ensuring users can maximize their profits.
-          Additionally, we offer up-to-date sports news to keep our users well-informed.
+          {{ $t('hero.hero-p1') }}
         </p>
       </div>
       <div class="nav-important">

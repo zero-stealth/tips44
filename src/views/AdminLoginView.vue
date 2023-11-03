@@ -11,18 +11,18 @@
         <input type="email" class="input-l" placeholder="Email Address" v-model="email" />
         <input type="password" class="input-l" placeholder="Password" v-model="password" />
         <p>{{ errMsg }}</p>
-        <button class="btn-f" type="submit">Login</button>
-        <span @click="forgot">Forgot password</span>
+        <button class="btn-f" type="submit">{{ $t('auth.auth-btn1') }}</button>
+        <span @click="forgot">{{ $t('auth.auth-span1') }}</span>
       </form>
       <form @submit.prevent="resetAuth" class="l-form" v-else>
         <input type="email" class="input-l" placeholder="Email Address" v-model="email" />
         <input type="password" class="input-l" placeholder="Password" v-model="password" />
         <p>{{ errMsg }}</p>
-        <button class="btn-f" type="submit">Reset</button>
+        <button class="btn-f" type="submit">{{ $t('auth.auth-btn2') }}</button>
       </form>
       <span>or</span>
       <div class="l-alternatives">
-        <button class="alt-btn" @click="create">Create an account</button>
+        <button class="alt-btn" @click="create">{{ $t('auth.auth-btn3') }}</button>
       </div>
     </div>
   </div>
