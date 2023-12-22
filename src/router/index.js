@@ -64,15 +64,6 @@ const router = createRouter({
       props: true
     },
     {
-      path: '/predictions/:id',
-      name: 'Predictions',
-      component: () => import('../views/predictionView.vue'),
-      meta: {
-        title: "Free Predictions and Tips",
-        description: "Tips90predict offers accurate  football predictions daily",
-      },
-    },
-    {
       path: '/vip',
       name: 'Vip',
       component: () => import('../views/VipView.vue'),
