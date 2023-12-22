@@ -89,16 +89,16 @@
     .vip-results-pn {
         gap: 5px;
         display: flex;
-        padding: 4px;
-        border-radius: 12px;
+        padding: 1px;
+        border-radius: 4px;
         align-items: center;
         flex-direction: column;
         justify-content: space-between;
-        border: 2px solid var(--grey-color);
+        border: 1px solid var(--grey-color);
     }
 
     .vip-results-pn h1 {
-        font-size: 1rem;
+        font-size: .8rem;
         font-weight: 700;
     }
 
