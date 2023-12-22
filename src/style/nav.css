@@ -8,8 +8,8 @@
 
   .nav-container {
     display: flex;
+    padding: 10px;
     font-size: 1rem;
-    padding: 15px 10px;
     align-items: center;
     flex-direction: row-reverse;
     color: var(--background-color);
@@ -222,7 +222,7 @@
     padding-top: 50px;
     background-size: cover;
     flex-direction: column;
-    background-position: right;
+    background-position: center;
     background-repeat: no-repeat;
     background-color: var(--primary-color);
     /* box-shadow: inset 0 0 0 2000px rgb(3, 30, 60 3); */
@@ -433,7 +433,6 @@
 /* using it as global style for larger devices  */
 @media only screen and (min-width: 48em) {
   .nav-container {
-    padding: 20px 20px;
     flex-direction: row;
   }
 
@@ -479,7 +478,7 @@
   }
 
   .hero-section {
-    height: 68vh;
+    height: 80vh;
     padding-top: 50px;
   }
 

@@ -1,13 +1,9 @@
 <template>
-  <div class="auth-container" :style="{
-    backgroundImage: `linear-gradient(
-      110deg,
-      rgba(3, 30, 60, 0.8),
-      rgba(3, 30, 60, 0.7)
-    ), url(${SportBg})`
-  }">
+  <div class="auth-container">
     <div class="form-l-wrapper">
-      <h1>{{ $t('auth.auth-btn3') }}</h1>
+      <div class="form-l-head">
+        <h1>{{ $t('auth.auth-btn3') }}</h1>
+      </div>
       <form @submit.prevent="create" class="l-form">
         <input type="text" class="input-l" placeholder="Full Name" v-model="username" />
         <input type="email" class="input-l" placeholder="Email Address" v-model="email" />
@@ -29,6 +25,9 @@
         </button>
       </div>
     </div>
+    <div class="auth-background-img">
+    <!-- image -->
+    </div>
   </div>
 </template>
 
@@ -36,7 +35,6 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
-import SportBg from '../assets/sport-bg.png'
 import countriesData from '../components/countries.json'
 
 const selectedCountry = ref('')
@@ -92,6 +90,6 @@ const login = () => {
 }
 </script>
 
-<style>
+<style >
 @import '../style/auth.css';
 </style>

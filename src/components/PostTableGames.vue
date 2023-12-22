@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="form-container-h">
-      <h1>Post Game</h1>
-    </div>
     <form @submit.prevent="handleSubmit" class="form-container">
       <div class="form-wrapper">
         <h1>Team A</h1>

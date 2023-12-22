@@ -1,10 +1,13 @@
 <template>
   <div class="Account-container">
-    <div class="Account-header">
-      <h1><span>Welcome</span><br />tips90prediction,</h1>
-    </div>
     <div class="Account-info">
-      <div class="Account-card" v-for="card in accountCards" :key="card.id">
+      <div
+        class="Account-card"
+        v-for="card in accountCards"
+        :key="card.id"
+        @click="selectCard(card.id)"
+        :class="{ selected: selectedCard === card.id }"
+      >
         <h5>{{ card.title }}</h5>
         <div class="Account-card-icon">
           <h1>{{ getCount(card.id) }}</h1>
@@ -14,12 +17,11 @@
     </div>
     <div class="search-section">
       <div class="form-group">
-        <label for="Accountname">Search Accounts</label>
         <input
-          v-model="SearchAccount"
+          v-model="searchAccount"
           type="text"
-          class="form-g-i"
-          placeholder="Search account name"
+          class="form-g-input"
+          placeholder="Search account by name"
           id="Accountname"
         />
       </div>
@@ -41,7 +43,6 @@
           <tr v-for="account in filterAccount" :key="account.id">
             <td>
               <div class="Account-tbl-img">
-                <img :src="Profile" alt="Account-p" class="Account-pi" />
                 <span>{{ account.email }}</span>
               </div>
             </td>
@@ -56,7 +57,7 @@
                   :class="{ on: account.type, off: !account.type }"
                 >
                   <div class="Account-mode"></div>
-                  <span>{{ account.type ? 'Supreme' : 'Mega' }}</span>
+                  <span> {{ account.type ? 'Supreme' : 'no package' }}</span>
                 </div>
               </div>
             </td>
@@ -92,7 +93,6 @@ import axios from 'axios';
 import { ref, watchEffect, onMounted, computed, watch } from 'vue';
 import NotPaid from '../icons/NotPaid.vue';
 import VipIcon from '../icons/VipIcon.vue';
-import Profile from '../assets/profile.jpg';
 import PaidIcon from '../icons/PaidIcon.vue';
 import AdminIcon from '../icons/AdminIcon.vue';
 import DeleteIcon from '../icons/DeleteIcon.vue';
@@ -100,7 +100,7 @@ import ProfileIcon from '../icons/profileIcon.vue';
 
 const accountCards = ref([]);
 const accountInfo = ref([]);
-const SearchAccount = ref('');
+const searchAccount = ref('')
 const message = ref();
 const statusC = ref(null);
 const paidDate = ref(null);
@@ -189,46 +189,82 @@ accountCards.value = [
   { id: 2, title: 'Vip accounts', icon: VipIcon },
   { id: 3, title: 'Paid accounts', icon: PaidIcon },
   { id: 4, title: 'Not paid accounts', icon: NotPaid },
-  { id: 5, title: 'Administrator accounts', icon: AdminIcon },
-];
+  { id: 5, title: 'Administrator accounts', icon: AdminIcon }
+]
 
 const getCount = (cardId) => {
-  let count = 0;
+  let count = 0
 
   switch (cardId) {
     case 1:
-      count = accountData.value.filter((account) => account._id).length;
-      break;
+      count = accountData.value.filter((account) => account._id).length
+      break
     case 2:
-      count = accountData.value.filter((account) => account.paid).length;
-      break;
+      count = accountData.value.filter((account) => account.paid).length
+      break
     case 3:
-      count = accountData.value.filter((account) => account.paid).length;
-      break;
+      count = accountData.value.filter((account) => account.paid).length
+      break
     case 4:
-      count = accountData.value.filter((account) => !account.paid).length;
-      break;
+      count = accountData.value.filter((account) => !account.paid).length
+      break
     case 5:
-      count = accountData.value.filter((account) => account.isAdmin).length;
-      break;
+      count = accountData.value.filter((account) => account.isAdmin).length
+      break
     default:
-      count = 0;
+      count = 0
   }
 
-  return count;
-};
+  return count
+}
 
 
-const filterAccount = computed(() => {
-  if (SearchAccount.value !== '') {
-    return accountData.value.filter((account) =>
-      account.email.includes(SearchAccount.value) ||
-      account.email.toUpperCase().includes(SearchAccount.value)
-    );
+const selectedCard = ref(accountCards.value[0].id)
+
+const selectCard = (cardId) => {
+  if (selectedCard.value === cardId) {
+    selectedCard.value = null
   } else {
-    return accountData.value;
+    selectedCard.value = cardId
   }
-}, [SearchAccount, accountData]);
+}
+
+const filterAccount = ref([]);
+
+watchEffect(() => {
+  filterAccount.value = computed(() => {
+    if (selectedCard.value !== null) {
+      switch (selectedCard.value) {
+        case 1:
+          return accountData.value.filter((account) => account._id);
+        case 2:
+        case 3:
+          return accountData.value.filter((account) => account.paid);
+        case 4:
+          return accountData.value.filter((account) => !account.paid);
+        case 5:
+          return accountData.value.filter((account) => account.isAdmin);
+        default:
+          return accountData.value;
+      }
+    }
+
+    return accountData.value;
+  }).value;
+});
+
+watchEffect(() => {
+  filterAccount.value = computed(() => {
+    if (searchAccount.value !== '') {
+      return accountData.value.filter((account) =>
+        account.email.includes(searchAccount.value) ||
+        account.email.toUpperCase().includes(searchAccount.value.toUpperCase())
+      );
+    } else {
+      return accountData.value;
+    }
+  }).value;
+});
 
 
 
@@ -282,7 +318,7 @@ watchEffect(() => {
 });
 </script>
 
-<style>
+<style >
 @import '../style/account.css';
 @import '../style/Bet.css';
 </style>

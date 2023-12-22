@@ -1,82 +1,111 @@
 @media screen {
- .imp-section {
-  gap: 10px;
-  display: flex;
-  padding: 20px 8px;
-  justify-content: space-between;
-  background-color: var(--primary-color);
- }
+.imp-section {
+gap:50px;
+display: flex;
+padding: 20px;
+align-items: center;
+flex-direction: column;
+background-color: var(--primary-color);
 }
 
+
 .imp-info {
-  flex: 10%;
   display: flex;
   align-items: center;
 }
 
+
 .imp-info h1 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--background-color);
 }
 
-
-
-.icon-nav {
-  height: 24px;
-  width: 24px;
-  fill: var(--secondary-color);
+.nav-important {
+  gap: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.nav-important {
-  gap: 20px;
+.nav-top-vat {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-vat-btn {
+  gap: 10px;
+  width: 100%;
   display: flex;
   padding: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  
-}
-
-.nav-i-btn {
-  display: flex;
-  min-width: 150px;
-  font-size: .6rem;
-  font-weight: bold;
+  font-size: .8rem;
+  border-radius: 4px;
   width: fit-content;
   align-items: center;
-  text-transform: uppercase;
-  justify-content: space-between ;
-  color: var(--secondary-color);
-  background-color: transparent;
+  justify-content: space-around;
+}
+
+.nav-vat-btn:hover {
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+}
+
+.middle-vat {
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-vat {
+  height: 20px;
+  width: 20px;
+  fill: var(--primary-color);
+}
+
+.nav-vat-btn:hover  .icon-vat {
+  fill: var(--background-color);
+}
+
+.nav-middle-vat {
+  gap: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.s-f {
+  background-color: #5c5cf5;
+}
+
+.s-w {
+  background-color: #0b8b0b;
+}
+
+.s-t {
+  background-color: #0088cc;
+}
 }
 
 
 /* using it as global style for larger devices  */
 @media only screen and (min-width: 48em) {
 
-  .imp-section {
-    padding: 20px 30px;
-   }
+  .nav-vat-btn {
+  font-size: .9rem;
+  width: 200px;
+  }
 
-  
+  .icon-vat {
+    height: 24px;
+    width: 24px;
+  }
+
   .imp-info h1 {
-    font-size: 1.8rem;
-  }
-
-  .nav-important {
-    flex-wrap: nowrap;
-
-    
-  }
-  
-  .nav-i-btn {
-    gap: 10px;
-    height: 30px;
-    width: fit-content;
-    min-width: 200px;
-    align-items: center;
-    justify-content: center;
-    border-left: 4px solid var(--secondary-color);
+    font-size: 2rem;
+    color: var(--background-color);
   }
 }
 

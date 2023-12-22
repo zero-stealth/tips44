@@ -1,0 +1,149 @@
+@media screen {
+  .game-container {
+    gap: 30px;
+    display: flex;
+    width: inherit;
+    flex-direction: column;
+  }
+
+  .header-btn {
+    gap: 10px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    
+  }
+
+  .game-h-b {
+    width: 100%;
+    padding: 10px;
+    text-transform: capitalize;
+    color: var(--tertiary-color);
+    background-color: transparent;
+    border: 1px solid var(--tertiary-color);
+  }
+
+  .game-game-p {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Account-info {
+    gap: 10px;
+    display: flex;
+    overflow-y: hidden;
+    overflow: hidden;
+    align-items: center;
+    overflow-x: auto;
+    justify-content: space-between;
+  }
+
+
+  .game-cf {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .game-table {
+    overflow: hidden;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    
+  }
+
+  .header-info h1 {
+    font-size: 1rem;
+    color: var(--background-color);
+  }
+  .game-cf thead {
+    font-size: 0.6rem;
+    color: var(--background-color);
+    background-color: var(--light-primary-color);
+  }
+
+  .game-cf tbody {
+    font-size: 0.7rem;
+  }
+
+  .game-cf th,
+  td {
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+  }
+
+  .game-cf td {
+    font-weight: 200;
+    text-align: center;
+    border-bottom: none;
+    text-transform: capitalize;
+    color: var(--background-color);
+    background-color: var(--light-primary-color);
+  }
+
+  .game-pi {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .game-cf th {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .game-tbl-img {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .Account-pi {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 360%;
+    object-position: center;
+  }
+
+  .Account-t-con {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+
+
+}
+
+/* using it as global style for larger devices  */
+@media only screen and (min-width: 48em) {
+  .game-game-p {
+    flex-direction: row;
+  }
+
+  .game-cf {
+    height: 100%;
+    padding: 20px;
+    min-width: 100%;
+    max-height: 650px;
+  }
+
+  .game-cf thead {
+    font-size: 0.7rem;
+  }
+
+  .game-cf tbody {
+    font-size: 0.8rem;
+  }
+}

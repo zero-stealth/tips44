@@ -4,18 +4,17 @@
     height: 70px;
     width: 140px;
     display: flex;
-    font-size: 1rem;
+    font-size: .7rem;
     font-weight: 400;
     border-radius: 8px;
     text-align: center;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    text-transform: uppercase;
     color: var(--background-color);
-    background-color: var(--primary-color);
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
-      rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
-      rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    background-color: var(--secondary-color);
+   
   }
 
   .other-p-btn span {
@@ -24,7 +23,7 @@
   }
 
   .other-p-btn:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--light-primary-color);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   }
 
@@ -36,7 +35,8 @@
   .prediction-con {
     gap: 30px;
     display: flex;
-    padding: 5px;
+    padding: 10px;
+    height: fit-content;
     text-align: center;
     flex-direction: column;
     background-position: right;
@@ -65,7 +65,8 @@
 @media only screen and (min-width: 48em) {
   .other-p-btn {
     height: 90px;
-    width: 250px;
+    width: 400px;
+    font-size: .9rem;
   }
   /* component css  */
 

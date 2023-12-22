@@ -1,27 +1,25 @@
 5<template>
-  <div class="Account-container">
-    <div class="Account-header">
-      <h1><span>Welcome</span><br />tips90prediction</h1>
-    </div>
-    <div class="Account-game-p">
+  <div class="game-container">
+    <div class="game-game-p">
       <!-- loop this  -->
-      <div class="acc-m gm-m ">
+      <div class="game-cf">
         <div class="main-header">
           <div class="header-info">
             <h1>Banker of the day  ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+            <button class="game-h-b"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
         </div>
+        <div class="game-table">
         <table>
           <thead>
             <tr>
@@ -35,22 +33,22 @@
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody v-for="item in cardData">
+          <tbody v-for="item in cardData" :key="item._id">
             <tr v-for="data in item" :key="data._id">
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.league }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
-                  <img :src="data.teamAIcon" alt="Account-p" class="Account-pi" />
+                <div class="game-tbl-img">
+                  <img :src="data.teamAIcon" alt="game-p" class="game-pi" />
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
-                  <img :src="data.teamBIcon" alt="Account-p" class="Account-pi" />
+                <div class="game-tbl-img">
+                  <img :src="data.teamBIcon" alt="game-p" class="game-pi" />
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -64,12 +62,12 @@
                 <span>{{ data.tip }}</span>
               </td>
               <td>
-                <div class="Account-delete" @click="editGame(BetOfTheDay, data._id)">
+                <div class="game-delete" @click="editGame(BetOfTheDay, data._id)">
                   <FileIcon class="icon-delete" />
                 </div>
               </td>
               <td>
-                <div class="Account-delete" @click="deletePrediction(data._id)">
+                <div class="game-delete" @click="deletePrediction(data._id)">
                   <DeleteIcon class="icon-delete" />
                 </div>
               </td>
@@ -81,24 +79,26 @@
           </tbody>
         </table>
       </div>
+      </div>
       <!-- loop this  -->
-      <div class="acc-m gm-m">
+      <div class="game-cf">
         <div class="main-header">
           <div class="header-info">
             <h1>Straight win ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+            <button class="game-h-b"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
         </div>
+        <div class="game-table">
         <table>
           <thead>
             <tr>
@@ -112,21 +112,21 @@
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody v-for="item in predictionData">
+          <tbody v-for="item in predictionData" :key="item._id">
             <tr v-for="data in item" :key="data._id">
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
       
                   <span>{{ data.league }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -140,12 +140,12 @@
                 <span>{{ data.tip }}</span>
               </td>
               <td>
-                <div class="Account-delete" @click="editGame(Daily, data._id)">
+                <div class="game-delete" @click="editGame(Daily, data._id)">
                   <FileIcon class="icon-delete" />
                 </div>
               </td>
               <td>
-                <div class="Account-delete" @click="deletePrediction(data._id)">
+                <div class="game-delete" @click="deletePrediction(data._id)">
                   <DeleteIcon class="icon-delete" />
                 </div>
               </td>
@@ -156,23 +156,25 @@
           </tbody>
         </table>
       </div>
-      <div class="acc-m gm-m">
+      </div>
+      <div class="game-cf">
         <div class="main-header">
           <div class="header-info">
             <h1>Free Expert predictions ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="game-h-b"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
         </div>
+        <div class="game-table">
         <table>
           <thead>
             <tr>
@@ -186,20 +188,20 @@
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody v-for="item in expertData">
+          <tbody v-for="item in expertData" :key="item._id">
             <tr v-for="data in item" :key="data._id">
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.league }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -213,12 +215,12 @@
                 <span>{{ data.tip }}</span>
               </td>
               <td>
-                <div class="Account-delete" @click="editGame(Expert, data._id)">
+                <div class="game-delete" @click="editGame(Expert, data._id)">
                   <FileIcon class="icon-delete" />
                 </div>
               </td>
               <td>
-                <div class="Account-delete" @click="deletePrediction(data._id)">
+                <div class="game-delete" @click="deletePrediction(data._id)">
                   <DeleteIcon class="icon-delete" />
                 </div>
               </td>
@@ -229,23 +231,25 @@
           </tbody>
         </table>
       </div>
-      <div class="acc-m gm-m">
+      </div>
+      <div class="game-cf">
         <div class="main-header">
           <div class="header-info">
             <h1>Upcoming games ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="game-h-b"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
         </div>
+        <div class="game-table">
         <table>
           <thead>
             <tr>
@@ -259,23 +263,23 @@
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody v-for="item in upcomingData">
+          <tbody v-for="item in upcomingData" :key="item._id">
             <tr v-for="data in item" :key="data._id">
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
       
                   <span>{{ data.league }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
-                  <img :src="data.teamAIcon" alt="Account-p" class="Account-pi" />
+                <div class="game-tbl-img">
+                  <img :src="data.teamAIcon" alt="game-p" class="game-pi" />
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
-                  <img :src="data.teamBIcon" alt="Account-p" class="Account-pi" />
+                <div class="game-tbl-img">
+                  <img :src="data.teamBIcon" alt="game-p" class="game-pi" />
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -289,12 +293,12 @@
                 <span>{{ data.tip }}</span>
               </td>
               <td>
-                <div class="Account-delete" @click="editGame(UpcomingGames, data._id)">
+                <div class="game-delete" @click="editGame(UpcomingGames, data._id)">
                   <FileIcon class="icon-delete" />
                 </div>
               </td>
               <td>
-                <div class="Account-delete" @click="deletePrediction(data._id)">
+                <div class="game-delete" @click="deletePrediction(data._id)">
                   <DeleteIcon class="icon-delete" />
                 </div>
               </td>
@@ -305,23 +309,25 @@
           </tbody>
         </table>
       </div>
-      <div class="acc-m gm-m">
+      </div>
+      <div class="game-cf">
         <div class="main-header">
           <div class="header-info">
             <h1>Vip Supreme games ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="game-h-b"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
         </div>
+        <div class="game-table">
         <table>
           <thead>
             <tr>
@@ -335,21 +341,21 @@
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody v-for="item in vipSupremeData">
+          <tbody v-for="item in vipSupremeData" :key="item._id">
             <tr v-for="data in item" :key="data._id">
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
       
                   <span>{{ data.league }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -363,12 +369,12 @@
                 <span>{{ data.tip }}</span>
               </td>
               <td>
-                <div class="Account-delete" @click="editGame(VipSupreme, data._id)">
+                <div class="game-delete" @click="editGame(VipSupreme, data._id)">
                   <FileIcon class="icon-delete" />
                 </div>
               </td>
               <td>
-                <div class="Account-delete" @click="deletePrediction(data._id)">
+                <div class="game-delete" @click="deletePrediction(data._id)">
                   <DeleteIcon class="icon-delete" />
                 </div>
               </td>
@@ -379,23 +385,24 @@
           </tbody>
         </table>
       </div>
-      <!-- <div class="acc-m gm-m">
+      </div>
         <div class="main-header">
           <div class="header-info">
             <h1>Vip Mega games ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="game-h-b"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
         </div>
+        <div class="game-table">
         <table>
           <thead>
             <tr>
@@ -409,21 +416,21 @@
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody v-for="item in vipMegaData">
+          <tbody v-for="item in vipMegaData" :key="item._id">
             <tr v-for="data in item" :key="data._id">
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
       
                   <span>{{ data.league }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -437,12 +444,12 @@
                 <span>{{ data.tip }}</span>
               </td>
               <td>
-                <div class="Account-delete" @click="editGame(VipMega, data._id)">
+                <div class="game-delete" @click="editGame(VipMega, data._id)">
                   <FileIcon class="icon-delete" />
                 </div>
               </td>
               <td>
-                <div class="Account-delete" @click="deletePrediction(data._id)">
+                <div class="game-delete" @click="deletePrediction(data._id)">
                   <DeleteIcon class="icon-delete" />
                 </div>
               </td>
@@ -452,24 +459,26 @@
             </tr>
           </tbody>
         </table>
-      </div> -->
-      <div class="acc-m gm-m">
+      </div> 
+      </div> 
+      <div class="game-cf">
         <div class="main-header">
           <div class="header-info">
             <h1>Basketball  ({{ currentDate }})</h1>
           </div>
           <div class="header-btn">
-             <button class="btn-h h-bn"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+             <button class="game-h-b"  :class="{ 'active-btn': offset > 0 }" @click="previousDay">
               previous
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
               Today
             </button>
-            <button class="btn-h h-bn" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
+            <button class="game-h-b" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
               Tomorrow
             </button>
           </div>
         </div>
+        <div class="game-table">
         <table>
           <thead>
             <tr>
@@ -483,21 +492,21 @@
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody v-for="item in basketBallData">
+          <tbody v-for="item in basketBallData" :key="item._id">
             <tr v-for="data in item" :key="data._id">
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
       
                   <span>{{ data.league }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.teamA }}</span>
                 </div>
               </td>
               <td>
-                <div class="Account-tbl-img">
+                <div class="game-tbl-img">
                   <span>{{ data.teamB }}</span>
                 </div>
               </td>
@@ -511,12 +520,12 @@
                 <span>{{ data.tip }}</span>
               </td>
               <td>
-                <div class="Account-delete" @click="editSport(BasketballGames, data._id)">
+                <div class="game-delete" @click="editSport(BasketballGames, data._id)">
                   <FileIcon class="icon-delete" />
                 </div>
               </td>
               <td>
-                <div class="Account-delete" @click="deleteSport(data._id)">
+                <div class="game-delete" @click="deleteSport(data._id)">
                   <DeleteIcon class="icon-delete" />
                 </div>
               </td>
@@ -527,12 +536,14 @@
           </tbody>
         </table>
       </div>
-      <div class="acc-m gm-m">
+      </div>
+      <div class="game-cf">
         <div class="main-header">
           <div class="header-info">
             <h1>Vip Result Posted</h1>
           </div>
         </div>
+        <div class="game-table">
         <table>
           <thead>
             <tr>
@@ -542,7 +553,7 @@
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody v-for="item in vipResultData">
+          <tbody v-for="item in vipResultData" :key="item._id">
             <tr v-for="data in item" :key="data._id">
               <td>
                 <span>{{ data.gameName  }}</span>
@@ -551,12 +562,12 @@
                 <span>{{ data.gameScore }}</span>
               </td>
               <td>
-                <div class="Account-delete" @click="editVipResult(VipEditPage, data._id)">
+                <div class="game-delete" @click="editVipResult(VipEditPage, data._id)">
                   <FileIcon class="icon-delete" />
                 </div>
               </td>
               <td>
-                <div class="Account-delete" @click="deleteVipResult(data._id)">
+                <div class="game-delete" @click="deleteVipResult(data._id)">
                   <DeleteIcon class="icon-delete" />
                 </div>
               </td>
@@ -568,7 +579,7 @@
         </table>
       </div>
     </div>
-  </div>
+    </div>
   <Teleport to="body">
     <div class="game-edit" :class="[isGameOpen ? 'showEdit' : 'closeEdit']">
       <div class="mobile-exit">
@@ -944,7 +955,6 @@ watch(currentDate, () => {
 });
 </script>
 
-<style>
-@import '../style/account.css';
-@import '../style/Bet.css';
+<style scoped>
+@import '@/style/gameManagement.css';
 </style>

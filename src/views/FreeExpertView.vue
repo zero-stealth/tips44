@@ -1,7 +1,7 @@
 <template>
   <div class="main-bet">
     <div class="header-info-h1">
-      <h1>{{ $t('expert.ex-h1') }}</h1>
+      <h1>100 Percent Winning Tips</h1>
     </div>
     <div class="main-header">
       <div class="header-info">
@@ -14,8 +14,8 @@
         <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
           {{ $t('banker.banker-btn2') }}
         </button>
-        <button class="btn-h" :class="{ 'active-btn': offset === 1 }" @click="setOffset(1)">
-          {{ $t('banker.banker-btn3') }}
+        <button class="btn-h"  ::class="{ 'active-btn': offset < 1 }" @click="nextDay">
+          Next 
         </button>
       </div>
     </div>
@@ -89,6 +89,12 @@ const setOffset = (value) => {
   offset.value = value
   updateCurrentDate()
 }
+
+const nextDay = () => {
+    offset.value++;
+    updateCurrentDate(); 
+};
+
 
 const updateCurrentDate = () => {
   const today = new Date()

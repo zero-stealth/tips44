@@ -1,46 +1,37 @@
 <template>
-  <div
-    class="auth-container"
-    :style="{
-      backgroundImage: `linear-gradient(
-      45deg,
-      rgb(75, 0, 129, 0.8),
-      rgb(75, 0, 129, 0.7)
-    ), url(${SportBg})`
-    }"
-  >
+  <div class="auth-container">
     <div class="form-l-wrapper">
-      <h1>{{ title }}</h1>
+      <div class="form-l-head">
+        <h1>{{ title }}</h1>
+      </div>
       <form @submit.prevent="login" class="l-form" v-if="!resetPage">
-        <input type="email" class="input-l" placeholder="Email Address" v-model="email" />
+        <input type="email" class="input-l" placeholder="Email" v-model="email" />
         <input type="password" class="input-l" placeholder="Password" v-model="password" />
-        <p>{{ errMsg }}</p>
+        <div class="l-form-forgot">
+          <span @click="forgot">{{ $t('auth.auth-span1') }}</span>
+        </div>
         <button class="btn-f" type="submit">{{ $t('auth.auth-btn1') }}</button>
-        <span @click="forgot">{{ $t('auth.auth-span1') }}</span>
-        <!-- <span>or</span> -->
-     
-        <!-- <span @click="create">Create an account</span> -->
       </form>
       <form @submit.prevent="resetAuth" class="l-form" v-else>
-        <input type="email" class="input-l" placeholder="Email Address" v-model="email" />
+        <input type="email" class="input-l" placeholder="Email" v-model="email" />
         <input type="password" class="input-l" placeholder="Password" v-model="password" />
         <p>{{ errMsg }}</p>
         <button class="btn-f" type="submit">{{ $t('auth.auth-btn2') }}</button>
       </form>
       <span>or</span>
       <div class="l-alternatives">
-        <button class="alt-btn" @click="create">
-          {{ $t('auth.auth-btn3') }}
-        </button>
+        <button class="alt-btn" @click="create">{{ $t('auth.auth-btn3') }}</button>
       </div>
-
+    </div>
+    <div class="auth-background-img">
+    <!-- image -->
     </div>
   </div>
 </template>
+
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
-import SportBg from '../assets/sport-bg.png'
 import { useRouter } from 'vue-router'
 
 const resetPage = ref(false)

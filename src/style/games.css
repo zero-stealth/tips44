@@ -16,7 +16,6 @@
   display: flex;
   padding: 10px;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -28,13 +27,13 @@
   border-radius: 12px;
   flex-direction: column;
   color: var(--background-color);
-  background-color: var(--dark-primary-color);
+  border: 1px solid var(--light-primary-color);
 }
 
 .form-wrapper h1 {
   color: var(--secondary-color);
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .form-group {
@@ -93,8 +92,6 @@
 
     .f-desktop {
         display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     .f-mobile {

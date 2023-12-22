@@ -1,17 +1,17 @@
 <script setup>
-import banner from '../assets/banner.jpg'
+import hero from '../assets/hero.jpg'
 </script>
 <template>
   <div
     class="hero-section"
     :style="{
-      backgroundImage: `url(${banner})`
+      backgroundImage: `url(${hero})`
     }"
   >
     <div class="hero-s-contain">
       <div class="hero-info">
         <h1>
-          {{ $t('hero.hero-h1') }} <span>{{ $t('hero.hero-span1') }}</span>{{ $t('hero.hero-span2') }}<span> {{ $t('hero.hero-span3') }}</span>{{ $t('hero.hero-span4') }}
+          {{ $t('hero.hero-h1') }} <span> {{ $t('hero.hero-span1') }} </span> {{ $t('hero.hero-span2') }} <span> {{ $t('hero.hero-span3') }} </span> {{ $t('hero.hero-span4') }}
           <span>{{ $t('hero.hero-span5') }}.</span>
         </h1>
         <p>

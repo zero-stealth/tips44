@@ -3,16 +3,14 @@
 @media screen {
   * {
     /* default-colors  */
-    --fade-color: #8f86861a;
-    --red-color:  #d00219;
+    --fade-color: #efeff1;
     --green-color: #2ef32e;
     --grey-color: #a8a9a2;
-    --tertiary-color: #ff5500ff;
-    --primary-color: #4b0081;
-    --dark-primary-color: #3e0169;
-    --secondary-color: #ff5500ff;
+    --tertiary-color: #ff1353ff;
+    --primary-color: #01031f;
+    --secondary-color: #ff1353ff;
     --background-color: #ffffff;
-    --light-primary-color: #0b8b0b;
+    --light-primary-color: #090c40ff;
     --drop-shadow: 5px 8px 9px var(--tertiary-color);
 
     margin: 0;

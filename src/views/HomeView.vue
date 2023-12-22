@@ -47,24 +47,8 @@
       </template>
     </div>
     <FreeExpertView />
-    <div class="links-social">
-      <div class="social-l">
-        <button @click="goFacebook()" class="btn-s s-f">
-          <facebookIcon class="btn-if" />
-          {{ $t('home.home-btn1') }}
-        </button>
-        <button @click="goWhatsapp()" class="btn-s s-w">
-          <whatsappIcon class="btn-if" />
-          {{ $t('home.home-btn2') }}
-        </button>
-      </div>
-      <button @click="goTelegram()" class="btn-s s-t">
-        <telegramIcon class="btn-if" />
-        {{ $t('home.home-btn3') }}
-      </button>
-    </div>
-    <VipAdsComponent />
     <OtherPackage id="vip" />
+    <VipAdsComponent />
     <div class="news-main">
       <div class="news-header">
         <div class="news-info">
@@ -102,9 +86,6 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 import Arrow from '../icons/arrow.vue'
-import whatsappIcon from '../icons/whatsapp.vue'
-import facebookIcon from '../icons/facebook.vue'
-import telegramIcon from '../icons/telegram.vue'
 import FreeExpertView from './FreeExpertView.vue'
 import NewsCard from '../components/NewsCard.vue'
 import Card from '../components/CardComponent.vue'
@@ -191,17 +172,7 @@ const nextDay = () => {
   }
 }
 
-const goFacebook = () => {
-  window.open('https://www.facebook.com/profile.php?id=100063590618259', '_blank')
-}
 
-const goWhatsapp = () => {
-  window.open('https://wa.me/254743247861?text=Hi+there+Charisma+Betting+Tips', '_blank')
-}
-
-const goTelegram = () => {
-  window.open('https://t.me/+p9eRLjKRtv45Y2Fk', '_blank')
-}
 
 const updateCurrentDate = () => {
   const today = new Date()

@@ -3,23 +3,23 @@
     <div class="vip-wrapper">
       <div class="vip-notpaid" v-if="!paid">
         <div v-if="!username" class="vip-p">
-          <h1>{{ $t('vip.vip-h1') }}</h1>
+          <h1>Sign in or log in to your account</h1>
           <div class="vip-sp">
             <button class="vip-btn" @click="goSignin()">
               <ProfileIcon class="vip-pay-icon" />
-              {{ $t('vip.vip-btn1') }}
+              Sign in
             </button>
             <button class="vip-btn" @click="goLogin()">
-              {{ $t('vip.vip-btn2') }}
+              Log in
               <ProfileIcon class="vip-pay-icon" />
             </button>
           </div>
         </div>
         <div class="vip-p" v-else>
-          <h1>{{ $t('vip.vip-h2') }}</h1>
+          <h1>Your VIP account is not activated</h1>
           <button class="vip-btn" @click="payPage()">
             <MoneyIcon class="vip-pay-icon" />
-            {{ $t('vip.vip-btn3') }}
+            Pay to activate
           </button>
         </div>
       </div>
@@ -29,11 +29,11 @@
             <h1>{{ vipName }} {{ currentDate }}</h1>
           </div>
           <div class="header-btn">
-            <button class="btn-h" :class="{ 'active-btn': offset > 0 }" @click="previousDay">
+            <button class="btn-h" :class="{ 'active-btn': offset === -1}" @click="setOffset(-1)">
               <Arrow class="btn-icon icon-left" />
               {{ $t('basketball.b-btn1') }}
             </button>
-            <button class="btn-h" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
+            <button class="btn-h" :class="{ 'active-btn': offset === 0  }" @click="setOffset(0)">
               {{ $t('basketball.b-btn2') }}
               <Arrow class="btn-icon icon-right" />
             </button>
@@ -113,7 +113,6 @@ const paid = ref(false)
 const offset = ref(0)
 const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 
-console.log(paid.value)
 const updateAuthStatus = () => {
   const token = JSON.parse(localStorage.getItem('token'))
 
@@ -215,16 +214,9 @@ onMounted(() => {
   getAccountDetails()
 })
 
-const previousDay = () => {
-  offset.value--
+const setOffset = (value) => {
+  offset.value = value
   updateCurrentDate()
-}
-
-const nextDay = () => {
-  if (offset.value < 1) {
-    offset.value++
-    updateCurrentDate()
-  }
 }
 
 const updateCurrentDate = () => {
