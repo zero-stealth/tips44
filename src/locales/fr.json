@@ -75,13 +75,13 @@
     },
     "hero": {
         "hero-h1": "Accès",
-        "hero-span1": "conseils gratuits",
-        "hero-span2": "et savourez",
-        "hero-span3": "des victoires quotidiennes",
-        "hero-span4": "dans tous les événements sportifs",
-        "hero-span5": "événements",
-        "hero-p1": "Tips90predict est une plateforme basée sur le web qui propose des prévisions extrêmement précises pour le football, le soccer, le basketball et le tennis, garantissant ainsi que les utilisateurs puissent maximiser leurs profits. De plus, nous offrons des actualités sportives à jour pour tenir nos utilisateurs bien informés."
-    },    
+        "hero-span1": "Conseils très forts",
+        "hero-span2": "pour les matchs d'aujourd'hui et ",
+        "hero-span3": "profitez des victoires",
+        "hero-span4": "avec des gains quotidiens",
+        "hero-span5": "conseils",
+        "hero-p1": "Nous publions les meilleurs conseils de football et des victoires sûres"
+      },  
     "important": {
         "imp-h1": "Offres exclusives",
         "imp-btn1": "Rejoindre Telegram",

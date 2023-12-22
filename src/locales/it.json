@@ -72,15 +72,16 @@
         "footer-l7": "Politica di rimborso",
         "footer-l8": "Termini e condizioni"
     },
+
     "hero": {
         "hero-h1": "Accesso",
-        "hero-span1": "consigli gratuiti",
-        "hero-span2": "e goditi",
-        "hero-span3": "vittorie quotidiane",
-        "hero-span4": "in tutti gli eventi sportivi",
-        "hero-span5": "",
-        "hero-p1": "Tips90predict è una piattaforma basata sul web che fornisce previsioni estremamente precise per calcio, calcio, pallacanestro e tennis, garantendo agli utenti di massimizzare i loro profitti. Inoltre, offriamo notizie sportive aggiornate per mantenere ben informati i nostri utenti."
-    },
+        "hero-span1": "Suggerimenti molto forti",
+        "hero-span2": "per le partite di oggi e ",
+        "hero-span3": "goditi le vittorie",
+        "hero-span4": "con vincite quotidiane",
+        "hero-span5": "consigli",
+        "hero-p1": "Pubblichiamo i migliori consigli sul calcio e sicure vittorie dirette"
+      },
     "important": {
         "imp-h1": "Offerte esclusive",
         "imp-btn1": "Iscriviti a Telegram",

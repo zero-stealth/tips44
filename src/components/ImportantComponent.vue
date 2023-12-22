@@ -31,7 +31,7 @@ const goPay = () => {
 <template>
   <div class="imp-section">
     <div class="imp-info">
-      <h1>Exclusive Offers</h1>
+      <h1>Bet-Tip-Win Offers</h1>
     </div>
     <div class="nav-important">
       <div class="nav-top-vat">
