@@ -299,14 +299,14 @@ const showPayment = () => {
             <h1>
               2 - 5 {{ $t('pay.br1') }} <br />
               {{ $t('pay.br2') }} <br />
-              {{ $t('pay.br3') }}: (500 Rand) <br />
+              {{ $t('pay.br3') }}: ( 50 dollars , 45 Euros, $40 Pounds) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
               2 - 5 {{ $t('pay.br1') }} <br />
               {{ $t('pay.br4') }} <br />
-              {{ $t('pay.br3') }}: (250 rand) <br />
+              {{ $t('pay.br3') }}: ( 25 dollars) <br />
             </h1>
           </div>
         </div>
@@ -314,43 +314,22 @@ const showPayment = () => {
           <h1>{{ $t('pay.h1-3') }}</h1>
         </div>
         <div class="method-pay">
+          <h1>{{ $t('pay.h1-4') }}</h1>
+          <p>{{ $t('pay.p3') }} <span>tycoonsultan254@gmail.com</span></p>
+        </div> 
+        <div class="method-pay">
+          <h1>{{ $t('pay.h1-6') }}</h1>
           <ul>
-            <li>
-              {{ $t('pay.li23') }} {{ $t('pay.spanh1') }} <span>1383649934</span> at <span> Capitec Bank</span>
-            </li>
-            <li>{{ $t('pay.li24') }} <span>Tamsanqa Matshitshi</span></li>
+            <li>{{ $t('pay.li20') }}</li>
+            <li>{{ $t('pay.li2') }} <span>leahnyambura710@gmail.com</span></li>
           </ul>
-        </div>
-        <div class="extra-container">
-          <div class="extra-v">
-            <div class="Question">
-              <div class="Question-con">
-                <h1>{{ $t('pay.h1-7') }}</h1>
-                <p>
-                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span6') }}.
-                </p>
-              </div>
-              <div class="Question-con">
-                <h1>{{ $t('pay.h1-8') }}</h1>
-                <p>
-                  <span>{{ $t('pay.span5') }}:</span>{{ $t('pay.span8') }}
-                </p>
-              </div>
-              <div class="Question-con">
-                <h1>{{ $t('pay.h1-10') }}</h1>
-                <p>
-                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
-                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
-                </p>
-              </div>
-              <div class="Question-con">
-                <h1>{{ $t('pay.h1-11') }}</h1>
-                <p>
-                  <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span12') }}
-                </p>
-              </div>
-            </div>
-          </div>
+        </div>{{ $t('pay.li21') }}
+        <div class="method-pay">
+          <h1>{{ $t('pay.h1-12') }}</h1>
+          <ul>
+            <li>{{ $t('pay.li21') }}</li>
+            <li>{{ $t('pay.li2') }} <span>manuumedjs@gmail.com </span></li>
+          </ul>
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'Tanzania'">
