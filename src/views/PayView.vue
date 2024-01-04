@@ -299,14 +299,14 @@ const showPayment = () => {
             <h1>
               2 - 5 {{ $t('pay.br1') }} <br />
               {{ $t('pay.br2') }} <br />
-              {{ $t('pay.br3') }}: ( 50 dollars , 45 Euros, $40 Pounds) <br />
+              {{ $t('pay.br3') }}: ( 600 Rands) <br />
             </h1>
           </div>
           <div class="pay-card-h">
             <h1>
               2 - 5 {{ $t('pay.br1') }} <br />
               {{ $t('pay.br4') }} <br />
-              {{ $t('pay.br3') }}: ( 25 dollars) <br />
+              {{ $t('pay.br3') }}: (  600 Rands) <br />
             </h1>
           </div>
         </div>
