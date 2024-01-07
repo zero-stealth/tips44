@@ -54,11 +54,15 @@
         </div>
     <div class="card-footer">
       <div class="card-f" v-for="formationA in formationsA" :key="formationA">
-        <span :class="[formationA === 'l' ? 'loose' : (formationA === 'w' ? 'win' : 'draw')]">{{ formationA }}</span>
+        <span :class="[formationA === 'l' ? 'loose' : formationA === 'w' ? 'win' : 'draw']">{{
+          formationA
+        }}</span>
       </div>
       <div class="card-fi">form</div>
       <div class="card-f" v-for="formationB in formationsB" :key="formationB">
-        <span :class="[formationB === 'l' ? 'loose' : (formationB === 'w' ? 'win' : 'draw')]">{{ formationB }}</span>
+        <span :class="[formationB === 'l' ? 'loose' : formationB === 'w' ? 'win' : 'draw']">{{
+          formationB
+        }}</span>
       </div>
     </div>
   </div>
@@ -128,8 +132,8 @@ const props = defineProps({
   }
 });
 
-const formationsA = ref(props.formationA);
-const formationsB = ref(props.formationB);
+const formationsA = ref(props.formationA)
+const formationsB = ref(props.formationB)
 
 
 </script>
