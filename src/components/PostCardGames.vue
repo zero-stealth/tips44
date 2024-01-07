@@ -19,10 +19,7 @@
           <label for="teamAPosition">Position:</label>
           <input v-model="teamAPosition" type="text" class="form-g-input" placeholder="1" id="teamAPosition" />
         </div>
-        <div class="form-group">
-          <label for="teamAscore">Score:</label>
-          <input v-model="teamAscore" type="text" class="form-g-input" placeholder="2" id="teamAscore" />
-        </div>
+  
       </div>
       <div class="form-wrapper">
         <div class="form-group">
@@ -86,10 +83,7 @@
           <label for="teamBPosition">Position:</label>
           <input v-model="teamBPosition" type="text" class="form-g-input" placeholder="2" id="teamBPosition" />
         </div>
-        <div class="form-group">
-          <label for="teamBscore">Score:</label>
-          <input v-model="teamBscore" type="text" class="form-g-input" placeholder="5" id="teamBscore" />
-        </div>
+
         <button type="submit" class="btn-f-f f-mobile">Submit</button>
       </div>
     </form>
