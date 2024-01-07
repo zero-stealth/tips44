@@ -16,7 +16,7 @@
               Today
             </button>
             <button class="game-h-b" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-              Tomorrow
+              Next
             </button>
           </div>
         </div>
@@ -95,7 +95,7 @@
               Today
             </button>
             <button class="game-h-b" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-              Tomorrow
+              Next
             </button>
           </div>
         </div>
@@ -170,7 +170,7 @@
               Today
             </button>
             <button class="game-h-b" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-              Tomorrow
+              Next
             </button>
           </div>
         </div>
@@ -245,7 +245,7 @@
               Today
             </button>
             <button class="game-h-b" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-              Tomorrow
+              Next
             </button>
           </div>
         </div>
@@ -322,7 +322,7 @@
               Today
             </button>
             <button class="game-h-b" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-              Tomorrow
+              Next
             </button>
           </div>
         </div>
@@ -396,7 +396,7 @@
             Today
           </button>
           <button class="game-h-b" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-            Tomorrow
+            Next
           </button>
         </div>
       </div>
@@ -471,7 +471,7 @@
             Today
           </button>
           <button class="game-h-b" :class="{ 'active-btn': offset < 0 }" @click="nextDay">
-            Tomorrow
+            Next
           </button>
         </div>
       </div>
