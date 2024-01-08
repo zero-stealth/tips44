@@ -15,7 +15,6 @@
         </select>
         <input type="password" class="input-l" placeholder="Password" v-model="password" />
         <input type="password" class="input-l" placeholder="Confirm password" v-model="confirmPassword" />
-        <p>{{ errMsg }}</p>
         <button class="btn-f" type="submit">{{ $t('auth.auth-btn4') }}</button>
       </form>
       <span>{{ $t('auth.auth-span2') }}</span>
@@ -35,13 +34,14 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
+import { useToast } from 'vue-toastification'
 import countriesData from '../components/countries.json'
 
 const selectedCountry = ref('')
 const router = useRouter()
 const username = ref('')
 const password = ref('')
-const errMsg = ref('')
+const toast = useToast()
 const email = ref('')
 const confirmPassword = ref('')
 const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
@@ -66,7 +66,7 @@ const create = async () => {
         confirmPassword: confirmPassword.value,
         selectedCountry: selectedCountry.value
       })
-      console.log(response.data) // Handle the response data as needed
+      toast.success('welcome admin!')
       const token = response.data.token
       const id = response.data._id
       
@@ -76,10 +76,12 @@ const create = async () => {
 
       router.push({ name: 'Panel' })
     } catch (error) {
-      console.error(error)
+      toast.error('please enter valid email and password')
+      reset()
+
     }
   } else {
-    errMsg.value = 'Write something'
+    toast.error('Please enter your email and password.')
     reset()
   }
 }

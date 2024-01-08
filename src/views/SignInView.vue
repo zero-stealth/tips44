@@ -15,7 +15,6 @@
         </select>
         <input type="password" class="input-l" placeholder="Password" v-model="password" />
         <input type="password" class="input-l" placeholder="Confirm password" v-model="confirmPassword" />
-        <p>{{ errMsg }}</p>
         <button class="btn-f" type="submit">{{ $t('auth.auth-btn4') }}</button>
       </form>
       <span>{{ $t('auth.auth-span2') }}</span>
@@ -35,15 +34,17 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
+import { useToast } from 'vue-toastification'
 import countriesData from '../components/countries.json'
 
 const selectedCountry = ref('')
 const router = useRouter()
 const username = ref('')
 const password = ref('')
-const errMsg = ref('')
+const toast = useToast()
 const email = ref('')
 const confirmPassword = ref('')
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 
 const reset = () => {
   email.value = ''
@@ -56,7 +57,7 @@ const reset = () => {
 const create = async () => {
   if (username.value !== '' && password.value !== '') {
     try {
-      const response = await axios.post('https://tips90-server.onrender.com/auth/register', {
+      const response = await axios.post(`${SERVER_HOST}/auth/register`, {
         username: username.value,
         email: email.value,
         password: password.value,
@@ -69,13 +70,12 @@ const create = async () => {
       localStorage.setItem('token', token)
       localStorage.setItem('id', id)
       router.push({ name: 'Vip' })
+      toast.success('welcome!')
     } catch (error) {
-      errMsg.value = 'Invalid email or password';
-      alert(errMsg.value)
+      toast.error('Invalid email or password')
     }
   } else {
-    errMsg.value = 'Write something'
-    alert(errMsg.value)
+    toast.error('Please enter your email, username and password.')
     reset()
   }
 }

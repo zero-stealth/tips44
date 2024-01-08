@@ -15,7 +15,6 @@
       <form @submit.prevent="resetAuth" class="l-form" v-else>
         <input type="email" class="input-l" placeholder="Email" v-model="email" />
         <input type="password" class="input-l" placeholder="Password" v-model="password" />
-        <p>{{ errMsg }}</p>
         <button class="btn-f" type="submit">{{ $t('auth.auth-btn2') }}</button>
       </form>
       <span>or</span>
@@ -24,7 +23,7 @@
       </div>
     </div>
     <div class="auth-background-img">
-    <!-- image -->
+      <!-- image -->
     </div>
   </div>
 </template>
@@ -33,12 +32,13 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
+import { useToast } from 'vue-toastification'
 
 const resetPage = ref(false)
 const router = useRouter()
+const toast = useToast()
 const password = ref('')
 const title = ref('Login to your account')
-const errMsg = ref('')
 const email = ref('')
 const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 
@@ -49,9 +49,6 @@ const login = async () => {
         email: email.value,
         password: password.value
       })
-
-      console.log(response.data)
-
       const token = response.data.token
       if (token) {
         const id = response.data._id
@@ -64,16 +61,15 @@ const login = async () => {
         localStorage.setItem('token', JSON.stringify(token))
 
         router.push({ name: 'Panel' })
+        toast.success('welcome back admin!')
       } else {
-        errMsg.value = 'Invalid email or password'
+        toast.error('Invalid email or password')
       }
     } catch (error) {
-      console.error(error)
-      errMsg.value = 'Login failed. Please check your email and password.'
+      toast.error('Invalid email or password')
     }
   } else {
-    errMsg.value = 'Please enter your email and password.'
-    alert(errMsg.value)
+    toast.error('Please enter your email and password.')
   }
 }
 const forgot = () => {
@@ -92,13 +88,13 @@ const resetAuth = async () => {
         email: email.value,
         password: password.value
       })
-      console.log(response.data) // Handle the response data as needed
+      toast.success('Reset successful.')
       resetPage.value = !resetPage.value
     } catch (error) {
-      errMsg.value = error
+      toast.error('Reset failed')
     }
   } else {
-    errMsg.value = 'Write something'
+    toast.error('Please enter your email and password.')
   }
 }
 </script>

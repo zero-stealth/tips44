@@ -13,7 +13,7 @@
             id="teamA"
           />
         </div>
- 
+
       </div>
       <div class="form-wrapper">
         <div class="form-group">
@@ -92,64 +92,61 @@
 </template>
 
 <script setup>
-import { ref , watch } from 'vue';
-import axios from 'axios';
+import { useToast } from 'vue-toastification'
+import { ref, watch } from 'vue'
+import axios from 'axios'
 
 const teamA = ref('')
 const teamB = ref('')
 const time = ref('')
 const league = ref('')
 const category = ref('')
-const teamAscore = ref(0)
-const teamBscore = ref(0)
 const Gamecategory = ref('')
+const toast = useToast()
 const tip = ref('')
 const date = ref('')
-const url = ref('');
+const url = ref('')
 const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
-
 
 watch(Gamecategory, () => {
   switch (Gamecategory.value) {
     case 'free-expert':
-    url.value =  `${SERVER_HOST}/predictions/create/freeExpert/expert`
-      break;
-      case 'prediction-picks':
-    url.value =  `${SERVER_HOST}/predictions/create`
-      break;
-      case 'vip-supreme':
-    url.value =  `${SERVER_HOST}/predictions/create/supremeVip/supreme`
-      break;
+      url.value = `${SERVER_HOST}/predictions/create/freeExpert/expert`
+      break
+    case 'prediction-picks':
+      url.value = `${SERVER_HOST}/predictions/create`
+      break
+    case 'vip-supreme':
+      url.value = `${SERVER_HOST}/predictions/create/supremeVip/supreme`
+      break
     //   case 'vip-mega':
     // url.value =  `${SERVER_HOST}/predictions/create/mega/vipMega`
     //   break;
-      case 'basketball':
-    url.value =  `${SERVER_HOST}/sports/create/Basketball`
-      break;
+    case 'basketball':
+      url.value = `${SERVER_HOST}/sports/create/Basketball`
+      break
     //   case 'free-tip':
     // url.value =  `${SERVER_HOST}/predictions/create/tip/freeTip`
     //   break;
     //   case 'tennis':
     // url.value =  `${SERVER_HOST}/sports/create/Tennis`
     //   break;
-      case 'straight-win':
-    url.value =  `${SERVER_HOST}/predictions/daily/dailyTen`
-      break;
-      case null || '':
-      alert('No empty fields allowed');
-      break;
+    case 'straight-win':
+      url.value = `${SERVER_HOST}/predictions/daily/dailyTen`
+      break
+    case null || '':
+      alert('No empty fields allowed')
+      break
     default:
-      break;
+      break
   }
-});
+})
 
 async function handleSubmit() {
   if (
     category.value.trim() !== '' &&
     teamA.value.trim() !== '' &&
-    teamAscore.value !== null &&
     teamB.value.trim() !== '' &&
-    teamBscore.value !== null &&
     time.value.trim() !== '' &&
     tip.value !== '' &&
     date.value !== '' &&
@@ -160,8 +157,8 @@ async function handleSubmit() {
       const response = await axios.post(
         `${url.value}`,
         {
-          teamAscore: teamAscore.value,
-          teamBscore: teamBscore.value,
+          teamAscore: "0",
+          teamBscore: "0",
           category: category.value,
           league: league.value,
           teamB: teamB.value,
@@ -176,13 +173,12 @@ async function handleSubmit() {
           }
         }
       )
-      alert('game posted')
+      toast.success('Game Posted')
     } catch (err) {
-      console.log(err)
-      alert('Post Error')
+      toast.error('Game post failed')
     }
   } else {
-    alert('No empty fields allowed')
+    toast.error('No empty fields allowed')
   }
 }
 </script>

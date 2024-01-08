@@ -88,7 +88,6 @@ async function getPrediction() {
     )
     cardData.value = response.data
     showScore.value = response.data.showScore
-    console.log(cardData.value)
   } catch (err) {
     console.log(err)
   }

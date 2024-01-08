@@ -186,7 +186,7 @@
   }
 
   .card-f .loose {
-    background-color: var(--red-color);
+    background-color: var(--tertiary-color);
   }
 
   .card-f .win {

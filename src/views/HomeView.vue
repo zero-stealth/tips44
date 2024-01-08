@@ -133,9 +133,7 @@ const getNews = async () => {
         'X-RapidAPI-Host': import.meta.env.VITE_RAPIDAPI_HOST
       }
     })
-    console.log(response.data.data)
     newsData.value = response.data.data
-    console.log(newsData.value)
   } catch (err) {
     console.log(err)
   }
@@ -146,7 +144,6 @@ const predictions = async () => {
     const response = await axios.get(
       `${SERVER_HOST}/predictions/bet/betOfTheDay/${currentDate.value}`
     )
-    console.log(response.data)
     cardData.value = response.data.length > 0 ? [response.data] : []
   } catch (err) {
     console.log(err)

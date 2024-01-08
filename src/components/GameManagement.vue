@@ -225,7 +225,7 @@
                   </div>
                 </td>
               </tr>
-              <tr v-if="freeTipData.length === 0">
+              <tr v-if="expertData.length === 0">
                 <td colspan="8">No games yet!</td>
               </tr>
             </tbody>
@@ -384,7 +384,6 @@
           </table>
         </div>
       </div>
-
     </div>
     <div class="game-cf">
       <div class="main-header">
@@ -528,6 +527,7 @@ import Daily from './DailyEdit.vue'
 import Expert from './FreeExpertEdit.vue'
 import ExitIcon from '../icons/ExitIcon.vue'
 import FileIcon from '../icons/FileIcon.vue'
+import { useToast } from 'vue-toastification'
 // import VipMega from './VipMegaGamesEdits.vue'
 import DeleteIcon from '../icons/DeleteIcon.vue'
 import VipSupreme from './VipSupremeGamesEdits.vue'
@@ -539,7 +539,7 @@ import VipEditPage from '../components/VipresultsComponentEdits.vue'
 const username = ref(null)
 const currentDate = ref('')
 const offset = ref(0)
-const message = ref()
+const toast = useToast()
 const isGameOpen = ref(false)
 const cardData = ref([])
 const vipSupremeData = ref([])
@@ -717,8 +717,7 @@ async function updateVipResult(formData) {
         }
       }
     )
-    // console.log(response.data)
-    alert('Vip result updated')
+    toast.error('Vip result updated')
   } catch (error) {
     console.error('Error updating vip result:', error)
   }
@@ -736,6 +735,7 @@ async function updateGame(teamAscore, showResult, teamBscore, showScore) {
         }
       }
     )
+    toast.error('Game updated')
   } catch (error) {
     /* empty */
   }
@@ -753,6 +753,7 @@ async function updateSport(teamAscore, showResult, teamBscore, showScore) {
         }
       }
     )
+    toast.error('Sport updated')
   } catch (error) {
     /* empty */
   }
@@ -814,15 +815,15 @@ const deletePrediction = async (id) => {
     const response = await axios.delete(`${SERVER_HOST}/predictions/delete/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
-    message.value = response.data.message
+    toast.error('prediction deleted ')
     await getPredictions()
     await getFreeTips()
     await getUpcoming()
     await getBetOfTheDay()
+    await getexpertData()
   } catch (err) {
-    message.value = 'deletion failed'
+    toast.error('deletion failed')
   }
-  alert('deleted')
 }
 
 const deleteSport = async (id) => {
@@ -832,12 +833,12 @@ const deleteSport = async (id) => {
     const response = await axios.delete(`${SERVER_HOST}/sports/delete/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
-    message.value = response.data.message
+    toast.error('sport deleted ')
+
     await getBasketballBets()
   } catch (err) {
-    message.value = 'deletion failed'
+    toast.error('deletion failed')
   }
-  alert('deleted')
 }
 
 const deleteVipResult = async (id) => {
@@ -847,12 +848,13 @@ const deleteVipResult = async (id) => {
     const response = await axios.delete(`${SERVER_HOST}/score/delete/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
-    message.value = response.data.message
+    toast.error('vip result deleted ')
+
     await getVipResult()
   } catch (err) {
-    message.value = 'deletion failed'
+    toast.error('deletion failed')
+
   }
-  alert('deleted')
 }
 
 const showscore = ref(localStorage.getItem('showscore') === 'true')

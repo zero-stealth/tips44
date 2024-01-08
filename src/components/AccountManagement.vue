@@ -93,6 +93,7 @@ import axios from 'axios';
 import { ref, watchEffect, onMounted, computed, watch } from 'vue';
 import NotPaid from '../icons/NotPaid.vue';
 import VipIcon from '../icons/VipIcon.vue';
+import { useToast } from 'vue-toastification';
 import PaidIcon from '../icons/PaidIcon.vue';
 import AdminIcon from '../icons/AdminIcon.vue';
 import DeleteIcon from '../icons/DeleteIcon.vue';
@@ -101,7 +102,7 @@ import ProfileIcon from '../icons/profileIcon.vue';
 const accountCards = ref([]);
 const accountInfo = ref([]);
 const searchAccount = ref('')
-const message = ref();
+const toast = useToast()
 const statusC = ref(null);
 const paidDate = ref(null);
 const futuresDate = ref(null);
@@ -176,12 +177,11 @@ const deleteAccount = async (id) => {
         Authorization: `Bearer ${token}`
       }
     });
-    message.value = response.data.message;
+    toast.success('account deleted');
     await accountsData();
   } catch (err) {
-    message.value = err.message;
+    toast.error('Error deleting account');
   }
-  alert(message.value);
 };
 
 accountCards.value = [

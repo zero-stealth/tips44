@@ -179,7 +179,6 @@ const getVipSupreme = async () => {
         }
       }
     )
-    console.log(response.data)
     SupremeData.value = response.data
   } catch (err) {
     console.log(err)
@@ -199,8 +198,6 @@ const getAccountDetails = async () => {
     username.value = response.data.username
     paid.value = response.data.paid
     supreme.value = response.data.supreme
-    console.log(paid.value)
-    console.log(supreme.value)
   } catch (err) {
     console.log(err)
   }

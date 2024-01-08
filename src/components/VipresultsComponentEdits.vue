@@ -44,6 +44,7 @@ function handleSubmit() {
     emit('formVipResultSubmit', formData)
   } catch (err) {
     console.log(err)
+
   }
 }
 </script>
