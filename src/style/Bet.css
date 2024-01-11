@@ -1,6 +1,16 @@
 @media screen {
   .main-bet {
+    gap: 10px;
+    display: flex;
     padding: 20px 5px;
+    flex-direction: column;
+  }
+
+  .vip-adsA {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    object-position: center;
   }
 
   table {
@@ -93,6 +103,10 @@
   .icon-sd-s {
     height: 18px;
 
+  }
+
+  .vip-adsA {
+    border-radius: 20px;
   }
 
   .td-sd {

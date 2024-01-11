@@ -51,7 +51,7 @@
             <option value="Over 1.5 Goals">Over 1.5 Goals</option>
             <option value="Both Teams To Score">Both Team To Score</option>
             <option value="Under 3.5 Goals">Under 3.5 Goals</option>
-            <option value="Under 3.5 Goals">Straight Win</option>
+            <option value="Straight win">Straight Win</option>
             <option value="none">None</option>
           </select>
         </div>
@@ -91,6 +91,7 @@
 </template>
 
 <script setup>
+import { useToast } from 'vue-toastification'
 import { ref , watch } from 'vue';
 import axios from 'axios';
 
@@ -104,6 +105,7 @@ const formationB = ref('');
 const teamAPosition = ref('');
 const teamBPosition = ref('');
 const time = ref('');
+const toast = useToast()
 const category = ref('')
 const Gamecategory = ref('')
 const league = ref('');
@@ -125,7 +127,7 @@ watch(Gamecategory, () => {
     url.value =   `${SERVER_HOST}/predictions/create/upcoming/upcoming`
       break;
       case null || '':
-      alert('No empty fields allowed');
+      toast.error('No empty fields allowed');
       break;
     default:
       break;
@@ -199,10 +201,10 @@ async function handleSubmit() {
           },
         }
       );
-      alert('game posted')
+      toast.success('Game posted')
     } catch (err) { /* empty */ }
   } else {
-    alert('No empty fields allowed');
+    toast.error('No empty fields allowed');
   }
 }
 

@@ -54,6 +54,7 @@
         <h1> {{ $t('banker.banker-h3') }}</h1>
       </div>
     </template>
+    <img :src="VipAds" alt="vip ads" class="vip-adsA">
   </div>
 </template>
 
@@ -61,6 +62,7 @@
 import { ref, watchEffect, onMounted } from 'vue'
 import axios from 'axios'
 
+import VipAds from '../assets/vipads.png'
 import PassedIcon from '../icons/PassedIcon.vue'
 import FailedIcon from '../icons/FailedIcon.vue'
 

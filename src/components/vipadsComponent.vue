@@ -1,5 +1,6 @@
 <template>
   <div class="ads-v-main">
+    <!-- <img :src="VipAds" alt="vip ads" class="vip-adsA"> -->
     <div class="m1-ads">
       <p>
         {{ $t('vipads.vpad-p1') }}
@@ -33,6 +34,7 @@ import EmptyIcon from '../icons/emptyIcon.vue'
 import CanceledIcon from '../icons/canceledIcon.vue'
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+// import VipAds from '../assets/vipads.png'
 
 
 
