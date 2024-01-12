@@ -86,7 +86,7 @@ const openInstagram = () => {
       <div class="contact-d3">
         <h1>{{ $t('footer.footer-h4') }}</h1>
         <p>
-          {{ $t('footer.footer-p1') }} <span @click="goAlogin()">  </span> {{ $t('footer.footer-p2') }}:
+          {{ $t('footer.footer-p1') }} {{ $t('footer.footer-p2') }}<span @click="goAlogin()">:</span> 
         </p>
         <div class="d1-contact">
           <div class="d1-icon">
