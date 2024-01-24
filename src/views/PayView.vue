@@ -16,6 +16,8 @@ const goVip = () => {
   router.push({ name: 'Vip' })
 }
 
+const url = 'https://refpaiozdg.top/L?tag=d_3104919m_69623c_&site=3104919&ad=69623&r=registration/'
+
 const showPayment = () => {
   if (Selectedcountry.value === '' && sport.value === '') {
     errMsg.value = 'Empty field is not supported'
@@ -50,19 +52,22 @@ const showPayment = () => {
     <div class="desknav-layout">
       <desktopNav class="desk-show" />
     </div>
+
     <div class="pay-contain">
       <div class="pay-title">
         <span></span>
         <MoneyIcon class="icon-pay" />
-        <h1>{{ $t('pay.span1') }} <span @click="goVip"> {{ $t('pay.span15') }}</span></h1>
+        <h1>
+          {{ $t('pay.span1') }} <span @click="goVip"> {{ $t('pay.span15') }}</span>
+        </h1>
       </div>
       <div class="pay-main-x">
-        <h1> 
+        <h1>
           <span>{{ $t('pay.span2') }} </span>
-          {{ $t('pay.h1-1') }} 
+          {{ $t('pay.h1-1') }}
         </h1>
-        <li>{{ $t('pay.p1') }}</li> 
-        <li>{{ $t('pay.p2') }}</li>   
+        <li>{{ $t('pay.p1') }}</li>
+        <li>{{ $t('pay.p2') }}</li>
       </div>
       <div class="pay-main">
         <div class="sport-s-contain">
@@ -78,7 +83,30 @@ const showPayment = () => {
         </div>
         <p>{{ errMsg }}</p>
       </div>
+
       <div class="pay-info" v-if="reveal === 'others'">
+        <div class="pay-promo">
+          <h1>
+            Promo available now , You can now pay for vip subscription with <span>MegaPari</span>
+          </h1>
+          <ul>
+            <li>
+              <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>
+              or <a href="https://www.tips90predict.com/login" target="_blank"> login</a> to your
+              account
+            </li>
+            <li>
+              Follow this link
+              <a
+                :href="url"
+                target="_blank"
+                >Pay with MegaPari</a
+              >
+            </li>
+            <li>Deposit a minimum of (50 dollars , 45 Euros, $40 Pounds)</li>
+            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+          </ul>
+        </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -101,14 +129,15 @@ const showPayment = () => {
         <div class="method-pay">
           <h1>{{ $t('pay.h1-4') }}</h1>
           <p>{{ $t('pay.p3') }} <span>tycoonsultan254@gmail.com</span></p>
-        </div> 
+        </div>
         <div class="method-pay">
           <h1>{{ $t('pay.h1-6') }}</h1>
           <ul>
             <li>{{ $t('pay.li20') }}</li>
             <li>{{ $t('pay.li2') }} <span>leahnyambura710@gmail.com</span></li>
           </ul>
-        </div>{{ $t('pay.li21') }}
+        </div>
+        {{ $t('pay.li21') }}
         <div class="method-pay">
           <h1>{{ $t('pay.h1-12') }}</h1>
           <ul>
@@ -118,6 +147,28 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'mpesa'">
+        <div class="pay-promo">
+          <h1>
+            Promo available now , You can now pay for vip subscription with <span>MegaPari</span>
+          </h1>
+          <ul>
+            <li>
+              <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>
+              or <a href="https://www.tips90predict.com/login" target="_blank"> login</a> to your
+              account
+            </li>
+            <li>
+              Follow this link
+              <a
+                :href="url"
+                target="_blank"
+                >Pay with MegaPari</a
+              >
+            </li>
+            <li>Deposit a minimum of (1200 KES)</li>
+            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+          </ul>
+        </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -164,7 +215,8 @@ const showPayment = () => {
                 <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
                   <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
-                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
+                  <span>{{ $t('pay.span10') }}</span
+                  >. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
@@ -178,6 +230,15 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'niger'">
+        <div class="pay-promo" >
+      <h1>Promo available now , You can now pay for vip subscription with <span>MegaPari</span></h1>
+      <ul>
+        <li> <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>  or <a href="https://www.tips90predict.com/login" target="_blank"> login</a>  to your account </li>
+        <li>Follow this link <a :href="url" target="_blank">Pay with MegaPari</a></li>
+        <li>Deposit a minimum of (5000 Naira) </li>
+        <li>Send a screenshot of your deposit and your vip account will be activated </li>
+      </ul>
+    </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -222,7 +283,8 @@ const showPayment = () => {
                 <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
                   <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
-                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
+                  <span>{{ $t('pay.span10') }}</span
+                  >. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
@@ -236,6 +298,15 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'ghana'">
+        <div class="pay-promo" >
+      <h1>Promo available now , You can now pay for vip subscription with <span>MegaPari</span></h1>
+      <ul>
+        <li> <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>  or <a href="https://www.tips90predict.com/login" target="_blank"> login</a>  to your account </li>
+        <li>Follow this link <a :href="url" target="_blank">Pay with MegaPari</a></li>
+        <li>Deposit a minimum of (105 cedis) </li>
+        <li>Send a screenshot of your deposit and your vip account will be activated </li>
+      </ul>
+    </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -280,7 +351,8 @@ const showPayment = () => {
                 <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
                   <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
-                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
+                  <span>{{ $t('pay.span10') }}</span
+                  >. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
@@ -294,6 +366,15 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'southA'">
+        <div class="pay-promo" >
+      <h1>Promo available now , You can now pay for vip subscription with <span>MegaPari</span></h1>
+      <ul>
+        <li> <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>  or <a href="https://www.tips90predict.com/login" target="_blank"> login</a>  to your account </li>
+        <li>Follow this link <a :href="url" target="_blank">Pay with MegaPari</a></li>
+        <li>Deposit a minimum of (600 Rands) </li>
+        <li>Send a screenshot of your deposit and your vip account will be activated </li>
+      </ul>
+    </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -306,7 +387,7 @@ const showPayment = () => {
             <h1>
               2 - 5 {{ $t('pay.br1') }} <br />
               {{ $t('pay.br4') }} <br />
-              {{ $t('pay.br3') }}: (  600 Rands) <br />
+              {{ $t('pay.br3') }}: ( 600 Rands) <br />
             </h1>
           </div>
         </div>
@@ -316,14 +397,15 @@ const showPayment = () => {
         <div class="method-pay">
           <h1>{{ $t('pay.h1-4') }}</h1>
           <p>{{ $t('pay.p3') }} <span>tycoonsultan254@gmail.com</span></p>
-        </div> 
+        </div>
         <div class="method-pay">
           <h1>{{ $t('pay.h1-6') }}</h1>
           <ul>
             <li>{{ $t('pay.li20') }}</li>
             <li>{{ $t('pay.li2') }} <span>leahnyambura710@gmail.com</span></li>
           </ul>
-        </div>{{ $t('pay.li21') }}
+        </div>
+        {{ $t('pay.li21') }}
         <div class="method-pay">
           <h1>{{ $t('pay.h1-12') }}</h1>
           <ul>
@@ -333,6 +415,28 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'Tanzania'">
+        <div class="pay-promo">
+          <h1>
+            Promo available now , You can now pay for vip subscription with <span>MegaPari</span>
+          </h1>
+          <ul>
+            <li>
+              <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>
+              or <a href="https://www.tips90predict.com/login" target="_blank"> login</a> to your
+              account
+            </li>
+            <li>
+              Follow this link
+              <a
+                :href="url"
+                target="_blank"
+                >Pay with MegaPari</a
+              >
+            </li>
+            <li>Deposit a minimum of (20000 TZS)</li>
+            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+          </ul>
+        </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -379,7 +483,8 @@ const showPayment = () => {
                 <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
                   <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
-                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
+                  <span>{{ $t('pay.span10') }}</span
+                  >. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
@@ -393,6 +498,28 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'Uganda'">
+        <div class="pay-promo">
+          <h1>
+            Promo available now , You can now pay for vip subscription with <span>MegaPari</span>
+          </h1>
+          <ul>
+            <li>
+              <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>
+              or <a href="https://www.tips90predict.com/login" target="_blank"> login</a> to your
+              account
+            </li>
+            <li>
+              Follow this link
+              <a
+                :href="url"
+                target="_blank"
+                >Pay with MegaPari</a
+              >
+            </li>
+            <li>Deposit a minimum of (35000 UGX)</li>
+            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+          </ul>
+        </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -439,7 +566,8 @@ const showPayment = () => {
                 <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
                   <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
-                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
+                  <span>{{ $t('pay.span10') }}</span
+                  >. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
@@ -453,6 +581,28 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'Zambia'">
+        <div class="pay-promo">
+          <h1>
+            Promo available now , You can now pay for vip subscription with <span>MegaPari</span>
+          </h1>
+          <ul>
+            <li>
+              <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>
+              or <a href="https://www.tips90predict.com/login" target="_blank"> login</a> to your
+              account
+            </li>
+            <li>
+              Follow this link
+              <a
+                :href="url"
+                target="_blank"
+                >Pay with MegaPari</a
+              >
+            </li>
+            <li>Deposit a minimum of (200 kwacha)</li>
+            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+          </ul>
+        </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -499,7 +649,8 @@ const showPayment = () => {
                 <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
                   <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
-                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
+                  <span>{{ $t('pay.span10') }}</span
+                  >. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
@@ -513,6 +664,28 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'Rwanda'">
+        <div class="pay-promo">
+          <h1>
+            Promo available now , You can now pay for vip subscription with <span>MegaPari</span>
+          </h1>
+          <ul>
+            <li>
+              <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>
+              or <a href="https://www.tips90predict.com/login" target="_blank"> login</a> to your
+              account
+            </li>
+            <li>
+              Follow this link
+              <a
+                :href="url"
+                target="_blank"
+                >Pay with MegaPari</a
+              >
+            </li>
+            <li>Deposit a minimum of (25,000 Rwandan Franc)</li>
+            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+          </ul>
+        </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -552,7 +725,8 @@ const showPayment = () => {
                 <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
                   <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
-                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
+                  <span>{{ $t('pay.span10') }}</span
+                  >. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
@@ -566,6 +740,28 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'Malawi'">
+        <div class="pay-promo">
+          <h1>
+            Promo available now , You can now pay for vip subscription with <span>MegaPari</span>
+          </h1>
+          <ul>
+            <li>
+              <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>
+              or <a href="https://www.tips90predict.com/login" target="_blank"> login</a> to your
+              account
+            </li>
+            <li>
+              Follow this link
+              <a
+                :href="url"
+                target="_blank"
+                >Pay with MegaPari</a
+              >
+            </li>
+            <li>Deposit a minimum of (10000 MWK)</li>
+            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+          </ul>
+        </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -612,7 +808,8 @@ const showPayment = () => {
                 <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
                   <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
-                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
+                  <span>{{ $t('pay.span10') }}</span
+                  >. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
@@ -626,6 +823,28 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'India'">
+        <div class="pay-promo">
+          <h1>
+            Promo available now , You can now pay for vip subscription with <span>MegaPari</span>
+          </h1>
+          <ul>
+            <li>
+              <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>
+              or <a href="https://www.tips90predict.com/login" target="_blank"> login</a> to your
+              account
+            </li>
+            <li>
+              Follow this link
+              <a
+                :href="url"
+                target="_blank"
+                >Pay with MegaPari</a
+              >
+            </li>
+            <li>Deposit a minimum of (1500 Rupees)</li>
+            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+          </ul>
+        </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -672,7 +891,8 @@ const showPayment = () => {
                 <h1>{{ $t('pay.h1-10') }}</h1>
                 <p>
                   <span>{{ $t('pay.span5') }}:</span> {{ $t('pay.span9') }}
-                  <span>{{ $t('pay.span10') }}</span>. {{ $t('pay.span11') }}
+                  <span>{{ $t('pay.span10') }}</span
+                  >. {{ $t('pay.span11') }}
                 </p>
               </div>
               <div class="Question-con">
