@@ -14,9 +14,7 @@
         <button class="btn-h" :class="{ 'active-btn': offset === 0 }" @click="setOffset(0)">
           {{ $t('banker.banker-btn2') }}
         </button>
-        <button class="btn-h"  ::class="{ 'active-btn': offset < 1 }" @click="nextDay">
-          Next 
-        </button>
+        <button class="btn-h" ::class="{ 'active-btn': offset < 1 }" @click="nextDay">Next</button>
       </div>
     </div>
     <template v-if="cardData.length > 0">
@@ -51,18 +49,35 @@
     </template>
     <template v-else>
       <div class="home-freetip">
-        <h1> {{ $t('banker.banker-h3') }}</h1>
+        <h1>{{ $t('banker.banker-h3') }}</h1>
       </div>
     </template>
-    <img :src="VipAds" alt="vip ads" class="vip-adsA">
+    <!-- <img :src="VipAds" alt="vip ads" class="vip-adsA"> -->
+    <div class="offer-container">
+     <span>offer available</span>
+      <div class="offer-wrapper">
+        <img :src="MegapariLogo" alt="Megapari Logo" class="offer-logo" />
+        <div class="offer-bonus">
+          Deposit above (25 usd or 1200 ksh) will get
+          <a href="https://www.tips90predict.com/vip" target="_blank">VIP subscription </a>  by sending
+          screenshot to
+          <a
+            href="https://wa.me/254743247861?text=Send+me+your+screenshot+to+activate+your+vip+account"
+            target="_blank"
+            >whatsapp</a 
+          > of the deposit
+        </div>
+        <button class="offer-btn" @click="getOffer">Get the offer</button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, watchEffect, onMounted } from 'vue'
 import axios from 'axios'
-
-import VipAds from '../assets/vipads.png'
+import MegapariLogo from '../assets/megapari.png'
+// import VipAds from '../assets/vipads.png'
 import PassedIcon from '../icons/PassedIcon.vue'
 import FailedIcon from '../icons/FailedIcon.vue'
 
@@ -87,16 +102,22 @@ onMounted(() => {
   predictions()
 })
 
+const getOffer = () => {
+  window.open(
+    'https://refpaiozdg.top/L?tag=d_3104919m_69623c_&site=3104919&ad=69623&r=registration/',
+    '_blank'
+  )
+}
+
 const setOffset = (value) => {
   offset.value = value
   updateCurrentDate()
 }
 
 const nextDay = () => {
-    offset.value++;
-    updateCurrentDate(); 
-};
-
+  offset.value++
+  updateCurrentDate()
+}
 
 const updateCurrentDate = () => {
   const today = new Date()

@@ -1,7 +1,8 @@
 <script setup>
 import countriesData from '../components/countries.json'
-import MoneyIcon from '../icons/payIcon.vue'
+import whatsappIcon from '../icons/whatsapp.vue'
 import { useRoute, useRouter } from 'vue-router'
+import MoneyIcon from '../icons/payIcon.vue'
 import { ref } from 'vue'
 
 const route = useRoute()
@@ -14,6 +15,13 @@ const routeParamName = route.params.vipName
 
 const goVip = () => {
   router.push({ name: 'Vip' })
+}
+
+const openWhatsapp = () => {
+  window.open(
+    'https://wa.me/254743247861?text=Send+me+your+screenshot+to+activate+your+vip+account',
+    '_blank'
+  )
 }
 
 const url = 'https://refpaiozdg.top/L?tag=d_3104919m_69623c_&site=3104919&ad=69623&r=registration/'
@@ -97,14 +105,16 @@ const showPayment = () => {
             </li>
             <li>
               Follow this link
-              <a
-                :href="url"
-                target="_blank"
-                >Pay with MegaPari</a
-              >
+              <a :href="url" target="_blank">Pay with MegaPari</a>
             </li>
-            <li>Deposit a minimum of (50 dollars , 45 Euros, $40 Pounds)</li>
-            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+            <li>Deposit a minimum of (25 dollars , 25 Euros, 20 Pounds)</li>
+            <li>
+              Send a screenshot of your deposit to whatsapp
+              and your vip account will be activated
+              <button class="send-icon-btn" @click="openWhatsapp">
+                <whatsappIcon class="send-icon" @click="openWhatsapp" />
+              </button>
+            </li>
           </ul>
         </div>
         <div class="info-pay-h">
@@ -112,7 +122,7 @@ const showPayment = () => {
             <h1>
               2 - 5 {{ $t('pay.br1') }} <br />
               {{ $t('pay.br2') }} <br />
-              {{ $t('pay.br3') }}: ( 50 dollars , 45 Euros, $40 Pounds) <br />
+              {{ $t('pay.br3') }}: ( 50 dollars , 45 Euros, 40 Pounds) <br />
             </h1>
           </div>
           <div class="pay-card-h">
@@ -159,14 +169,16 @@ const showPayment = () => {
             </li>
             <li>
               Follow this link
-              <a
-                :href="url"
-                target="_blank"
-                >Pay with MegaPari</a
-              >
+              <a :href="url" target="_blank">Pay with MegaPari</a>
             </li>
             <li>Deposit a minimum of (1200 KES)</li>
-            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+            <li>
+              Send a screenshot of your deposit to whatsapp
+              and your vip account will be activated
+              <button class="send-icon-btn" @click="openWhatsapp">
+                <whatsappIcon class="send-icon" @click="openWhatsapp" />
+              </button>
+            </li>
           </ul>
         </div>
         <div class="info-pay-h">
@@ -230,15 +242,27 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'niger'">
-        <div class="pay-promo" >
-      <h1>Promo available now , You can now pay for vip subscription with <span>MegaPari</span></h1>
-      <ul>
-        <li> <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>  or <a href="https://www.tips90predict.com/login" target="_blank"> login</a>  to your account </li>
-        <li>Follow this link <a :href="url" target="_blank">Pay with MegaPari</a></li>
-        <li>Deposit a minimum of (5000 Naira) </li>
-        <li>Send a screenshot of your deposit and your vip account will be activated </li>
-      </ul>
-    </div>
+        <div class="pay-promo">
+          <h1>
+            Promo available now , You can now pay for vip subscription with <span>MegaPari</span>
+          </h1>
+          <ul>
+            <li>
+              <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>
+              or <a href="https://www.tips90predict.com/login" target="_blank"> login</a> to your
+              account
+            </li>
+            <li>Follow this link <a :href="url" target="_blank">Pay with MegaPari</a></li>
+            <li>Deposit a minimum of (5000 Naira)</li>
+            <li>
+              Send a screenshot of your deposit to whatsapp
+              and your vip account will be activated
+              <button class="send-icon-btn" @click="openWhatsapp">
+                <whatsappIcon class="send-icon" @click="openWhatsapp" />
+              </button>
+            </li>
+          </ul>
+        </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -298,15 +322,27 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'ghana'">
-        <div class="pay-promo" >
-      <h1>Promo available now , You can now pay for vip subscription with <span>MegaPari</span></h1>
-      <ul>
-        <li> <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>  or <a href="https://www.tips90predict.com/login" target="_blank"> login</a>  to your account </li>
-        <li>Follow this link <a :href="url" target="_blank">Pay with MegaPari</a></li>
-        <li>Deposit a minimum of (105 cedis) </li>
-        <li>Send a screenshot of your deposit and your vip account will be activated </li>
-      </ul>
-    </div>
+        <div class="pay-promo">
+          <h1>
+            Promo available now , You can now pay for vip subscription with <span>MegaPari</span>
+          </h1>
+          <ul>
+            <li>
+              <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>
+              or <a href="https://www.tips90predict.com/login" target="_blank"> login</a> to your
+              account
+            </li>
+            <li>Follow this link <a :href="url" target="_blank">Pay with MegaPari</a></li>
+            <li>Deposit a minimum of (105 cedis)</li>
+            <li>
+              Send a screenshot of your deposit to whatsapp
+              and your vip account will be activated
+              <button class="send-icon-btn" @click="openWhatsapp">
+                <whatsappIcon class="send-icon" @click="openWhatsapp" />
+              </button>
+            </li>
+          </ul>
+        </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -366,15 +402,27 @@ const showPayment = () => {
         </div>
       </div>
       <div class="pay-info" v-else-if="reveal === 'southA'">
-        <div class="pay-promo" >
-      <h1>Promo available now , You can now pay for vip subscription with <span>MegaPari</span></h1>
-      <ul>
-        <li> <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>  or <a href="https://www.tips90predict.com/login" target="_blank"> login</a>  to your account </li>
-        <li>Follow this link <a :href="url" target="_blank">Pay with MegaPari</a></li>
-        <li>Deposit a minimum of (600 Rands) </li>
-        <li>Send a screenshot of your deposit and your vip account will be activated </li>
-      </ul>
-    </div>
+        <div class="pay-promo">
+          <h1>
+            Promo available now , You can now pay for vip subscription with <span>MegaPari</span>
+          </h1>
+          <ul>
+            <li>
+              <a href="https://www.tips90predict.com/signin" target="_blank"> Create and account</a>
+              or <a href="https://www.tips90predict.com/login" target="_blank"> login</a> to your
+              account
+            </li>
+            <li>Follow this link <a :href="url" target="_blank">Pay with MegaPari</a></li>
+            <li>Deposit a minimum of (600 Rands)</li>
+            <li>
+              Send a screenshot of your deposit to whatsapp
+              and your vip account will be activated
+              <button class="send-icon-btn" @click="openWhatsapp">
+                <whatsappIcon class="send-icon" @click="openWhatsapp" />
+              </button>
+            </li>
+          </ul>
+        </div>
         <div class="info-pay-h">
           <div class="pay-card-h">
             <h1>
@@ -427,14 +475,16 @@ const showPayment = () => {
             </li>
             <li>
               Follow this link
-              <a
-                :href="url"
-                target="_blank"
-                >Pay with MegaPari</a
-              >
+              <a :href="url" target="_blank">Pay with MegaPari</a>
             </li>
             <li>Deposit a minimum of (20000 TZS)</li>
-            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+            <li>
+              Send a screenshot of your deposit to whatsapp
+              and your vip account will be activated
+              <button class="send-icon-btn" @click="openWhatsapp">
+                <whatsappIcon class="send-icon" @click="openWhatsapp" />
+              </button>
+            </li>
           </ul>
         </div>
         <div class="info-pay-h">
@@ -510,14 +560,16 @@ const showPayment = () => {
             </li>
             <li>
               Follow this link
-              <a
-                :href="url"
-                target="_blank"
-                >Pay with MegaPari</a
-              >
+              <a :href="url" target="_blank">Pay with MegaPari</a>
             </li>
             <li>Deposit a minimum of (35000 UGX)</li>
-            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+            <li>
+              Send a screenshot of your deposit to whatsapp
+              and your vip account will be activated
+              <button class="send-icon-btn" @click="openWhatsapp">
+                <whatsappIcon class="send-icon" @click="openWhatsapp" />
+              </button>
+            </li>
           </ul>
         </div>
         <div class="info-pay-h">
@@ -593,14 +645,16 @@ const showPayment = () => {
             </li>
             <li>
               Follow this link
-              <a
-                :href="url"
-                target="_blank"
-                >Pay with MegaPari</a
-              >
+              <a :href="url" target="_blank">Pay with MegaPari</a>
             </li>
             <li>Deposit a minimum of (200 kwacha)</li>
-            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+            <li>
+              Send a screenshot of your deposit to whatsapp
+              and your vip account will be activated
+              <button class="send-icon-btn" @click="openWhatsapp">
+                <whatsappIcon class="send-icon" @click="openWhatsapp" />
+              </button>
+            </li>
           </ul>
         </div>
         <div class="info-pay-h">
@@ -676,14 +730,16 @@ const showPayment = () => {
             </li>
             <li>
               Follow this link
-              <a
-                :href="url"
-                target="_blank"
-                >Pay with MegaPari</a
-              >
+              <a :href="url" target="_blank">Pay with MegaPari</a>
             </li>
             <li>Deposit a minimum of (25,000 Rwandan Franc)</li>
-            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+            <li>
+              Send a screenshot of your deposit to whatsapp
+              and your vip account will be activated
+              <button class="send-icon-btn" @click="openWhatsapp">
+                <whatsappIcon class="send-icon" @click="openWhatsapp" />
+              </button>
+            </li>
           </ul>
         </div>
         <div class="info-pay-h">
@@ -752,14 +808,16 @@ const showPayment = () => {
             </li>
             <li>
               Follow this link
-              <a
-                :href="url"
-                target="_blank"
-                >Pay with MegaPari</a
-              >
+              <a :href="url" target="_blank">Pay with MegaPari</a>
             </li>
             <li>Deposit a minimum of (10000 MWK)</li>
-            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+            <li>
+              Send a screenshot of your deposit to whatsapp
+              and your vip account will be activated
+              <button class="send-icon-btn" @click="openWhatsapp">
+                <whatsappIcon class="send-icon" @click="openWhatsapp" />
+              </button>
+            </li>
           </ul>
         </div>
         <div class="info-pay-h">
@@ -835,14 +893,16 @@ const showPayment = () => {
             </li>
             <li>
               Follow this link
-              <a
-                :href="url"
-                target="_blank"
-                >Pay with MegaPari</a
-              >
+              <a :href="url" target="_blank">Pay with MegaPari</a>
             </li>
             <li>Deposit a minimum of (1500 Rupees)</li>
-            <li>Send a screenshot of your deposit and your vip account will be activated</li>
+            <li>
+              Send a screenshot of your deposit to whatsapp
+              and your vip account will be activated
+              <button class="send-icon-btn" @click="openWhatsapp">
+                <whatsappIcon class="send-icon" @click="openWhatsapp" />
+              </button>
+            </li>
           </ul>
         </div>
         <div class="info-pay-h">

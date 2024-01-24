@@ -14,7 +14,7 @@
     flex-direction: column;
   }
 
-  .pay-promo{
+  .pay-promo {
     gap: 4px;
     display: flex;
     padding: 20px;
@@ -27,18 +27,28 @@
   .pay-promo h1 {
     font-size: 1rem;
     text-decoration: underline;
-   }
+  }
 
   .pay-promo h1 span {
     font-size: 1rem;
-    font-weight: 600;
+    font-style: normal;
     text-transform: uppercase;
     color: var(--tertiary-color);
   }
 
-  .pay-promo ul  {
-    font-size: .8rem;
+  .pay-promo ul {
+    gap: 8px;
+    display: flex;
+    font-size: 0.9rem;
     list-style-type: square;
+    flex-direction: column;
+  }
+
+  .pay-promo ul li:last-child {
+    padding: 5px;
+    border-radius: 8px;
+    align-items: center;
+    border: 2px dotted var(--tertiary-color);
   }
 
   .pay-promo ul li a {
@@ -49,6 +59,28 @@
   .pay-promo ul li a:hover {
     color: var(--green-color);
   }
+
+  .send-icon-btn{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--tertiary-color);
+  }
+
+  .send-icon-btn:hover {
+    background-color: var(--green-color);
+  }
+
+  .send-icon{
+    fill: var(--background-color);
+    height: 24px;
+    width: 24px;
+  }
+
+ 
 
   .pay-header {
     gap: 10px;
@@ -139,7 +171,6 @@
     background-color: var(--primary-color);
   }
 
-  
   .pay-main-x {
     gap: 10px;
     display: flex;
@@ -160,10 +191,9 @@
     text-decoration: underline;
   }
 
-  .pay-main-x  li {
-    font-size: .9rem;
+  .pay-main-x li {
+    font-size: 0.9rem;
     list-style: square;
-    
   }
 
   .pay-btn {
@@ -328,7 +358,6 @@
 
   .pay-main-x {
     padding: 20px;
-
   }
 
   .step-pay {
